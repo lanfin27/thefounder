@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900;
+  }
+
+  ::selection {
+    @apply bg-founder-primary/20 text-founder-primary;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .premium-blur {
+    @apply relative overflow-hidden;
+  }
+
+  .premium-blur::after {
+    content: '';
+    @apply absolute inset-0 backdrop-blur-sm bg-white/50;
+  }
+
+  .premium-gate {
+    @apply absolute inset-0 flex items-center justify-center z-10;
+  }
+
+  .blog-content h1 {
+    @apply text-3xl font-bold mb-4 mt-8;
+  }
+
+  .blog-content h2 {
+    @apply text-2xl font-bold mb-3 mt-6;
+  }
+
+  .blog-content h3 {
+    @apply text-xl font-bold mb-2 mt-4;
+  }
+
+  .blog-content p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .blog-content ul {
+    @apply list-disc pl-6 mb-4;
+  }
+
+  .blog-content ol {
+    @apply list-decimal pl-6 mb-4;
+  }
+
+  .blog-content blockquote {
+    @apply border-l-4 border-founder-primary pl-4 my-4 italic text-gray-700;
+  }
+
+  .blog-content pre {
+    @apply bg-gray-100 rounded-lg p-4 overflow-x-auto mb-4;
+  }
+
+  .blog-content code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
+  }
+
+  .blog-content img {
+    @apply rounded-lg w-full my-6;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
