@@ -9,10 +9,10 @@ export default async function Header() {
 
   const navigation = [
     { name: '홈', href: '/' },
-    { name: '스타트업', href: '/blog/category/startup' },
-    { name: '테크', href: '/blog/category/tech' },
-    { name: '투자', href: '/blog/category/investment' },
-    { name: '인터뷰', href: '/blog/category/interview' },
+    { name: '뉴스레터', href: '/posts?category=뉴스레터' },
+    { name: 'SaaS', href: '/posts?category=SaaS' },
+    { name: '블로그', href: '/posts?category=블로그' },
+    { name: '창업', href: '/posts?category=창업' },
   ]
 
   return (
@@ -41,15 +41,23 @@ export default async function Header() {
 
           <div className="flex items-center gap-4">
             {user ? (
-              <UserMenu user={{
-                id: user.id,
-                email: user.email!,
-                name: user.user_metadata?.name,
-                avatar_url: user.user_metadata?.avatar_url,
-                membership_status: 'free',
-                created_at: user.created_at,
-                updated_at: user.updated_at || user.created_at,
-              }} />
+              <>
+                <Link
+                  href="/(protected)/dashboard"
+                  className="hidden md:inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-founder-primary transition-colors"
+                >
+                  대시보드
+                </Link>
+                <UserMenu user={{
+                  id: user.id,
+                  email: user.email!,
+                  name: user.user_metadata?.name,
+                  avatar_url: user.user_metadata?.avatar_url,
+                  membership_status: 'free',
+                  created_at: user.created_at,
+                  updated_at: user.updated_at || user.created_at,
+                }} />
+              </>
             ) : (
               <Link
                 href="/auth/login"

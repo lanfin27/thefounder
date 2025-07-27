@@ -78,6 +78,26 @@
   .blog-content img {
     @apply rounded-lg w-full my-6;
   }
+  
+  /* Korean typography optimization */
+  .prose-korean {
+    word-break: keep-all;
+    line-break: strict;
+  }
+  
+  .prose-korean p {
+    @apply text-base leading-relaxed text-gray-700;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+  }
+  
+  .prose-korean h1,
+  .prose-korean h2,
+  .prose-korean h3,
+  .prose-korean h4 {
+    @apply font-bold text-gray-900;
+    letter-spacing: -0.03em;
+  }
 }
 
 @layer utilities {

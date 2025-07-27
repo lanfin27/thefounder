@@ -6,30 +6,30 @@ import { TrendingUp, Cpu, Wallet, Users } from 'lucide-react'
 
 const categories = [
   {
-    id: 'startup',
-    name: '스타트업',
-    description: '창업 스토리와 성장 전략',
+    id: 'newsletter',
+    name: '뉴스레터',
+    description: '주간 스타트업 인사이트',
     icon: TrendingUp,
     color: 'from-blue-500 to-blue-600',
   },
   {
-    id: 'tech',
-    name: '테크',
-    description: '최신 기술 트렌드와 혁신',
+    id: 'saas',
+    name: 'SaaS',
+    description: 'SaaS 비즈니스와 전략',
     icon: Cpu,
     color: 'from-purple-500 to-purple-600',
   },
   {
-    id: 'investment',
-    name: '투자',
-    description: 'VC 인사이트와 투자 전략',
+    id: 'blog',
+    name: '블로그',
+    description: '창업가들의 경험담',
     icon: Wallet,
     color: 'from-green-500 to-green-600',
   },
   {
-    id: 'interview',
-    name: '인터뷰',
-    description: '창업가들의 진솔한 이야기',
+    id: 'startup',
+    name: '창업',
+    description: '스타트업 성장 이야기',
     icon: Users,
     color: 'from-orange-500 to-orange-600',
   },
@@ -57,7 +57,7 @@ export default function CategorySection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link
-                href={`/blog/category/${category.id}`}
+                href={`/posts?category=${category.name}`}
                 className="block p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group"
               >
                 <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>

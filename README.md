@@ -33,6 +33,7 @@
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
 # Notion API
 NOTION_API_KEY=your_notion_api_key
@@ -112,13 +113,19 @@ npm run start
 ```sql
 -- Users table (Supabase Auth 자동 생성)
 
--- Profiles table
+-- Profiles table (Extended)
 CREATE TABLE profiles (
   id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
+  email TEXT,
   name TEXT,
   avatar_url TEXT,
+  bio TEXT,
+  website TEXT,
   membership_status TEXT DEFAULT 'free',
   membership_expires_at TIMESTAMP,
+  newsletter_subscribed BOOLEAN DEFAULT false,
+  email_verified BOOLEAN DEFAULT false,
+  onboarding_completed BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );

@@ -58,7 +58,7 @@ export default function FeaturedPosts() {
               key={post.id}
               className="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <Link href={`/blog/${post.id}`}>
+              <Link href={`/posts/${post.id}`}>
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={post.cover_image}

@@ -21,23 +21,23 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/blog/category/startup" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
-                  스타트업
+                <Link href="/posts?category=뉴스레터" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
+                  뉴스레터
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/tech" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
-                  테크
+                <Link href="/posts?category=SaaS" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
+                  SaaS
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/investment" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
-                  투자
+                <Link href="/posts?category=블로그" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
+                  블로그
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/interview" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
-                  인터뷰
+                <Link href="/posts?category=창업" className="text-sm text-gray-600 hover:text-founder-primary transition-colors">
+                  창업
                 </Link>
               </li>
             </ul>

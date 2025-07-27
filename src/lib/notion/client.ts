@@ -2,7 +2,7 @@ import { Client } from '@notionhq/client'
 import { NotionPage } from '@/types'
 
 const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
+  auth: process.env.NOTION_TOKEN,
 })
 
 const databaseId = process.env.NOTION_DATABASE_ID!
