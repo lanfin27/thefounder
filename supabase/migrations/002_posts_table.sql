@@ -30,11 +30,20 @@ ALTER TABLE posts ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Posts are viewable by everyone" ON posts
   FOR SELECT USING (status = '발행');
 
-CREATE POLICY "Admins can insert posts" ON posts
-  FOR INSERT WITH CHECK (auth.jwt() ->> 'role' = 'service_role');
+CREATE POLICY "Service role can insert posts" ON posts
+  FOR INSERT WITH CHECK (
+    auth.role() = 'service_role' OR 
+    auth.jwt() ->> 'role' = 'service_role'
+  );
 
-CREATE POLICY "Admins can update posts" ON posts
-  FOR UPDATE WITH CHECK (auth.jwt() ->> 'role' = 'service_role');
+CREATE POLICY "Service role can update posts" ON posts
+  FOR UPDATE WITH CHECK (
+    auth.role() = 'service_role' OR 
+    auth.jwt() ->> 'role' = 'service_role'
+  );
 
-CREATE POLICY "Admins can delete posts" ON posts
-  FOR DELETE USING (auth.jwt() ->> 'role' = 'service_role');
+CREATE POLICY "Service role can delete posts" ON posts
+  FOR DELETE USING (
+    auth.role() = 'service_role' OR 
+    auth.jwt() ->> 'role' = 'service_role'
+  );

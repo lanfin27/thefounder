@@ -3,6 +3,7 @@ import { BlogPost } from '@/types'
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import { Clock, Tag } from 'lucide-react'
+import PremiumBadge from '@/components/ui/PremiumBadge'
 
 interface PostCardProps {
   post: BlogPost
@@ -20,8 +21,8 @@ export default function PostCard({ post }: PostCardProps) {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             {post.isPremium && (
-              <div className="absolute top-4 right-4 bg-founder-primary text-white px-3 py-1 rounded-full text-xs font-medium">
-                Premium
+              <div className="absolute top-4 right-4">
+                <PremiumBadge variant="small" />
               </div>
             )}
           </div>

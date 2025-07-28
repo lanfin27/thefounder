@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import LoginButton from './LoginButton'
+import { OAuthButtons } from './OAuthButtons'
 import { Mail, Lock } from 'lucide-react'
 
 export default function LoginForm() {
@@ -35,10 +35,10 @@ export default function LoginForm() {
 
   return (
     <div className="space-y-6">
-      <div className="space-y-4">
-        <LoginButton provider="google" />
-        <LoginButton provider="kakao" />
-      </div>
+      <OAuthButtons 
+        redirectTo="/"
+        onError={(error) => setError(error.message)}
+      />
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">

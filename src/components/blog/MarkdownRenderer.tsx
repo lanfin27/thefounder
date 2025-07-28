@@ -12,10 +12,10 @@ interface MarkdownRendererProps {
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      className="prose prose-lg max-w-none"
-      components={{
+    <div className="prose prose-lg max-w-none">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
         // Korean-optimized typography
         h1: ({ children }) => (
           <h1 className="text-3xl font-bold mt-8 mb-4 text-gray-900 leading-tight">
@@ -57,23 +57,24 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             {children}
           </blockquote>
         ),
-        code: ({ className, children, ...props }) => {
-          const match = /language-(\w+)/.exec(className || '')
+        code: ({ children, ...props }: any) => {
+          const match = /language-(\w+)/.exec(props.className || '')
           const inline = !match
           
           return inline ? (
-            <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+            <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">
               {children}
             </code>
           ) : (
-            <SyntaxHighlighter
-              style={oneDark}
-              language={match[1]}
-              PreTag="div"
-              className="rounded-lg my-4 text-sm"
-            >
-              {String(children).replace(/\n$/, '')}
-            </SyntaxHighlighter>
+            <div className="rounded-lg my-4 text-sm">
+              <SyntaxHighlighter
+                style={oneDark}
+                language={match[1]}
+                PreTag="div"
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            </div>
           )
         },
         img: ({ src, alt }) => {
@@ -127,8 +128,9 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
           </td>
         ),
       }}
-    >
-      {content}
-    </ReactMarkdown>
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
   )
 }

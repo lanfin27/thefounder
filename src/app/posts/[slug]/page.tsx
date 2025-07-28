@@ -2,10 +2,13 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/notion/converter'
 import { createClient } from '@/lib/supabase/server'
+import { checkUserSubscription } from '@/lib/subscription/service'
+import { truncateContent } from '@/utils/content'
 import PostHeader from '@/components/blog/PostHeader'
 import MarkdownRenderer from '@/components/blog/MarkdownRenderer'
-import PremiumGate from '@/components/blog/PremiumGate'
+import PaywallGate from '@/components/blog/PaywallGate'
 import RelatedPosts from '@/components/blog/RelatedPosts'
+import PostAnalytics from '@/components/blog/PostAnalytics'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -52,7 +55,9 @@ export default async function PostPage({
 }: {
   params: { slug: string }
 }) {
-  const post = await getPostBySlug(params.slug)
+  // Decode the URL parameter to handle encoded slugs
+  const decodedSlug = decodeURIComponent(params.slug)
+  const post = await getPostBySlug(decodedSlug)
   
   if (!post) {
     notFound()
@@ -61,30 +66,13 @@ export default async function PostPage({
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   
-  // Check if user has premium access
-  let isPremiumMember = false
-  if (user) {
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('membership_status')
-      .eq('id', user.id)
-      .single()
-      
-    isPremiumMember = profile?.membership_status === 'premium'
-  }
+  // Check subscription status
+  const subscription = await checkUserSubscription(user?.id)
+  const canAccessPremium = subscription.status === 'premium' && subscription.isActive
+  const showPaywall = post.isPremium && !canAccessPremium
   
-  const isLocked = post.isPremium && !isPremiumMember
-  
-  // Track reading if user is logged in
-  if (user && !isLocked) {
-    await supabase
-      .from('read_posts')
-      .upsert({
-        user_id: user.id,
-        post_id: post.id,
-        reading_time: post.readingTime,
-      })
-  }
+  // Prepare truncated content for paywall
+  const truncatedContent = showPaywall ? truncateContent(post.content, 300) : post.content
   
   return (
     <article className="min-h-screen bg-white">
@@ -108,20 +96,24 @@ export default async function PostPage({
             </div>
           )}
           
-          {isLocked ? (
-            <div>
-              <div className="mb-8">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {post.summary}
-                </p>
-              </div>
-              <PremiumGate />
-            </div>
-          ) : (
+          <PaywallGate
+            truncatedContent={truncatedContent}
+            isUserLoggedIn={!!user}
+            isPremiumContent={post.isPremium}
+            postTitle={post.title}
+            postId={post.id}
+          >
             <div className="prose-korean">
               <MarkdownRenderer content={post.content} />
             </div>
-          )}
+          </PaywallGate>
+          
+          {/* Analytics tracking */}
+          <PostAnalytics
+            postId={post.id}
+            userId={user?.id}
+            enabled={!showPaywall}
+          />
           
           <div className="mt-12 pt-8 border-t border-gray-200">
             <RelatedPosts currentPost={post} />

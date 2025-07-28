@@ -2,7 +2,10 @@ import { NotionToMarkdown } from 'notion-to-md'
 import { Client } from '@notionhq/client'
 import { NotionPage, BlogPost } from '@/types'
 import readingTime from 'reading-time'
-import slugify from 'github-slugger'
+import { NOTION_PROPERTIES, NOTION_STATUS } from './korean-properties'
+import { getFlexibleProperty, extractPropertyValue } from './flexible-property-getter'
+import { generateKoreanSlug } from '@/lib/utils/korean-slug'
+import { AVAILABLE_NOTION_PROPERTIES, DEFAULT_AUTHOR, DEFAULT_READING_TIME, mapAvailableProperties } from './available-properties'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -24,59 +27,85 @@ n2m.setCustomTransformer('image', async (block: any) => {
 })
 
 export function generateSlugFromKorean(title: string): string {
-  // Convert Korean title to slug-friendly format
-  const slug = slugify.slug(title)
-    .toLowerCase()
-    .replace(/[^a-z0-9가-힣-]/g, '-')
-    .replace(/--+/g, '-')
-    .replace(/^-|-$/g, '')
-    
-  return slug || Date.now().toString()
+  return generateKoreanSlug(title)
 }
 
-export async function convertPageToPost(page: NotionPage): Promise<BlogPost | null> {
+export async function convertPageToPost(page: any): Promise<BlogPost | null> {
   try {
-    const title = page.properties.Title.title[0]?.plain_text || ''
-    const summary = page.properties.Summary.rich_text[0]?.plain_text || ''
-    const category = page.properties.Category.select?.name
-    const status = page.properties.Status.select?.name
+    // Log available properties for debugging
+    console.log('Converting page with properties:', Object.keys(page.properties || {}))
     
-    // Skip if not published
-    if (status !== '발행') return null
+    // Map available properties
+    const props = mapAvailableProperties(page)
     
-    // Get slug or generate from title
-    let slug = page.properties.Slug.rich_text[0]?.plain_text || ''
-    if (!slug) {
-      slug = generateSlugFromKorean(title)
+    // Extract values using exact property names
+    const title = extractPropertyValue(props.title) || ''
+    
+    if (!title) {
+      console.error('Page has no title, skipping:', page.id)
+      return null
     }
     
+    const summary = extractPropertyValue(props.summary) || ''
+    const category = extractPropertyValue(props.category)
+    const status = extractPropertyValue(props.status)
+    
+    // Skip if not published
+    if (status !== NOTION_STATUS.PUBLISHED) {
+      console.log(`Skipping draft/review post: ${title}`)
+      return null
+    }
+    
+    // Always generate slug from title (no Slug property in Notion)
+    const slug = generateSlugFromKorean(title)
+    console.log(`Generated slug: ${slug} from title: ${title}`)
+    
     // Get cover image
-    const coverFromProp = page.properties.Cover.files[0]
+    const coverFiles = extractPropertyValue(props.cover) || []
+    const coverFromProp = coverFiles[0]
     const coverUrl = coverFromProp?.external?.url || 
                     coverFromProp?.file?.url || 
                     page.cover?.external?.url || 
-                    page.cover?.file?.url
+                    page.cover?.file?.url || 
+                    ''
     
     // Convert blocks to markdown
-    const mdblocks = await n2m.pageToMarkdown(page.id)
-    const mdString = n2m.toMarkdownString(mdblocks)
+    let content = ''
+    let minutes = DEFAULT_READING_TIME
     
-    // Calculate reading time
-    const { minutes } = readingTime(mdString.parent)
+    try {
+      const mdblocks = await n2m.pageToMarkdown(page.id)
+      const mdString = n2m.toMarkdownString(mdblocks)
+      content = mdString?.parent || ''
+      
+      // Calculate reading time only if content exists
+      if (content && content.trim().length > 0) {
+        const result = readingTime(content)
+        minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+      }
+    } catch (error) {
+      console.error('Error converting page content:', error)
+      content = summary || '' // Fallback to summary if content conversion fails
+    }
+    
+    const author = extractPropertyValue(props.author) || DEFAULT_AUTHOR
+    const tags = extractPropertyValue(props.tags) || []
+    const isPremium = extractPropertyValue(props.premium) || false
+    const publishedDate = extractPropertyValue(props.publishedDate) || page.created_time
     
     const post: BlogPost = {
       id: page.id,
       title,
       slug,
       summary,
-      content: mdString.parent,
+      content,
       cover: coverUrl,
-      author: page.properties.Author.select?.name || '조휘',
+      author,
       category: category as BlogPost['category'],
-      tags: page.properties.Tags.multi_select.map(tag => tag.name),
-      isPremium: page.properties['Is Premium'].checkbox,
+      tags,
+      isPremium,
       status: status as BlogPost['status'],
-      publishedDate: page.properties['Published Date']?.date?.start || page.created_time,
+      publishedDate,
       createdAt: page.created_time,
       updatedAt: page.last_edited_time,
       readingTime: Math.ceil(minutes),
@@ -85,6 +114,7 @@ export async function convertPageToPost(page: NotionPage): Promise<BlogPost | nu
     return post
   } catch (error) {
     console.error('Error converting page:', error)
+    console.error('Page properties:', Object.keys(page.properties || {}))
     return null
   }
 }
@@ -93,50 +123,67 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const pages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
-      property: 'Status',
+      property: NOTION_PROPERTIES.STATUS,
       select: {
-        equals: '발행'
+        equals: NOTION_STATUS.PUBLISHED
       }
     },
     sorts: [
       {
-        property: 'Published Date',
+        property: NOTION_PROPERTIES.PUBLISHED_DATE,
         direction: 'descending'
       }
     ]
   })
   
   const posts = await Promise.all(
-    pages.results.map(page => convertPageToPost(page as NotionPage))
+    pages.results.map(page => convertPageToPost(page))
   )
   
   return posts.filter(Boolean) as BlogPost[]
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID!,
-    filter: {
-      and: [
-        {
-          property: 'Slug',
-          rich_text: {
-            equals: slug
-          }
-        },
-        {
-          property: 'Status',
-          select: {
-            equals: '발행'
-          }
+  try {
+    // Decode the URL-encoded slug
+    const decodedSlug = decodeURIComponent(slug)
+    console.log(`Looking for post with slug: ${slug} (decoded: ${decodedSlug})`)
+    
+    const allPosts = await notion.databases.query({
+      database_id: process.env.NOTION_DATABASE_ID!,
+      filter: {
+        property: NOTION_PROPERTIES.STATUS,
+        select: {
+          equals: NOTION_STATUS.PUBLISHED
         }
-      ]
+      }
+    })
+    
+    console.log(`Found ${allPosts.results.length} published posts`)
+    
+    // Find post by matching generated slug from title
+    for (const page of allPosts.results) {
+      const props = mapAvailableProperties(page)
+      const title = extractPropertyValue(props.title) || ''
+      const generatedSlug = generateKoreanSlug(title)
+      
+      // Check against both encoded and decoded versions
+      if (slug === generatedSlug || 
+          decodedSlug === generatedSlug ||
+          slug.toLowerCase() === generatedSlug.toLowerCase() ||
+          decodedSlug.toLowerCase() === generatedSlug.toLowerCase()) {
+        console.log(`Found matching post: ${title}`)
+        const post = await convertPageToPost(page)
+        if (post) return post
+      }
     }
-  })
-  
-  if (response.results.length === 0) return null
-  
-  return convertPageToPost(response.results[0] as NotionPage)
+    
+    console.log(`No post found with slug: ${slug} (decoded: ${decodedSlug})`)
+    return null
+  } catch (error) {
+    console.error('Error in getPostBySlug:', error)
+    return null
+  }
 }
 
 export async function getPostsByCategory(category: BlogPost['category']): Promise<BlogPost[]> {
@@ -145,13 +192,13 @@ export async function getPostsByCategory(category: BlogPost['category']): Promis
     filter: {
       and: [
         {
-          property: 'Category',
+          property: NOTION_PROPERTIES.CATEGORY,
           select: {
             equals: category
           }
         },
         {
-          property: 'Status',
+          property: '상태',
           select: {
             equals: '발행'
           }
@@ -160,14 +207,14 @@ export async function getPostsByCategory(category: BlogPost['category']): Promis
     },
     sorts: [
       {
-        property: 'Published Date',
+        property: NOTION_PROPERTIES.PUBLISHED_DATE,
         direction: 'descending'
       }
     ]
   })
   
   const posts = await Promise.all(
-    pages.results.map(page => convertPageToPost(page as NotionPage))
+    pages.results.map(page => convertPageToPost(page))
   )
   
   return posts.filter(Boolean) as BlogPost[]
