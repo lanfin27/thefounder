@@ -1,0 +1,147 @@
+/* Mobile-first responsive styles for charts */
+
+/* Small devices (phones) */
+@media (max-width: 639px) {
+  .chart-preview-container {
+    padding: 1rem;
+  }
+  
+  .chart-grid-homepage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .chart-card-small {
+    min-width: unset;
+    padding: 0.75rem;
+  }
+  
+  .chart-card-small .chart-industry {
+    font-size: 0.75rem;
+  }
+  
+  .chart-card-small .chart-value {
+    font-size: 1.125rem;
+  }
+  
+  .chart-card-small .chart-change {
+    font-size: 0.625rem;
+  }
+  
+  /* Hide sparkline on very small screens */
+  @media (max-width: 375px) {
+    .chart-sparkline-small {
+      display: none;
+    }
+  }
+  
+  /* Simplified CTA on mobile */
+  .chart-cta-mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .chart-cta-mobile > * {
+    width: 100%;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .chart-grid-homepage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .chart-preview-container {
+    padding: 1.5rem;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1024px) {
+  .chart-grid-homepage {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Hover effects only on desktop */
+  .chart-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .chart-card:hover .chart-sparkline {
+    opacity: 1;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .chart-sparkline path {
+    stroke-width: 1.5;
+  }
+  
+  .chart-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .chart-card,
+  .chart-sparkline,
+  .chart-value {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .chart-card {
+    background: rgba(30, 30, 30, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .chart-industry {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .chart-value {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .chart-gradient-overlay {
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+  .chart-preview-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .chart-card {
+    max-height: 120px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .chart-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  .chart-card:active {
+    transform: scale(0.98);
+  }
+  
+  /* Larger touch targets */
+  .chart-cta-button {
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+}

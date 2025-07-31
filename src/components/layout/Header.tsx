@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import UserMenu from '@/components/auth/UserMenu'
 import MobileMenu from './MobileMenu'
-import { Search } from 'lucide-react'
+import { Search, Calculator } from 'lucide-react'
 
 export default async function Header() {
   const supabase = await createClient()
@@ -14,6 +14,7 @@ export default async function Header() {
     { name: 'SaaS', href: '/posts?category=SaaS' },
     { name: '블로그', href: '/posts?category=블로그' },
     { name: '창업', href: '/posts?category=창업' },
+    { name: '산업 트렌드', href: '/charts' },
   ]
 
   return (
@@ -51,6 +52,13 @@ export default async function Header() {
 
             {user ? (
               <>
+                <Link
+                  href="/valuation"
+                  className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
+                >
+                  <Calculator className="w-4 h-4" />
+                  밸류에이션
+                </Link>
                 <Link
                   href="/membership"
                   className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"

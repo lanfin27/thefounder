@@ -32,12 +32,16 @@ export default function Hero() {
               프리미엄 시작하기
             </Link>
             
-            <Link
-              href="/posts"
-              className="btn-secondary text-body-small"
+            <button
+              onClick={() => {
+                document.getElementById('industry-charts')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                })
+              }}
+              className="btn-secondary text-body-small flex items-center gap-2"
             >
-              무료 글 읽어보기
-            </Link>
+              📊 실시간 차트 보기
+            </button>
           </div>
         </motion.div>
       </div>

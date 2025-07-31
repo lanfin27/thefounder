@@ -179,3 +179,181 @@ export interface ReadPost {
   read_at: string
   reading_time?: number
 }
+
+// Valuation Types
+export type ValuationMethod = 'dcf' | 'multiple' | 'comparable' | 'venture'
+export type Currency = 'KRW' | 'USD' | 'EUR' | 'JPY' | 'CNY'
+export type Country = 'KR' | 'US' | 'JP' | 'CN' | 'SG' | 'OTHER'
+
+export interface ValuationInput {
+  // Common fields
+  revenue?: number
+  profit?: number
+  growth_rate?: number
+  
+  // DCF specific
+  free_cash_flow?: number
+  discount_rate?: number
+  terminal_growth_rate?: number
+  projection_years?: number
+  
+  // Multiple specific
+  selected_multiple?: number
+  multiple_type?: 'revenue' | 'profit' | 'ebitda'
+  
+  // Comparable specific
+  comparable_companies?: string[]
+  
+  // Venture specific
+  stage?: 'seed' | 'series_a' | 'series_b' | 'series_c' | 'later'
+  total_addressable_market?: number
+  market_share?: number
+  burn_rate?: number
+  runway_months?: number
+}
+
+export interface ValuationResult {
+  valuation: number
+  method: ValuationMethod
+  confidence_level?: 'low' | 'medium' | 'high'
+  
+  // Method-specific results
+  dcf_details?: {
+    present_value: number
+    terminal_value: number
+    enterprise_value: number
+    equity_value: number
+  }
+  
+  multiple_details?: {
+    applied_multiple: number
+    base_metric: number
+    base_metric_type: string
+  }
+  
+  comparable_details?: {
+    peer_average_multiple: number
+    peer_median_multiple: number
+    selected_peers: string[]
+  }
+  
+  sensitivity_analysis?: {
+    base_case: number
+    optimistic: number
+    pessimistic: number
+  }
+  
+  key_metrics?: {
+    revenue_multiple?: number
+    profit_multiple?: number
+    growth_adjusted_multiple?: number
+  }
+}
+
+export interface Valuation {
+  id: string
+  user_id: string
+  company_name: string
+  industry: string
+  country: Country
+  currency: Currency
+  valuation_method: ValuationMethod
+  input_data: ValuationInput
+  results: ValuationResult
+  notes?: string
+  is_draft: boolean
+  created_at: string
+  updated_at: string
+}
+
+export interface FlippaListing {
+  id: number
+  flippa_id: string
+  title: string
+  url?: string
+  asking_price?: number
+  monthly_revenue?: number
+  monthly_profit?: number
+  profit_multiple?: number
+  revenue_multiple?: number
+  industry?: string
+  business_type?: string
+  listing_status: 'active' | 'sold' | 'expired'
+  listing_date?: string
+  scraped_at: string
+  created_at: string
+}
+
+export interface IndustryMultiple {
+  id: number
+  industry: string
+  country: Country
+  avg_profit_multiple?: number
+  median_profit_multiple?: number
+  min_profit_multiple?: number
+  max_profit_multiple?: number
+  avg_revenue_multiple?: number
+  median_revenue_multiple?: number
+  min_revenue_multiple?: number
+  max_revenue_multiple?: number
+  sample_size?: number
+  data_source?: string
+  date_calculated: string
+  created_at: string
+  updated_at: string
+}
+
+export interface ValuationTemplate {
+  id: string
+  user_id: string
+  name: string
+  description?: string
+  industry?: string
+  valuation_method: ValuationMethod
+  template_data: Partial<ValuationInput>
+  is_public: boolean
+  use_count: number
+  created_at: string
+  updated_at: string
+}
+
+export interface CompanyProfile {
+  id: string
+  user_id: string
+  company_name: string
+  industry?: string
+  country: Country
+  currency: Currency
+  company_data?: {
+    founded_year?: number
+    employee_count?: number
+    website?: string
+    description?: string
+    key_metrics?: Record<string, number>
+  }
+  created_at: string
+  updated_at: string
+}
+
+// Industry categories following Korean market
+export const INDUSTRY_CATEGORIES = [
+  'SaaS',
+  '이커머스',
+  '핀테크',
+  '헬스케어',
+  '교육',
+  '미디어/컨텐츠',
+  '물류/유통',
+  '제조',
+  '부동산',
+  'AI/머신러닝',
+  '블록체인/크립토',
+  '모빌리티',
+  '푸드테크',
+  '뷰티/패션',
+  '여행/레저',
+  'B2B 서비스',
+  '기타'
+] as const
+
+export type IndustryCategory = typeof INDUSTRY_CATEGORIES[number]
