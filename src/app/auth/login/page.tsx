@@ -12,18 +12,18 @@ export default async function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Link href="/" className="text-3xl font-bold text-founder-primary">
+          <Link href="/" className="text-3xl font-serif font-bold text-medium-black">
             The Founder
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          <h2 className="mt-6 text-heading-2 font-serif text-medium-black text-korean">
             로그인
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-body-small text-medium-black-secondary">
             또는{' '}
-            <Link href="/auth/signup" className="font-medium text-founder-primary hover:underline">
+            <Link href="/auth/signup" className="font-medium text-medium-green hover:underline">
               새 계정 만들기
             </Link>
           </p>

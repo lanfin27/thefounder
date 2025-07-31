@@ -70,12 +70,13 @@ function OAuthButton({ provider, onClick, loading, disabled }: OAuthButtonProps)
       disabled={disabled}
       className={`
         relative w-full flex items-center justify-center gap-3 px-4 py-3
-        border rounded-lg font-medium transition-all duration-200
+        border rounded-lg font-medium transition-all duration-medium
         ${provider === 'google' 
-          ? 'border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50' 
+          ? 'border-medium-gray-border hover:border-medium-black bg-white hover:bg-medium-gray' 
           : 'border-transparent bg-[#FEE500] hover:bg-[#FDD835]'
         }
         ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+        text-body-small
       `}
       style={{
         backgroundColor: provider === 'google' ? '#ffffff' : providerInfo.bgColor,

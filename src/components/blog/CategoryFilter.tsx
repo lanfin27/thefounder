@@ -19,7 +19,7 @@ export default function CategoryFilter({ currentCategory }: CategoryFilterProps)
   const pathname = usePathname()
   
   return (
-    <div className="flex flex-wrap gap-2 justify-center mb-8">
+    <div className="flex items-center gap-6 border-b border-medium-gray-border mb-8 overflow-x-auto scrollbar-hide">
       {categories.map((category) => {
         const isActive = category.value === (currentCategory || '')
         const href = category.value ? `${pathname}?category=${category.value}` : pathname
@@ -29,10 +29,10 @@ export default function CategoryFilter({ currentCategory }: CategoryFilterProps)
             key={category.id}
             href={href}
             className={`
-              px-4 py-2 rounded-full text-sm font-medium transition-all
+              pb-3 text-body-small font-medium transition-all duration-medium whitespace-nowrap
               ${isActive
-                ? 'bg-founder-primary text-white'
-                : 'bg-white text-gray-700 hover:bg-gray-100'
+                ? 'text-medium-black border-b-2 border-medium-black'
+                : 'text-medium-black-secondary hover:text-medium-black'
               }
             `}
           >

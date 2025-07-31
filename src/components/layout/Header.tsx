@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import UserMenu from '@/components/auth/UserMenu'
 import MobileMenu from './MobileMenu'
+import { Search } from 'lucide-react'
 
 export default async function Header() {
   const supabase = await createClient()
@@ -16,37 +17,45 @@ export default async function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-gray-200">
+    <header className="fixed top-0 z-40 w-full bg-white border-b border-medium-gray-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 md:h-16">
+          {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-founder-primary">The Founder</span>
+              <span className="text-2xl md:text-3xl font-serif font-bold text-medium-black tracking-tight">
+                The Founder
+              </span>
             </Link>
-            
-            <div className="hidden md:block ml-10">
-              <div className="flex items-baseline space-x-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-700 hover:text-founder-primary px-3 py-2 text-sm font-medium transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-medium-black-secondary hover:text-medium-black text-body-small font-normal transition-colors duration-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Right Section */}
+          <div className="flex items-center gap-2 md:gap-4">
+            {/* Search Icon */}
+            <button className="p-2 hover:bg-medium-gray rounded-full transition-colors duration-medium">
+              <Search className="w-5 h-5 text-medium-black-secondary" />
+            </button>
+
             {user ? (
               <>
                 <Link
-                  href="/(protected)/dashboard"
-                  className="hidden md:inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-founder-primary transition-colors"
+                  href="/membership"
+                  className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
                 >
-                  대시보드
+                  멤버십
                 </Link>
                 <UserMenu user={{
                   id: user.id,
@@ -59,12 +68,20 @@ export default async function Header() {
                 }} />
               </>
             ) : (
-              <Link
-                href="/auth/login"
-                className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-founder-primary hover:bg-opacity-90 transition-colors"
-              >
-                로그인
-              </Link>
+              <>
+                <Link
+                  href="/auth/login"
+                  className="hidden md:inline-flex items-center text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
+                >
+                  로그인
+                </Link>
+                <Link
+                  href="/membership"
+                  className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium rounded-full text-white bg-medium-green hover:bg-medium-green-dark transition-all duration-medium"
+                >
+                  시작하기
+                </Link>
+              </>
             )}
             
             <MobileMenu navigation={navigation} user={user} />

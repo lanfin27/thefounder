@@ -42,16 +42,16 @@ export default function LoginForm() {
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300" />
+          <div className="w-full border-t border-medium-gray-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-gray-50 text-gray-500">또는 이메일로</span>
+          <span className="px-2 bg-white text-medium-black-tertiary">또는 이메일로</span>
         </div>
       </div>
 
       <form onSubmit={handleEmailLogin} className="space-y-4">
         {error && (
-          <div className="p-3 text-sm text-red-600 bg-red-50 rounded-lg">
+          <div className="p-3 text-body-small text-red-600 bg-red-50 rounded-lg border border-red-100">
             {error}
           </div>
         )}
@@ -62,7 +62,7 @@ export default function LoginForm() {
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Mail className="h-5 w-5 text-gray-400" />
+              <Mail className="h-5 w-5 text-medium-black-tertiary" />
             </div>
             <input
               id="email"
@@ -72,7 +72,7 @@ export default function LoginForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-founder-primary focus:border-founder-primary focus:z-10 sm:text-sm"
+              className="input-field pl-10"
               placeholder="이메일 주소"
             />
           </div>
@@ -84,7 +84,7 @@ export default function LoginForm() {
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Lock className="h-5 w-5 text-gray-400" />
+              <Lock className="h-5 w-5 text-medium-black-tertiary" />
             </div>
             <input
               id="password"
@@ -94,7 +94,7 @@ export default function LoginForm() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-founder-primary focus:border-founder-primary focus:z-10 sm:text-sm"
+              className="input-field pl-10"
               placeholder="비밀번호"
             />
           </div>
@@ -103,7 +103,7 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-founder-primary hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-founder-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full btn-primary text-body-small disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? '로그인 중...' : '로그인'}
         </button>

@@ -41,78 +41,168 @@ const mockFeaturedPosts = [
 
 export default function FeaturedPosts() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            주목할 만한 콘텐츠
-          </h2>
-          <p className="text-lg text-gray-600">
-            이번 주 가장 많은 사랑을 받은 글들을 만나보세요
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mockFeaturedPosts.map((post) => (
-            <article
-              key={post.id}
-              className="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              <Link href={`/posts/${post.id}`}>
-                <div className="relative h-48 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {/* Featured large post */}
+          {mockFeaturedPosts[0] && (
+            <article className="lg:col-span-1 article-card group">
+              <Link href={`/posts/${mockFeaturedPosts[0].id}`} className="block">
+                <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg">
                   <Image
-                    src={post.cover_image}
-                    alt={post.title}
+                    src={mockFeaturedPosts[0].cover_image}
+                    alt={mockFeaturedPosts[0].title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  {post.is_premium && (
-                    <div className="absolute top-4 right-4 bg-founder-primary text-white px-3 py-1 rounded-full text-xs font-medium">
+                  {mockFeaturedPosts[0].is_premium && (
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium text-white bg-medium-green">
                       Premium
                     </div>
                   )}
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-xs font-medium text-founder-primary">
-                      {post.category}
+                <div className="pt-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-caption font-medium text-medium-green">
+                      {mockFeaturedPosts[0].category}
                     </span>
-                    <span className="text-xs text-gray-500">
-                      {formatDistanceToNow(new Date(post.published_at), {
+                    <span className="text-caption text-medium-black-tertiary">
+                      {formatDistanceToNow(new Date(mockFeaturedPosts[0].published_at), {
                         addSuffix: true,
                         locale: ko,
                       })}
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-founder-primary transition-colors">
-                    {post.title}
-                  </h3>
+                  <h2 className="text-heading-3 font-serif text-medium-black mb-3 line-clamp-2 group-hover:text-medium-green transition-colors text-korean">
+                    {mockFeaturedPosts[0].title}
+                  </h2>
                   
-                  <p className="text-gray-600 line-clamp-2 mb-4">
-                    {post.excerpt}
+                  <p className="text-body-medium text-medium-black-secondary line-clamp-3 mb-4 text-korean">
+                    {mockFeaturedPosts[0].excerpt}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gray-200" />
-                      <span className="text-sm text-gray-700">{post.author.name}</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-medium-gray" />
+                      <div>
+                        <p className="text-body-small font-medium text-medium-black">
+                          {mockFeaturedPosts[0].author.name}
+                        </p>
+                        <p className="text-caption text-medium-black-tertiary">
+                          {mockFeaturedPosts[0].reading_time}분 읽기
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-sm text-gray-500">
-                      {post.reading_time}분 읽기
-                    </span>
                   </div>
                 </div>
               </Link>
             </article>
-          ))}
+          )}
+
+          {/* Side posts */}
+          <div className="space-y-6">
+            {mockFeaturedPosts.slice(1).map((post) => (
+              <article key={post.id} className="article-card group">
+                <Link href={`/posts/${post.id}`} className="flex gap-6">
+                  <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
+                    <Image
+                      src={post.cover_image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {post.is_premium && (
+                      <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-xs font-medium text-white bg-medium-green">
+                        Premium
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-caption font-medium text-medium-green">
+                        {post.category}
+                      </span>
+                      <span className="text-caption text-medium-black-tertiary">
+                        {formatDistanceToNow(new Date(post.published_at), {
+                          addSuffix: true,
+                          locale: ko,
+                        })}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-heading-4 font-serif text-medium-black mb-2 line-clamp-2 group-hover:text-medium-green transition-colors text-korean">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-body-small text-medium-black-secondary line-clamp-2 mb-3 text-korean">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center gap-2">
+                      <span className="text-caption font-medium text-medium-black">
+                        {post.author.name}
+                      </span>
+                      <span className="text-caption text-medium-black-tertiary">
+                        · {post.reading_time}분 읽기
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* More posts section */}
+        <div className="mt-16 pt-16 border-t border-medium-gray-border">
+          <h2 className="text-heading-3 font-serif text-medium-black mb-8 text-center">
+            더 많은 인사이트
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {mockFeaturedPosts.map((post) => (
+              <article key={post.id} className="article-card group">
+                <Link href={`/posts/${post.id}`}>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-medium-gray" />
+                      <span className="text-body-small font-medium text-medium-black">
+                        {post.author.name}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-heading-4 font-serif text-medium-black line-clamp-2 group-hover:text-medium-green transition-colors text-korean">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-body-small text-medium-black-secondary line-clamp-3 text-korean">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center gap-3 text-caption text-medium-black-tertiary">
+                      <span>{post.reading_time}분 읽기</span>
+                      <span>·</span>
+                      <span>
+                        {formatDistanceToNow(new Date(post.published_at), {
+                          addSuffix: true,
+                          locale: ko,
+                        })}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
         
         <div className="text-center mt-12">
           <Link
-            href="/blog"
-            className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+            href="/posts"
+            className="btn-secondary text-body-small"
           >
             모든 글 보기
           </Link>

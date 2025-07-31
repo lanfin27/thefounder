@@ -28,19 +28,19 @@ export default function MembershipCTA({
 
   if (variant === 'inline') {
     return (
-      <div className="bg-gradient-to-r from-founder-primary/5 to-founder-secondary/5 rounded-lg p-6 my-8">
+      <div className="bg-medium-gray border border-medium-gray-border rounded-lg p-6 my-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <h4 className="font-semibold text-gray-900 mb-1">
+            <h4 className="text-heading-4 font-serif text-medium-black mb-1 text-korean">
               더 많은 인사이트를 원하시나요?
             </h4>
-            <p className="text-sm text-gray-600">
+            <p className="text-body-small text-medium-black-secondary text-korean">
               프리미엄 멤버십으로 모든 콘텐츠를 제한 없이 읽어보세요
             </p>
           </div>
           <button
             onClick={() => router.push(redirectTo)}
-            className="px-6 py-2.5 bg-founder-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors"
+            className="btn-primary text-body-small"
           >
             프리미엄 시작하기
           </button>
@@ -51,21 +51,21 @@ export default function MembershipCTA({
 
   if (variant === 'compact') {
     return (
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white border border-medium-gray-border rounded-lg p-6">
+        <h3 className="text-heading-3 font-serif text-medium-black mb-4 text-korean">
           The Founder 프리미엄
         </h3>
         <ul className="space-y-3 mb-6">
           {benefits.slice(0, 2).map((benefit, index) => (
             <li key={index} className="flex items-center gap-3">
-              <benefit.icon className="w-5 h-5 text-founder-primary flex-shrink-0" />
-              <span className="text-sm text-gray-700">{benefit.text}</span>
+              <benefit.icon className="w-5 h-5 text-medium-green flex-shrink-0" />
+              <span className="text-body-small text-medium-black-secondary text-korean">{benefit.text}</span>
             </li>
           ))}
         </ul>
         <button
           onClick={() => router.push(redirectTo)}
-          className="w-full px-6 py-3 bg-founder-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors"
+          className="w-full btn-primary text-body-small"
         >
           월 9,900원으로 시작하기
         </button>
@@ -74,13 +74,13 @@ export default function MembershipCTA({
   }
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+    <div className="bg-white border border-medium-gray-border rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-founder-primary to-founder-secondary p-8 text-white">
-        <h2 className="text-3xl font-bold mb-3">
+      <div className="p-8 text-center border-b border-medium-gray-border">
+        <h2 className="text-heading-2 font-serif text-medium-black mb-3 text-korean">
           The Founder 프리미엄
         </h2>
-        <p className="text-lg text-white/90">
+        <p className="text-body-large text-medium-black-secondary text-korean">
           창업가들을 위한 깊이 있는 인사이트와 전략
         </p>
       </div>
@@ -90,42 +90,44 @@ export default function MembershipCTA({
         {!showAuthOptions ? (
           <>
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-heading-4 font-serif text-medium-black mb-4 text-korean">
                 프리미엄 멤버십 혜택
               </h3>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <benefit.icon className="w-6 h-6 text-founder-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{benefit.text}</span>
+                    <benefit.icon className="w-6 h-6 text-medium-green flex-shrink-0 mt-0.5" />
+                    <span className="text-body-small text-medium-black-secondary text-korean">{benefit.text}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 text-center">
+              <div>
+                <p className="text-medium-black">
+                  <span className="text-heading-2 font-serif text-medium-black">월 9,900원</span>
+                </p>
+                <p className="text-body-small text-medium-black-tertiary">
+                  언제든지 해지 가능
+                </p>
+              </div>
+              
               <button
                 onClick={() => setShowAuthOptions(true)}
-                className="w-full px-6 py-4 bg-founder-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-[1.02]"
+                className="btn-primary text-body-small px-8"
               >
                 프리미엄 시작하기
               </button>
-              
-              <div className="text-center">
-                <p className="text-gray-600">
-                  <span className="text-2xl font-bold text-gray-900">월 9,900원</span>
-                  <span className="text-sm text-gray-500 ml-2">언제든지 해지 가능</span>
-                </p>
-              </div>
             </div>
           </>
         ) : (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-heading-4 font-serif text-medium-black mb-2 text-korean">
                 계정을 만들고 시작하세요
               </h3>
-              <p className="text-gray-600">
+              <p className="text-body-small text-medium-black-secondary text-korean">
                 간편하게 로그인하고 프리미엄 멤버십을 시작하세요
               </p>
             </div>
@@ -138,7 +140,7 @@ export default function MembershipCTA({
             <div className="text-center">
               <button
                 onClick={() => setShowAuthOptions(false)}
-                className="text-sm text-gray-500 hover:text-gray-700"
+                className="text-body-small text-medium-black-tertiary hover:text-medium-black"
               >
                 돌아가기
               </button>
@@ -148,8 +150,8 @@ export default function MembershipCTA({
       </div>
 
       {/* Footer */}
-      <div className="bg-gray-50 px-8 py-4 border-t border-gray-100">
-        <div className="flex items-center justify-center gap-6 text-sm text-gray-600">
+      <div className="bg-medium-gray px-8 py-4 border-t border-medium-gray-border">
+        <div className="flex items-center justify-center gap-6 text-caption text-medium-black-tertiary">
           <span>✓ 7일 무료 체험</span>
           <span>✓ 언제든지 해지</span>
           <span>✓ 100% 환불 보장</span>

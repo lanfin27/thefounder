@@ -64,28 +64,28 @@ export default function PaywallGate({
       {/* Truncated content with gradient overlay */}
       <div className="relative">
         <div 
-          className="prose prose-lg max-w-none"
+          className="blog-content"
           dangerouslySetInnerHTML={{ __html: truncatedContent }}
         />
         
         {/* Gradient overlay */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none" />
+        <div className="premium-blur" />
       </div>
 
       {/* Paywall CTA */}
-      <div className="relative -mt-16 px-4">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          {/* Header with gradient background */}
-          <div className="bg-gradient-to-r from-founder-primary to-founder-secondary p-8 text-white">
+      <div className="relative -mt-32 px-4">
+        <div className="bg-white border border-medium-gray-border rounded-lg overflow-hidden max-w-2xl mx-auto">
+          {/* Header */}
+          <div className="p-8 text-center border-b border-medium-gray-border">
             <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                <Lock className="w-8 h-8" />
+              <div className="w-12 h-12 bg-medium-green-light rounded-full flex items-center justify-center">
+                <Lock className="w-6 h-6 text-medium-green" />
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-center mb-2">
+            <h3 className="text-heading-3 font-serif text-medium-black mb-2 text-korean">
               프리미엄 콘텐츠를 만나보세요
             </h3>
-            <p className="text-center text-white/90">
+            <p className="text-body-medium text-medium-black-secondary text-korean">
               The Founder의 모든 인사이트를 제한 없이 읽어보세요
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function PaywallGate({
           <div className="p-8">
             {!isUserLoggedIn ? (
               <div className="space-y-6">
-                <p className="text-center text-gray-600 mb-6">
+                <p className="text-center text-body-small text-medium-black-secondary mb-6">
                   로그인하고 프리미엄 멤버십을 시작하세요
                 </p>
                 
@@ -104,11 +104,11 @@ export default function PaywallGate({
                 />
                 
                 <div className="text-center">
-                  <span className="text-sm text-gray-500">
+                  <span className="text-caption text-medium-black-tertiary">
                     이미 계정이 있으신가요?{' '}
                     <button
                       onClick={() => router.push(`/auth/login?next=/posts/${postId}`)}
-                      className="text-founder-primary font-medium hover:underline"
+                      className="text-medium-green font-medium hover:underline"
                     >
                       이메일로 로그인
                     </button>
@@ -117,8 +117,8 @@ export default function PaywallGate({
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h4 className="font-semibold text-gray-900 mb-4">
+                <div className="bg-medium-gray rounded-lg p-6">
+                  <h4 className="text-heading-4 font-serif text-medium-black mb-4 text-korean">
                     프리미엄 멤버십 혜택
                   </h4>
                   <ul className="space-y-3">
@@ -130,37 +130,35 @@ export default function PaywallGate({
                       '커뮤니티 액세스'
                     ].map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{benefit}</span>
+                        <CheckCircle className="w-5 h-5 text-medium-green flex-shrink-0 mt-0.5" />
+                        <span className="text-body-small text-medium-black-secondary text-korean">{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 text-center">
                   <button
                     onClick={() => router.push('/membership')}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-founder-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-[1.02]"
+                    className="btn-primary text-body-small inline-flex items-center gap-2 px-8"
                   >
                     프리미엄 시작하기
                     <ArrowRight className="w-5 h-5" />
                   </button>
                   
-                  <div className="text-center">
-                    <p className="text-sm text-gray-500">
-                      월 9,900원 • 언제든지 해지 가능
-                    </p>
-                  </div>
+                  <p className="text-caption text-medium-black-tertiary">
+                    월 9,900원 • 언제든지 해지 가능
+                  </p>
                 </div>
               </div>
             )}
           </div>
 
           {/* Footer */}
-          <div className="bg-gray-50 px-8 py-4 border-t border-gray-100">
-            <p className="text-xs text-center text-gray-500">
-              현재 <span className="font-semibold">{postTitle}</span> 외{' '}
-              <span className="font-semibold">127개</span>의 프리미엄 콘텐츠를 읽을 수 있어요
+          <div className="bg-medium-gray px-8 py-4 border-t border-medium-gray-border">
+            <p className="text-caption text-center text-medium-black-tertiary">
+              현재 <span className="font-medium text-medium-black">{postTitle}</span> 외{' '}
+              <span className="font-medium text-medium-black">127개</span>의 프리미엄 콘텐츠를 읽을 수 있어요
             </p>
           </div>
         </div>

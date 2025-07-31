@@ -22,13 +22,13 @@ export default async function RelatedPosts({ currentPost }: RelatedPostsProps) {
   }
   
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">
-        관련 글
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-heading-3 font-serif text-medium-black mb-8 text-center text-korean">
+        더 읽어보기
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {relatedPosts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.id} post={post} variant="compact" />
         ))}
       </div>
     </div>
