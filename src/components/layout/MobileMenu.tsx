@@ -73,7 +73,7 @@ export default function MobileMenu({ navigation, user }: MobileMenuProps) {
                 {user ? (
                   <div className="space-y-1">
                     <Link
-                      href="/(protected)/dashboard"
+                      href="/dashboard"
                       className="block py-3 text-medium-black hover:text-medium-green text-body-small transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
@@ -94,7 +94,7 @@ export default function MobileMenu({ navigation, user }: MobileMenuProps) {
                       멤버십
                     </Link>
                     <Link
-                      href="/(protected)/my/posts"
+                      href="/my/posts"
                       className="block py-3 text-medium-black hover:text-medium-green text-body-small transition-colors"
                       onClick={() => setIsOpen(false)}
                     >

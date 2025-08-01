@@ -58,7 +58,7 @@ export default function UserMenu({ user }: UserMenuProps) {
           </Link>
 
           <Link
-            href="/(protected)/my/posts"
+            href="/my/posts"
             className="block px-4 py-2 text-body-small text-medium-black hover:bg-medium-gray transition-colors"
             onClick={() => setIsOpen(false)}
           >
@@ -66,7 +66,7 @@ export default function UserMenu({ user }: UserMenuProps) {
           </Link>
 
           <Link
-            href="/(protected)/dashboard"
+            href="/dashboard"
             className="block px-4 py-2 text-body-small text-medium-black hover:bg-medium-gray transition-colors"
             onClick={() => setIsOpen(false)}
           >

@@ -164,7 +164,7 @@ export default function HomepageChartPreview() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
           <Link 
-            href="/login" 
+            href="/valuation" 
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
             onClick={() => trackChartConversion('calculate', 'homepage_chart_cta')}
           >

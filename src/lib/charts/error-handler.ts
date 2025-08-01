@@ -186,7 +186,7 @@ export function getUserFriendlyErrorMessage(error: ChartError): {
         title: '접근 권한 없음',
         description: '이 차트를 볼 수 있는 권한이 없습니다.',
         actions: [
-          { label: '로그인', action: () => window.location.href = '/login' },
+          { label: '로그인', action: () => window.location.href = '/auth/login' },
           { label: '홈으로', action: () => window.location.href = '/' }
         ]
       }

@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/components/ui/Toast'
+import ClientLayout from '@/components/layout/ClientLayout'
 
 export const metadata: Metadata = {
   title: 'The Founder - 한국 스타트업 인사이트',
@@ -27,13 +28,15 @@ export default function RootLayout({
       <body className="font-sans">
         <AuthProvider>
           <ToastProvider>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </div>
+            <ClientLayout>
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </ClientLayout>
           </ToastProvider>
         </AuthProvider>
       </body>

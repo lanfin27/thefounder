@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import UserMenu from '@/components/auth/UserMenu'
 import MobileMenu from './MobileMenu'
-import { Search, Calculator } from 'lucide-react'
+import { Calculator } from 'lucide-react'
+import { SearchButton } from './HeaderClient'
 
 export default async function Header() {
   const supabase = await createClient()
@@ -46,9 +47,7 @@ export default async function Header() {
           {/* Right Section */}
           <div className="flex items-center gap-2 md:gap-4">
             {/* Search Icon */}
-            <button className="p-2 hover:bg-medium-gray rounded-full transition-colors duration-medium">
-              <Search className="w-5 h-5 text-medium-black-secondary" />
-            </button>
+            <SearchButton />
 
             {user ? (
               <>
