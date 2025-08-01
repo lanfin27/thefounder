@@ -7,6 +7,7 @@ import { ToastProvider } from '@/components/ui/Toast'
 import ClientLayout from '@/components/layout/ClientLayout'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'The Founder - 한국 스타트업 인사이트',
   description: '한국 스타트업 생태계의 깊이 있는 인사이트와 창업가들의 이야기',
   openGraph: {

@@ -1,0 +1,246 @@
+{
+  "patterns": {
+    "price": {
+      "price:p_>_a:nth-child(1)": {
+        "selector": "p > a:nth-child(1)",
+        "firstSeen": "2025-08-01T05:36:02.588Z",
+        "lastSuccess": "2025-08-01T05:36:31.156Z",
+        "successCount": 5,
+        "totalAttempts": 5,
+        "averageSuccessRate": 100,
+        "contexts": [
+          {
+            "timestamp": "2025-08-01T05:36:02.588Z",
+            "strategy": "Semantic Pattern Detection",
+            "url": "https://flippa.com/search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:03.702Z",
+            "method": "detection-strategies",
+            "strategy": "Semantic Pattern Detection"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.498Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.156Z",
+            "method": "detection-strategies"
+          }
+        ],
+        "confidence": 100,
+        "method": "unknown"
+      }
+    },
+    "title": {
+      "title:div": {
+        "selector": "div",
+        "firstSeen": "2025-08-01T05:36:02.978Z",
+        "lastSuccess": "2025-08-01T05:36:31.158Z",
+        "successCount": 8,
+        "totalAttempts": 8,
+        "averageSuccessRate": 75,
+        "contexts": [
+          {
+            "timestamp": "2025-08-01T05:36:02.978Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:03.702Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search?filter[property_type]=website"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.498Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search?filter[property_type]=blog"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.503Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.156Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search?filter[property_type]=ecommerce"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.158Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          }
+        ],
+        "confidence": 100,
+        "method": "unknown"
+      }
+    },
+    "revenue": {
+      "revenue:div.container.tw-pt-10": {
+        "selector": "div.container.tw-pt-10",
+        "firstSeen": "2025-08-01T05:36:03.233Z",
+        "lastSuccess": "2025-08-01T05:36:31.156Z",
+        "successCount": 5,
+        "totalAttempts": 5,
+        "averageSuccessRate": 90,
+        "contexts": [
+          {
+            "timestamp": "2025-08-01T05:36:03.233Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:03.702Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.498Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.156Z",
+            "method": "detection-strategies"
+          }
+        ],
+        "confidence": 100,
+        "method": "unknown"
+      }
+    },
+    "profit": {
+      "profit:div.container.tw-pt-10": {
+        "selector": "div.container.tw-pt-10",
+        "firstSeen": "2025-08-01T05:36:03.478Z",
+        "lastSuccess": "2025-08-01T05:36:31.156Z",
+        "successCount": 5,
+        "totalAttempts": 5,
+        "averageSuccessRate": 90,
+        "contexts": [
+          {
+            "timestamp": "2025-08-01T05:36:03.478Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:03.702Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.503Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.156Z",
+            "method": "detection-strategies"
+          }
+        ],
+        "confidence": 100,
+        "method": "unknown"
+      }
+    },
+    "multiple": {
+      "multiple:div.container.tw-pt-10": {
+        "selector": "div.container.tw-pt-10",
+        "firstSeen": "2025-08-01T05:36:03.701Z",
+        "lastSuccess": "2025-08-01T05:36:31.158Z",
+        "successCount": 5,
+        "totalAttempts": 5,
+        "averageSuccessRate": 90,
+        "contexts": [
+          {
+            "timestamp": "2025-08-01T05:36:03.701Z",
+            "strategy": "Brute Force Search",
+            "url": "https://flippa.com/search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:03.702Z",
+            "method": "detection-strategies",
+            "strategy": "Brute Force Search"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:13.624Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:22.503Z",
+            "method": "detection-strategies"
+          },
+          {
+            "timestamp": "2025-08-01T05:36:31.158Z",
+            "method": "detection-strategies"
+          }
+        ],
+        "confidence": 100,
+        "method": "unknown"
+      }
+    }
+  },
+  "failures": {},
+  "statistics": {
+    "price": {
+      "totalAttempts": 5,
+      "totalSuccesses": 5,
+      "totalFailures": 0,
+      "lastAttempt": "2025-08-01T05:36:31.156Z",
+      "lastSuccess": "2025-08-01T05:36:31.156Z",
+      "lastFailure": null
+    },
+    "title": {
+      "totalAttempts": 8,
+      "totalSuccesses": 8,
+      "totalFailures": 0,
+      "lastAttempt": "2025-08-01T05:36:31.158Z",
+      "lastSuccess": "2025-08-01T05:36:31.158Z",
+      "lastFailure": null
+    },
+    "revenue": {
+      "totalAttempts": 5,
+      "totalSuccesses": 5,
+      "totalFailures": 0,
+      "lastAttempt": "2025-08-01T05:36:31.156Z",
+      "lastSuccess": "2025-08-01T05:36:31.156Z",
+      "lastFailure": null
+    },
+    "profit": {
+      "totalAttempts": 5,
+      "totalSuccesses": 5,
+      "totalFailures": 0,
+      "lastAttempt": "2025-08-01T05:36:31.156Z",
+      "lastSuccess": "2025-08-01T05:36:31.156Z",
+      "lastFailure": null
+    },
+    "multiple": {
+      "totalAttempts": 5,
+      "totalSuccesses": 5,
+      "totalFailures": 0,
+      "lastAttempt": "2025-08-01T05:36:31.158Z",
+      "lastSuccess": "2025-08-01T05:36:31.158Z",
+      "lastFailure": null
+    }
+  },
+  "lastUpdated": "2025-08-01T05:36:31.158Z"
+}

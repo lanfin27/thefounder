@@ -1,0 +1,940 @@
+{
+  "structure": {
+    "totalElements": 5572,
+    "links": [],
+    "priceElements": [
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$0 - $999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$5,000 - $14,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$50,000 - $249,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$1,000 - $4,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$15,000 - $49,999",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "$250,000+",
+        "tag": "DIV",
+        "class": "",
+        "parent": "A",
+        "parentClass": "!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between"
+      },
+      {
+        "text": "Net Profit\n            USD $33,720 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $33,720 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $10,900,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $4,685 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $4,685 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $449,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $57,352 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $57,352 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $3,100,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $3,100,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $2,100,000",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "USD $411,618",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $411,618",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $349,962",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "Net Profit\n            USD $50,186 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $50,186 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $7,140,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "USD $500,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $500,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $87,231",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "Net Profit\n            USD $60,322 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $60,322 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $2,899,999",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $321 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $321 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $1,550,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $2,372 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $2,372 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $185,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $185,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $60,669",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "Net Profit\n            USD $18,231 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $18,231 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $7,082 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $7,082 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $250,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $250,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $200,000",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "Net Profit\n            USD $14,567 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $14,567 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $1,330,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $204 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $204 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $22,500",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $38,403 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $38,403 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $3,990,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $3,990,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $3,060,000",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "Net Profit\n            USD $69,967 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $69,967 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $3,900,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "USD $3,100,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $44,341 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $44,341 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $4,000,000",
+        "tag": "SPAN",
+        "class": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $4,000,000",
+        "tag": "DEL",
+        "class": "ng-binding",
+        "parent": "SPAN",
+        "parentClass": "tw-text-gray-500 tw-text-lg tw-font-semibold tw-font-mon tw-line-through"
+      },
+      {
+        "text": "USD $1,500,000",
+        "tag": "SPAN",
+        "class": "tw-text-xl tw-font-semibold tw-font-mon tw-text-emerald-600 ng-binding",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-flex-wrap tw-items-center md:tw-justify-between tw-gap-1.5"
+      },
+      {
+        "text": "USD $15,300,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $16,857 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $16,857 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $800,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $3,048 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $3,048 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $2,050,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $15,551 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $15,551 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $900,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $1,044 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $1,044 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $80,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $38,557 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $38,557 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $2,555,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "Net Profit\n            USD $2,082 p/mo",
+        "tag": "DIV",
+        "class": "ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-flex tw-items-center tw-flex-wrap tw-gap-x-8 tw-gap-y-2.5"
+      },
+      {
+        "text": "USD $2,082 p/mo",
+        "tag": "DIV",
+        "class": "tw-text-gray-800 tw-text-sm tw-font-semibold ng-binding",
+        "parent": "DIV",
+        "parentClass": "ng-scope"
+      },
+      {
+        "text": "USD $20,000",
+        "tag": "H5",
+        "class": "ng-binding ng-scope",
+        "parent": "DIV",
+        "parentClass": "tw-space-y-2 ng-scope"
+      },
+      {
+        "text": "$132,600.",
+        "tag": "A",
+        "class": "",
+        "parent": "P",
+        "parentClass": ""
+      }
+    ],
+    "possibleListings": [],
+    "classPatterns": [
+      "!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col",
+      "!tw-no-underline GTM-search-result-card tw-space-y-2.5 tw-w-full tw-min-w-0",
+      "tw-inline-flex tw-justify-center tw-items-center tw-gap-2 tw-font-medium !tw-font-mon !tw-no-underline focus:!tw-outline-0 focus-visible:!tw-outline-0 focus:!tw-ring-4 focus-visible:!tw-ring-4 tw-duration-200 tw-border tw-border-solid tw-cursor-pointer !tw-bg-primary-700 hover:!tw-bg-primary-800 !tw-text-white focus:tw-ring-primary-200 tw-border-primary-700 hover:tw-border-primary-800 disabled:!tw-bg-gray-300 disabled:hover:!tw-bg-gray-300 disabled:!tw-text-white disabled:tw-border-gray-300 disabled:hover:tw-border-gray-300 disabled:tw-pointer-events-none aria-disabled:!tw-bg-gray-300 aria-disabled:hover:!tw-bg-gray-300 aria-disabled:!tw-text-white aria-disabled:tw-border-gray-300 aria-disabled:tw-pointer-events-none !tw-text-sm tw-px-5 tw-py-2.5 !tw-rounded-full tw-w-full !tw-text-nowrap GTM-search-result-card ng-binding"
+    ],
+    "idPatterns": []
+  },
+  "targetedListings": []
+}

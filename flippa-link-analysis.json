@@ -1,0 +1,1315 @@
+{
+  "linkAnalysis": {
+    "totalLinks": 752,
+    "patterns": {
+      "unknown": 12,
+      "/websites": 42,
+      "/buy/monetization": 51,
+      "/buy/sitetype": 153,
+      "/buy/media-communities": 14,
+      "/invest": 8,
+      "/buy/ai-apps-and-tools": 5,
+      "/buy/crypto-and-blockchains": 5,
+      "/buy/games": 5,
+      "/buy/digital-agencies": 5,
+      "/buy/plugin-and-extensions": 16,
+      "/apps": 28,
+      "/off-market": 6,
+      "/buy/projects-and-concepts": 5,
+      "/search": 41,
+      "/domains": 29,
+      "/buy/social-media": 12,
+      "/buy/implementation": 15,
+      "/online-businesses-united-states": 4,
+      "/online-businesses-united-kingdom": 4,
+      "/online-businesses-canada": 4,
+      "/online-businesses-australia": 4,
+      "/online-businesses-south-africa": 4,
+      "/online-businesses-ireland": 4,
+      "/online-businesses-singapore": 4,
+      "/login": 8,
+      "/signup": 5,
+      "/business-brokers": 3,
+      "/data-insights": 18,
+      "/buyer-directory": 3,
+      "/services/why-flippa": 3,
+      "/blog": 4,
+      "/pricing": 4,
+      "/finance-loans": 2,
+      "/verification-and-assessment": 3,
+      "/flippa-legal": 3,
+      "/private": 3,
+      "/services/broker-program": 3,
+      "/product/deal-origination": 2,
+      "/lp/the-daily-email": 2,
+      "/the-exit-podcast": 3,
+      "/the-exit-meetups": 4,
+      "/free-valuation": 3,
+      "/sell": 3,
+      "/hc/en-us": 51,
+      "/online-business-valuation": 2,
+      "/11845258": 3,
+      "/watch_item": 25,
+      "/11827481": 3,
+      "/11413188": 3,
+      "/11698787": 3,
+      "/11922447": 3,
+      "/11940247": 3,
+      "/11665598": 3,
+      "/11843377": 3,
+      "/11776213": 3,
+      "/11867314": 3,
+      "/redirect.spark": 1,
+      "/11370098": 3,
+      "/11938953": 3,
+      "/11746167": 3,
+      "/11999206": 3,
+      "/11925277": 3,
+      "/11698163": 3,
+      "/11622680": 3,
+      "/11636663": 3,
+      "/11656490": 3,
+      "/11984799": 3,
+      "/11850375": 3,
+      "/11984243": 3,
+      "/11687060": 3,
+      "/11842662": 3,
+      "/11845659": 3,
+      "/blog/what-is-software-as-a-service-an-introduction-to-saas-companies-with-examples": 1,
+      "/blog/masterminds": 1,
+      "/blog/how-to-sell-a-business": 2,
+      "/blog/online-business-ideas": 1,
+      "/blog/what-are-drop-shipping-ecommerce-stores": 1,
+      "/blog/how-to-start-an-e-commerce-business": 1,
+      "/blog/shopifys-business-model-has-evolved": 1,
+      "/blog/first-time-buyers-guide-buying-your-first-online-business": 1,
+      "/about": 1,
+      "/referral-program": 1,
+      "/careers": 1,
+      "/the-deal": 1,
+      "/alts-by-flippa": 1,
+      "/blog/humans-of-flippa": 1,
+      "/blog/newsroom": 1,
+      "/blog/dictionary": 1,
+      "/product/multi-currency": 1,
+      "/product/deal-room": 1,
+      "/blog/buyer-funds-verification": 1,
+      "/product/market-insights": 1,
+      "/product/trust-and-verifications": 1,
+      "/product/integrations": 1,
+      "/product/off-market": 1,
+      "/product/invest": 1,
+      "/blog/escrow-com-partnership": 1,
+      "/product/recommender-engine": 1,
+      "/product/youtube-social-media": 1,
+      "/how-we-help": 1,
+      "/finance": 1,
+      "/business-brokers/australia": 1,
+      "/buy/categories": 3,
+      "/startup-businesses-for-sale": 1,
+      "/terms-of-service": 1,
+      "/privacy-policy": 1,
+      "/liked-our-push-notification-widget": 2
+    },
+    "samples": [
+      {
+        "href": "https://flippa.com/buy/monetization/amazon",
+        "text": "Amazon",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/content",
+        "text": "Content",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/media-communities",
+        "text": "YouTube & Social Media",
+        "pattern": "/buy/media-communities",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/saas",
+        "text": "SaaS",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/ecommerce",
+        "text": "Ecommerce",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/ai-apps-and-tools",
+        "text": "AI Apps & Tools",
+        "pattern": "/buy/ai-apps-and-tools",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/crypto-and-blockchains",
+        "text": "Crypto & Blockchain",
+        "pattern": "/buy/crypto-and-blockchains",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/transact-market",
+        "text": "Marketplaces",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/games",
+        "text": "Games",
+        "pattern": "/buy/games",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/digital-agencies",
+        "text": "Digital Agencies",
+        "pattern": "/buy/digital-agencies",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/services",
+        "text": "Services",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions",
+        "text": "Plugins and Extensions",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/projects-and-concepts",
+        "text": "Projects & Concepts",
+        "pattern": "/buy/projects-and-concepts",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon",
+        "text": "All Amazon",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-fba",
+        "text": "Amazon FBA",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-associates",
+        "text": "Amazon Associates",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-kdp",
+        "text": "Amazon KDP",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/content",
+        "text": "All Content",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/blog",
+        "text": "Blog",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/review",
+        "text": "Review",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/forum-community",
+        "text": "Forum/Community",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/directory",
+        "text": "Directory",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/adsense",
+        "text": "Adsense",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/media-communities",
+        "text": "All YouTube & Social Media",
+        "pattern": "/buy/media-communities",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/media-communities/youtube",
+        "text": "YouTube",
+        "pattern": "/buy/media-communities",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/social-media/facebook",
+        "text": "Facebook",
+        "pattern": "/buy/social-media",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/social-media/instagram",
+        "text": "Instagram",
+        "pattern": "/buy/social-media",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/social-media/x-twitter",
+        "text": "X.com",
+        "pattern": "/buy/social-media",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/social-media/tiktok",
+        "text": "Tiktok",
+        "pattern": "/buy/social-media",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/media-communities/social-media",
+        "text": "Social Media",
+        "pattern": "/buy/media-communities",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/media-communities/newsletters",
+        "text": "Newsletters",
+        "pattern": "/buy/media-communities",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/ecommerce",
+        "text": "All Ecommerce",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/dropship",
+        "text": "Dropship",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-fba",
+        "text": "FBA",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/implementation/bigcommerce",
+        "text": "BigCommerce",
+        "pattern": "/buy/implementation",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/implementation/ebay",
+        "text": "eBay",
+        "pattern": "/buy/implementation",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/implementation/shopify",
+        "text": "Shopify",
+        "pattern": "/buy/implementation",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/inventory-holding",
+        "text": "Inventory Holding",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions",
+        "text": "All Plugins and Extensions",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions/shopify-plugins",
+        "text": "Shopify Apps & Plugins",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions/wordpress-plugins",
+        "text": "Wordpress Apps & Plugins",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions/browser-extensions",
+        "text": "Browser Extensions",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/plugin-and-extensions/crm-erp-and-cloud-plugins",
+        "text": "CRM, ERP & Cloud Plugins",
+        "pattern": "/buy/plugin-and-extensions",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-united-states",
+        "text": "United States",
+        "pattern": "/online-businesses-united-states",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-united-kingdom",
+        "text": "United Kingdom",
+        "pattern": "/online-businesses-united-kingdom",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-canada",
+        "text": "Canada",
+        "pattern": "/online-businesses-canada",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-australia",
+        "text": "Australia",
+        "pattern": "/online-businesses-australia",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-south-africa",
+        "text": "South Africa",
+        "pattern": "/online-businesses-south-africa",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-ireland",
+        "text": "Ireland",
+        "pattern": "/online-businesses-ireland",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/online-businesses-singapore",
+        "text": "Singapore",
+        "pattern": "/online-businesses-singapore",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/search?filter%5Bage%5D%5Bmin%5D=6&filter%5Bprice%5D%5Bmax%5D=3000&filter%5Bprice%5D%5Bmin%5D=500&filter%5Bprofit_per_month%5D%5Bmax%5D=100&filter%5Bprofit_per_month%5D%5Bmin%5D=25&filter%5Bproperty_type%5D=website,business&filter%5Bsitetype%5D=content,blog,review,forum-community,directory,saas,transact-market",
+        "text": "Built for Beginners",
+        "pattern": "/search",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/search?filter%5Bprofit_per_month%5D%5Bmin%5D=8334&filter%5Bproperty_type%5D=fba,website,business,ios_app,android_app",
+        "text": "Buy Your Next Job",
+        "pattern": "/search",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/search?filter%5Bage%5D%5Bmin%5D=12&filter%5Bprofit_per_month%5D%5Bmin%5D=250&filter%5Bproperty_type%5D=fba,website,business,ios_app,android_app&filter%5Bsitetype%5D=blog,review,ecommerce,dropship,digital-products,shopify,inventory-holding&filter%5Bvertical%5D=productivity,colleges-and-courses,study-guides-and-tutorials,other-education,electronics,cameras,cell-mobile-phones,computers,tablets-and-e-readers,televisions,other-electronics,books,film,humor,music,television,food-and-drink,cooking-and-recipes,drinks,food,other-food-and-drink,news-and-current-affairs,depression-and-anxiety,diet-and-nutrition,fitness,skin,sleep-and-snoring,weight-loss,games,gaming,other-hobbies-and-games,diy,furniture,gardening,pets,toys,children",
+        "text": "Recession-Proof Categories",
+        "pattern": "/search",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/search?filter%5Bage%5D%5Bmax%5D=120&filter%5Bage%5D%5Bmin%5D=12&filter%5Bprice%5D%5Bmax%5D=10000&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bprofit_per_month%5D%5Bmax%5D=1000&filter%5Bprofit_per_month%5D%5Bmin%5D=50&filter%5Bproperty_type%5D=website,business&filter%5Bsitetype%5D=content,blog,review,forum-community,directory&filter%5Buniques_per_month%5D%5Bmin%5D=1000",
+        "text": "The Sweet Spot",
+        "pattern": "/search",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/search?filter%5Bage%5D%5Bmin%5D=12&filter%5Bprofit_per_month%5D%5Bmin%5D=10000&filter%5Bproperty_type%5D=website,business&filter%5Bsitetype%5D=ecommerce,dropship,shopify,digital-products,inventory-holding",
+        "text": "Ecommerce Heavy Hitters",
+        "pattern": "/search",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/business-brokers",
+        "text": "Meet our Brokers",
+        "pattern": "/business-brokers",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/services/why-flippa",
+        "text": "Why Flippa",
+        "pattern": "/services/why-flippa",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/services/broker-program/",
+        "text": "Flippa Broker Program",
+        "pattern": "/services/broker-program",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/product/deal-origination",
+        "text": "Flippa Deal Origination",
+        "pattern": "/product/deal-origination",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/lp/the-daily-email/",
+        "text": "The Daily Newsletter",
+        "pattern": "/lp/the-daily-email",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/business-brokers",
+        "text": "Meet our Brokers",
+        "pattern": "/business-brokers",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/services/why-flippa",
+        "text": "Why Flippa",
+        "pattern": "/services/why-flippa",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/services/broker-program/",
+        "text": "Flippa Broker Program",
+        "pattern": "/services/broker-program",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/product/deal-origination",
+        "text": "Flippa Deal Origination",
+        "pattern": "/product/deal-origination",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/lp/the-daily-email/",
+        "text": "The Daily Newsletter",
+        "pattern": "/lp/the-daily-email",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/saas",
+        "text": "SaaS",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/ai-apps-and-tools",
+        "text": "AI Apps & Tools",
+        "pattern": "/buy/ai-apps-and-tools",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/crypto-and-blockchains",
+        "text": "Crypto & Blockchain",
+        "pattern": "/buy/crypto-and-blockchains",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/transact-market",
+        "text": "Marketplaces",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/games",
+        "text": "Games",
+        "pattern": "/buy/games",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/digital-agencies",
+        "text": "Digital Agencies",
+        "pattern": "/buy/digital-agencies",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/services",
+        "text": "Services",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/projects-and-concepts",
+        "text": "Projects & Concepts",
+        "pattern": "/buy/projects-and-concepts",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/business-brokers",
+        "text": "Meet our Brokers",
+        "pattern": "/business-brokers",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/services/why-flippa",
+        "text": "Why Flippa",
+        "pattern": "/services/why-flippa",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/saas",
+        "text": "SaaS",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/ai-apps-and-tools",
+        "text": "AI Apps & Tools",
+        "pattern": "/buy/ai-apps-and-tools",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/crypto-and-blockchains",
+        "text": "Crypto & Blockchain",
+        "pattern": "/buy/crypto-and-blockchains",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/transact-market",
+        "text": "Marketplaces",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/games",
+        "text": "Games",
+        "pattern": "/buy/games",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/digital-agencies",
+        "text": "Digital Agencies",
+        "pattern": "/buy/digital-agencies",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/services",
+        "text": "Services",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/projects-and-concepts",
+        "text": "Projects & Concepts",
+        "pattern": "/buy/projects-and-concepts",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon",
+        "text": "All Amazon",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-fba",
+        "text": "Amazon FBA",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-associates",
+        "text": "Amazon Associates",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/monetization/amazon-kdp",
+        "text": "Amazon KDP",
+        "pattern": "/buy/monetization",
+        "hasPrice": false
+      },
+      {
+        "href": "https://support.flippa.com/hc/en-us",
+        "text": "Help",
+        "pattern": "/hc/en-us",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/content",
+        "text": "All Content",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/blog",
+        "text": "Blog",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/review",
+        "text": "Review",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/forum-community",
+        "text": "Forum/Community",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      },
+      {
+        "href": "https://flippa.com/buy/sitetype/directory",
+        "text": "Directory",
+        "pattern": "/buy/sitetype",
+        "hasPrice": false
+      }
+    ]
+  },
+  "listings": [
+    {
+      "index": 0,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=\"tab_content_0_999\" data-is-link=\"true\" data-is-dropdown=\"tru",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/websites?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=\"tab_content_0_999\" data-is-link=\"true\" data-is-dropdown=\"true\" d",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/apps?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=\"tab_content_0_999\" data-is-link=\"true\" data-is-dropdown=\"true",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/domains?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"cl",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handl",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/content?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bsitetype%5D=content%2Cblog%2Creview%2Cforum-community%2Cdirectory&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bsitetype%5D=transact-market&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/transact-market?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bsitetype%5D=transact-market&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bsitetype%5D=saas&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=\"tab_content_0_999\" da",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/saas?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bsitetype%5D=saas&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-m",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/sitetype/services?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bsitetype%5D=services%2Cdigital%2Cphysical&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "title": "$50,000 - $249,999",
+      "url": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+      "priceText": "$0 - $999",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-max-w-auto tw-grid tw-grid-cols-1\">\n        <a href=\"https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=999&amp;filter%5Bprice%5D%5Bmin%5D=0&amp;filter%5Bstatus%5D=open&amp;initial=T\" class=\"!tw-px-4 !tw-py-2 tw-flex tw-items-center tw-gap-1.5 !tw-bg-white hover:!tw-bg-gray-100 !tw-no-underline hover:!tw-no-underline !tw-text-gray-500 tw-justify-between\" data-action=\"click-&gt;tabs#handleToggleMenu\" data-tab-menu-id=\"tab_content_0_999\" data-is-link=\"true\" data-i",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+          "text": "$0 - $999"
+        },
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=14999&filter%5Bprice%5D%5Bmin%5D=5000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$5,000 - $14,999"
+        },
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=249999&filter%5Bprice%5D%5Bmin%5D=50000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$50,000 - $249,999"
+        },
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=4999&filter%5Bprice%5D%5Bmin%5D=1000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$1,000 - $4,999"
+        },
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmax%5D=49999&filter%5Bprice%5D%5Bmin%5D=15000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$15,000 - $49,999"
+        },
+        {
+          "href": "https://flippa.com/buy/monetization/amazon?filter%5Bprice%5D%5Bmin%5D=250000&filter%5Bstatus%5D=open&initial=T",
+          "text": "$250,000+"
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "title": "SaaS | General Knowledge\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        24 Y/O B2B Weather Forecasting API Platform w/ 150 Enterprise Clients - 4.3M+ Yearly Visitors!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            General Knowledge\n          \n            Monetization\n            Other\n          \n            Site Age\n            25 years\n          \n            Net Profit\n            USD $33,720 p/mo",
+      "url": "https://flippa.com/11845258",
+      "priceText": "USD $33,720 p/mo",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div id=\"listing-11845258\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11845258\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11845258",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n\n\n    \n  Broker\n\n\n\n    \n  Sponsored"
+        },
+        {
+          "href": "https://flippa.com/11845258",
+          "text": "SaaS | General Knowledge\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        24 Y/O B2B Weather Forecasting API Platform w/ 150 Enterprise Clients - 4.3M+ Yearly Visitors!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            General Knowledge\n          \n            Monetization\n            Other\n          \n            Site Age\n            25 years\n          \n            Net Profit\n            USD $33,720 p/mo"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11845258&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11845258",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "title": "View Listing",
+      "url": "https://flippa.com/11845258",
+      "priceText": "USD $10,900,000",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-flex tw-flex-col tw-h-full tw-justify-between @3xl:tw-items-end @3xl:tw-text-right\">\n\n          <!-- ngIf: listing.invest -->\n\n          <!-- ngIf: !listing.invest --><div ng-if=\"!listing.invest\" class=\"tw-space-y-2 ng-scope\">\n            <div class=\"tw-flex tw-items-center @3xl:tw-justify-end tw-gap-2.5 tw-text-sm tw-font-medium tw-font-mon\">\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: !listing",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11845258&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11845258",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "title": "SaaS | Sports and Outdoor\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            Australia\n          \n        \n\n        \n\n        #1 rank for \"Soccer Coaching\"  AI-Powered Platform w/ the Largest Library of Coaching Courses in the World. 72% Profit Margin, 80% Recurring Rev <2% Churn Rate\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Sports and Outdoor\n          \n            Monetization\n            Other\n          \n            Site Age\n            11 years\n          \n            Net Profit\n            AUD $2,595 p/mo",
+      "url": "https://flippa.com/11827481",
+      "priceText": "AUD $2,595 p/mo",
+      "revenue": null,
+      "profit": "2",
+      "multiple": "3.7",
+      "containerHTML": "<div id=\"listing-11827481\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11827481\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11827481",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n    \n  Managed by Flippa\n\n\n\n\n\n    \n  Sponsored\n\n\n    \n  Editor's Choice"
+        },
+        {
+          "href": "https://flippa.com/11827481",
+          "text": "SaaS | Sports and Outdoor\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            Australia\n          \n        \n\n        \n\n        #1 rank for \"Soccer Coaching\"  AI-Powered Platform w/ the Largest Library of Coaching Courses in the World. 72% Profit Margin, 80% Recurring Rev <2% Churn Rate\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Sports and Outdoor\n          \n            Monetization\n            Other\n          \n            Site Age\n            11 years\n          \n            Net Profit\n            AUD $2,595 p/mo"
+        },
+        {
+          "href": "https://flippa.com/data-insights?buy_sell=searchpage",
+          "text": "View insights on multiples"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11827481&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11827481",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "title": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            ID, United States\n          \n        \n\n        \n\n        Workflow / process management app & Chrome extension for managing Standard Operating Procedures (SOPs). ~62% monthly profit margin. ChatGPT (AI) recently added!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Affiliate Sales\n          \n            Site Age\n            6 years\n          \n            Net Profit\n            USD $4,685 p/mo",
+      "url": "https://flippa.com/11413188",
+      "priceText": "USD $4,685 p/mo",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div id=\"listing-11413188\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11413188\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11413188",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n\n\n\n\n    \n  Sponsored"
+        },
+        {
+          "href": "https://flippa.com/11413188",
+          "text": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            ID, United States\n          \n        \n\n        \n\n        Workflow / process management app & Chrome extension for managing Standard Operating Procedures (SOPs). ~62% monthly profit margin. ChatGPT (AI) recently added!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Affiliate Sales\n          \n            Site Age\n            6 years\n          \n            Net Profit\n            USD $4,685 p/mo"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11413188&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11413188",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "title": "View Listing",
+      "url": "https://flippa.com/11413188",
+      "priceText": "USD $449,000",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-flex tw-flex-col tw-h-full tw-justify-between @3xl:tw-items-end @3xl:tw-text-right\">\n\n          <!-- ngIf: listing.invest -->\n\n          <!-- ngIf: !listing.invest --><div ng-if=\"!listing.invest\" class=\"tw-space-y-2 ng-scope\">\n            <div class=\"tw-flex tw-items-center @3xl:tw-justify-end tw-gap-2.5 tw-text-sm tw-font-medium tw-font-mon\">\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: !listing",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11413188&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11413188",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "title": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        18 Y/O SaaS Marketing Platform w/ Recurring Revenue Model - Priced at 3.06x TTM SDE - Previously Sold for $17M!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            19 years\n          \n            Net Profit\n            USD $57,352 p/mo",
+      "url": "https://flippa.com/11698787",
+      "priceText": "USD $57,352 p/mo",
+      "revenue": null,
+      "profit": "2",
+      "multiple": "3.06",
+      "containerHTML": "<div id=\"listing-11698787\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11698787\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11698787",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n\n\n    \n  Broker\n\n\n\n    \n  Sponsored"
+        },
+        {
+          "href": "https://flippa.com/11698787",
+          "text": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        18 Y/O SaaS Marketing Platform w/ Recurring Revenue Model - Priced at 3.06x TTM SDE - Previously Sold for $17M!\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            19 years\n          \n            Net Profit\n            USD $57,352 p/mo"
+        },
+        {
+          "href": "https://flippa.com/data-insights?buy_sell=searchpage",
+          "text": "View insights on multiples"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11698787&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11698787",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "title": "View insights on multiples",
+      "url": "https://flippa.com/data-insights?buy_sell=searchpage",
+      "priceText": "USD $3,100,000",
+      "revenue": null,
+      "profit": "2",
+      "multiple": "3.1",
+      "containerHTML": "<div ng-if=\"!listing.invest\" class=\"tw-space-y-2 ng-scope\">\n            <div class=\"tw-flex tw-items-center @3xl:tw-justify-end tw-gap-2.5 tw-text-sm tw-font-medium tw-font-mon\">\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: !listing.bidCountVisible && !listing.open_to_offer --><span ng-if=\"!listing.bidCountVisible &amp;&amp; !listing.open_to_offer\" ng-bind-html=\"saleMethodTitle(listing)\" class=\"tw-text-gray-600",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/data-insights?buy_sell=searchpage",
+          "text": "View insights on multiples"
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "title": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            Australia\n          \n        \n\n        \n\n        A 9 year old profitable B2B SaaS business with consistent ARR and #1 SERPs for it's niche.\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            9 years\n          \n            Net Profit\n            AUD $7,370 p/mo",
+      "url": "https://flippa.com/11922447",
+      "priceText": "AUD $7,370 p/mo",
+      "revenue": null,
+      "profit": "3",
+      "multiple": "4",
+      "containerHTML": "<div id=\"listing-11922447\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11922447\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11922447",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n    \n  Managed by Flippa\n\n\n\n\n\n    \n  Sponsored\n\n\n    \n  Editor's Choice"
+        },
+        {
+          "href": "https://flippa.com/11922447",
+          "text": "SaaS | Business\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            Australia\n          \n        \n\n        \n\n        A 9 year old profitable B2B SaaS business with consistent ARR and #1 SERPs for it's niche.\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Business\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            9 years\n          \n            Net Profit\n            AUD $7,370 p/mo"
+        },
+        {
+          "href": "https://flippa.com/data-insights?buy_sell=searchpage",
+          "text": "View insights on multiples"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11922447&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11922447",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "title": "View insights on multiples",
+      "url": "https://flippa.com/data-insights?buy_sell=searchpage",
+      "priceText": "USD $411,618",
+      "revenue": null,
+      "profit": "3",
+      "multiple": "4",
+      "containerHTML": "<div ng-if=\"!listing.invest\" class=\"tw-space-y-2 ng-scope\">\n            <div class=\"tw-flex tw-items-center @3xl:tw-justify-end tw-gap-2.5 tw-text-sm tw-font-medium tw-font-mon\">\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: !listing.bidCountVisible && !listing.open_to_offer --><span ng-if=\"!listing.bidCountVisible &amp;&amp; !listing.open_to_offer\" ng-bind-html=\"saleMethodTitle(listing)\" class=\"tw-text-gray-600",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/data-insights?buy_sell=searchpage",
+          "text": "View insights on multiples"
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "title": "SaaS | Internet\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        A 12 Y/O AI-enhanced, Cross-platform Email Management Solution for Professionals and Individual Users\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Internet\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            13 years\n          \n            Net Profit\n            USD $50,186 p/mo",
+      "url": "https://flippa.com/11940247",
+      "priceText": "USD $50,186 p/mo",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div id=\"listing-11940247\" class=\"tw-w-full tw-flex tw-flex-col @3xl:tw-flex-row tw-gap-4 tw-rounded-lg tw-border tw-border-solid tw-border-gray-300 tw-p-4 tw-shadow hover:tw-shadow-lg\">\n\n      <a href=\"/11940247\" data-turbo-frame=\"_top\" data-turbo=\"false\" class=\"!tw-no-underline GTM-search-result-card tw-h-full tw-w-full @3xl:tw-max-w-72 tw-shrink-0 tw-flex-col\">\n        <div class=\"tw-relative tw-group tw-rounded tw-shadow-sm tw-border tw-border-solid tw-border-gray-200\">\n  <img src=\"https://s",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/11940247",
+          "text": "ConfidentialSign NDA to view\n      \n    \n  \n\n  \n\n\n        \n          \n\n\n\n    \n  Broker\n\n\n\n    \n  Sponsored"
+        },
+        {
+          "href": "https://flippa.com/11940247",
+          "text": "SaaS | Internet\n\n        \n          \n            \n  Verified Listing\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n  \n\n\n          \n\n          \n              \n            CA, United States\n          \n        \n\n        \n\n        A 12 Y/O AI-enhanced, Cross-platform Email Management Solution for Professionals and Individual Users\n\n        \n\n          \n            Type\n            SaaS\n          \n            Industry\n            Internet\n          \n            Monetization\n            Services & Subscriptions\n          \n            Site Age\n            13 years\n          \n            Net Profit\n            USD $50,186 p/mo"
+        },
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11940247&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11940247",
+          "text": "View Listing"
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "title": "View Listing",
+      "url": "https://flippa.com/11940247",
+      "priceText": "USD $7,140,000",
+      "revenue": null,
+      "profit": null,
+      "multiple": null,
+      "containerHTML": "<div class=\"tw-flex tw-flex-col tw-h-full tw-justify-between @3xl:tw-items-end @3xl:tw-text-right\">\n\n          <!-- ngIf: listing.invest -->\n\n          <!-- ngIf: !listing.invest --><div ng-if=\"!listing.invest\" class=\"tw-space-y-2 ng-scope\">\n            <div class=\"tw-flex tw-items-center @3xl:tw-justify-end tw-gap-2.5 tw-text-sm tw-font-medium tw-font-mon\">\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: listing.bidCountVisible -->\n              <!-- ngIf: !listing",
+      "allLinks": [
+        {
+          "href": "https://flippa.com/watch_item?disabled_title=Watching&enabled_title=Watch&id=11940247&origin=search&return_to=%2F&type=listing&unwatch_classes=GTM-search-unwatch+tw-w-full&view_partial=shared%2Fwatch_v2&watch_classes=GTM-search-watch+tw-w-full",
+          "text": "Watch"
+        },
+        {
+          "href": "https://flippa.com/11940247",
+          "text": "View Listing"
+        }
+      ]
+    }
+  ]
+}

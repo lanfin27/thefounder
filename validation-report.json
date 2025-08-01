@@ -1,0 +1,66 @@
+{
+  "environment": {
+    "passed": true,
+    "details": {
+      "REDIS_URL": true,
+      "NEXT_PUBLIC_SUPABASE_URL": true,
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": true,
+      "SUPABASE_SERVICE_ROLE_KEY": true,
+      "FLIPPA_BASE_URL": true,
+      "SCRAPING_ENABLED": true,
+      "MAX_CONCURRENT_SCRAPERS": true,
+      "REQUESTS_PER_MINUTE": true
+    }
+  },
+  "redis": {
+    "passed": true,
+    "details": {
+      "connection": true,
+      "latency": 32,
+      "operations": true,
+      "version": "7.4.3"
+    }
+  },
+  "bull": {
+    "passed": true,
+    "details": {
+      "jobCreation": true,
+      "stats": {
+        "waiting": 0,
+        "active": 0,
+        "completed": 2,
+        "failed": 0,
+        "delayed": 0,
+        "paused": 0
+      },
+      "processed": true
+    }
+  },
+  "supabase": {
+    "passed": true,
+    "details": {
+      "connection": true,
+      "flippaTable": true
+    }
+  },
+  "scraping": {
+    "passed": true,
+    "details": {
+      "httpClient": true,
+      "htmlParser": true,
+      "playwright": true
+    }
+  },
+  "api": {
+    "passed": true,
+    "details": {
+      "endpoints": [
+        "/api/scraping/status",
+        "/api/scraping/queue/stats",
+        "/api/scraping/listings/start",
+        "/api/listings"
+      ]
+    }
+  },
+  "overall": true
+}

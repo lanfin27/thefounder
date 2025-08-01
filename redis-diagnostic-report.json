@@ -1,0 +1,70 @@
+[
+  {
+    "timestamp": "2025-08-01T03:12:24.351Z",
+    "level": "success",
+    "message": "Redis URL format is valid",
+    "details": {}
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.407Z",
+    "level": "success",
+    "message": "TCP connection successful to redis-10978.c340.ap-northeast-2-1.ec2.redns.redis-cloud.com:10978",
+    "details": {}
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.521Z",
+    "level": "success",
+    "message": "DNS resolution successful",
+    "details": {
+      "host": "redis-10978.c340.ap-northeast-2-1.ec2.redns.redis-cloud.com",
+      "addresses": [
+        "43.201.35.63"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.674Z",
+    "level": "success",
+    "message": "Standard URL Connection: Connection successful",
+    "details": {
+      "response": "PONG",
+      "config": "URL"
+    }
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.725Z",
+    "level": "success",
+    "message": "URL with explicit options: Connection successful",
+    "details": {
+      "response": "PONG",
+      "config": "Object"
+    }
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.763Z",
+    "level": "success",
+    "message": "URL with minimal retry: Connection successful",
+    "details": {
+      "response": "PONG",
+      "config": "URL"
+    }
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.832Z",
+    "level": "error",
+    "message": "Direct connection with TLS: Connection failed",
+    "details": {
+      "error": "2C300000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:c:\\ws\\deps\\openssl\\openssl\\ssl\\record\\ssl3_record.c:355:\n",
+      "code": "ERR_SSL_WRONG_VERSION_NUMBER"
+    }
+  },
+  {
+    "timestamp": "2025-08-01T03:12:24.855Z",
+    "level": "success",
+    "message": "Connection with family 4: Connection successful",
+    "details": {
+      "response": "PONG",
+      "config": "Object"
+    }
+  }
+]
