@@ -64,6 +64,15 @@ export default async function Header() {
                 >
                   멤버십
                 </Link>
+                {/* Admin Dashboard Link - show only for admin users */}
+                {user.email === 'admin@thefounder.com' && (
+                  <Link
+                    href="/admin/scraping"
+                    className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 transition-colors duration-medium"
+                  >
+                    대시보드
+                  </Link>
+                )}
                 <UserMenu user={{
                   id: user.id,
                   email: user.email!,

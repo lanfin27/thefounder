@@ -41,3 +41,26 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local.backup
+
+# Logs
+logs/
+*.log
+
+# Data files (contain scraped data)
+data/comprehensive-scrape-*.json
+data/insights/
+data/test-results/
+data/scraped/
+
+# Analysis files
+*.analysis.json
+phase*.json
+system-analysis-report.json
+test-*-results.json
+flippa-*.json
+
+# Debug files
+debug-*.png
+
+# Null file
+nul
