@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-08-03T14:34:10.420Z",
+  "totalListings": 0,
+  "marketplaceSize": 5900,
+  "qualityMetrics": {
+    "title": 0,
+    "price": 0,
+    "revenue": 0,
+    "multiple": 0,
+    "total": 0
+  },
+  "qualityRates": {
+    "title": "NaN",
+    "price": "NaN",
+    "revenue": "NaN",
+    "multiple": "NaN"
+  },
+  "listings": []
+}

@@ -69,6 +69,7 @@
     "axios": "^1.11.0",
     "bull": "^4.16.5",
     "cheerio": "^1.1.2",
+    "cluster": "^0.7.7",
     "date-fns": "^3.2.0",
     "dotenv": "^17.2.1",
     "framer-motion": "^10.18.0",
@@ -83,6 +84,9 @@
     "notion-to-md": "^3.1.9",
     "p-limit": "^4.0.0",
     "playwright": "^1.54.1",
+    "puppeteer": "^24.15.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
@@ -92,7 +96,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
-    "user-agents": "^1.1.617",
+    "user-agents": "^1.1.620",
     "winston": "^3.17.0"
   },
   "devDependencies": {

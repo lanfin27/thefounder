@@ -1,0 +1,2946 @@
+{
+  "listings": [
+    {
+      "extractionQuality": 40,
+      "price": 517,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1048,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 50,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7124,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 30
+    },
+    {
+      "extractionQuality": 40,
+      "price": 25,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2118,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4652,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 9305,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10773,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3390,
+      "profitMultiple": 4.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 331021,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2453,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3915,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 150,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2595,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4527,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 17813,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2685,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 33720
+    },
+    {
+      "extractionQuality": 40,
+      "price": 526420,
+      "profitMultiple": 14.29
+    },
+    {
+      "extractionQuality": 40,
+      "price": 100,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 811,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 90,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1110,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 797
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 110
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7999
+    },
+    {
+      "extractionQuality": 25,
+      "price": 0
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4421,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 280,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 17201,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3289,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4309
+    },
+    {
+      "extractionQuality": 40,
+      "price": 78363,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 17,
+      "profitMultiple": 3.06
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7370,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3540
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7576,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 8088,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 8333,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 28568,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 11,
+      "profitMultiple": 4.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 207762,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 21975
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3010,
+      "profitMultiple": 6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3138,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 105984,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2,
+      "profitMultiple": 5.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 95,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 91,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 28,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2318,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 56
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2372,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 50186
+    },
+    {
+      "extractionQuality": 40,
+      "price": 15,
+      "profitMultiple": 0.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 101587,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1200,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4832,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6693,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 14567,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 280386,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4416,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 235523,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1020000
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5776,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 15211,
+      "profitMultiple": 5.12
+    },
+    {
+      "extractionQuality": 40,
+      "price": 710,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7082,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 580,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 871,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 138,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 500000,
+      "profitMultiple": 7.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 18322,
+      "profitMultiple": 6.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 667,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 967,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 482,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 5954
+    },
+    {
+      "extractionQuality": 25,
+      "price": 800
+    },
+    {
+      "extractionQuality": 40,
+      "price": 9632,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 140964,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 124023,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1437000,
+      "profitMultiple": 4.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1000,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 586,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 497748
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1368,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1271,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 38403,
+      "profitMultiple": 6.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6650000,
+      "profitMultiple": 4.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 410,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2496,
+      "profitMultiple": 0.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 500,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 854,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 700000,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1662,
+      "profitMultiple": 5.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 15300000,
+      "profitMultiple": 3.56
+    },
+    {
+      "extractionQuality": 40,
+      "price": 16857,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3048
+    },
+    {
+      "extractionQuality": 40,
+      "price": 8000,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 24554
+    },
+    {
+      "extractionQuality": 40,
+      "price": 841,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 194,
+      "profitMultiple": 4.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 31919,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1256,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 130
+    },
+    {
+      "extractionQuality": 40,
+      "price": 750,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 60,
+      "price": 300,
+      "monthlyRevenue": 700,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6722,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2258,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 38557,
+      "profitMultiple": 5.51
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1817,
+      "profitMultiple": 10
+    },
+    {
+      "extractionQuality": 40,
+      "price": 25798,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 133,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 54715,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 234655
+    },
+    {
+      "extractionQuality": 40,
+      "price": 617,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5207,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3486,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 60,
+      "price": 128,
+      "monthlyRevenue": 1288,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4667,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 683,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5902,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 200,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 166
+    },
+    {
+      "extractionQuality": 40,
+      "price": 951963,
+      "profitMultiple": 6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 121761,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1057
+    },
+    {
+      "extractionQuality": 25,
+      "price": 444
+    },
+    {
+      "extractionQuality": 40,
+      "price": 707,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 57,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 300157,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1044,
+      "profitMultiple": null
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3397,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 77650,
+      "profitMultiple": 0.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1053,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 175502,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 183534,
+      "profitMultiple": 8.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 108183,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 158,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1933,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3357,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1126,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2277220
+    },
+    {
+      "extractionQuality": 40,
+      "price": 637,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 60,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3299999,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 102262,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 613,
+      "profitMultiple": 5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10527,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26142,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 359,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 36270,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1594,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 17975,
+      "profitMultiple": 6.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1287500,
+      "profitMultiple": 3.94
+    },
+    {
+      "extractionQuality": 40,
+      "price": 317,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1404,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 882,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 5100000
+    },
+    {
+      "extractionQuality": 40,
+      "price": 23244,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5000,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 464,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 924,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 101
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5981,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 60,
+      "price": 62,
+      "monthlyRevenue": 624,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 35810,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3288,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 190
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3255,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 700,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 11849,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 87,
+      "profitMultiple": 5.2
+    },
+    {
+      "extractionQuality": 45,
+      "price": 3784,
+      "monthlyRevenue": 3784,
+      "profitMultiple": 0.1
+    },
+    {
+      "extractionQuality": 60,
+      "price": 326,
+      "monthlyRevenue": 3264,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 451,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10262,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 15654,
+      "profitMultiple": 7.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 734239,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 68245,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 14,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1329,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2082,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 684,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 19451,
+      "profitMultiple": 8.74
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10210,
+      "profitMultiple": 5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 73,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5053,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1314,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 54420,
+      "profitMultiple": 6.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2428,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 887,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 9548,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 375000,
+      "profitMultiple": 4.14
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4262157,
+      "profitMultiple": 3.45
+    },
+    {
+      "extractionQuality": 40,
+      "price": 372286,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 23796,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 555,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1075,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 215002,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 533,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 446,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 164,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1093,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 45,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 8,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1327,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5539,
+      "profitMultiple": 5.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 45501,
+      "profitMultiple": 0.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 55,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1737,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2603,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1071,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1568,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2268,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 976,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1095,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 19,
+      "profitMultiple": 5.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7435,
+      "profitMultiple": 0.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7337,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5267,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 117,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 334740,
+      "profitMultiple": 4.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3032,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 250,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 185699,
+      "profitMultiple": 5.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2367,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 603,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 643888,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 181,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 30754,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4659,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26000,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 720,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 740,
+      "profitMultiple": 6.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 18,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3359,
+      "profitMultiple": 4.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 63,
+      "profitMultiple": 7.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 98854,
+      "profitMultiple": 0.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3333,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1971,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 146591,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1066,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 85547,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 850000,
+      "profitMultiple": 7.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 600,
+      "profitMultiple": 5.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1119203,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 170000,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1783,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 453,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1167,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 20,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1719,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 170,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1238,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 16822,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 140,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2059,
+      "profitMultiple": 0.2
+    },
+    {
+      "extractionQuality": 25,
+      "price": 5684
+    },
+    {
+      "extractionQuality": 40,
+      "price": 198526,
+      "profitMultiple": 6.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1400,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 28531,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 330,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 140751,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1751,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 606,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 704,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 477,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 316,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 107647,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 621,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 563,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1343,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 562,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 458,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 28309,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 394,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 23,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 37,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3,
+      "profitMultiple": 4.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 35,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 109,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 11671
+    },
+    {
+      "extractionQuality": 25,
+      "price": 10339
+    },
+    {
+      "extractionQuality": 40,
+      "price": 345,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 98,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 60,
+      "price": 357,
+      "monthlyRevenue": 3578,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1917,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 407,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 505,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 29,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 660,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 106541
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2612,
+      "profitMultiple": 0.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 150310
+    },
+    {
+      "extractionQuality": 40,
+      "price": 666,
+      "profitMultiple": 0.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 223,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4196,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1784,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26239,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2867,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 646,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7112,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 63054,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 25,
+      "price": 23231
+    },
+    {
+      "extractionQuality": 40,
+      "price": 246160,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 290,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 268
+    },
+    {
+      "extractionQuality": 40,
+      "price": 163,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 93656,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1083,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 97,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 127,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 528,
+      "profitMultiple": 4.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 34,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 805,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 550,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 96473,
+      "profitMultiple": 7.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1077,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4911,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3813,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 16799,
+      "profitMultiple": 3.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 139,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 504,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 43685,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 11582,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 277,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6179,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 38,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26907,
+      "profitMultiple": 4.8
+    },
+    {
+      "extractionQuality": 60,
+      "price": 40,
+      "monthlyRevenue": 406,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 53
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4373,
+      "profitMultiple": 6.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 79917,
+      "profitMultiple": 0.2
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1303
+    },
+    {
+      "extractionQuality": 40,
+      "price": 25694,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 365,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2575,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7757,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 13,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 679,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3985,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 816,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 47661,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 32952,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 172990,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3725,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2146
+    },
+    {
+      "extractionQuality": 40,
+      "price": 22500,
+      "profitMultiple": 6.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 502,
+      "profitMultiple": 4.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 604,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1631,
+      "profitMultiple": 3.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7398,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 28333
+    },
+    {
+      "extractionQuality": 40,
+      "price": 49671,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 295,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 14030329,
+      "profitMultiple": 6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 645,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 45,
+      "price": 42,
+      "monthlyRevenue": 9,
+      "profitMultiple": 0.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3462,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 730,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26129,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 534,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 625,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 425,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3600,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 380,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 10250
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4627,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 33,
+      "profitMultiple": 5.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 372,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 22,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4376,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 58,
+      "profitMultiple": 6.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 535,
+      "profitMultiple": 5.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 136,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 80,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1916,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 333,
+      "profitMultiple": 3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 384,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 18902,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 26163
+    },
+    {
+      "extractionQuality": 40,
+      "price": 24437,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7803,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2556,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 724,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1218,
+      "profitMultiple": 0.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2907,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 3625,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 191,
+      "profitMultiple": 4.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 598,
+      "profitMultiple": 5.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 22133,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 202
+    },
+    {
+      "extractionQuality": 25,
+      "price": 131
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2830,
+      "profitMultiple": 2.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 552
+    },
+    {
+      "extractionQuality": 25,
+      "price": 6589
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1833,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1135,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1500,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1113,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4066,
+      "profitMultiple": 0.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 28693,
+      "profitMultiple": 1.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1882,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 212915,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 60,
+      "price": 8983,
+      "monthlyRevenue": 8983,
+      "profitMultiple": 0.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4219,
+      "profitMultiple": 7.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 33776,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1850
+    },
+    {
+      "extractionQuality": 40,
+      "price": 49973,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1115,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4056,
+      "profitMultiple": 4.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 37707,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 656,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 174
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1294,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 12,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 142378,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 358,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 804,
+      "profitMultiple": 0.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 248,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 177,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 44
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5371,
+      "profitMultiple": 1.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 12112,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2743,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 485,
+      "profitMultiple": 2.6
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1000000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1456
+    },
+    {
+      "extractionQuality": 40,
+      "price": 262,
+      "profitMultiple": 4.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 106,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 985,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 96868
+    },
+    {
+      "extractionQuality": 40,
+      "price": 52,
+      "profitMultiple": 4.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 348
+    },
+    {
+      "extractionQuality": 40,
+      "price": 123,
+      "profitMultiple": 1.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 186,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 70,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 268660,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 467,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1935,
+      "profitMultiple": 3.2
+    },
+    {
+      "extractionQuality": 25,
+      "price": 214
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2000,
+      "profitMultiple": 2.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 22831,
+      "profitMultiple": 7.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1961,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 15000,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4714,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1820,
+      "profitMultiple": 0.3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 36
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7536,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 662,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 178,
+      "profitMultiple": 4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 5451,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 45,
+      "price": 21,
+      "monthlyRevenue": 210,
+      "profitMultiple": 0
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1191,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6416,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 39,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 218,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2092,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 12322,
+      "profitMultiple": 6.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1147,
+      "profitMultiple": 0.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 238,
+      "profitMultiple": 2.4
+    },
+    {
+      "extractionQuality": 40,
+      "price": 12305,
+      "profitMultiple": 2.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 615,
+      "profitMultiple": 0.3
+    },
+    {
+      "extractionQuality": 40,
+      "price": 239,
+      "profitMultiple": 7.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 25000
+    },
+    {
+      "extractionQuality": 40,
+      "price": 229,
+      "profitMultiple": 3.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 215,
+      "profitMultiple": 0.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 49
+    },
+    {
+      "extractionQuality": 40,
+      "price": 30052,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 93,
+      "profitMultiple": 0.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 19682,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1745
+    },
+    {
+      "extractionQuality": 40,
+      "price": 97829,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 275
+    },
+    {
+      "extractionQuality": 40,
+      "price": 65,
+      "profitMultiple": 5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4999
+    },
+    {
+      "extractionQuality": 40,
+      "price": 249,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6478,
+      "profitMultiple": 0.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2800
+    },
+    {
+      "extractionQuality": 40,
+      "price": 13540,
+      "profitMultiple": 1.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 11210,
+      "profitMultiple": 3.5
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1804,
+      "profitMultiple": 0.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1269,
+      "profitMultiple": 3.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4090
+    },
+    {
+      "extractionQuality": 25,
+      "price": 22320
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3999
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2500
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3236
+    },
+    {
+      "extractionQuality": 40,
+      "price": 75,
+      "profitMultiple": 3.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1875,
+      "profitMultiple": 2.3
+    },
+    {
+      "extractionQuality": 25,
+      "price": 961908
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1017,
+      "profitMultiple": 4.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 167,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 668,
+      "profitMultiple": 0.5
+    },
+    {
+      "extractionQuality": 25,
+      "price": 210
+    },
+    {
+      "extractionQuality": 25,
+      "price": 902053
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1298
+    },
+    {
+      "extractionQuality": 40,
+      "price": 4900,
+      "profitMultiple": 4.7
+    },
+    {
+      "extractionQuality": 40,
+      "price": 207,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 583,
+      "profitMultiple": 7.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1219,
+      "profitMultiple": 1.2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1111,
+      "profitMultiple": 0.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 833
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1143,
+      "profitMultiple": 4.4
+    },
+    {
+      "extractionQuality": 60,
+      "price": 129,
+      "monthlyRevenue": 129,
+      "profitMultiple": 1.8
+    },
+    {
+      "extractionQuality": 40,
+      "price": 47147,
+      "profitMultiple": 1.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 431
+    },
+    {
+      "extractionQuality": 40,
+      "price": 775,
+      "profitMultiple": 1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 687,
+      "profitMultiple": 4.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 33197
+    },
+    {
+      "extractionQuality": 25,
+      "price": 71
+    },
+    {
+      "extractionQuality": 40,
+      "price": 409,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 25,
+      "price": 8323
+    },
+    {
+      "extractionQuality": 40,
+      "price": 6646,
+      "profitMultiple": 4.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 3500
+    },
+    {
+      "extractionQuality": 25,
+      "price": 6800
+    },
+    {
+      "extractionQuality": 40,
+      "price": 205,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 40,
+      "price": 12435,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 2138,
+      "profitMultiple": 2
+    },
+    {
+      "extractionQuality": 40,
+      "price": 7913,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 25,
+      "price": 79
+    },
+    {
+      "extractionQuality": 25,
+      "price": 48
+    },
+    {
+      "extractionQuality": 25,
+      "price": 953
+    },
+    {
+      "extractionQuality": 25,
+      "price": 112
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1600,
+      "profitMultiple": 1.6
+    },
+    {
+      "extractionQuality": 40,
+      "price": 677,
+      "profitMultiple": 2.7
+    },
+    {
+      "extractionQuality": 25,
+      "price": 26425
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 6000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2999
+    },
+    {
+      "extractionQuality": 25,
+      "price": 155
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2499
+    },
+    {
+      "extractionQuality": 25,
+      "price": 950
+    },
+    {
+      "extractionQuality": 25,
+      "price": 945
+    },
+    {
+      "extractionQuality": 40,
+      "price": 169,
+      "profitMultiple": 3.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 9996
+    },
+    {
+      "extractionQuality": 40,
+      "price": 1449,
+      "profitMultiple": 2.1
+    },
+    {
+      "extractionQuality": 40,
+      "price": 825,
+      "profitMultiple": 3.8
+    },
+    {
+      "extractionQuality": 25,
+      "price": 42281
+    },
+    {
+      "extractionQuality": 40,
+      "price": 26,
+      "profitMultiple": 60
+    },
+    {
+      "extractionQuality": 40,
+      "price": 21818,
+      "profitMultiple": 2.9
+    },
+    {
+      "extractionQuality": 25,
+      "price": 5766
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1995
+    },
+    {
+      "extractionQuality": 25,
+      "price": 27
+    },
+    {
+      "extractionQuality": 25,
+      "price": 999
+    },
+    {
+      "extractionQuality": 25,
+      "price": 43551
+    },
+    {
+      "extractionQuality": 25,
+      "price": 24
+    },
+    {
+      "extractionQuality": 40,
+      "price": 182,
+      "profitMultiple": 1.4
+    },
+    {
+      "extractionQuality": 25,
+      "price": 315
+    },
+    {
+      "extractionQuality": 25,
+      "price": 9999
+    },
+    {
+      "extractionQuality": 25,
+      "price": 99
+    },
+    {
+      "extractionQuality": 40,
+      "price": 10248,
+      "profitMultiple": 4.2
+    },
+    {
+      "extractionQuality": 25,
+      "price": 10036
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4677
+    },
+    {
+      "extractionQuality": 25,
+      "price": 10000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 50000
+    },
+    {
+      "extractionQuality": 40,
+      "price": 82,
+      "profitMultiple": 7.1
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7499
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7900
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1554
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2782
+    },
+    {
+      "extractionQuality": 25,
+      "price": 417
+    },
+    {
+      "extractionQuality": 25,
+      "price": 8394
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7500
+    },
+    {
+      "extractionQuality": 25,
+      "price": 701
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1700
+    },
+    {
+      "extractionQuality": 25,
+      "price": 76
+    },
+    {
+      "extractionQuality": 25,
+      "price": 548
+    },
+    {
+      "extractionQuality": 25,
+      "price": 13531
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1159
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4636
+    },
+    {
+      "extractionQuality": 25,
+      "price": 597
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2100
+    },
+    {
+      "extractionQuality": 25,
+      "price": 4250
+    },
+    {
+      "extractionQuality": 25,
+      "price": 41100
+    },
+    {
+      "extractionQuality": 25,
+      "price": 899
+    },
+    {
+      "extractionQuality": 25,
+      "price": 9981
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2150
+    },
+    {
+      "extractionQuality": 25,
+      "price": 850
+    },
+    {
+      "extractionQuality": 40,
+      "price": 492,
+      "profitMultiple": 7.6
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7700
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7000
+    },
+    {
+      "extractionQuality": 40,
+      "price": 83,
+      "profitMultiple": 0.6
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2657
+    },
+    {
+      "extractionQuality": 25,
+      "price": 400
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7599
+    },
+    {
+      "extractionQuality": 25,
+      "price": 89
+    },
+    {
+      "extractionQuality": 25,
+      "price": 80000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 341
+    },
+    {
+      "extractionQuality": 25,
+      "price": 336
+    },
+    {
+      "extractionQuality": 25,
+      "price": 226
+    },
+    {
+      "extractionQuality": 25,
+      "price": 234
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7800
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1800
+    },
+    {
+      "extractionQuality": 25,
+      "price": 9970
+    },
+    {
+      "extractionQuality": 25,
+      "price": 7275
+    },
+    {
+      "extractionQuality": 25,
+      "price": 19000
+    },
+    {
+      "extractionQuality": 25,
+      "price": 2850
+    },
+    {
+      "extractionQuality": 25,
+      "price": 6641
+    },
+    {
+      "extractionQuality": 25,
+      "price": 350
+    },
+    {
+      "extractionQuality": 25,
+      "price": 6500
+    },
+    {
+      "extractionQuality": 25,
+      "price": 1009
+    }
+  ],
+  "stats": {
+    "startTime": 1754225812043,
+    "pagesProcessed": 95,
+    "emptyPages": 0,
+    "errors": 0
+  },
+  "qualityRates": {
+    "title": 0,
+    "price": 99.836867862969,
+    "revenue": 1.794453507340946,
+    "multiple": 75.85644371941272
+  }
+}

@@ -1,105 +1,178 @@
-// Test the adaptive scraper directly
-require('dotenv').config({ path: '.env.local' });
-const AdaptiveScraper = require('../src/lib/scraping/adaptive-scraper');
+/**
+ * Test script for adaptive marketplace scraping
+ * Demonstrates how the system handles dynamic marketplace changes
+ */
 
-async function testAdaptiveScraper() {
-  console.log('🧪 Testing Adaptive Scraper Directly');
-  console.log('=' .repeat(60));
+const AdaptiveFlippaScraper = require('./flippa-scraper-adaptive');
+const MarketplaceTracker = require('./marketplace-tracker');
+const winston = require('winston');
+
+// Create test logger
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.simple(),
+  transports: [new winston.transports.Console()]
+});
+
+async function testAdaptiveFeatures() {
+  console.log('🧪 ADAPTIVE SCRAPER TEST SUITE\n');
   
-  console.log('Environment check:');
-  console.log(`USE_ADAPTIVE_SCRAPER: ${process.env.USE_ADAPTIVE_SCRAPER}`);
-  console.log(`SCRAPING_HEADLESS: ${process.env.SCRAPING_HEADLESS}`);
+  // Test 1: Marketplace detection strategies
+  console.log('📋 Test 1: Marketplace Detection Strategies');
+  console.log('='.repeat(50));
   
-  try {
-    console.log('\n🚀 Initializing adaptive scraper...');
-    const scraper = new AdaptiveScraper({
-      headless: process.env.SCRAPING_HEADLESS !== 'false',
-      adaptationLevel: 'aggressive',
-      learningEnabled: true,
-      timeout: 60000, // 60 seconds
-      waitUntil: 'domcontentloaded'
+  const tracker = new MarketplaceTracker(logger);
+  
+  // Simulate different marketplace states
+  const simulatedStates = [
+    { total: 5635, source: 'pagination', confidence: 0.9 },
+    { total: 5640, source: 'total_count', confidence: 0.95 },
+    { total: 5650, source: 'api_hints', confidence: 0.88 }
+  ];
+  
+  simulatedStates.forEach(state => {
+    tracker.addToHistory({
+      totalListings: state.total,
+      confidence: state.confidence,
+      sources: { [state.source]: state },
+      timestamp: new Date().toISOString()
     });
-    
-    console.log('✅ Scraper initialized');
-    
-    const testUrl = 'https://flippa.com/search?filter[property_type]=saas';
-    console.log(`\n🌐 Testing URL: ${testUrl}`);
-    
-    // Define what we're looking for
-    const targetData = {
-      listings: {
-        isArray: true,
-        fields: {
-          price: { min: 1000, max: 10000000 },
-          title: { pattern: '.+' },
-          revenue: { min: 0, max: 10000000 }
-        }
-      }
-    };
-    
-    console.log('\n📡 Starting scrape...');
-    const startTime = Date.now();
-    
-    try {
-      const result = await scraper.scrapeWithAdaptation(testUrl, targetData);
-      const duration = Date.now() - startTime;
-      
-      console.log(`\n✅ Scraping completed in ${duration}ms`);
-      console.log('\nResult summary:');
-      console.log(`Success: ${result.success}`);
-      console.log(`Confidence: ${result.metadata?.confidence}%`);
-      console.log(`Strategies used: ${result.metadata?.strategiesUsed?.join(', ')}`);
-      
-      if (result.data && result.data.listings) {
-        const listings = Array.isArray(result.data.listings) 
-          ? result.data.listings 
-          : [result.data];
-        
-        console.log(`\n📋 Found ${listings.length} listings:`);
-        
-        listings.slice(0, 5).forEach((item, i) => {
-          console.log(`\n${i + 1}. ${item.title || 'No title'}`);
-          console.log(`   Price: ${item.price?.value || item.price || 'N/A'}`);
-          console.log(`   Revenue: ${item.revenue?.value || item.revenue || 'N/A'}`);
-          console.log(`   URL: ${item.url?.value || item.url || 'N/A'}`);
-        });
-      } else {
-        console.log('\n❌ No listings found in result');
-        console.log('Full result:', JSON.stringify(result, null, 2));
-      }
-      
-    } catch (scrapeError) {
-      console.log('\n❌ Scraping failed:', scrapeError.message);
-      console.log('Stack:', scrapeError.stack);
-    }
-    
-    // Test a simpler page to verify Playwright works
-    console.log('\n\n🧪 Testing simple page to verify Playwright...');
-    try {
-      const simpleResult = await scraper.browser.newPage();
-      await simpleResult.goto('https://example.com');
-      const title = await simpleResult.title();
-      console.log(`✅ Playwright works! Page title: ${title}`);
-      await simpleResult.close();
-    } catch (error) {
-      console.log('❌ Playwright test failed:', error.message);
-    }
-    
-    // Clean up
-    await scraper.close();
-    
-  } catch (error) {
-    console.log('\n💥 Test failed:', error.message);
-    console.log('Stack:', error.stack);
+  });
+  
+  const velocity = tracker.getMarketplaceVelocity();
+  console.log(`\nMarketplace velocity: ${velocity.toFixed(2)} listings/hour`);
+  console.log(`Recommendation: ${tracker.getRecommendation()}`);
+  
+  // Test 2: Completeness analysis
+  console.log('\n📋 Test 2: Completeness Analysis');
+  console.log('='.repeat(50));
+  
+  // Simulate scraped listings
+  const mockListings = [];
+  for (let i = 1; i <= 5000; i++) {
+    mockListings.push({
+      id: `listing_${i}`,
+      pageNumber: Math.ceil(i / 25)
+    });
   }
   
-  console.log('\n' + '=' .repeat(60));
-  console.log('💡 Debugging tips:');
-  console.log('1. If Playwright fails, check if Chrome/Chromium is installed');
-  console.log('2. Try setting SCRAPING_HEADLESS=false to see the browser');
-  console.log('3. Check if Flippa is blocking automated access');
-  console.log('4. Review logs for specific error messages');
+  const completeness = tracker.analyzeCompleteness(mockListings, 5635);
+  console.log(`\nCompleteness: ${completeness.percentage}%`);
+  console.log(`Scraped: ${completeness.scrapedCount}`);
+  console.log(`Expected: ${completeness.expectedTotal}`);
+  console.log(`Missing pages: ${completeness.missingPages.slice(0, 10).join(', ')}...`);
+  console.log(`Target achieved: ${completeness.complete ? 'YES' : 'NO'}`);
+  
+  // Test 3: Adaptive delay calculation
+  console.log('\n📋 Test 3: Adaptive Delay Strategy');
+  console.log('='.repeat(50));
+  
+  const scraper = new AdaptiveFlippaScraper({ headless: true });
+  
+  const testPages = [1, 5, 10, 20, 50, 100];
+  console.log('\nPage delays:');
+  testPages.forEach(page => {
+    const delay = scraper.calculateAdaptiveDelay(page, 2500);
+    console.log(`  Page ${page}: ${(delay/1000).toFixed(1)}s delay`);
+  });
+  
+  // Test 4: Stop conditions
+  console.log('\n📋 Test 4: Dynamic Stop Conditions');
+  console.log('='.repeat(50));
+  
+  const strategies = [
+    { type: 'fixed_pages', pages: 10, description: 'Fixed 10 pages' },
+    { type: 'standard', pages: 226, description: 'Standard mode' },
+    { type: 'aggressive', pages: 236, description: 'Aggressive mode' },
+    { type: 'exploratory', pages: 100, description: 'Exploratory mode' }
+  ];
+  
+  strategies.forEach(strategy => {
+    console.log(`\nStrategy: ${strategy.description}`);
+    console.log(`  Should stop at page 230: ${scraper.shouldStopScraping(230, strategy, 0)}`);
+    console.log(`  Should stop at page 240: ${scraper.shouldStopScraping(240, strategy, 0)}`);
+    console.log(`  Should stop with 5 empty pages: ${scraper.shouldStopScraping(50, strategy, 5)}`);
+  });
+  
+  // Test 5: Marketplace change detection
+  console.log('\n📋 Test 5: Marketplace Change Detection');
+  console.log('='.repeat(50));
+  
+  const changeTracker = new MarketplaceTracker(logger);
+  
+  // Simulate marketplace changes
+  const timestamps = [
+    new Date(Date.now() - 3600000), // 1 hour ago
+    new Date(Date.now() - 1800000), // 30 min ago
+    new Date()                       // now
+  ];
+  
+  const counts = [5000, 5100, 5300]; // Rapid growth
+  
+  counts.forEach((count, i) => {
+    changeTracker.addToHistory({
+      totalListings: count,
+      timestamp: timestamps[i].toISOString(),
+      confidence: 0.95
+    });
+  });
+  
+  console.log(`\nMarketplace changed: ${changeTracker.hasMarketplaceChanged()}`);
+  console.log(`Growth rate: ${changeTracker.getMarketplaceVelocity().toFixed(2)} listings/hour`);
+  
+  const prediction = changeTracker.predictNaturalEnd(200, 25);
+  if (prediction) {
+    console.log(`\nNatural end prediction:`);
+    console.log(`  Expected last page: ${prediction.expectedLastPage}`);
+    console.log(`  Buffer pages: ${prediction.bufferPages}`);
+    console.log(`  Recommended stop: page ${prediction.recommendedStopPage}`);
+  }
 }
 
-// Run the test
-testAdaptiveScraper().catch(console.error);
+async function runLiveTest() {
+  console.log('\n\n🚀 LIVE ADAPTIVE SCRAPING TEST');
+  console.log('='.repeat(60));
+  console.log('This will run a real adaptive scraping session with:');
+  console.log('  - Dynamic marketplace detection');
+  console.log('  - Adaptive page limits');
+  console.log('  - Real-time completeness tracking');
+  console.log('  - Automatic stop when 95% complete\n');
+  
+  const scraper = new AdaptiveFlippaScraper({
+    headless: false, // Show browser for demo
+    adaptiveMode: true,
+    completenessTarget: 0.95,
+    recheckInterval: 10 // Check more frequently for demo
+  });
+  
+  try {
+    const baseUrl = 'https://flippa.com/search?filter[property_type][]=website';
+    const results = await scraper.scrapeAdaptive(baseUrl);
+    
+    console.log('\n✅ Test completed successfully!');
+    console.log(`Total listings: ${results.listings.length}`);
+    console.log(`Completeness: ${results.completeness.percentage}%`);
+    console.log(`Pages processed: ${results.stats.pagesProcessed}`);
+    
+  } catch (error) {
+    console.error('❌ Test failed:', error.message);
+  }
+}
+
+// Main execution
+async function main() {
+  const args = process.argv.slice(2);
+  
+  if (args.includes('--live')) {
+    await runLiveTest();
+  } else {
+    await testAdaptiveFeatures();
+    console.log('\n\n💡 Run with --live flag to test real adaptive scraping');
+  }
+}
+
+if (require.main === module) {
+  main().catch(console.error);
+}
+
+module.exports = { testAdaptiveFeatures, runLiveTest };

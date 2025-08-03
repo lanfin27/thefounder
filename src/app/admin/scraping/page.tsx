@@ -62,6 +62,12 @@ export default function ScrapingDashboard() {
   const [isScrapingRunning, setIsScrapingRunning] = useState(false)
   const [scrapingJobId, setScrapingJobId] = useState<string | null>(null)
   const [scrapingStatus, setScrapingStatus] = useState<string>('')
+  const [scrapingProgress, setScrapingProgress] = useState({
+    currentPage: 0,
+    listingsFound: 0,
+    marketplaceSize: null as number | null,
+    completeness: 0
+  })
 
   const loadMetrics = async () => {
     setIsLoading(true)
@@ -132,24 +138,45 @@ export default function ScrapingDashboard() {
     if (scrapingJobId && isScrapingRunning) {
       const jobCheckInterval = setInterval(async () => {
         try {
-          const response = await fetch(`/api/scraping/run?jobId=${scrapingJobId}`)
+          const response = await fetch(`/api/scraping/run-unified?jobId=${scrapingJobId}`)
           const data = await response.json()
           
           if (data.success) {
+            // Update progress
+            setScrapingProgress({
+              currentPage: data.job.currentPage || 0,
+              listingsFound: data.job.listingsFound || 0,
+              marketplaceSize: data.job.marketplaceSize || null,
+              completeness: data.job.completeness || 0
+            })
+            
+            // Update status message
             if (data.job.currentPage > 0) {
-              setScrapingStatus(`🔄 Page ${data.job.currentPage}/${data.job.pages} - ${data.job.listingsFound} listings found`)
+              let statusMsg = `🔄 Page ${data.job.currentPage} - ${data.job.listingsFound} listings found`
+              
+              if (data.job.marketplaceSize) {
+                statusMsg += ` (${data.job.completeness.toFixed(1)}% of ${data.job.marketplaceSize} total)`
+              }
+              
+              setScrapingStatus(statusMsg)
             }
             
             if (data.job.status === 'completed') {
               setIsScrapingRunning(false)
               setScrapingJobId(null)
-              setScrapingStatus('✅ Scraping completed successfully!')
+              setScrapingStatus(`✅ Scraping completed! ${data.job.listingsFound} listings collected (${data.job.completeness}% completeness)`)
               
               // Auto-refresh data after successful scraping
               setTimeout(() => {
                 loadMetrics()
                 setScrapingStatus('')
-              }, 2000)
+                setScrapingProgress({
+                  currentPage: 0,
+                  listingsFound: 0,
+                  marketplaceSize: null,
+                  completeness: 0
+                })
+              }, 3000)
               
               clearInterval(jobCheckInterval)
             } else if (data.job.status === 'failed') {
@@ -182,18 +209,22 @@ export default function ScrapingDashboard() {
 
   const handleRunScraper = async () => {
     setIsScrapingRunning(true)
-    setScrapingStatus('🚀 Starting scraper...')
+    setScrapingStatus('🚀 Starting intelligent scraper...')
+    setScrapingProgress({
+      currentPage: 0,
+      listingsFound: 0,
+      marketplaceSize: null,
+      completeness: 0
+    })
     
     try {
-      const response = await fetch('/api/scraping/run', {
+      const response = await fetch('/api/scraping/run-unified', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          pages: 10,
-          mode: 'comprehensive',
-          priority: 'normal'
+          fast: false // Normal speed for respectful scraping
         })
       })
       
@@ -201,8 +232,8 @@ export default function ScrapingDashboard() {
       
       if (data.success) {
         setScrapingJobId(data.jobId)
-        setScrapingStatus(`🔄 Scraping in progress... (${data.expectedListings} listings expected)`)
-        console.log(`🚀 Scraping job started: ${data.jobId}`)
+        setScrapingStatus('🔍 Detecting marketplace size and starting collection...')
+        console.log(`🚀 Unified scraping job started: ${data.jobId}`)
       } else {
         setIsScrapingRunning(false)
         setScrapingStatus(`❌ Failed to start: ${data.error}`)
@@ -307,16 +338,16 @@ export default function ScrapingDashboard() {
                 <div className="flex items-center gap-2">
                   {getStatusBadge(isScrapingRunning ? 'running' : systemStatus.scraper.status)}
                   
-                  {/* TWO-BUTTON SYSTEM */}
-                  <div className="flex flex-col gap-1">
+                  {/* UNIFIED BUTTON SYSTEM */}
+                  <div className="flex gap-2">
                     <Button 
                       size="sm" 
                       variant="secondary"
                       onClick={handleRefreshData}
                       disabled={isRefreshing}
-                      className="text-xs px-2 py-1"
+                      className="text-xs px-3 py-1"
                     >
-                      {isRefreshing ? '🔄 Refreshing...' : '📊 Refresh Data'}
+                      {isRefreshing ? '🔄 Refreshing...' : '📊 Refresh'}
                     </Button>
                     
                     <Button 
@@ -324,7 +355,7 @@ export default function ScrapingDashboard() {
                       variant="primary"
                       onClick={handleRunScraper}
                       disabled={isScrapingRunning || isRefreshing}
-                      className="text-xs px-2 py-1"
+                      className="text-xs px-3 py-1"
                     >
                       {isScrapingRunning ? '⏳ Running...' : '🚀 Run Scraper'}
                     </Button>
@@ -335,19 +366,57 @@ export default function ScrapingDashboard() {
           </Card>
         </div>
 
-        {/* Scraping Progress Indicator - NEW */}
+        {/* Scraping Progress Indicator - ENHANCED */}
         {isScrapingRunning && (
           <Card className="mb-8 border-blue-200 bg-blue-50">
             <CardContent>
-              <div className="flex items-center justify-between py-4">
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-700">🚀 Scraping in Progress</h3>
-                  <p className="text-blue-600">{scrapingStatus}</p>
-                  <p className="text-sm text-blue-500">Job ID: {scrapingJobId}</p>
+              <div className="py-4">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-blue-700">🚀 Intelligent Scraping in Progress</h3>
+                    <p className="text-blue-600">{scrapingStatus}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                  <div>
+                    <span className="text-blue-500">Current Page:</span>
+                    <span className="ml-1 font-medium text-blue-700">{scrapingProgress.currentPage}</span>
+                  </div>
+                  <div>
+                    <span className="text-blue-500">Listings Found:</span>
+                    <span className="ml-1 font-medium text-blue-700">{scrapingProgress.listingsFound}</span>
+                  </div>
+                  <div>
+                    <span className="text-blue-500">Marketplace Size:</span>
+                    <span className="ml-1 font-medium text-blue-700">
+                      {scrapingProgress.marketplaceSize || 'Detecting...'}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-blue-500">Completeness:</span>
+                    <span className="ml-1 font-medium text-blue-700">
+                      {scrapingProgress.completeness > 0 ? `${scrapingProgress.completeness}%` : 'Calculating...'}
+                    </span>
+                  </div>
                 </div>
+                
+                {scrapingProgress.completeness > 0 && (
+                  <div className="mt-3">
+                    <Progress 
+                      value={scrapingProgress.completeness} 
+                      label="Collection Progress"
+                      className="h-2"
+                    />
+                  </div>
+                )}
+                
+                <p className="text-xs text-blue-500 mt-2">
+                  Job ID: {scrapingJobId} | No fixed limits - adapts to actual marketplace size
+                </p>
               </div>
             </CardContent>
           </Card>
