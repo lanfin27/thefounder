@@ -1,0 +1,642 @@
+{
+  "sqlite": {
+    "data/flippa_baseline.db": {
+      "tables": {
+        "sqlite_stat1": {
+          "recordCount": 16,
+          "columns": [
+            {
+              "name": "tbl",
+              "type": ""
+            },
+            {
+              "name": "idx",
+              "type": ""
+            },
+            {
+              "name": "stat",
+              "type": ""
+            }
+          ]
+        },
+        "baseline_listings": {
+          "recordCount": 5636,
+          "columns": [
+            {
+              "name": "id",
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "type": "TEXT"
+            },
+            {
+              "name": "property_type",
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "type": "TEXT"
+            },
+            {
+              "name": "price",
+              "type": "REAL"
+            },
+            {
+              "name": "listing_url",
+              "type": "TEXT"
+            },
+            {
+              "name": "end_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "created_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "monthly_revenue",
+              "type": "REAL"
+            },
+            {
+              "name": "monthly_profit",
+              "type": "REAL"
+            },
+            {
+              "name": "business_age",
+              "type": "TEXT"
+            },
+            {
+              "name": "industry",
+              "type": "TEXT"
+            },
+            {
+              "name": "location",
+              "type": "TEXT"
+            },
+            {
+              "name": "seller_name",
+              "type": "TEXT"
+            },
+            {
+              "name": "views",
+              "type": "INTEGER"
+            },
+            {
+              "name": "watchers",
+              "type": "INTEGER"
+            },
+            {
+              "name": "bids",
+              "type": "INTEGER"
+            },
+            {
+              "name": "data_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "imported_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "last_updated",
+              "type": "DATETIME"
+            },
+            {
+              "name": "is_active",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "row_number",
+              "type": "INTEGER"
+            }
+          ]
+        },
+        "tracking_log": {
+          "recordCount": 5636,
+          "columns": [
+            {
+              "name": "log_id",
+              "type": "INTEGER"
+            },
+            {
+              "name": "listing_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "action",
+              "type": "TEXT"
+            },
+            {
+              "name": "field_name",
+              "type": "TEXT"
+            },
+            {
+              "name": "old_value",
+              "type": "TEXT"
+            },
+            {
+              "name": "new_value",
+              "type": "TEXT"
+            },
+            {
+              "name": "change_timestamp",
+              "type": "DATETIME"
+            },
+            {
+              "name": "change_source",
+              "type": "TEXT"
+            },
+            {
+              "name": "change_metadata",
+              "type": "TEXT"
+            }
+          ]
+        },
+        "sqlite_sequence": {
+          "recordCount": 2,
+          "columns": [
+            {
+              "name": "name",
+              "type": ""
+            },
+            {
+              "name": "seq",
+              "type": ""
+            }
+          ]
+        },
+        "import_history": {
+          "recordCount": 1,
+          "columns": [
+            {
+              "name": "import_id",
+              "type": "INTEGER"
+            },
+            {
+              "name": "filename",
+              "type": "TEXT"
+            },
+            {
+              "name": "import_timestamp",
+              "type": "DATETIME"
+            },
+            {
+              "name": "total_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "imported_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "duplicate_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "error_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "import_duration_ms",
+              "type": "INTEGER"
+            },
+            {
+              "name": "batches_processed",
+              "type": "INTEGER"
+            },
+            {
+              "name": "import_metadata",
+              "type": "TEXT"
+            }
+          ]
+        },
+        "duplicate_prevention": {
+          "recordCount": 5636,
+          "columns": [
+            {
+              "name": "hash_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "listing_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "title_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "url_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "content_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "first_seen",
+              "type": "DATETIME"
+            },
+            {
+              "name": "last_seen",
+              "type": "DATETIME"
+            },
+            {
+              "name": "occurrence_count",
+              "type": "INTEGER"
+            }
+          ]
+        }
+      }
+    },
+    "data/flippa_baseline_large.db": {
+      "tables": {
+        "baseline_listings": {
+          "recordCount": 0,
+          "columns": [
+            {
+              "name": "id",
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "type": "TEXT"
+            },
+            {
+              "name": "property_type",
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "type": "TEXT"
+            },
+            {
+              "name": "price",
+              "type": "REAL"
+            },
+            {
+              "name": "listing_url",
+              "type": "TEXT"
+            },
+            {
+              "name": "end_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "created_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "monthly_revenue",
+              "type": "REAL"
+            },
+            {
+              "name": "monthly_profit",
+              "type": "REAL"
+            },
+            {
+              "name": "business_age",
+              "type": "TEXT"
+            },
+            {
+              "name": "industry",
+              "type": "TEXT"
+            },
+            {
+              "name": "location",
+              "type": "TEXT"
+            },
+            {
+              "name": "seller_name",
+              "type": "TEXT"
+            },
+            {
+              "name": "views",
+              "type": "INTEGER"
+            },
+            {
+              "name": "watchers",
+              "type": "INTEGER"
+            },
+            {
+              "name": "bids",
+              "type": "INTEGER"
+            },
+            {
+              "name": "auction_type",
+              "type": "TEXT"
+            },
+            {
+              "name": "data_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "imported_at",
+              "type": "DATETIME"
+            },
+            {
+              "name": "last_updated",
+              "type": "DATETIME"
+            },
+            {
+              "name": "is_active",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "row_number",
+              "type": "INTEGER"
+            }
+          ]
+        },
+        "tracking_log": {
+          "recordCount": 0,
+          "columns": [
+            {
+              "name": "log_id",
+              "type": "INTEGER"
+            },
+            {
+              "name": "listing_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "action",
+              "type": "TEXT"
+            },
+            {
+              "name": "field_name",
+              "type": "TEXT"
+            },
+            {
+              "name": "old_value",
+              "type": "TEXT"
+            },
+            {
+              "name": "new_value",
+              "type": "TEXT"
+            },
+            {
+              "name": "change_timestamp",
+              "type": "DATETIME"
+            },
+            {
+              "name": "change_source",
+              "type": "TEXT"
+            },
+            {
+              "name": "change_metadata",
+              "type": "TEXT"
+            },
+            {
+              "name": "batch_id",
+              "type": "TEXT"
+            }
+          ]
+        },
+        "sqlite_sequence": {
+          "recordCount": 0,
+          "columns": [
+            {
+              "name": "name",
+              "type": ""
+            },
+            {
+              "name": "seq",
+              "type": ""
+            }
+          ]
+        },
+        "import_history": {
+          "recordCount": 0,
+          "columns": [
+            {
+              "name": "import_id",
+              "type": "INTEGER"
+            },
+            {
+              "name": "filename",
+              "type": "TEXT"
+            },
+            {
+              "name": "import_timestamp",
+              "type": "DATETIME"
+            },
+            {
+              "name": "total_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "imported_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "duplicate_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "error_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "skipped_rows",
+              "type": "INTEGER"
+            },
+            {
+              "name": "import_duration_ms",
+              "type": "INTEGER"
+            },
+            {
+              "name": "batches_processed",
+              "type": "INTEGER"
+            },
+            {
+              "name": "average_batch_time_ms",
+              "type": "INTEGER"
+            },
+            {
+              "name": "memory_peak_mb",
+              "type": "REAL"
+            },
+            {
+              "name": "import_metadata",
+              "type": "TEXT"
+            }
+          ]
+        },
+        "duplicate_prevention": {
+          "recordCount": 0,
+          "columns": [
+            {
+              "name": "hash_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "listing_id",
+              "type": "TEXT"
+            },
+            {
+              "name": "title_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "url_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "content_hash",
+              "type": "TEXT"
+            },
+            {
+              "name": "first_seen",
+              "type": "DATETIME"
+            },
+            {
+              "name": "last_seen",
+              "type": "DATETIME"
+            },
+            {
+              "name": "occurrence_count",
+              "type": "INTEGER"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "supabase": {
+    "flippa_listings_enhanced": {
+      "exists": true,
+      "recordCount": 5635,
+      "columns": [
+        "id",
+        "listing_url",
+        "category",
+        "country_name",
+        "currency_label",
+        "end_at",
+        "established_at",
+        "formatted_age_in_years",
+        "key_data_0_label",
+        "key_data_0_value",
+        "key_data_1_label",
+        "key_data_1_value",
+        "key_data_2_label",
+        "key_data_2_value",
+        "key_data_3_label",
+        "key_data_3_value",
+        "key_data_4_label",
+        "key_data_4_value",
+        "monetization",
+        "multiple",
+        "price",
+        "primary_platform",
+        "profit_average",
+        "property_name",
+        "property_type",
+        "revenue_average",
+        "revenue_multiple",
+        "sale_method",
+        "sale_method_title",
+        "status",
+        "summary",
+        "title",
+        "first_seen_at",
+        "last_checked_at",
+        "last_updated_at",
+        "last_scanned_at",
+        "is_new",
+        "is_deleted",
+        "is_modified",
+        "deletion_detected_at",
+        "change_count",
+        "change_history",
+        "created_at"
+      ]
+    },
+    "flippa_change_log": {
+      "exists": true,
+      "recordCount": null
+    },
+    "flippa_monitoring_stats": {
+      "exists": true,
+      "recordCount": null
+    },
+    "flippa_listings": {
+      "exists": true,
+      "recordCount": 5642,
+      "columns": [
+        "id",
+        "session_id",
+        "url",
+        "title",
+        "asking_price",
+        "monthly_revenue",
+        "monthly_profit",
+        "age_months",
+        "page_views_monthly",
+        "category",
+        "description",
+        "technologies",
+        "scraped_at",
+        "created_at"
+      ]
+    },
+    "scraping_history": {
+      "exists": true,
+      "recordCount": null
+    },
+    "listings": {
+      "exists": true,
+      "recordCount": null
+    },
+    "posts": {
+      "exists": true,
+      "recordCount": 3,
+      "columns": [
+        "id",
+        "title",
+        "slug",
+        "summary",
+        "content",
+        "cover",
+        "author",
+        "category",
+        "tags",
+        "is_premium",
+        "status",
+        "published_date",
+        "reading_time",
+        "created_at",
+        "updated_at"
+      ]
+    },
+    "users": {
+      "exists": true,
+      "recordCount": null
+    }
+  },
+  "dataIntegrity": {
+    "sampleAnalysis": {
+      "deletedPercentage": 100,
+      "missingPrices": 0
+    }
+  },
+  "recommendations": []
+}

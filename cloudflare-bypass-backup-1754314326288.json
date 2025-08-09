@@ -1,0 +1,778 @@
+{
+  "timestamp": "2025-08-04T13:32:06.288Z",
+  "bypassStats": {
+    "totalAttempts": 10,
+    "successfulBypasses": 6,
+    "cloudflareEncounters": 6,
+    "successfulExtractions": 4
+  },
+  "quality": {
+    "total": 100,
+    "withTitle": 52,
+    "withPrice": 100,
+    "withRevenue": 0,
+    "withURL": 100,
+    "withMultiple": 0
+  },
+  "rates": {
+    "title": "52.0",
+    "price": "100.0",
+    "revenue": "0.0",
+    "url": "100.0",
+    "multiple": "0.0"
+  },
+  "listings": [
+    {
+      "id": "bypass_1754313732810_0",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313732810_1",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313732810_2",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313732811_3",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_4",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_5",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_6",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_7",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_8",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313732811_9",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313732811_10",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313732811_11",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_12",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_13",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_14",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_15",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_16",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313732811_17",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313732811_18",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313732811_19",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_20",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_21",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_22",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_23",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313732811_24",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "bypass_1754313792509_0",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313792510_1",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313792510_2",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313792510_3",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_4",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_5",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_6",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_7",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_8",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313792510_9",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313792510_10",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313792510_11",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_12",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_13",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_14",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_15",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_16",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313792510_17",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313792510_18",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313792510_19",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_20",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_21",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_22",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_23",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313792510_24",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "bypass_1754313861693_0",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313861693_1",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313861693_2",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313861693_3",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861693_4",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_5",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_6",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_7",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_8",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313861694_9",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313861694_10",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313861694_11",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_12",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_13",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_14",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_15",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_16",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313861694_17",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313861694_18",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313861694_19",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_20",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_21",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_22",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_23",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313861694_24",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "bypass_1754313927505_0",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313927506_1",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313927506_2",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "bypass_1754313927506_3",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_4",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_5",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_6",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_7",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_8",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313927506_9",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313927506_10",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "bypass_1754313927506_11",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_12",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_13",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_14",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_15",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_16",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313927506_17",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313927506_18",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "bypass_1754313927506_19",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_20",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_21",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_22",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_23",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 50,
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "bypass_1754313927506_24",
+      "extractionMethod": "cloudflare-bypass",
+      "confidence": 75,
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    }
+  ]
+}

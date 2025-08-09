@@ -1,0 +1,20 @@
+{
+  "endpoint": "/api/apify/webhook",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Apify-Webhook-Token": "your-webhook-token"
+  },
+  "payload_format": {
+    "eventType": "ACTOR.RUN.SUCCEEDED",
+    "eventData": {
+      "actorId": "flippa-scraper",
+      "actorRunId": "run-id",
+      "datasetId": "dataset-id"
+    },
+    "resource": {
+      "id": "listing-id",
+      "data": "// Full 75+ field Apify format"
+    }
+  }
+}

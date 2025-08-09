@@ -1,0 +1,64 @@
+{
+  "analyzed": "2025-08-05T15:26:06.929Z",
+  "availableColumns": [
+    "id",
+    "listing_id",
+    "title",
+    "price",
+    "monthly_revenue",
+    "multiple",
+    "multiple_text",
+    "property_type",
+    "category",
+    "badges",
+    "url",
+    "quality_score",
+    "extraction_confidence",
+    "page_number",
+    "extraction_timestamp",
+    "source",
+    "raw_data",
+    "created_at",
+    "status",
+    "description",
+    "monthly_profit"
+  ],
+  "missingColumns": [],
+  "schemaMapping": {
+    "direct": {
+      "listing_id": {
+        "map": "id"
+      },
+      "title": {
+        "map": "title"
+      },
+      "price": {
+        "map": "price"
+      },
+      "monthly_revenue": {
+        "map": "monthly_revenue"
+      },
+      "property_type": {
+        "map": "property_type"
+      },
+      "category": {
+        "map": "category"
+      },
+      "url": {
+        "map": "listing_url"
+      },
+      "extraction_timestamp": {
+        "map": "created_at"
+      },
+      "source": {
+        "default": "baseline_import"
+      }
+    },
+    "toRawData": [],
+    "skip": [
+      "id",
+      "created_at"
+    ]
+  },
+  "hasRawData": false
+}

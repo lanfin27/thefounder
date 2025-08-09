@@ -1,0 +1,19 @@
+{
+  "listings": [],
+  "quality": {
+    "total": 0,
+    "withTitle": 0,
+    "withPrice": 0,
+    "withRevenue": 0,
+    "withURL": 0,
+    "withMultiple": 0
+  },
+  "rates": {
+    "title": "NaN",
+    "price": "NaN",
+    "revenue": "NaN",
+    "url": "NaN",
+    "multiple": "NaN"
+  },
+  "timestamp": "2025-08-03T16:02:18.964Z"
+}

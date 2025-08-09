@@ -1,0 +1,138 @@
+{
+  "timestamp": "2025-08-04T02:38:17.487Z",
+  "quality": {
+    "total": 198,
+    "withTitle": 198,
+    "withPrice": 0,
+    "withRevenue": 0,
+    "withURL": 198
+  },
+  "rates": {
+    "title": "100.0",
+    "price": "0.0",
+    "revenue": "0.0",
+    "url": "100.0"
+  },
+  "listings": [
+    {
+      "id": "stealth_1754268539025_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268539026_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268580934_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268580934_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268633435_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268633436_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268678154_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268678155_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268718272_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268718273_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268763986_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268763986_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268811139_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268811139_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268852444_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268852444_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268893810_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268893810_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "stealth_1754268939412_0",
+      "confidence": 45,
+      "title": "General Knowledge",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "stealth_1754268939412_15",
+      "confidence": 45,
+      "title": "Register as a buyer. It’s free!",
+      "url": "https://flippa.com/websites"
+    }
+  ]
+}

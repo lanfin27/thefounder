@@ -1,0 +1,21 @@
+{
+  "daily": [
+    {
+      "date": "2025-08-04",
+      "listingCount": 475,
+      "averagePrice": 91272,
+      "averageMultiple": "4.8",
+      "totalValue": 35139583,
+      "categories": {
+        "other": 475
+      }
+    }
+  ],
+  "summary": {
+    "totalDays": 1,
+    "averageListingsPerDay": "475.0",
+    "priceTrend": "insufficient-data",
+    "multipleTrend": "insufficient-data",
+    "volumeTrend": "insufficient-data"
+  }
+}

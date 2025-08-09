@@ -1,0 +1,133 @@
+{
+  "method1_simpleRegex": {
+    "successes": 0,
+    "attempts": 40,
+    "results": []
+  },
+  "method2_containerBased": {
+    "successes": 0,
+    "attempts": 0,
+    "results": []
+  },
+  "method3_contextualSearch": {
+    "successes": 0,
+    "attempts": 0,
+    "results": []
+  },
+  "method4_smartPatterns": {
+    "successes": 22,
+    "attempts": 23,
+    "results": [
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 4000,
+        "originalMatch": "4k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 4000,
+        "originalMatch": "4k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 4000,
+        "originalMatch": "4K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 7000,
+        "originalMatch": "07k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 8000,
+        "originalMatch": "8K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 8000,
+        "originalMatch": "8K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 6000,
+        "originalMatch": "6K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 1000,
+        "originalMatch": "1k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 6000,
+        "originalMatch": "6K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 34000,
+        "originalMatch": "34k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 7000,
+        "originalMatch": "7K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 7000,
+        "originalMatch": "7K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 8000,
+        "originalMatch": "8K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 4000,
+        "originalMatch": "4k"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 2000,
+        "originalMatch": "2K"
+      },
+      {
+        "pattern": "numbersWithK",
+        "price": 4000,
+        "originalMatch": "4k"
+      }
+    ]
+  }
+}

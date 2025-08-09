@@ -1,0 +1,2401 @@
+{
+  "timestamp": "2025-08-06T15:25:28.474Z",
+  "projectName": "The Founder",
+  "projectPath": "C:\\Users\\KIMJAEHEON\\the-founder",
+  "executive": {
+    "healthScore": 40,
+    "summary": "Project requires significant work to be production-ready",
+    "criticalIssues": [
+      "Multiple security vulnerabilities",
+      "High technical debt"
+    ],
+    "strengths": [
+      "Most core features are implemented",
+      "Substantial codebase with good structure"
+    ],
+    "recommendations": []
+  },
+  "structure": {
+    "directories": {
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\admin": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\admin\\scraping-status-fixed": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\admin\\scraping-status-v2": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\admin\\test-dashboards": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\env-check": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\listings-simple": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\listings-test": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\public\\industry-charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\auth-test": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\debug": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\high-performance": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\human-like": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\human-like\\high-performance": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\human-like\\premium": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\listings-count": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\listings-enhanced": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\metrics-enhanced": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\run": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\run-adaptive": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\run-enhanced": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\run-enterprise": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\run-unified": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\scraping\\test": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\app\\api\\test-admin": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\cleanup-backup\\src\\lib": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\CUsersKIMJAEHEONthe-founderscriptsintegration-systemproduction-deployment": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\data": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\data\\insights": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\data\\scraped": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\data\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\data\\test-results": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\docs": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\lib": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\lib\\database": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\logs": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\high-performance-scraper": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\human-simulation-system": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\dashboard-integration": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\dashboard-integration\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\database-architecture": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\logging-analytics": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\production-deployment": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\user-interface": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\integration-system\\user-interface\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\scripts\\stealth-mode-collection": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\admin": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\admin\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\dashboard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\dashboard\\subscription": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\my": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\my\\posts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\valuation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\valuation\\history": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\(protected)\\valuation\\new": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\about": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin\\flippa-listings": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin\\scraping-status": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin\\sync": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\admin-test": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\auth": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\auth\\callback": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\auth\\signout": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\backup": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\backup\\changes": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\baseline": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\export": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\listings": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\metrics": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\search": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\dashboard\\stats": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\health": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\listings": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\listings\\recent": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\changes": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\cron": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\fallback": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\incremental": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\notifications": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\scan": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\scan\\[scanId]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\scan\\[scanId]\\progress": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\start": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\stats": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\status": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\stop": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\test-baseline": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\monitoring\\test-setup": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\notion": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\notion\\debug": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\notion\\generate-slugs": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\notion\\sync": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\notion\\test-sync": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\posts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\posts\\[slug]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\public\\industry-charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\create": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\delete": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\delete\\[id]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\export": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\history": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\list": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\test-notification": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\toggle": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\toggle\\[id]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\update": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\schedule\\update\\[id]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\browser-simulation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\database-stats": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\enhanced": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\execute-louisdeconinck": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\flippa": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\human-like": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\human-like\\standard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\insights": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\jobs": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\jobs\\[id]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\listings": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\listings-count": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\listings-count-v2": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\metrics": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\queue": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\simple": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\standard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\start": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\start-advanced": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\stats": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\status": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\test-env": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\test-real": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\scraping\\trigger": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\search": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuation\\calculate": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuation\\history": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuation\\industries": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuation\\save": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\api\\valuations": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\auth": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\auth\\login": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\auth\\signup": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\auth\\verify-email": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\blog": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\blog\\[slug]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\charts\\[industry]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\contact": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\dashboard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\dashboard-test": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\login": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\membership": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\posts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\posts\\[slug]": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\privacy": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\profile": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\terms": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\app\\valuation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\admin": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\auth": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\blog": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\dashboard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\home": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\layout": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\membership": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\monitoring": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\newsletter": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\profile": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\public": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\scheduling": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\search": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\ui": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\valuation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\components\\valuation\\ui": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\contexts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\hooks": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\analytics": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\api": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\auth": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\browser-automation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\browser-simulation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\charts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\cloudflare-bypass": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\cloudflare-bypass\\commercial-services": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\dashboard": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\database": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\monitoring": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\newsletter": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\notion": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\redis": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scheduling": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\browser-simulation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\fallbacks": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\flippa": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\healing": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\human-like-engine": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\learning": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\ml": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\monitoring": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\queue": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\realtime": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\services": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\statistics": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\strategies": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\scraping\\utils": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\subscription": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\supabase": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\utils": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\lib\\valuation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\scripts": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\styles": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\types": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\src\\utils": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\srccomponentsvaluation": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\supabase": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\supabase\\migrations": {
+        "files": 0,
+        "subdirs": []
+      },
+      "C:\\Users\\KIMJAEHEON\\the-founder\\tmp": {
+        "files": 0,
+        "subdirs": []
+      }
+    },
+    "fileCount": {
+      ".example": 1,
+      ".local": 1,
+      ".backup": 2,
+      "": 5,
+      ".json": 91,
+      ".tsx": 112,
+      ".ts": 194,
+      ".md": 71,
+      ".js": 229,
+      ".html": 7,
+      ".png": 9,
+      ".db": 2,
+      ".db-shm": 1,
+      ".db-wal": 1,
+      ".sql": 24,
+      ".xlsx": 1,
+      ".log": 10,
+      ".mjs": 1,
+      ".svg": 5,
+      ".bat": 5,
+      ".css": 7,
+      ".ps1": 2,
+      ".sh": 1,
+      ".ico": 1,
+      ".0": 1,
+      ".tsbuildinfo": 1
+    },
+    "totalFiles": 785,
+    "totalLines": 0,
+    "largestFiles": [
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\data\\flippa_baseline.db",
+        "size": 6758400,
+        "sizeKB": 6600
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\data\\merged-90-percent-1754226530640.json",
+        "size": 4842813,
+        "sizeKB": 4729
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\dataset_flippascraperapi_20250802_051204877.xlsx",
+        "size": 4609215,
+        "sizeKB": 4501
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\data\\flippa-search-screenshot.png",
+        "size": 2979421,
+        "sizeKB": 2910
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\flippa-actual-page.png",
+        "size": 2895358,
+        "sizeKB": 2827
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\flippa-debug.png",
+        "size": 2412002,
+        "sizeKB": 2355
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\working-extractor-backup-1754316132716.json",
+        "size": 2154085,
+        "sizeKB": 2104
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\working-extractor-backup-1754266917016.json",
+        "size": 1792255,
+        "sizeKB": 1750
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\data\\flippa-selector-analysis.json",
+        "size": 1661650,
+        "sizeKB": 1623
+      },
+      {
+        "path": "C:\\Users\\KIMJAEHEON\\the-founder\\emergency-flippa-raw.html",
+        "size": 1365834,
+        "sizeKB": 1334
+      }
+    ]
+  },
+  "database": {
+    "tables": [
+      "flippa_listings_enhanced",
+      "flippa_change_log",
+      "flippa_monitoring_stats"
+    ],
+    "totalRecords": 0,
+    "issues": [],
+    "sqliteFiles": [
+      "./data/flippa_baseline.db",
+      "./data/flippa_baseline_large.db"
+    ],
+    "schemaFiles": [
+      "create-enhanced-flippa-schema.sql",
+      "migrate-flippa-schema.sql"
+    ]
+  },
+  "codebase": {
+    "components": [
+      {
+        "path": "src\\components\\admin\\EnhancedScrapingDashboard.tsx",
+        "name": "EnhancedScrapingDashboard.tsx",
+        "lines": 1391,
+        "size": 57437
+      },
+      {
+        "path": "src\\components\\scheduling\\ScheduleManager.tsx",
+        "name": "ScheduleManager.tsx",
+        "lines": 640,
+        "size": 23537
+      },
+      {
+        "path": "src\\components\\dashboard\\IncrementalMonitoringDashboard.tsx",
+        "name": "IncrementalMonitoringDashboard.tsx",
+        "lines": 530,
+        "size": 19774
+      },
+      {
+        "path": "src\\components\\monitoring\\MonitoringDashboard.tsx",
+        "name": "MonitoringDashboard.tsx",
+        "lines": 520,
+        "size": 17399
+      },
+      {
+        "path": "src\\components\\public\\IndustryChartDetail.tsx",
+        "name": "IndustryChartDetail.tsx",
+        "lines": 412,
+        "size": 13725
+      },
+      {
+        "path": "src\\components\\dashboard\\DashboardClient.tsx",
+        "name": "DashboardClient.tsx",
+        "lines": 411,
+        "size": 14440
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ValuationForm.tsx",
+        "name": "ValuationForm.tsx",
+        "lines": 335,
+        "size": 15101
+      },
+      {
+        "path": "src\\components\\search\\SearchModal.tsx",
+        "name": "SearchModal.tsx",
+        "lines": 321,
+        "size": 11222
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ValuationResults.tsx",
+        "name": "ValuationResults.tsx",
+        "lines": 303,
+        "size": 13306
+      },
+      {
+        "path": "src\\components\\scheduling\\ScheduleHistory.tsx",
+        "name": "ScheduleHistory.tsx",
+        "lines": 290,
+        "size": 10920
+      },
+      {
+        "path": "src\\components\\public\\IndustryChartDashboard.tsx",
+        "name": "IndustryChartDashboard.tsx",
+        "lines": 288,
+        "size": 9981
+      },
+      {
+        "path": "src\\components\\dashboard\\BackupViewerEnhanced.tsx",
+        "name": "BackupViewerEnhanced.tsx",
+        "lines": 286,
+        "size": 11314
+      },
+      {
+        "path": "src\\components\\public\\IndustryChartCard.tsx",
+        "name": "IndustryChartCard.tsx",
+        "lines": 241,
+        "size": 7781
+      },
+      {
+        "path": "src\\components\\scheduling\\ScheduleManagerNoIcons.tsx",
+        "name": "ScheduleManagerNoIcons.tsx",
+        "lines": 232,
+        "size": 8058
+      },
+      {
+        "path": "src\\components\\dashboard\\BackupViewer.tsx",
+        "name": "BackupViewer.tsx",
+        "lines": 219,
+        "size": 8337
+      },
+      {
+        "path": "src\\components\\valuation\\ValuationDashboard.tsx",
+        "name": "ValuationDashboard.tsx",
+        "lines": 216,
+        "size": 7523
+      },
+      {
+        "path": "src\\components\\home\\FeaturedPosts.tsx",
+        "name": "FeaturedPosts.tsx",
+        "lines": 213,
+        "size": 9647
+      },
+      {
+        "path": "src\\components\\public\\HomepageChartPreview.tsx",
+        "name": "HomepageChartPreview.tsx",
+        "lines": 184,
+        "size": 7175
+      },
+      {
+        "path": "src\\components\\charts\\ChartErrorBoundary.tsx",
+        "name": "ChartErrorBoundary.tsx",
+        "lines": 170,
+        "size": 4989
+      },
+      {
+        "path": "src\\components\\auth\\SignupForm.tsx",
+        "name": "SignupForm.tsx",
+        "lines": 168,
+        "size": 5776
+      },
+      {
+        "path": "src\\components\\blog\\PaywallGate.tsx",
+        "name": "PaywallGate.tsx",
+        "lines": 168,
+        "size": 6172
+      },
+      {
+        "path": "src\\components\\membership\\MembershipCTA.tsx",
+        "name": "MembershipCTA.tsx",
+        "lines": 162,
+        "size": 6015
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ValuationHistory.tsx",
+        "name": "ValuationHistory.tsx",
+        "lines": 162,
+        "size": 6443
+      },
+      {
+        "path": "src\\components\\blog\\PostCard.tsx",
+        "name": "PostCard.tsx",
+        "lines": 158,
+        "size": 5955
+      },
+      {
+        "path": "src\\components\\public\\ChartPerformanceMonitor.tsx",
+        "name": "ChartPerformanceMonitor.tsx",
+        "lines": 157,
+        "size": 4708
+      },
+      {
+        "path": "src\\components\\dashboard\\PriceTrendChart.tsx",
+        "name": "PriceTrendChart.tsx",
+        "lines": 155,
+        "size": 4135
+      },
+      {
+        "path": "src\\components\\profile\\ProfileForm.tsx",
+        "name": "ProfileForm.tsx",
+        "lines": 142,
+        "size": 4618
+      },
+      {
+        "path": "src\\components\\charts\\NetworkStatusIndicator.tsx",
+        "name": "NetworkStatusIndicator.tsx",
+        "lines": 141,
+        "size": 4339
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ComparablesList.tsx",
+        "name": "ComparablesList.tsx",
+        "lines": 138,
+        "size": 5593
+      },
+      {
+        "path": "src\\components\\layout\\MobileMenu.tsx",
+        "name": "MobileMenu.tsx",
+        "lines": 137,
+        "size": 5267
+      },
+      {
+        "path": "src\\components\\blog\\MarkdownRenderer.tsx",
+        "name": "MarkdownRenderer.tsx",
+        "lines": 136,
+        "size": 4143
+      },
+      {
+        "path": "src\\components\\charts\\ChartDataFallback.tsx",
+        "name": "ChartDataFallback.tsx",
+        "lines": 136,
+        "size": 5071
+      },
+      {
+        "path": "src\\components\\auth\\OAuthButtons.tsx",
+        "name": "OAuthButtons.tsx",
+        "lines": 127,
+        "size": 4055
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ValuationGuide.tsx",
+        "name": "ValuationGuide.tsx",
+        "lines": 124,
+        "size": 6608
+      },
+      {
+        "path": "src\\components\\newsletter\\NewsletterToggle.tsx",
+        "name": "NewsletterToggle.tsx",
+        "lines": 122,
+        "size": 3961
+      },
+      {
+        "path": "src\\components\\ui\\Toast.tsx",
+        "name": "Toast.tsx",
+        "lines": 121,
+        "size": 3193
+      },
+      {
+        "path": "src\\components\\ui\\Select.tsx",
+        "name": "Select.tsx",
+        "lines": 119,
+        "size": 3603
+      },
+      {
+        "path": "src\\components\\SystemStatus.tsx",
+        "name": "SystemStatus.tsx",
+        "lines": 117,
+        "size": 3688
+      },
+      {
+        "path": "src\\components\\auth\\LoginForm.tsx",
+        "name": "LoginForm.tsx",
+        "lines": 113,
+        "size": 3387
+      },
+      {
+        "path": "src\\components\\dashboard\\ReadingHistory.tsx",
+        "name": "ReadingHistory.tsx",
+        "lines": 110,
+        "size": 3710
+      },
+      {
+        "path": "src\\components\\layout\\Header.tsx",
+        "name": "Header.tsx",
+        "lines": 109,
+        "size": 4462
+      },
+      {
+        "path": "src\\components\\dashboard\\BookmarksList.tsx",
+        "name": "BookmarksList.tsx",
+        "lines": 103,
+        "size": 3491
+      },
+      {
+        "path": "src\\components\\auth\\UserMenu.tsx",
+        "name": "UserMenu.tsx",
+        "lines": 88,
+        "size": 3031
+      },
+      {
+        "path": "src\\components\\auth\\LoginButton.tsx",
+        "name": "LoginButton.tsx",
+        "lines": 87,
+        "size": 3477
+      },
+      {
+        "path": "src\\components\\home\\CategorySection.tsx",
+        "name": "CategorySection.tsx",
+        "lines": 84,
+        "size": 2918
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\MetricCard.tsx",
+        "name": "MetricCard.tsx",
+        "lines": 84,
+        "size": 2297
+      },
+      {
+        "path": "src\\components\\public\\ChartAnalytics.tsx",
+        "name": "ChartAnalytics.tsx",
+        "lines": 83,
+        "size": 2130
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\ErrorBoundary.tsx",
+        "name": "ErrorBoundary.tsx",
+        "lines": 80,
+        "size": 3204
+      },
+      {
+        "path": "src\\components\\ui\\Card.tsx",
+        "name": "Card.tsx",
+        "lines": 75,
+        "size": 1692
+      },
+      {
+        "path": "src\\components\\valuation\\ui\\IndustryInsights.tsx",
+        "name": "IndustryInsights.tsx",
+        "lines": 74,
+        "size": 2797
+      },
+      {
+        "path": "src\\components\\charts\\ChartDashboardSkeleton.tsx",
+        "name": "ChartDashboardSkeleton.tsx",
+        "lines": 71,
+        "size": 2787
+      },
+      {
+        "path": "src\\components\\home\\NewsletterSection.tsx",
+        "name": "NewsletterSection.tsx",
+        "lines": 69,
+        "size": 2580
+      },
+      {
+        "path": "src\\components\\blog\\PostHeader.tsx",
+        "name": "PostHeader.tsx",
+        "lines": 65,
+        "size": 1873
+      },
+      {
+        "path": "src\\components\\public\\CompactChartSkeleton.tsx",
+        "name": "CompactChartSkeleton.tsx",
+        "lines": 64,
+        "size": 2870
+      },
+      {
+        "path": "src\\components\\ui\\Button.tsx",
+        "name": "Button.tsx",
+        "lines": 56,
+        "size": 1467
+      },
+      {
+        "path": "src\\components\\layout\\Footer.tsx",
+        "name": "Footer.tsx",
+        "lines": 55,
+        "size": 2574
+      },
+      {
+        "path": "src\\components\\ui\\Tabs.tsx",
+        "name": "Tabs.tsx",
+        "lines": 54,
+        "size": 1881
+      },
+      {
+        "path": "src\\components\\blog\\PremiumGate.tsx",
+        "name": "PremiumGate.tsx",
+        "lines": 50,
+        "size": 1964
+      },
+      {
+        "path": "src\\components\\home\\Hero.tsx",
+        "name": "Hero.tsx",
+        "lines": 50,
+        "size": 1825
+      },
+      {
+        "path": "src\\components\\blog\\CategoryFilter.tsx",
+        "name": "CategoryFilter.tsx",
+        "lines": 45,
+        "size": 1442
+      },
+      {
+        "path": "src\\components\\ui\\PremiumBadge.tsx",
+        "name": "PremiumBadge.tsx",
+        "lines": 40,
+        "size": 1103
+      },
+      {
+        "path": "src\\components\\ui\\Progress.tsx",
+        "name": "Progress.tsx",
+        "lines": 38,
+        "size": 871
+      },
+      {
+        "path": "src\\components\\blog\\RelatedPosts.tsx",
+        "name": "RelatedPosts.tsx",
+        "lines": 36,
+        "size": 956
+      },
+      {
+        "path": "src\\components\\ui\\Badge.tsx",
+        "name": "Badge.tsx",
+        "lines": 29,
+        "size": 721
+      },
+      {
+        "path": "src\\components\\ui\\ReadingProgress.tsx",
+        "name": "ReadingProgress.tsx",
+        "lines": 28,
+        "size": 733
+      },
+      {
+        "path": "src\\components\\ui\\Input.tsx",
+        "name": "Input.tsx",
+        "lines": 24,
+        "size": 811
+      },
+      {
+        "path": "src\\components\\blog\\PostLink.tsx",
+        "name": "PostLink.tsx",
+        "lines": 23,
+        "size": 570
+      },
+      {
+        "path": "src\\components\\layout\\ClientLayout.tsx",
+        "name": "ClientLayout.tsx",
+        "lines": 20,
+        "size": 557
+      },
+      {
+        "path": "src\\components\\blog\\ViewCounter.tsx",
+        "name": "ViewCounter.tsx",
+        "lines": 18,
+        "size": 521
+      },
+      {
+        "path": "src\\components\\layout\\HeaderClient.tsx",
+        "name": "HeaderClient.tsx",
+        "lines": 18,
+        "size": 443
+      },
+      {
+        "path": "src\\components\\blog\\PostAnalytics.tsx",
+        "name": "PostAnalytics.tsx",
+        "lines": 15,
+        "size": 332
+      },
+      {
+        "path": "src\\components\\blog\\PostContent.tsx",
+        "name": "PostContent.tsx",
+        "lines": 13,
+        "size": 281
+      },
+      {
+        "path": "src\\components\\ui\\LoadingSpinner.tsx",
+        "name": "LoadingSpinner.tsx",
+        "lines": 8,
+        "size": 325
+      }
+    ],
+    "apiRoutes": [
+      {
+        "path": "src\\app\\api\\scraping\\human-like\\standard\\route.ts",
+        "name": "route.ts",
+        "lines": 623,
+        "size": 20615
+      },
+      {
+        "path": "src\\app\\api\\scraping\\enhanced\\route.ts",
+        "name": "route.ts",
+        "lines": 456,
+        "size": 14326
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\charts\\route.ts",
+        "name": "route.ts",
+        "lines": 365,
+        "size": 10431
+      },
+      {
+        "path": "src\\app\\api\\public\\industry-charts\\route.ts",
+        "name": "route.ts",
+        "lines": 345,
+        "size": 9971
+      },
+      {
+        "path": "src\\app\\api\\scraping\\simple\\route.ts",
+        "name": "route.ts",
+        "lines": 296,
+        "size": 8939
+      },
+      {
+        "path": "src\\app\\api\\scraping\\standard\\route.ts",
+        "name": "route.ts",
+        "lines": 248,
+        "size": 6864
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\metrics\\route.ts",
+        "name": "route.ts",
+        "lines": 247,
+        "size": 8474
+      },
+      {
+        "path": "src\\app\\api\\baseline\\route.ts",
+        "name": "route.ts",
+        "lines": 235,
+        "size": 7754
+      },
+      {
+        "path": "src\\app\\api\\valuation\\calculate\\route.ts",
+        "name": "route.ts",
+        "lines": 233,
+        "size": 7253
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\listings\\route.ts",
+        "name": "route.ts",
+        "lines": 225,
+        "size": 7296
+      },
+      {
+        "path": "src\\app\\api\\valuation\\save\\route.ts",
+        "name": "route.ts",
+        "lines": 222,
+        "size": 5985
+      },
+      {
+        "path": "src\\app\\api\\scraping\\insights\\route.ts",
+        "name": "route.ts",
+        "lines": 216,
+        "size": 6211
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\stats\\route.ts",
+        "name": "route.ts",
+        "lines": 203,
+        "size": 7737
+      },
+      {
+        "path": "src\\app\\api\\scraping\\execute-louisdeconinck\\route.ts",
+        "name": "route.ts",
+        "lines": 194,
+        "size": 5810
+      },
+      {
+        "path": "src\\app\\api\\listings\\route.ts",
+        "name": "route.ts",
+        "lines": 193,
+        "size": 6178
+      },
+      {
+        "path": "src\\app\\api\\scraping\\trigger\\route.ts",
+        "name": "route.ts",
+        "lines": 192,
+        "size": 5289
+      },
+      {
+        "path": "src\\app\\api\\scraping\\start-advanced\\route.ts",
+        "name": "route.ts",
+        "lines": 185,
+        "size": 5965
+      },
+      {
+        "path": "src\\app\\api\\scraping\\browser-simulation\\route.ts",
+        "name": "route.ts",
+        "lines": 174,
+        "size": 5113
+      },
+      {
+        "path": "src\\app\\api\\valuation\\industries\\route.ts",
+        "name": "route.ts",
+        "lines": 168,
+        "size": 5353
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\search\\route.ts",
+        "name": "route.ts",
+        "lines": 166,
+        "size": 4637
+      },
+      {
+        "path": "src\\app\\api\\schedule\\export\\route.ts",
+        "name": "route.ts",
+        "lines": 153,
+        "size": 4106
+      },
+      {
+        "path": "src\\app\\api\\search\\route.ts",
+        "name": "route.ts",
+        "lines": 150,
+        "size": 4954
+      },
+      {
+        "path": "src\\app\\api\\valuation\\history\\route.ts",
+        "name": "route.ts",
+        "lines": 149,
+        "size": 4131
+      },
+      {
+        "path": "src\\app\\api\\scraping\\jobs\\route.ts",
+        "name": "route.ts",
+        "lines": 146,
+        "size": 4265
+      },
+      {
+        "path": "src\\app\\api\\scraping\\status\\route.ts",
+        "name": "route.ts",
+        "lines": 144,
+        "size": 4591
+      },
+      {
+        "path": "src\\app\\api\\schedule\\history\\route.ts",
+        "name": "route.ts",
+        "lines": 135,
+        "size": 4009
+      },
+      {
+        "path": "src\\app\\api\\scraping\\jobs\\[id]\\route.ts",
+        "name": "route.ts",
+        "lines": 131,
+        "size": 3884
+      },
+      {
+        "path": "src\\app\\api\\scraping\\listings-count-v2\\route.ts",
+        "name": "route.ts",
+        "lines": 128,
+        "size": 4013
+      },
+      {
+        "path": "src\\app\\api\\dashboard\\export\\route.ts",
+        "name": "route.ts",
+        "lines": 125,
+        "size": 3672
+      },
+      {
+        "path": "src\\app\\api\\scraping\\metrics\\route.ts",
+        "name": "route.ts",
+        "lines": 123,
+        "size": 4717
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\changes\\route.ts",
+        "name": "route.ts",
+        "lines": 117,
+        "size": 3023
+      },
+      {
+        "path": "src\\app\\api\\scraping\\queue\\route.ts",
+        "name": "route.ts",
+        "lines": 115,
+        "size": 3489
+      },
+      {
+        "path": "src\\app\\api\\scraping\\flippa\\route.ts",
+        "name": "route.ts",
+        "lines": 109,
+        "size": 3027
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\test-setup\\route.ts",
+        "name": "route.ts",
+        "lines": 104,
+        "size": 3164
+      },
+      {
+        "path": "src\\app\\api\\notion\\sync\\route.ts",
+        "name": "route.ts",
+        "lines": 103,
+        "size": 3109
+      },
+      {
+        "path": "src\\app\\api\\backup\\changes\\route.ts",
+        "name": "route.ts",
+        "lines": 102,
+        "size": 3088
+      },
+      {
+        "path": "src\\app\\api\\valuations\\route.ts",
+        "name": "route.ts",
+        "lines": 100,
+        "size": 2550
+      },
+      {
+        "path": "src\\app\\api\\scraping\\stats\\route.ts",
+        "name": "route.ts",
+        "lines": 92,
+        "size": 2879
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\scan\\route-clean.ts",
+        "name": "route-clean.ts",
+        "lines": 91,
+        "size": 2732
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\scan\\route-real.ts",
+        "name": "route-real.ts",
+        "lines": 91,
+        "size": 2732
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\scan\\route.ts",
+        "name": "route.ts",
+        "lines": 91,
+        "size": 2732
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\status\\route.ts",
+        "name": "route.ts",
+        "lines": 91,
+        "size": 2577
+      },
+      {
+        "path": "src\\app\\api\\scraping\\database-stats\\route.ts",
+        "name": "route.ts",
+        "lines": 90,
+        "size": 3046
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\stats\\route.ts",
+        "name": "route.ts",
+        "lines": 85,
+        "size": 2429
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\incremental\\route.ts",
+        "name": "route.ts",
+        "lines": 76,
+        "size": 1766
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\scan\\[scanId]\\progress\\route.ts",
+        "name": "route.ts",
+        "lines": 76,
+        "size": 2175
+      },
+      {
+        "path": "src\\app\\api\\scraping\\listings\\route.ts",
+        "name": "route.ts",
+        "lines": 71,
+        "size": 2142
+      },
+      {
+        "path": "src\\app\\api\\schedule\\create\\route.ts",
+        "name": "route.ts",
+        "lines": 66,
+        "size": 1864
+      },
+      {
+        "path": "src\\app\\api\\schedule\\test-notification\\route.ts",
+        "name": "route.ts",
+        "lines": 63,
+        "size": 1831
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\fallback\\route.js",
+        "name": "route.js",
+        "lines": 61,
+        "size": 1577
+      },
+      {
+        "path": "src\\app\\api\\schedule\\update\\[id]\\route.ts",
+        "name": "route.ts",
+        "lines": 61,
+        "size": 1698
+      },
+      {
+        "path": "src\\app\\api\\scraping\\test-real\\route.ts",
+        "name": "route.ts",
+        "lines": 61,
+        "size": 2043
+      },
+      {
+        "path": "src\\app\\api\\schedule\\toggle\\[id]\\route.ts",
+        "name": "route.ts",
+        "lines": 56,
+        "size": 1412
+      },
+      {
+        "path": "src\\app\\api\\scraping\\start\\route.ts",
+        "name": "route.ts",
+        "lines": 50,
+        "size": 1261
+      },
+      {
+        "path": "src\\app\\api\\scraping\\test-env\\route.ts",
+        "name": "route.ts",
+        "lines": 49,
+        "size": 1383
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\notifications\\route.ts",
+        "name": "route.ts",
+        "lines": 48,
+        "size": 1360
+      },
+      {
+        "path": "src\\app\\api\\schedule\\list\\route.ts",
+        "name": "route.ts",
+        "lines": 47,
+        "size": 1317
+      },
+      {
+        "path": "src\\app\\api\\schedule\\delete\\[id]\\route.ts",
+        "name": "route.ts",
+        "lines": 46,
+        "size": 1185
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\start\\route.ts",
+        "name": "route.ts",
+        "lines": 45,
+        "size": 1150
+      },
+      {
+        "path": "src\\app\\api\\notion\\test-sync\\route.ts",
+        "name": "route.ts",
+        "lines": 45,
+        "size": 1468
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\test-baseline\\route.ts",
+        "name": "route.ts",
+        "lines": 39,
+        "size": 1142
+      },
+      {
+        "path": "src\\app\\api\\notion\\generate-slugs\\route.ts",
+        "name": "route.ts",
+        "lines": 35,
+        "size": 1084
+      },
+      {
+        "path": "src\\app\\api\\notion\\debug\\route.ts",
+        "name": "route.ts",
+        "lines": 27,
+        "size": 911
+      },
+      {
+        "path": "src\\app\\api\\posts\\route.ts",
+        "name": "route.ts",
+        "lines": 26,
+        "size": 732
+      },
+      {
+        "path": "src\\app\\api\\posts\\[slug]\\route.ts",
+        "name": "route.ts",
+        "lines": 26,
+        "size": 611
+      },
+      {
+        "path": "src\\app\\api\\auth\\callback\\route.ts",
+        "name": "route.ts",
+        "lines": 18,
+        "size": 554
+      },
+      {
+        "path": "src\\app\\api\\auth\\signout\\route.ts",
+        "name": "route.ts",
+        "lines": 18,
+        "size": 388
+      },
+      {
+        "path": "src\\app\\api\\listings\\recent\\route.ts",
+        "name": "route.ts",
+        "lines": 17,
+        "size": 433
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\cron\\route.ts",
+        "name": "route.ts",
+        "lines": 17,
+        "size": 433
+      },
+      {
+        "path": "src\\app\\api\\health\\route.ts",
+        "name": "route.ts",
+        "lines": 13,
+        "size": 362
+      },
+      {
+        "path": "src\\app\\api\\monitoring\\stop\\route.ts",
+        "name": "route.ts",
+        "lines": 13,
+        "size": 416
+      }
+    ],
+    "dependencies": {
+      "dependencies": 53,
+      "devDependencies": 13,
+      "main": [
+        "@notionhq/client",
+        "@radix-ui/react-tabs",
+        "@supabase/auth-helpers-nextjs",
+        "@supabase/ssr",
+        "@supabase/supabase-js",
+        "@types/react-syntax-highlighter",
+        "axios",
+        "better-sqlite3",
+        "bloom-filters",
+        "bull",
+        "cheerio",
+        "cloudscraper",
+        "clsx",
+        "cluster",
+        "date-fns",
+        "express",
+        "framer-motion",
+        "github-slugger",
+        "gray-matter",
+        "http-proxy-agent"
+      ]
+    },
+    "envVariables": [
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "NOTION_TOKEN",
+      "NOTION_DATABASE_ID",
+      "SUPABASE_KAKAO_CLIENT_ID",
+      "SUPABASE_GOOGLE_CLIENT_ID",
+      "SUPABASE_GOOGLE_CLIENT_SECRET",
+      "ADMIN_TOKEN",
+      "NEXT_PUBLIC_ADMIN_TOKEN",
+      "MONITORING_MODE",
+      "REDIS_URL",
+      "REDIS_HOST",
+      "REDIS_PORT",
+      "REDIS_PASSWORD",
+      "REDIS_DB",
+      "QUEUE_REDIS_HOST",
+      "QUEUE_REDIS_PORT",
+      "QUEUE_REDIS_DB",
+      "SCRAPINGBEE_API_KEY",
+      "SCRAPFLY_API_KEY",
+      "USE_PROXY",
+      "PROXY_SERVER",
+      "PROXY_USERNAME",
+      "PROXY_PASSWORD",
+      "SCRAPING_ENABLED",
+      "SCRAPING_HEADLESS",
+      "LOG_LEVEL",
+      "USE_ADAPTIVE_SCRAPER",
+      "MAX_CONCURRENT_SCRAPERS",
+      "REQUESTS_PER_MINUTE",
+      "DELAY_BETWEEN_REQUESTS_MIN",
+      "DELAY_BETWEEN_REQUESTS_MAX",
+      "FLIPPA_BASE_URL",
+      "FLIPPA_SEARCH_URL",
+      "FLIPPA_SCRAPING_ENABLED",
+      "MAX_PAGES_PER_CATEGORY",
+      "FLIPPA_ADMIN_TOKEN",
+      "MIN_PROFIT_MULTIPLE",
+      "MAX_PROFIT_MULTIPLE",
+      "MIN_REVENUE_MULTIPLE",
+      "MAX_REVENUE_MULTIPLE",
+      "MIN_ASKING_PRICE",
+      "MAX_ASKING_PRICE"
+    ]
+  },
+  "features": {
+    "implemented": [
+      "Scraping System",
+      "Monitoring Dashboard",
+      "Backup System",
+      "Incremental Monitoring"
+    ],
+    "partial": [
+      "Scheduling System",
+      "Notification System"
+    ],
+    "missing": []
+  },
+  "technicalDebt": {
+    "todos": [],
+    "deprecated": [],
+    "duplicates": [],
+    "score": 110
+  },
+  "performance": {
+    "metrics": {},
+    "bottlenecks": [
+      {
+        "file": "node_modules\\tailwindcss\\peers\\index.js",
+        "issue": "Chained map operations",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\tailwindcss\\peers\\index.js",
+        "issue": "DOM queries in loops",
+        "count": 25
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-unstable_testing.development.js",
+        "issue": "DOM queries in loops",
+        "count": 22
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom.development.js",
+        "issue": "DOM queries in loops",
+        "count": 22
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.development.js",
+        "issue": "DOM queries in loops",
+        "count": 22
+      },
+      {
+        "file": "node_modules\\react-dom\\umd\\react-dom.development.js",
+        "issue": "DOM queries in loops",
+        "count": 2
+      },
+      {
+        "file": "node_modules\\react-dom\\cjs\\react-dom.development.js",
+        "issue": "DOM queries in loops",
+        "count": 2
+      },
+      {
+        "file": "node_modules\\typescript\\lib\\lib.dom.d.ts",
+        "issue": "DOM queries in loops",
+        "count": 18
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom.profiling.js",
+        "issue": "DOM queries in loops",
+        "count": 21
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.profiling.js",
+        "issue": "DOM queries in loops",
+        "count": 21
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-unstable_testing.production.js",
+        "issue": "DOM queries in loops",
+        "count": 21
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom.production.js",
+        "issue": "DOM queries in loops",
+        "count": 21
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.production.js",
+        "issue": "DOM queries in loops",
+        "count": 21
+      },
+      {
+        "file": "node_modules\\puppeteer-core\\lib\\es5-iife\\puppeteer-core-browser.js",
+        "issue": "Chained map operations",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\puppeteer-core\\lib\\es5-iife\\puppeteer-core-browser.js",
+        "issue": "DOM queries in loops",
+        "count": 59
+      },
+      {
+        "file": "node_modules\\xlsx\\dist\\xlsx.extendscript.js",
+        "issue": "Deep clone performance",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\xlsx\\xlsx.js",
+        "issue": "Deep clone performance",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\playwright-core\\types\\types.d.ts",
+        "issue": "DOM queries in loops",
+        "count": 12
+      },
+      {
+        "file": "node_modules\\playwright-core\\types\\protocol.d.ts",
+        "issue": "DOM queries in loops",
+        "count": 14
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\@vercel\\og\\index.node.js",
+        "issue": "Chained map operations",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\@vercel\\og\\index.edge.js",
+        "issue": "Chained map operations",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\chromium-bidi\\lib\\iife\\mapperTab.js",
+        "issue": "DOM queries in loops",
+        "count": 2
+      },
+      {
+        "file": "node_modules\\lodash\\lodash.js",
+        "issue": "DOM queries in loops",
+        "count": 1
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.edge.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.browser.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.node.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server-legacy.node.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server-legacy.browser.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\framer-motion\\dist\\framer-motion.dev.js",
+        "issue": "DOM queries in loops",
+        "count": 2
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server-legacy.node.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.edge.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server-legacy.browser.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.browser.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.node.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-static.node.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-static.edge.development.js",
+        "issue": "DOM queries in loops",
+        "count": 6
+      }
+    ]
+  },
+  "security": {
+    "vulnerabilities": [
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-unstable_testing.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\react-dom\\umd\\react-dom.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\react-dom\\cjs\\react-dom.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom.profiling.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.profiling.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-unstable_testing.production.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom.production.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\puppeteer-core\\lib\\es5-iife\\puppeteer-core-browser.js",
+        "issue": "Use of eval()"
+      },
+      {
+        "file": "node_modules\\playwright-core\\types\\types.d.ts",
+        "issue": "Use of eval()"
+      },
+      {
+        "file": "node_modules\\playwright-core\\types\\protocol.d.ts",
+        "issue": "Use of eval()"
+      },
+      {
+        "file": "node_modules\\devtools-protocol\\types\\protocol.d.ts",
+        "issue": "Use of eval()"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\@vercel\\og\\index.node.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\@vercel\\og\\index.edge.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.edge.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.browser.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server.node.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server-legacy.node.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-server-legacy.browser.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server-legacy.node.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.edge.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server-legacy.browser.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.browser.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom\\cjs\\react-dom-server.node.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-static.node.development.js",
+        "issue": "Potential XSS risk"
+      },
+      {
+        "file": "node_modules\\next\\dist\\compiled\\react-dom-experimental\\cjs\\react-dom-static.edge.development.js",
+        "issue": "Potential XSS risk"
+      }
+    ],
+    "score": 0
+  },
+  "documentation": {
+    "coverage": 50,
+    "missing": [
+      "CONTRIBUTING.md",
+      "CHANGELOG.md"
+    ],
+    "existing": [
+      "README.md",
+      "docs/INCREMENTAL_MONITORING_SETUP.md"
+    ]
+  },
+  "testing": {
+    "coverage": 10,
+    "missing": [],
+    "testFiles": 374
+  },
+  "actionPlan": {
+    "immediate": [
+      {
+        "task": "Fix security vulnerabilities",
+        "effort": "1-2 hours",
+        "priority": "critical"
+      }
+    ],
+    "shortTerm": [
+      {
+        "task": "Complete missing documentation",
+        "effort": "1 day",
+        "priority": "medium"
+      },
+      {
+        "task": "Implement comprehensive error handling",
+        "effort": "1-2 days",
+        "priority": "high"
+      }
+    ],
+    "mediumTerm": [
+      {
+        "task": "Add integration tests",
+        "effort": "3-5 days",
+        "priority": "high"
+      },
+      {
+        "task": "Optimize performance bottlenecks",
+        "effort": "2-3 days",
+        "priority": "medium"
+      }
+    ],
+    "longTerm": [
+      {
+        "task": "Refactor large components",
+        "effort": "1-2 weeks",
+        "priority": "medium"
+      },
+      {
+        "task": "Implement CI/CD pipeline",
+        "effort": "1 week",
+        "priority": "high"
+      }
+    ]
+  }
+}

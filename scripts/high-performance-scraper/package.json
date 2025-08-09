@@ -1,0 +1,31 @@
+{
+  "name": "high-performance-scraper",
+  "version": "2.0.0",
+  "description": "High-Performance Scraping System with 32 workers and advanced caching",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node ../test-high-performance-scraper.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "lru-cache": "^10.0.0",
+    "worker_threads": "^1.0.0",
+    "https-proxy-agent": "^7.0.2",
+    "http-proxy-agent": "^7.0.0",
+    "bloom-filters": "^3.1.0"
+  },
+  "keywords": [
+    "scraping",
+    "high-performance",
+    "distributed",
+    "caching",
+    "real-time-optimization"
+  ],
+  "author": "The Founder",
+  "license": "MIT"
+}

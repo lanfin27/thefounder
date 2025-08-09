@@ -28,71 +28,77 @@ export async function GET(request: NextRequest) {
 
     console.log(`📊 Total listings in database: ${totalCount}`)
 
-    // Get all listings for field analysis
-    const { data: allListings, error: listingsError } = await supabase
+    // Get sample listings for field analysis (using correct column names)
+    const { data: sampleListings, error: listingsError } = await supabase
       .from('flippa_listings')
-      .select('*')
-      .order('extraction_timestamp', { ascending: false })
+      .select('title, url, asking_price, monthly_revenue, monthly_profit, category, description, age_months, page_views_monthly')
+      .limit(1000)
 
     if (listingsError) {
       console.error('Listings error:', listingsError)
       throw listingsError
     }
 
-    console.log(`📋 Retrieved ${allListings?.length || 0} listings for analysis`)
+    console.log(`📋 Retrieved ${sampleListings?.length || 0} listings for analysis`)
 
-    const listings = allListings || []
-    const totalListings = listings.length
+    const listings = sampleListings || []
+    const totalSample = listings.length
 
-    // Calculate real field completion rates
-    const withPrice = listings.filter(l => l.price && l.price > 0).length
-    const withRevenue = listings.filter(l => l.monthly_revenue && l.monthly_revenue > 0).length
-    const withMultiple = listings.filter(l => l.multiple && l.multiple > 0).length
+    // Calculate real field completion rates with correct column names
     const withTitle = listings.filter(l => l.title && l.title.length > 5).length
+    const withPrice = listings.filter(l => l.asking_price && l.asking_price > 0).length
+    const withRevenue = listings.filter(l => l.monthly_revenue && l.monthly_revenue > 0).length
+    const withProfit = listings.filter(l => l.monthly_profit !== null && l.monthly_profit !== undefined).length
+    const withCategory = listings.filter(l => l.category && l.category !== 'Other').length
+    const withDescription = listings.filter(l => l.description && l.description.length > 20).length
+    const withAge = listings.filter(l => l.age_months && l.age_months > 0).length
+    const withTraffic = listings.filter(l => l.page_views_monthly && l.page_views_monthly > 0).length
 
     const fieldCompletion = {
-      price: totalListings > 0 ? (withPrice / totalListings) * 100 : 0,
-      revenue: totalListings > 0 ? (withRevenue / totalListings) * 100 : 0,
-      multiple: totalListings > 0 ? (withMultiple / totalListings) * 100 : 0,
-      title: totalListings > 0 ? (withTitle / totalListings) * 100 : 0
+      title: totalSample > 0 ? (withTitle / totalSample) * 100 : 0,
+      price: totalSample > 0 ? (withPrice / totalSample) * 100 : 0,
+      revenue: totalSample > 0 ? (withRevenue / totalSample) * 100 : 0,
+      profit: totalSample > 0 ? (withProfit / totalSample) * 100 : 0,
+      category: totalSample > 0 ? (withCategory / totalSample) * 100 : 0,
+      description: totalSample > 0 ? (withDescription / totalSample) * 100 : 0,
+      age: totalSample > 0 ? (withAge / totalSample) * 100 : 0,
+      traffic: totalSample > 0 ? (withTraffic / totalSample) * 100 : 0
     }
 
-    const successRate = Object.values(fieldCompletion).reduce((a, b) => a + b, 0) / 4
+    const successRate = Object.values(fieldCompletion).reduce((a, b) => a + b, 0) / Object.keys(fieldCompletion).length
 
-    // Get latest session info
-    const { data: latestSession, error: sessionError } = await supabase
-      .from('scraping_sessions')
-      .select('*')
-      .order('completed_at', { ascending: false })
-      .limit(1)
-      .single()
+    // Get recent activity
+    const { data: recentData } = await supabase
+      .from('flippa_listings')
+      .select('created_at')
+      .order('created_at', { ascending: false })
+      .limit(100)
 
-    if (sessionError) {
-      console.log('Session info not available:', sessionError.message)
-    }
+    const now = new Date()
+    const dayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000)
+    const recentListings = recentData?.filter(r => new Date(r.created_at) > dayAgo).length || 0
 
     const metrics = {
       successRate: Number(successRate.toFixed(1)),
-      totalListings: totalCount || totalListings,
-      fieldCompletion: {
-        price: Number(fieldCompletion.price.toFixed(1)),
-        revenue: Number(fieldCompletion.revenue.toFixed(1)),
-        multiple: Number(fieldCompletion.multiple.toFixed(1)),
-        title: Number(fieldCompletion.title.toFixed(1))
-      },
-      processingTime: latestSession?.processing_time || 0,
-      lastRun: latestSession?.completed_at || new Date().toISOString(),
+      totalListings: totalCount || 0,
+      fieldCompletion: Object.entries(fieldCompletion).reduce((acc, [key, value]) => {
+        acc[key] = Number(value.toFixed(1))
+        return acc
+      }, {} as any),
+      processingTime: 0, // No longer relevant for migrated data
+      lastRun: recentData?.[0]?.created_at || new Date().toISOString(),
       meetsApifyStandard: successRate >= 95,
-      sessionInfo: latestSession,
+      recentActivity: {
+        last24h: recentListings,
+        averagePerHour: Math.round(recentListings / 24)
+      },
       
-      // Debug info
-      debug: {
-        totalCount,
-        retrievedCount: totalListings,
-        withPrice,
-        withRevenue,
-        withMultiple,
-        withTitle
+      // Summary stats
+      summary: {
+        dataQuality: successRate >= 90 ? 'Excellent' : successRate >= 70 ? 'Good' : 'Fair',
+        completeness: `${Math.round(successRate)}%`,
+        totalRecords: totalCount || 0,
+        lastUpdate: recentData?.[0]?.created_at || null
       }
     }
 

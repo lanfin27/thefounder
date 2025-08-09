@@ -1,0 +1,865 @@
+{
+  "changes": [
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T09:45:00.843Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T09:45:00.380Z",
+          "scan_id": "real_scan_1754473500380",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T09:45:00.380Z",
+          "scan_id": "real_scan_1754473500380",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T09:45:00.380Z",
+          "scan_id": "real_scan_1754473500380",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T09:45:00.380Z",
+          "scan_id": "real_scan_1754473500380",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T09:45:00.380Z",
+          "scan_id": "real_scan_1754473500380",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T09:52:10.082Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T09:52:09.879Z",
+          "scan_id": "real_scan_1754473929879",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T09:52:09.879Z",
+          "scan_id": "real_scan_1754473929879",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T09:52:09.879Z",
+          "scan_id": "real_scan_1754473929879",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T09:52:09.879Z",
+          "scan_id": "real_scan_1754473929879",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T09:52:09.879Z",
+          "scan_id": "real_scan_1754473929879",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T14:47:31.755Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:47:31.715Z",
+          "scan_id": "real_scan_1754491651715",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T14:47:31.715Z",
+          "scan_id": "real_scan_1754491651715",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T14:47:31.715Z",
+          "scan_id": "real_scan_1754491651715",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T14:47:31.715Z",
+          "scan_id": "real_scan_1754491651715",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:47:31.715Z",
+          "scan_id": "real_scan_1754491651715",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T14:50:19.483Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:50:19.435Z",
+          "scan_id": "real_scan_1754491819435",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T14:50:19.435Z",
+          "scan_id": "real_scan_1754491819435",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T14:50:19.435Z",
+          "scan_id": "real_scan_1754491819435",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T14:50:19.435Z",
+          "scan_id": "real_scan_1754491819435",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:50:19.435Z",
+          "scan_id": "real_scan_1754491819435",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T14:54:30.304Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:54:30.245Z",
+          "scan_id": "real_scan_1754492070245",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T14:54:30.245Z",
+          "scan_id": "real_scan_1754492070245",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T14:54:30.245Z",
+          "scan_id": "real_scan_1754492070245",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T14:54:30.245Z",
+          "scan_id": "real_scan_1754492070245",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T14:54:30.245Z",
+          "scan_id": "real_scan_1754492070245",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T15:01:49.999Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:01:49.957Z",
+          "scan_id": "real_scan_1754492509957",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T15:01:49.957Z",
+          "scan_id": "real_scan_1754492509957",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T15:01:49.957Z",
+          "scan_id": "real_scan_1754492509957",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T15:01:49.957Z",
+          "scan_id": "real_scan_1754492509957",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:01:49.957Z",
+          "scan_id": "real_scan_1754492509957",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T15:01:59.774Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:01:59.724Z",
+          "scan_id": "real_scan_1754492519724",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T15:01:59.724Z",
+          "scan_id": "real_scan_1754492519724",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T15:01:59.724Z",
+          "scan_id": "real_scan_1754492519724",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T15:01:59.724Z",
+          "scan_id": "real_scan_1754492519724",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:01:59.724Z",
+          "scan_id": "real_scan_1754492519724",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T15:02:09.430Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:02:09.381Z",
+          "scan_id": "real_scan_1754492529381",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T15:02:09.381Z",
+          "scan_id": "real_scan_1754492529381",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T15:02:09.381Z",
+          "scan_id": "real_scan_1754492529381",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T15:02:09.381Z",
+          "scan_id": "real_scan_1754492529381",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:02:09.381Z",
+          "scan_id": "real_scan_1754492529381",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T15:09:30.763Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:09:30.697Z",
+          "scan_id": "real_scan_1754492970697",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T15:09:30.697Z",
+          "scan_id": "real_scan_1754492970697",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T15:09:30.697Z",
+          "scan_id": "real_scan_1754492970697",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T15:09:30.697Z",
+          "scan_id": "real_scan_1754492970697",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T15:09:30.697Z",
+          "scan_id": "real_scan_1754492970697",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-06T16:28:37.163Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T16:28:37.090Z",
+          "scan_id": "real_scan_1754497717090",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-06T16:28:37.090Z",
+          "scan_id": "real_scan_1754497717090",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-06T16:28:37.090Z",
+          "scan_id": "real_scan_1754497717090",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-06T16:28:37.090Z",
+          "scan_id": "real_scan_1754497717090",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-06T16:28:37.090Z",
+          "scan_id": "real_scan_1754497717090",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-07T01:40:01.485Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:40:01.422Z",
+          "scan_id": "real_scan_1754530801422",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-07T01:40:01.422Z",
+          "scan_id": "real_scan_1754530801422",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-07T01:40:01.422Z",
+          "scan_id": "real_scan_1754530801422",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-07T01:40:01.422Z",
+          "scan_id": "real_scan_1754530801422",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:40:01.422Z",
+          "scan_id": "real_scan_1754530801422",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-07T01:41:45.377Z",
+      "count": 10,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T01:41:45.326Z",
+          "scan_id": "real_scan_1754530905326",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    },
+    {
+      "type": "price_changes",
+      "timestamp": "2025-08-07T02:27:33.397Z",
+      "count": 5,
+      "data": [
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T02:27:33.340Z",
+          "scan_id": "real_scan_1754533653340",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 4"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "12000",
+          "detected_at": "2025-08-07T02:27:33.340Z",
+          "scan_id": "real_scan_1754533653340",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 7"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "300000",
+          "detected_at": "2025-08-07T02:27:33.340Z",
+          "scan_id": "real_scan_1754533653340",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 8"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "132600",
+          "detected_at": "2025-08-07T02:27:33.340Z",
+          "scan_id": "real_scan_1754533653340",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 9"
+        },
+        {
+          "listing_id": 5692,
+          "change_type": "price_update",
+          "field_name": "asking_price",
+          "old_value": "25000",
+          "new_value": "100000",
+          "detected_at": "2025-08-07T02:27:33.340Z",
+          "scan_id": "real_scan_1754533653340",
+          "listing_url": "https://flippa.com",
+          "listing_title": "Discovered Listing 10"
+        }
+      ]
+    }
+  ]
+}

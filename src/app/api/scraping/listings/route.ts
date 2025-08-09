@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     const { data: listings, error } = await supabase
       .from('flippa_listings')
       .select('*')
-      .order('extraction_timestamp', { ascending: false })
+      .order('created_at', { ascending: false })
       .limit(limit)
 
     if (error) {
@@ -32,18 +32,23 @@ export async function GET(request: NextRequest) {
 
     console.log(`📋 Retrieved ${listings?.length || 0} sample listings`)
 
-    // Format for dashboard display
+    // Format for dashboard display with correct column names
     const sampleListings = listings?.map(listing => ({
-      id: listing.listing_id,
-      title: listing.title || `Business #${listing.listing_id}`,
-      price: listing.price,
+      id: listing.id,
+      title: listing.title || `Business #${listing.id}`,
+      price: listing.asking_price,
       monthly: listing.monthly_revenue,
-      type: listing.property_type || 'Unknown',
-      multiple: listing.multiple_text || (listing.multiple ? `${listing.multiple}x` : 'N/A'),
-      badges: listing.badges || [],
+      profit: listing.monthly_profit,
+      type: listing.category || 'Unknown',
+      age: listing.age_months,
+      traffic: listing.page_views_monthly,
+      multiple: listing.asking_price && listing.monthly_revenue > 0 
+        ? `${(listing.asking_price / (listing.monthly_revenue * 12)).toFixed(1)}x` 
+        : 'N/A',
       url: listing.url,
-      qualityScore: listing.quality_score,
-      category: listing.category || ''
+      description: listing.description,
+      category: listing.category || '',
+      createdAt: listing.created_at
     })) || []
 
     return NextResponse.json({ 

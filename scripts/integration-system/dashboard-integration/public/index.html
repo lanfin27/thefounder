@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stealth Collection Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>🥷 Stealth Collection Dashboard</h1>
+            <div class="header-controls">
+                <button id="pauseBtn" class="control-btn">⏸️ Pause</button>
+                <button id="exportBtn" class="control-btn">📥 Export</button>
+                <button id="settingsBtn" class="control-btn">⚙️ Settings</button>
+                <div class="connection-status">
+                    <span class="status-indicator" id="connectionStatus"></span>
+                    <span id="connectionText">Disconnected</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Key Metrics -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Success Rate</h3>
+                    <div class="metric-value" id="successRate">--%</div>
+                    <div class="metric-chart">
+                        <canvas id="successRateChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Active Sessions</h3>
+                    <div class="metric-value" id="activeSessions">0</div>
+                    <div class="metric-chart">
+                        <canvas id="sessionsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Data Extracted</h3>
+                    <div class="metric-value" id="dataExtracted">0</div>
+                    <div class="metric-chart">
+                        <canvas id="dataChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Avg Response Time</h3>
+                    <div class="metric-value" id="avgResponseTime">0ms</div>
+                    <div class="metric-chart">
+                        <canvas id="responseChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Health -->
+            <section class="health-section">
+                <h2>System Health</h2>
+                <div class="health-grid">
+                    <div class="health-component" id="proxyHealth">
+                        <div class="component-icon">🌐</div>
+                        <div class="component-name">Proxy System</div>
+                        <div class="component-status">-</div>
+                    </div>
+                    
+                    <div class="health-component" id="browserHealth">
+                        <div class="component-icon">🖥️</div>
+                        <div class="component-name">Browser Engine</div>
+                        <div class="component-status">-</div>
+                    </div>
+                    
+                    <div class="health-component" id="extractorHealth">
+                        <div class="component-icon">📊</div>
+                        <div class="component-name">Data Extractor</div>
+                        <div class="component-status">-</div>
+                    </div>
+                    
+                    <div class="health-component" id="databaseHealth">
+                        <div class="component-icon">💾</div>
+                        <div class="component-name">Database</div>
+                        <div class="component-status">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategy Monitor -->
+            <section class="strategy-section">
+                <h2>Active Strategy</h2>
+                <div class="strategy-info">
+                    <div class="current-strategy">
+                        <h3 id="strategyName">-</h3>
+                        <p id="strategyReason">No active strategy</p>
+                        <div class="strategy-confidence">
+                            <span>Confidence:</span>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="strategyConfidence"></div>
+                            </div>
+                            <span id="confidenceValue">--%</span>
+                        </div>
+                    </div>
+                    <div class="strategy-history">
+                        <h4>Recent Adaptations</h4>
+                        <ul id="adaptationList"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alerts -->
+            <section class="alerts-section">
+                <div class="alerts-header">
+                    <h2>Alerts</h2>
+                    <button id="clearAlertsBtn" class="small-btn">Clear All</button>
+                </div>
+                <div id="alertsList" class="alerts-list"></div>
+            </section>
+
+            <!-- Detailed Charts -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h3>Performance Trends</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Error Distribution</h3>
+                    <canvas id="errorChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <h2>Dashboard Settings</h2>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>Update Interval (ms)</label>
+                        <input type="number" id="updateInterval" value="1000">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Concurrent Sessions</label>
+                        <input type="number" id="maxSessions" value="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Alert Thresholds</label>
+                        <div class="threshold-inputs">
+                            <label>Error Rate (%)</label>
+                            <input type="number" id="errorThreshold" value="10">
+                            <label>Success Rate (%)</label>
+                            <input type="number" id="successThreshold" value="80">
+                            <label>Response Time (ms)</label>
+                            <input type="number" id="responseThreshold" value="5000">
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="saveSettingsBtn" class="primary-btn">Save</button>
+                        <button id="cancelSettingsBtn" class="secondary-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Modal -->
+        <div id="exportModal" class="modal">
+            <div class="modal-content">
+                <h2>Export Data</h2>
+                <div class="export-form">
+                    <div class="form-group">
+                        <label>Time Period</label>
+                        <select id="exportPeriod">
+                            <option value="1h">Last Hour</option>
+                            <option value="6h">Last 6 Hours</option>
+                            <option value="24h">Last 24 Hours</option>
+                            <option value="7d">Last 7 Days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Format</label>
+                        <select id="exportFormat">
+                            <option value="json">JSON</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="downloadBtn" class="primary-btn">Download</button>
+                        <button id="cancelExportBtn" class="secondary-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

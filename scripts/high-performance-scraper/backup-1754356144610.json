@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-08-05T01:09:04.610Z",
+  "totalListings": 0,
+  "executionTime": 24007,
+  "performanceMetrics": {
+    "apiCalls": 0,
+    "staticExtractions": 0,
+    "browserExtractions": 0,
+    "totalTime": 24007,
+    "successRate": 0
+  },
+  "sampleListings": []
+}

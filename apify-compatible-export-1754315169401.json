@@ -1,0 +1,5807 @@
+{
+  "timestamp": "2025-08-04T13:46:09.400Z",
+  "total": 100,
+  "format": "Apify-compatible",
+  "listings": [
+    {
+      "id": "bypass_1754313732810_0",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732810_1",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732810_2",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_3",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_4",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_5",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_6",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_7",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_8",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_9",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_10",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_11",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_12",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_13",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_14",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_15",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_16",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_17",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_18",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_19",
+      "title": "0 - 5 years",
+      "property_name": "0 - 5 years",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 5 years",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_20",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_21",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_22",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_23",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313732811_24",
+      "title": "All Ecommerce",
+      "property_name": "All Ecommerce",
+      "listing_url": "https://flippa.com/buy/sitetype/ecommerce",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Ecommerce",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792509_0",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_1",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_2",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_3",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_4",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_5",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_6",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_7",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_8",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_9",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_10",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_11",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_12",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_13",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_14",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_15",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_16",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_17",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_18",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_19",
+      "title": "0 - 5 years",
+      "property_name": "0 - 5 years",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 5 years",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_20",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_21",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_22",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_23",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313792510_24",
+      "title": "All Ecommerce",
+      "property_name": "All Ecommerce",
+      "listing_url": "https://flippa.com/buy/sitetype/ecommerce",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Ecommerce",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861693_0",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861693_1",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861693_2",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861693_3",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861693_4",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_5",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_6",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_7",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_8",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_9",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_10",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_11",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_12",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_13",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_14",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_15",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_16",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_17",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_18",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_19",
+      "title": "0 - 5 years",
+      "property_name": "0 - 5 years",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 5 years",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_20",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_21",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_22",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_23",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313861694_24",
+      "title": "All Ecommerce",
+      "property_name": "All Ecommerce",
+      "listing_url": "https://flippa.com/buy/sitetype/ecommerce",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Ecommerce",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927505_0",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_1",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_2",
+      "title": "All Websites",
+      "property_name": "All Websites",
+      "listing_url": "https://flippa.com/websites",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Websites",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_3",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_4",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_5",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_6",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_7",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_8",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_9",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_10",
+      "title": "Editor’s Choice",
+      "property_name": "Editor’s Choice",
+      "listing_url": "https://flippa.com/apps",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Editor’s Choice",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_11",
+      "title": "0 - 6 months",
+      "property_name": "0 - 6 months",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 6 months",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_12",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_13",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_14",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_15",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_16",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_17",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_18",
+      "title": "All Domains",
+      "property_name": "All Domains",
+      "listing_url": "https://flippa.com/domains",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Domains",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_19",
+      "title": "0 - 5 years",
+      "property_name": "0 - 5 years",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "0 - 5 years",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_20",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_21",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_22",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_23",
+      "title": "",
+      "property_name": "",
+      "listing_url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "Premium online business opportunity",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    },
+    {
+      "id": "bypass_1754313927506_24",
+      "title": "All Ecommerce",
+      "property_name": "All Ecommerce",
+      "listing_url": "https://flippa.com/buy/sitetype/ecommerce",
+      "price": 999,
+      "revenue_average": 0,
+      "profit_average": 0,
+      "multiple": 0,
+      "revenue_multiple": 0,
+      "category": "Internet",
+      "property_type": "Website",
+      "monetization": "E-commerce",
+      "country_name": "United States",
+      "currency_label": "USD $",
+      "formatted_age_in_years": "<1 year",
+      "has_verified_revenue": false,
+      "has_verified_traffic": false,
+      "status": "open",
+      "sale_method": "classified",
+      "sale_method_title": "Buy It Now",
+      "summary": "All Ecommerce",
+      "action_button_text": "View Listing",
+      "action_class": "primary",
+      "age_label": "Site Age",
+      "broker_seller": false,
+      "confidential": false,
+      "early_access_listing": false,
+      "editors_choice": false,
+      "listing_watchable": true,
+      "managed_by_flippa": false,
+      "manually_vetted": false,
+      "open_listing": true,
+      "open_to_offer": false,
+      "bid_count": 0,
+      "key_data": {
+        "0": {
+          "label": "Type",
+          "value": "Website"
+        },
+        "1": {
+          "label": "Industry",
+          "value": "Internet"
+        },
+        "2": {
+          "label": "Monetization",
+          "value": "E-commerce"
+        },
+        "3": {
+          "label": "Site Age",
+          "value": "<1 year"
+        },
+        "4": {
+          "label": "Net Profit",
+          "value": "$0"
+        }
+      }
+    }
+  ]
+}

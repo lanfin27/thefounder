@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-08-05T11:05:24.410Z",
+  "discoveryResults": {
+    "endpointsFound": 0,
+    "graphqlEndpoints": 0,
+    "restEndpoints": 0,
+    "listingEndpoints": 0
+  },
+  "performanceProjection": {
+    "apiCalls": 0,
+    "browserRequests": 0,
+    "dataExtracted": 0,
+    "performance": "hybrid"
+  },
+  "recommendations": {
+    "primaryMethod": "hybrid",
+    "expectedSpeedUp": "Unknown",
+    "implementationComplexity": "Medium",
+    "estimatedDevelopmentTime": "2-3 hours"
+  }
+}

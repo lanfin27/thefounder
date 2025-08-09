@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stealth Collection Control Panel</title>
+    <link rel="stylesheet" href="control-panel.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="control-panel">
+        <!-- Header -->
+        <header class="panel-header">
+            <div class="logo">
+                <span class="logo-icon">🥷</span>
+                <h1>Stealth Collection Control Panel</h1>
+            </div>
+            <div class="header-status">
+                <div class="status-item" id="systemStatus">
+                    <span class="status-icon">⚡</span>
+                    <span class="status-label">System</span>
+                    <span class="status-value">Offline</span>
+                </div>
+                <div class="status-item" id="databaseStatus">
+                    <span class="status-icon">💾</span>
+                    <span class="status-label">Database</span>
+                    <span class="status-value">Disconnected</span>
+                </div>
+                <div class="status-item" id="proxiesStatus">
+                    <span class="status-icon">🌐</span>
+                    <span class="status-label">Proxies</span>
+                    <span class="status-value">Unknown</span>
+                </div>
+                <div class="status-item" id="collectionStatus">
+                    <span class="status-icon">📊</span>
+                    <span class="status-label">Collection</span>
+                    <span class="status-value">Stopped</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="panel-main">
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid" id="actionsGrid">
+                    <!-- Actions will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Presets -->
+            <section class="presets-section">
+                <h2>Collection Presets</h2>
+                <div class="presets-grid" id="presetsGrid">
+                    <!-- Presets will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Live Metrics -->
+            <section class="metrics-section">
+                <h2>Live Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">🎯</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Success Rate</div>
+                            <div class="metric-value" id="successRateMetric">--%</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🔄</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Active Sessions</div>
+                            <div class="metric-value" id="activeSessionsMetric">0</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📈</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Data Extracted</div>
+                            <div class="metric-value" id="dataExtractedMetric">0</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⚡</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Avg Response</div>
+                            <div class="metric-value" id="avgResponseMetric">0ms</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Queue -->
+            <section class="tasks-section">
+                <div class="section-header">
+                    <h2>Tasks Queue</h2>
+                    <button class="btn-small" onclick="clearCompletedTasks()">Clear Completed</button>
+                </div>
+                <div class="tasks-list" id="tasksList">
+                    <div class="empty-state">
+                        <span class="empty-icon">📋</span>
+                        <p>No tasks in queue</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Settings -->
+            <section class="settings-section" id="customSettings" style="display: none;">
+                <h2>Custom Settings</h2>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>Concurrency</label>
+                        <input type="number" id="concurrencyInput" min="1" max="20" value="5">
+                        <span class="form-hint">Number of parallel sessions (1-20)</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Request Delay (ms)</label>
+                        <input type="number" id="requestDelayInput" min="100" max="10000" value="3000">
+                        <span class="form-hint">Delay between requests (100-10000ms)</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Proxy Type</label>
+                        <select id="proxyTypeSelect">
+                            <option value="residential">Residential</option>
+                            <option value="datacenter">Datacenter</option>
+                            <option value="mobile">Mobile</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Behavior Profile</label>
+                        <select id="behaviorProfileSelect">
+                            <option value="cautious">Cautious</option>
+                            <option value="normal">Normal</option>
+                            <option value="fast">Fast</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="applyCustomSettings()">Apply Settings</button>
+                </div>
+            </section>
+
+            <!-- Activity Log -->
+            <section class="activity-section">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <button class="btn-small" onclick="exportActivityLog()">Export</button>
+                </div>
+                <div class="activity-log" id="activityLog">
+                    <!-- Activities will be populated dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="panel-footer">
+            <div class="footer-info">
+                <span>System Uptime: <span id="uptimeValue">0h 0m</span></span>
+                <span>Last Update: <span id="lastUpdateValue">Never</span></span>
+            </div>
+            <div class="footer-actions">
+                <button class="btn-small" onclick="openDashboard()">📊 Dashboard</button>
+                <button class="btn-small" onclick="openLogs()">📝 Logs</button>
+                <button class="btn-small" onclick="openHelp()">❓ Help</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <!-- Quick Scan Modal -->
+    <div id="quickScanModal" class="modal">
+        <div class="modal-content">
+            <h3>Quick Scan</h3>
+            <div class="form-group">
+                <label>URL to Scan</label>
+                <input type="url" id="quickScanUrl" placeholder="https://example.com">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="executeQuickScan()">Start Scan</button>
+                <button class="btn btn-secondary" onclick="closeModal('quickScanModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Batch Import Modal -->
+    <div id="batchImportModal" class="modal">
+        <div class="modal-content">
+            <h3>Batch Import URLs</h3>
+            <div class="form-group">
+                <label>Select File (CSV or TXT)</label>
+                <input type="file" id="batchImportFile" accept=".csv,.txt">
+                <span class="form-hint">One URL per line</span>
+            </div>
+            <div class="form-group">
+                <label>Or Paste URLs</label>
+                <textarea id="batchImportText" rows="5" placeholder="Enter URLs, one per line"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="executeBatchImport()">Import</button>
+                <button class="btn btn-secondary" onclick="closeModal('batchImportModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <h3>Export Data</h3>
+            <div class="form-group">
+                <label>Export Format</label>
+                <select id="exportFormat">
+                    <option value="CSV">CSV</option>
+                    <option value="JSON">JSON</option>
+                    <option value="Excel">Excel</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date Range</label>
+                <select id="exportRange">
+                    <option value="today">Today</option>
+                    <option value="week">Last 7 Days</option>
+                    <option value="month">Last 30 Days</option>
+                    <option value="all">All Data</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="executeExport()">Export</button>
+                <button class="btn btn-secondary" onclick="closeModal('exportModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3 id="confirmTitle">Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmButton">Confirm</button>
+                <button class="btn btn-secondary" onclick="closeModal('confirmModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="notification-toast">
+        <span id="notificationMessage"></span>
+    </div>
+
+    <script src="control-panel.js"></script>
+</body>
+</html>

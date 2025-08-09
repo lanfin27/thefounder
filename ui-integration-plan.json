@@ -1,0 +1,62 @@
+{
+  "priority": "HIGH",
+  "goal": "Replace old scraper with improved scrapers in UI workflow",
+  "currentPerformance": {
+    "title": "9%",
+    "revenue": "12.7%",
+    "multiple": "6.4%",
+    "overall": "~32%"
+  },
+  "targetPerformance": {
+    "title": "90%+",
+    "revenue": "60%+",
+    "multiple": "70%+",
+    "overall": "80%+"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "Replace unified-marketplace-scraper.js with improved version",
+      "description": "Backup current script and replace with best-performing scraper",
+      "files": [
+        "scripts/unified-marketplace-scraper.js"
+      ],
+      "impact": "MAJOR_IMPROVEMENT"
+    },
+    {
+      "step": 2,
+      "action": "Add scraper selection in UI",
+      "description": "Allow users to choose between different scraping strategies",
+      "files": [
+        "Frontend components",
+        "API endpoints"
+      ],
+      "impact": "ENHANCED_CONTROL"
+    },
+    {
+      "step": 3,
+      "action": "Update API endpoint to handle improved scrapers",
+      "description": "Modify backend to support new scraper parameters and responses",
+      "files": [
+        "API handler files"
+      ],
+      "impact": "BETTER_INTEGRATION"
+    },
+    {
+      "step": 4,
+      "action": "Add real-time progress updates",
+      "description": "Show detailed progress with field completion rates",
+      "files": [
+        "WebSocket/SSE implementation"
+      ],
+      "impact": "BETTER_UX"
+    }
+  ],
+  "expectedResults": {
+    "titleExtraction": "90%+ (from 9%)",
+    "revenueExtraction": "60%+ (from 12.7%)",
+    "multipleExtraction": "70%+ (from 6.4%)",
+    "priceExtraction": "100% (maintained)",
+    "overallQuality": "80%+ (from 32%)"
+  }
+}

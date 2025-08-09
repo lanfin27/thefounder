@@ -1,0 +1,2285 @@
+{
+  "timestamp": "2025-08-04T13:18:54.463Z",
+  "extractionStats": {
+    "priceExtractionAttempts": 180,
+    "priceExtractionSuccesses": 180,
+    "revenueExtractionAttempts": 180,
+    "revenueExtractionSuccesses": 0,
+    "multipleCalculationAttempts": 0,
+    "multipleCalculationSuccesses": 0,
+    "containerAnalysis": []
+  },
+  "quality": {
+    "total": 180,
+    "withTitle": 96,
+    "withPrice": 180,
+    "withRevenue": 0,
+    "withURL": 180,
+    "withMultiple": 0
+  },
+  "rates": {
+    "title": "53.3",
+    "price": "100.0",
+    "revenue": "0.0",
+    "url": "100.0",
+    "multiple": "0.0"
+  },
+  "listings": [
+    {
+      "id": "fixed_1754313372028_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313372028_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313372028_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313372028_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313372028_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313372028_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313372028_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313372028_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313372028_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313372028_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372028_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372029_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313372029_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313372029_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313372029_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372029_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313372029_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313399256_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313399256_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313399256_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313399256_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313399256_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313399256_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399256_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313399256_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313399256_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313399256_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313399257_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313399257_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313399257_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313399257_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313426040_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313426040_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313426040_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426040_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313426040_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313426041_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313426041_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313426041_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313426041_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313426041_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313426041_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313426041_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313426041_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313426041_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450637_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313450638_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313450638_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313450638_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313450638_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313450638_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313450638_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313450638_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313450638_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313450638_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313450638_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313450638_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313450638_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313450638_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313477974_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313477974_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313477974_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313477974_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313477974_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313477974_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477974_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313477974_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313477975_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313477975_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313477975_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313477975_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313477975_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313477975_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505112_0",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2500
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313505112_1",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2455
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313505112_2",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2442
+      },
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites"
+    },
+    {
+      "id": "fixed_1754313505112_3",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1921
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_4",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_5",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_6",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_7",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_8",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1609
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313505113_9",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1568
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313505113_10",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1555
+      },
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps"
+    },
+    {
+      "id": "fixed_1754313505113_11",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1138
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_12",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_13",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_14",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_15",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_16",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 1724
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313505113_17",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 1680
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313505113_18",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 1667
+      },
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains"
+    },
+    {
+      "id": "fixed_1754313505113_19",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 1239
+      },
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_20",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_21",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_22",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "parent-menu",
+        "textLength": 361
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_23",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-max-w-auto tw-grid tw-grid-cols-1",
+        "textLength": 275
+      },
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_24",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "LI",
+        "containerClass": "tw-relative",
+        "textLength": 2709
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313505113_25",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden tw-absolute tw-top-9 tw-z-[900] tw-w-[300px]",
+        "textLength": 2663
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313505113_26",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col tw-shadow tw-border tw-border-solid tw-border-gray-200 tw-py-2",
+        "textLength": 2650
+      },
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce"
+    },
+    {
+      "id": "fixed_1754313505113_27",
+      "extractionMethod": "fixed-financial",
+      "confidence": 80,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "children-menu",
+        "textLength": 2335
+      },
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_28",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-hidden",
+        "textLength": 477
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    },
+    {
+      "id": "fixed_1754313505113_29",
+      "extractionMethod": "fixed-financial",
+      "confidence": 55,
+      "debugInfo": {
+        "containerTag": "DIV",
+        "containerClass": "tw-bg-white tw-text-gray-500 tw-rounded-md !tw-text-sm tw-flex tw-flex-col  ",
+        "textLength": 457
+      },
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T"
+    }
+  ]
+}

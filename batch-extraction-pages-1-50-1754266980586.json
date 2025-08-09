@@ -1,0 +1,4286 @@
+{
+  "pageRange": "1-50",
+  "metrics": {
+    "total": 475,
+    "withTitle": 475,
+    "withPrice": 385,
+    "withRevenue": 10
+  },
+  "listings": [
+    {
+      "id": "12005391",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12005391",
+      "price": 105984,
+      "monthlyRevenue": null,
+      "multiple": 3.2,
+      "pageNumber": 3
+    },
+    {
+      "id": "11974224",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11974224",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": 5.5,
+      "pageNumber": 3
+    },
+    {
+      "id": "12032324",
+      "title": "The Farrier Guide",
+      "url": "https://flippa.com/12032324",
+      "price": 95,
+      "monthlyRevenue": null,
+      "multiple": 2.2,
+      "pageNumber": 3
+    },
+    {
+      "id": "11843377",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11843377",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": 4,
+      "pageNumber": 3
+    },
+    {
+      "id": "11957526",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11957526",
+      "price": 91,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 3
+    },
+    {
+      "id": "11851299",
+      "title": "houseandbeyond.org",
+      "url": "https://flippa.com/11851299",
+      "price": 2318,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 3
+    },
+    {
+      "id": "12009484",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12009484",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 3
+    },
+    {
+      "id": "11370098",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11370098",
+      "price": 56,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 3
+    },
+    {
+      "id": "11867314",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11867314",
+      "price": 2372,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 3
+    },
+    {
+      "id": "11940247",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11940247",
+      "price": 50186,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 3
+    },
+    {
+      "id": "11679276",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11679276",
+      "price": 15,
+      "monthlyRevenue": null,
+      "multiple": 0.5,
+      "pageNumber": 3
+    },
+    {
+      "id": "10747140",
+      "title": "Prim WEBSITE",
+      "url": "https://flippa.com/10747140",
+      "price": 101587,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 3
+    },
+    {
+      "id": "11854385",
+      "title": "talkaboutsleep.com",
+      "url": "https://flippa.com/11854385",
+      "price": 1200,
+      "monthlyRevenue": null,
+      "multiple": 1.9,
+      "pageNumber": 3
+    },
+    {
+      "id": "11639863",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11639863",
+      "price": 4832,
+      "monthlyRevenue": null,
+      "multiple": 3.9,
+      "pageNumber": 3
+    },
+    {
+      "id": "11979828",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11979828",
+      "price": 6693,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 3
+    },
+    {
+      "id": "11746167",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11746167",
+      "price": 14567,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 3
+    },
+    {
+      "id": "11885690",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11885690",
+      "price": 280386,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 3
+    },
+    {
+      "id": "11692991",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11692991",
+      "price": 4416,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 3
+    },
+    {
+      "id": "11814993",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11814993",
+      "price": 235523,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 3
+    },
+    {
+      "id": "11984242",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11984242",
+      "price": 5776,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 3
+    },
+    {
+      "id": "11778130",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11778130",
+      "price": 9632,
+      "monthlyRevenue": null,
+      "multiple": 2.6,
+      "pageNumber": 3
+    },
+    {
+      "id": "11716393",
+      "title": "PowerPointBase",
+      "url": "https://flippa.com/11716393",
+      "price": 710,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 3
+    },
+    {
+      "id": "11938953",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11938953",
+      "price": 7082,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 3
+    },
+    {
+      "id": "11833404",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11833404",
+      "price": 580,
+      "monthlyRevenue": null,
+      "multiple": 2,
+      "pageNumber": 3
+    },
+    {
+      "id": "11738921",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11738921",
+      "price": 871,
+      "monthlyRevenue": null,
+      "multiple": 4.9,
+      "pageNumber": 3
+    },
+    {
+      "id": "11849239",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11849239",
+      "price": 6,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 5
+    },
+    {
+      "id": "11636663",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11636663",
+      "price": 700000,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 5
+    },
+    {
+      "id": "12028632",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12028632",
+      "price": 1662,
+      "monthlyRevenue": null,
+      "multiple": 5.2,
+      "pageNumber": 5
+    },
+    {
+      "id": "11656490",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11656490",
+      "price": 15300000,
+      "monthlyRevenue": null,
+      "multiple": 3.56,
+      "pageNumber": 5
+    },
+    {
+      "id": "11984799",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11984799",
+      "price": 16857,
+      "monthlyRevenue": null,
+      "multiple": 4,
+      "pageNumber": 5
+    },
+    {
+      "id": "11850375",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11850375",
+      "price": 3048,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 5
+    },
+    {
+      "id": "11838398",
+      "title": "rootedrevival.com",
+      "url": "https://flippa.com/11838398",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 5
+    },
+    {
+      "id": "11998361",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11998361",
+      "price": 24554,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 5
+    },
+    {
+      "id": "11984243",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11984243",
+      "price": 194,
+      "monthlyRevenue": null,
+      "multiple": 4.8,
+      "pageNumber": 5
+    },
+    {
+      "id": "11978782",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11978782",
+      "price": 31919,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 5
+    },
+    {
+      "id": "11854488",
+      "title": "reclinerland.com",
+      "url": "https://flippa.com/11854488",
+      "price": 1256,
+      "monthlyRevenue": null,
+      "multiple": 1.9,
+      "pageNumber": 5
+    },
+    {
+      "id": "11689415",
+      "title": "danieljamesmedia.com",
+      "url": "https://flippa.com/11689415",
+      "price": 130,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 5
+    },
+    {
+      "id": "12007833",
+      "title": "Wheel Front Automotive",
+      "url": "https://flippa.com/12007833",
+      "price": 1000,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 5
+    },
+    {
+      "id": "11933076",
+      "title": "biztechmgt.com",
+      "url": "https://flippa.com/11933076",
+      "price": 750,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 5
+    },
+    {
+      "id": "11933899",
+      "title": "Entro Solutions",
+      "url": "https://flippa.com/11933899",
+      "price": 130,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 5
+    },
+    {
+      "id": "11874584",
+      "title": "Editor's Choice",
+      "url": "https://flippa.com/11874584",
+      "price": 300,
+      "monthlyRevenue": 700,
+      "multiple": 3,
+      "pageNumber": 5
+    },
+    {
+      "id": "11935231",
+      "title": "myspeeddate.co.uk",
+      "url": "https://flippa.com/11935231",
+      "price": 6722,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 5
+    },
+    {
+      "id": "11842662",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11842662",
+      "price": 38557,
+      "monthlyRevenue": null,
+      "multiple": 5.51,
+      "pageNumber": 5
+    },
+    {
+      "id": "11049880",
+      "title": "AccentUnique.com",
+      "url": "https://flippa.com/11049880",
+      "price": 1817,
+      "monthlyRevenue": null,
+      "multiple": 10,
+      "pageNumber": 5
+    },
+    {
+      "id": "11882466",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11882466",
+      "price": 25798,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 5
+    },
+    {
+      "id": "11885575",
+      "title": "japandaily.jp",
+      "url": "https://flippa.com/11885575",
+      "price": 841,
+      "monthlyRevenue": null,
+      "multiple": 3.4,
+      "pageNumber": 5
+    },
+    {
+      "id": "11883502",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11883502",
+      "price": 133,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 5
+    },
+    {
+      "id": "11813446",
+      "title": "Managed by Flippa",
+      "url": "https://flippa.com/11813446",
+      "price": 54715,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 5
+    },
+    {
+      "id": "11905553",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11905553",
+      "price": 234655,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 5
+    },
+    {
+      "id": "11968583",
+      "title": "MoneyMakingMommy",
+      "url": "https://flippa.com/11968583",
+      "price": 617,
+      "monthlyRevenue": null,
+      "multiple": 2.2,
+      "pageNumber": 5
+    },
+    {
+      "id": "11936718",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11936718",
+      "price": 108183,
+      "monthlyRevenue": null,
+      "multiple": 2.6,
+      "pageNumber": 7
+    },
+    {
+      "id": "11970236",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11970236",
+      "price": 158,
+      "monthlyRevenue": null,
+      "multiple": 1.9,
+      "pageNumber": 7
+    },
+    {
+      "id": "12005542",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12005542",
+      "price": 1933,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 7
+    },
+    {
+      "id": "11743639",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11743639",
+      "price": 90,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 7
+    },
+    {
+      "id": "11672912",
+      "title": "Mobile SaaS | Design and Creator AI Tools | iOS and Android",
+      "url": "https://flippa.com/11672912",
+      "price": 1126,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 7
+    },
+    {
+      "id": "11578327",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11578327",
+      "price": 2277220,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 7
+    },
+    {
+      "id": "11975328",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11975328",
+      "price": 637,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 7
+    },
+    {
+      "id": "11994703",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11994703",
+      "price": 60,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 7
+    },
+    {
+      "id": "11793922",
+      "title": "crypto-casino.bet & more casino comparison websites",
+      "url": "https://flippa.com/11793922",
+      "price": 3299999,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 7
+    },
+    {
+      "id": "11987963",
+      "title": "CasaCocheCurro.com",
+      "url": "https://flippa.com/11987963",
+      "price": 102262,
+      "monthlyRevenue": null,
+      "multiple": 2.2,
+      "pageNumber": 7
+    },
+    {
+      "id": "11025755",
+      "title": "WiFi Text - SMS Text Messaging App",
+      "url": "https://flippa.com/11025755",
+      "price": 613,
+      "monthlyRevenue": null,
+      "multiple": 5,
+      "pageNumber": 7
+    },
+    {
+      "id": "12044086",
+      "title": "OuchFix.com",
+      "url": "https://flippa.com/12044086",
+      "price": 25,
+      "monthlyRevenue": null,
+      "multiple": 3.2,
+      "pageNumber": 7
+    },
+    {
+      "id": "11893690",
+      "title": "Big Bad Booth",
+      "url": "https://flippa.com/11893690",
+      "price": 10527,
+      "monthlyRevenue": null,
+      "multiple": 0.7,
+      "pageNumber": 7
+    },
+    {
+      "id": "11921287",
+      "title": "Maaseutumedia (Finland)",
+      "url": "https://flippa.com/11921287",
+      "price": 26142,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 7
+    },
+    {
+      "id": "11979896",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11979896",
+      "price": 359,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 7
+    },
+    {
+      "id": "11848535",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11848535",
+      "price": 36270,
+      "monthlyRevenue": null,
+      "multiple": 2.5,
+      "pageNumber": 7
+    },
+    {
+      "id": "10626935",
+      "title": "dishtvchannels.com",
+      "url": "https://flippa.com/10626935",
+      "price": 1594,
+      "monthlyRevenue": null,
+      "multiple": 1,
+      "pageNumber": 7
+    },
+    {
+      "id": "11957355",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11957355",
+      "price": 17975,
+      "monthlyRevenue": null,
+      "multiple": 6.6,
+      "pageNumber": 7
+    },
+    {
+      "id": "11895752",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11895752",
+      "price": 1287500,
+      "monthlyRevenue": null,
+      "multiple": 3.94,
+      "pageNumber": 7
+    },
+    {
+      "id": "11831619",
+      "title": "imagelr.com",
+      "url": "https://flippa.com/11831619",
+      "price": 317,
+      "monthlyRevenue": null,
+      "multiple": 2.5,
+      "pageNumber": 7
+    },
+    {
+      "id": "11997790",
+      "title": "IsItDownOrJustMe.net",
+      "url": "https://flippa.com/11997790",
+      "price": 300,
+      "monthlyRevenue": 300,
+      "multiple": 1.6,
+      "pageNumber": 7
+    },
+    {
+      "id": "11847356",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11847356",
+      "price": 1404,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 7
+    },
+    {
+      "id": "11873005",
+      "title": "swagcaptions.com",
+      "url": "https://flippa.com/11873005",
+      "price": 882,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 7
+    },
+    {
+      "id": "11995484",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11995484",
+      "price": 5100000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 7
+    },
+    {
+      "id": "11789192",
+      "title": "conceptodefinicion.de",
+      "url": "https://flippa.com/11789192",
+      "price": 23244,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 7
+    },
+    {
+      "id": "11988025",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11988025",
+      "price": 19,
+      "monthlyRevenue": null,
+      "multiple": 5.3,
+      "pageNumber": 11
+    },
+    {
+      "id": "11912575",
+      "title": "Aloha Island Photography",
+      "url": "https://flippa.com/11912575",
+      "price": 7435,
+      "monthlyRevenue": null,
+      "multiple": 0.5,
+      "pageNumber": 11
+    },
+    {
+      "id": "11796644",
+      "title": "Editor's Choice",
+      "url": "https://flippa.com/11796644",
+      "price": 200,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 11
+    },
+    {
+      "id": "11702879",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11702879",
+      "price": 7337,
+      "monthlyRevenue": null,
+      "multiple": 3.4,
+      "pageNumber": 11
+    },
+    {
+      "id": "11999774",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11999774",
+      "price": 11,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 11
+    },
+    {
+      "id": "11738063",
+      "title": "packagedisabler.com",
+      "url": "https://flippa.com/11738063",
+      "price": 5267,
+      "monthlyRevenue": null,
+      "multiple": 3.1,
+      "pageNumber": 11
+    },
+    {
+      "id": "11755001",
+      "title": "The Web Hunters",
+      "url": "https://flippa.com/11755001",
+      "price": 117,
+      "monthlyRevenue": null,
+      "multiple": 3.8,
+      "pageNumber": 11
+    },
+    {
+      "id": "11883515",
+      "title": "Storm DJs Ltd",
+      "url": "https://flippa.com/11883515",
+      "price": 334740,
+      "monthlyRevenue": null,
+      "multiple": 4.3,
+      "pageNumber": 11
+    },
+    {
+      "id": "11979842",
+      "title": "Books and Bao",
+      "url": "https://flippa.com/11979842",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 11
+    },
+    {
+      "id": "10713794",
+      "title": "easyinfoblog.com",
+      "url": "https://flippa.com/10713794",
+      "price": 3032,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 11
+    },
+    {
+      "id": "12020873",
+      "title": "Launch2Launch",
+      "url": "https://flippa.com/12020873",
+      "price": 250,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 11
+    },
+    {
+      "id": "11997446",
+      "title": "PureSpark Solutions",
+      "url": "https://flippa.com/11997446",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": 0.6,
+      "pageNumber": 11
+    },
+    {
+      "id": "11732894",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11732894",
+      "price": 185699,
+      "monthlyRevenue": null,
+      "multiple": 5.9,
+      "pageNumber": 11
+    },
+    {
+      "id": "12009346",
+      "title": "ClinicsBid.com",
+      "url": "https://flippa.com/12009346",
+      "price": 2367,
+      "monthlyRevenue": null,
+      "multiple": 0.7,
+      "pageNumber": 11
+    },
+    {
+      "id": "11995745",
+      "title": "designertale.com",
+      "url": "https://flippa.com/11995745",
+      "price": 603,
+      "monthlyRevenue": null,
+      "multiple": 3.6,
+      "pageNumber": 11
+    },
+    {
+      "id": "12013902",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12013902",
+      "price": 643888,
+      "monthlyRevenue": null,
+      "multiple": 1.9,
+      "pageNumber": 11
+    },
+    {
+      "id": "12015389",
+      "title": "LLC Formation Service in Wyoming & Delaware",
+      "url": "https://flippa.com/12015389",
+      "price": 181,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 11
+    },
+    {
+      "id": "11705651",
+      "title": "learnyay.co.uk",
+      "url": "https://flippa.com/11705651",
+      "price": 18902,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 11
+    },
+    {
+      "id": "11833439",
+      "title": "Managed by Flippa",
+      "url": "https://flippa.com/11833439",
+      "price": 30754,
+      "monthlyRevenue": null,
+      "multiple": 3.6,
+      "pageNumber": 11
+    },
+    {
+      "id": "10950984",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10950984",
+      "price": 4659,
+      "monthlyRevenue": null,
+      "multiple": 0.7,
+      "pageNumber": 11
+    },
+    {
+      "id": "11806088",
+      "title": "siennaparkventures.holidayfuture.com",
+      "url": "https://flippa.com/11806088",
+      "price": 26000,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 11
+    },
+    {
+      "id": "12008774",
+      "title": "SewingToo.com",
+      "url": "https://flippa.com/12008774",
+      "price": 10,
+      "monthlyRevenue": null,
+      "multiple": 2.5,
+      "pageNumber": 11
+    },
+    {
+      "id": "10925242",
+      "title": "avbookings.com.au",
+      "url": "https://flippa.com/10925242",
+      "price": 720,
+      "monthlyRevenue": null,
+      "multiple": 0.9,
+      "pageNumber": 11
+    },
+    {
+      "id": "11877224",
+      "title": "Honest Coffee Guide",
+      "url": "https://flippa.com/11877224",
+      "price": 740,
+      "monthlyRevenue": null,
+      "multiple": 6.6,
+      "pageNumber": 11
+    },
+    {
+      "id": "11947132",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11947132",
+      "price": 18,
+      "monthlyRevenue": null,
+      "multiple": 4.9,
+      "pageNumber": 11
+    },
+    {
+      "id": "12016228",
+      "title": "mackayrealestateguide.com.au",
+      "url": "https://flippa.com/12016228",
+      "price": 131,
+      "monthlyRevenue": null,
+      "multiple": 3.5,
+      "pageNumber": 13
+    },
+    {
+      "id": "11662837",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11662837",
+      "price": 16822,
+      "monthlyRevenue": null,
+      "multiple": 4,
+      "pageNumber": 13
+    },
+    {
+      "id": "12005809",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12005809",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": 3.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11823017",
+      "title": "consuladodehondurasenusa.com",
+      "url": "https://flippa.com/11823017",
+      "price": 49973,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 13
+    },
+    {
+      "id": "11983840",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11983840",
+      "price": 140,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11917420",
+      "title": "Personal Wellness Tracking",
+      "url": "https://flippa.com/11917420",
+      "price": 28,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 13
+    },
+    {
+      "id": "12006426",
+      "title": "ExpertDrinking",
+      "url": "https://flippa.com/12006426",
+      "price": 50,
+      "monthlyRevenue": null,
+      "multiple": 6.7,
+      "pageNumber": 13
+    },
+    {
+      "id": "11851064",
+      "title": "Oxo Collective",
+      "url": "https://flippa.com/11851064",
+      "price": 2059,
+      "monthlyRevenue": null,
+      "multiple": 0.2,
+      "pageNumber": 13
+    },
+    {
+      "id": "11984204",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11984204",
+      "price": 5684,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 13
+    },
+    {
+      "id": "11922120",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11922120",
+      "price": 198526,
+      "monthlyRevenue": null,
+      "multiple": 6.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11962441",
+      "title": "Social Network",
+      "url": "https://flippa.com/11962441",
+      "price": 17,
+      "monthlyRevenue": null,
+      "multiple": 5.4,
+      "pageNumber": 13
+    },
+    {
+      "id": "10716296",
+      "title": "playa-wedding.com",
+      "url": "https://flippa.com/10716296",
+      "price": 1400,
+      "monthlyRevenue": null,
+      "multiple": 0.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11866285",
+      "title": "albacentroestetica.es",
+      "url": "https://flippa.com/11866285",
+      "price": 28531,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 13
+    },
+    {
+      "id": "12008001",
+      "title": "Canada Hires",
+      "url": "https://flippa.com/12008001",
+      "price": 60,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 13
+    },
+    {
+      "id": "12007738",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12007738",
+      "price": 330,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 13
+    },
+    {
+      "id": "11900687",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11900687",
+      "price": 140751,
+      "monthlyRevenue": null,
+      "multiple": 1.3,
+      "pageNumber": 13
+    },
+    {
+      "id": "11792655",
+      "title": "The Drone Coach",
+      "url": "https://flippa.com/11792655",
+      "price": 730,
+      "monthlyRevenue": 730,
+      "multiple": 1.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11790564",
+      "title": "Private Jets Pro",
+      "url": "https://flippa.com/11790564",
+      "price": 1751,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 13
+    },
+    {
+      "id": "10698978",
+      "title": "servicecentrelist.com",
+      "url": "https://flippa.com/10698978",
+      "price": 3000,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 13
+    },
+    {
+      "id": "10803907",
+      "title": "breathecarolina.net",
+      "url": "https://flippa.com/10803907",
+      "price": 606,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 13
+    },
+    {
+      "id": "11813157",
+      "title": "Gaming Blog + YouTube Channel",
+      "url": "https://flippa.com/11813157",
+      "price": 704,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 13
+    },
+    {
+      "id": "11942383",
+      "title": "Remote Online Jobs",
+      "url": "https://flippa.com/11942383",
+      "price": 477,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 13
+    },
+    {
+      "id": "11827765",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11827765",
+      "price": 316,
+      "monthlyRevenue": null,
+      "multiple": 2.5,
+      "pageNumber": 13
+    },
+    {
+      "id": "11940283",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11940283",
+      "price": 107647,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 13
+    },
+    {
+      "id": "11906927",
+      "title": "Travels with Missy",
+      "url": "https://flippa.com/11906927",
+      "price": 621,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 13
+    },
+    {
+      "id": "11962368",
+      "title": "Writing Beginner",
+      "url": "https://flippa.com/11962368",
+      "price": 1500,
+      "monthlyRevenue": null,
+      "multiple": 1.3,
+      "pageNumber": 21
+    },
+    {
+      "id": "10782347",
+      "title": "mejorafeitadoraelectrica.com",
+      "url": "https://flippa.com/10782347",
+      "price": 1113,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 21
+    },
+    {
+      "id": "12017990",
+      "title": "CyclingDot.com",
+      "url": "https://flippa.com/12017990",
+      "price": 9,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "10792595",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10792595",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "12002519",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12002519",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "12031903",
+      "title": "Crafty Captain https://craftycaptain.com/",
+      "url": "https://flippa.com/12031903",
+      "price": 4066,
+      "monthlyRevenue": null,
+      "multiple": 0.3,
+      "pageNumber": 21
+    },
+    {
+      "id": "10901873",
+      "title": "certifiedhit.com",
+      "url": "https://flippa.com/10901873",
+      "price": 280,
+      "monthlyRevenue": null,
+      "multiple": 0.9,
+      "pageNumber": 21
+    },
+    {
+      "id": "11940184",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11940184",
+      "price": 28693,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 21
+    },
+    {
+      "id": "11995377",
+      "title": "✨ vClar | Grammarly for Voice Memo ✨",
+      "url": "https://flippa.com/11995377",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "12025485",
+      "title": "Yogalastics.com",
+      "url": "https://flippa.com/12025485",
+      "price": 8,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 21
+    },
+    {
+      "id": "12043660",
+      "title": "echangeauto.fr",
+      "url": "https://flippa.com/12043660",
+      "price": 1882,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 21
+    },
+    {
+      "id": "10912241",
+      "title": "EvergreenFeed",
+      "url": "https://flippa.com/10912241",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "11849813",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11849813",
+      "price": 50,
+      "monthlyRevenue": null,
+      "multiple": 5,
+      "pageNumber": 21
+    },
+    {
+      "id": "11778172",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11778172",
+      "price": 212915,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 21
+    },
+    {
+      "id": "12013822",
+      "title": "EssentialOilsHub.com",
+      "url": "https://flippa.com/12013822",
+      "price": 8,
+      "monthlyRevenue": null,
+      "multiple": 5,
+      "pageNumber": 21
+    },
+    {
+      "id": "11944088",
+      "title": "InstantWebWorld.com",
+      "url": "https://flippa.com/11944088",
+      "price": 8983,
+      "monthlyRevenue": 8983,
+      "multiple": 0.4,
+      "pageNumber": 21
+    },
+    {
+      "id": "12043717",
+      "title": "Blush & Pine Creative",
+      "url": "https://flippa.com/12043717",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 21
+    },
+    {
+      "id": "10807238",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/10807238",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": 3.9,
+      "pageNumber": 21
+    },
+    {
+      "id": "12013152",
+      "title": "ChatGPT Toolbox",
+      "url": "https://flippa.com/12013152",
+      "price": 4219,
+      "monthlyRevenue": null,
+      "multiple": 7.7,
+      "pageNumber": 21
+    },
+    {
+      "id": "11973895",
+      "title": "SICILIA IN TOUR",
+      "url": "https://flippa.com/11973895",
+      "price": 33776,
+      "monthlyRevenue": null,
+      "multiple": 0.7,
+      "pageNumber": 21
+    },
+    {
+      "id": "11670681",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11670681",
+      "price": 1850,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 21
+    },
+    {
+      "id": "11880345",
+      "title": "miningwatchdog.com",
+      "url": "https://flippa.com/11880345",
+      "price": 200,
+      "monthlyRevenue": null,
+      "multiple": 7,
+      "pageNumber": 21
+    },
+    {
+      "id": "11928390",
+      "title": "Aloha Dreams Photography",
+      "url": "https://flippa.com/11928390",
+      "price": 1115,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 21
+    },
+    {
+      "id": "11832740",
+      "title": "sihirly.com",
+      "url": "https://flippa.com/11832740",
+      "price": 37707,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 21
+    },
+    {
+      "id": "11965292",
+      "title": "podcastdb.io",
+      "url": "https://flippa.com/11965292",
+      "price": 656,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 21
+    },
+    {
+      "id": "11978389",
+      "title": "vpnpick.com",
+      "url": "https://flippa.com/11978389",
+      "price": 52,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 23
+    },
+    {
+      "id": "11764650",
+      "title": "NoSmokeSport",
+      "url": "https://flippa.com/11764650",
+      "price": 303,
+      "monthlyRevenue": null,
+      "multiple": 2.2,
+      "pageNumber": 23
+    },
+    {
+      "id": "12034499",
+      "title": "Abogados Fernandez Blasco",
+      "url": "https://flippa.com/12034499",
+      "price": 128,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 23
+    },
+    {
+      "id": "11815977",
+      "title": "Ma Clinique | Automated Google News Website",
+      "url": "https://flippa.com/11815977",
+      "price": 43095,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 23
+    },
+    {
+      "id": "11921836",
+      "title": "Monetized Job Portal Website",
+      "url": "https://flippa.com/11921836",
+      "price": 536,
+      "monthlyRevenue": null,
+      "multiple": 0.3,
+      "pageNumber": 23
+    },
+    {
+      "id": "11868846",
+      "title": "publicapis.dev",
+      "url": "https://flippa.com/11868846",
+      "price": 850,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 23
+    },
+    {
+      "id": "12018822",
+      "title": "Super Seller",
+      "url": "https://flippa.com/12018822",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "12009660",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12009660",
+      "price": 21,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "11995739",
+      "title": "The Vape Trader",
+      "url": "https://flippa.com/11995739",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "11913076",
+      "title": "Moments Unveiled",
+      "url": "https://flippa.com/11913076",
+      "price": 3430,
+      "monthlyRevenue": null,
+      "multiple": 1,
+      "pageNumber": 23
+    },
+    {
+      "id": "12021037",
+      "title": "Tennis Live Scores",
+      "url": "https://flippa.com/12021037",
+      "price": 34,
+      "monthlyRevenue": null,
+      "multiple": 4.4,
+      "pageNumber": 23
+    },
+    {
+      "id": "11844648",
+      "title": "Pro Ace CRM Software for Trades",
+      "url": "https://flippa.com/11844648",
+      "price": 1576,
+      "monthlyRevenue": null,
+      "multiple": 1.3,
+      "pageNumber": 23
+    },
+    {
+      "id": "10879892",
+      "title": "topboostingservice.com",
+      "url": "https://flippa.com/10879892",
+      "price": 292,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 23
+    },
+    {
+      "id": "11849000",
+      "title": "aimhighalgo.com",
+      "url": "https://flippa.com/11849000",
+      "price": 3081,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 23
+    },
+    {
+      "id": "11982704",
+      "title": "Mindset Coach Directory",
+      "url": "https://flippa.com/11982704",
+      "price": 12918,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 23
+    },
+    {
+      "id": "12014373",
+      "title": "VoiceType AI",
+      "url": "https://flippa.com/12014373",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 23
+    },
+    {
+      "id": "12003295",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12003295",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 23
+    },
+    {
+      "id": "10854958",
+      "title": "studiosharing.it",
+      "url": "https://flippa.com/10854958",
+      "price": 25,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "11970078",
+      "title": "rapidely - Deelee Consulting",
+      "url": "https://flippa.com/11970078",
+      "price": 27,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "11955534",
+      "title": "Betches Walking Betches",
+      "url": "https://flippa.com/11955534",
+      "price": 100,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 23
+    },
+    {
+      "id": "11901434",
+      "title": "Azuris Silver",
+      "url": "https://flippa.com/11901434",
+      "price": 3000,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 23
+    },
+    {
+      "id": "11981969",
+      "title": "analisilogica",
+      "url": "https://flippa.com/11981969",
+      "price": 3271,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 23
+    },
+    {
+      "id": "11981703",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11981703",
+      "price": 531,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 23
+    },
+    {
+      "id": "10882920",
+      "title": "hostylus.com",
+      "url": "https://flippa.com/10882920",
+      "price": 168,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 23
+    },
+    {
+      "id": "12028204",
+      "title": "Markhor Times",
+      "url": "https://flippa.com/12028204",
+      "price": 217,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 23
+    },
+    {
+      "id": "12020331",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12020331",
+      "price": 58,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 27
+    },
+    {
+      "id": "11987831",
+      "title": "Build The Keyword",
+      "url": "https://flippa.com/11987831",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": 2,
+      "pageNumber": 27
+    },
+    {
+      "id": "10844395",
+      "title": "biofitreview.info",
+      "url": "https://flippa.com/10844395",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "12028044",
+      "title": "MONEYWA.COM",
+      "url": "https://flippa.com/12028044",
+      "price": 1745,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "10750887",
+      "title": "surgeonrecruiters.com",
+      "url": "https://flippa.com/10750887",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "12002230",
+      "title": "Blooming Anomaly",
+      "url": "https://flippa.com/12002230",
+      "price": 348,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "11987169",
+      "title": "Properthy.com",
+      "url": "https://flippa.com/11987169",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "10879876",
+      "title": "rethink.onl",
+      "url": "https://flippa.com/10879876",
+      "price": 123,
+      "monthlyRevenue": null,
+      "multiple": 1.9,
+      "pageNumber": 27
+    },
+    {
+      "id": "10819985",
+      "title": "letscomparebets.com",
+      "url": "https://flippa.com/10819985",
+      "price": 186,
+      "monthlyRevenue": null,
+      "multiple": 3.1,
+      "pageNumber": 27
+    },
+    {
+      "id": "10926254",
+      "title": "chemwifi.com",
+      "url": "https://flippa.com/10926254",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 27
+    },
+    {
+      "id": "11970430",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11970430",
+      "price": 70,
+      "monthlyRevenue": null,
+      "multiple": 0.7,
+      "pageNumber": 27
+    },
+    {
+      "id": "12029938",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12029938",
+      "price": 268660,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 27
+    },
+    {
+      "id": "12043691",
+      "title": "Arianna Danielle - Tech, London and Student Living",
+      "url": "https://flippa.com/12043691",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": 0.2,
+      "pageNumber": 27
+    },
+    {
+      "id": "11899442",
+      "title": "Status Check SRD",
+      "url": "https://flippa.com/11899442",
+      "price": 467,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 27
+    },
+    {
+      "id": "11893398",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11893398",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "11950195",
+      "title": "Email List Validation",
+      "url": "https://flippa.com/11950195",
+      "price": 1935,
+      "monthlyRevenue": null,
+      "multiple": 3.2,
+      "pageNumber": 27
+    },
+    {
+      "id": "11803568",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11803568",
+      "price": 214,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "11900588",
+      "title": "Theaihunter",
+      "url": "https://flippa.com/11900588",
+      "price": 2000,
+      "monthlyRevenue": null,
+      "multiple": 2.2,
+      "pageNumber": 27
+    },
+    {
+      "id": "12019887",
+      "title": "OurHomeTools.com",
+      "url": "https://flippa.com/12019887",
+      "price": 450,
+      "monthlyRevenue": 450,
+      "multiple": 0.5,
+      "pageNumber": 27
+    },
+    {
+      "id": "12045824",
+      "title": "Top Tasty Food",
+      "url": "https://flippa.com/12045824",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "12043467",
+      "title": "SheCooksWithHelp.com: Collection of Recipes",
+      "url": "https://flippa.com/12043467",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "12046436",
+      "title": "ChocolateEater.com",
+      "url": "https://flippa.com/12046436",
+      "price": 6,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 27
+    },
+    {
+      "id": "11964388",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11964388",
+      "price": 10,
+      "monthlyRevenue": null,
+      "multiple": 3.8,
+      "pageNumber": 27
+    },
+    {
+      "id": "10754098",
+      "title": "guidecredit.fr",
+      "url": "https://flippa.com/10754098",
+      "price": 1000,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 27
+    },
+    {
+      "id": "11992994",
+      "title": "LifeCoach.de",
+      "url": "https://flippa.com/11992994",
+      "price": 22831,
+      "monthlyRevenue": null,
+      "multiple": 7.8,
+      "pageNumber": 27
+    },
+    {
+      "id": "12007622",
+      "title": "wellnesswink.com",
+      "url": "https://flippa.com/12007622",
+      "price": 50,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "11855206",
+      "title": "TicketGenius",
+      "url": "https://flippa.com/11855206",
+      "price": 625,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 29
+    },
+    {
+      "id": "11990779",
+      "title": "Chollos de Hoteles",
+      "url": "https://flippa.com/11990779",
+      "price": 15000,
+      "monthlyRevenue": null,
+      "multiple": 3.9,
+      "pageNumber": 29
+    },
+    {
+      "id": "12005143",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12005143",
+      "price": 4714,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 29
+    },
+    {
+      "id": "11873459",
+      "title": "Consumer's Voice",
+      "url": "https://flippa.com/11873459",
+      "price": 1820,
+      "monthlyRevenue": null,
+      "multiple": 0.3,
+      "pageNumber": 29
+    },
+    {
+      "id": "11738444",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11738444",
+      "price": 36,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "11987975",
+      "title": "Wordle UK - Play British Wordle Online",
+      "url": "https://flippa.com/11987975",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "12025702",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/12025702",
+      "price": 401123,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 29
+    },
+    {
+      "id": "11982712",
+      "title": "Relationship Coach Directory",
+      "url": "https://flippa.com/11982712",
+      "price": 7536,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 29
+    },
+    {
+      "id": "11813300",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11813300",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 29
+    },
+    {
+      "id": "10694423",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10694423",
+      "price": 57,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 29
+    },
+    {
+      "id": "12030301",
+      "title": "CleanHomez.com",
+      "url": "https://flippa.com/12030301",
+      "price": 68,
+      "monthlyRevenue": null,
+      "multiple": 2.3,
+      "pageNumber": 29
+    },
+    {
+      "id": "11878830",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11878830",
+      "price": 178,
+      "monthlyRevenue": null,
+      "multiple": 4,
+      "pageNumber": 29
+    },
+    {
+      "id": "11788507",
+      "title": "high voltage AS",
+      "url": "https://flippa.com/11788507",
+      "price": 5451,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 29
+    },
+    {
+      "id": "12011657",
+      "title": "electricianauthority.com",
+      "url": "https://flippa.com/12011657",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "12004611",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12004611",
+      "price": 1191,
+      "monthlyRevenue": null,
+      "multiple": 1,
+      "pageNumber": 29
+    },
+    {
+      "id": "11979530",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11979530",
+      "price": 39,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 29
+    },
+    {
+      "id": "11835753",
+      "title": "#1 Most Beautiful AI Model on Web | Over 10M+ Views Monthly | Fastest Growing Digital Celebrity 2025",
+      "url": "https://flippa.com/11835753",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "12046430",
+      "title": "PianoForEverybody.com",
+      "url": "https://flippa.com/12046430",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "11989195",
+      "title": "Flywheel Jobs",
+      "url": "https://flippa.com/11989195",
+      "price": 662,
+      "monthlyRevenue": null,
+      "multiple": 1.1,
+      "pageNumber": 29
+    },
+    {
+      "id": "10752882",
+      "title": "quotetastrophe.com",
+      "url": "https://flippa.com/10752882",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "12020056",
+      "title": "HomeToolsGuru.com",
+      "url": "https://flippa.com/12020056",
+      "price": 8,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 29
+    },
+    {
+      "id": "11924152",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11924152",
+      "price": 218,
+      "monthlyRevenue": null,
+      "multiple": 3.1,
+      "pageNumber": 29
+    },
+    {
+      "id": "11931198",
+      "title": "Free Fire Open Beta Servers",
+      "url": "https://flippa.com/11931198",
+      "price": 2092,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 29
+    },
+    {
+      "id": "12011220",
+      "title": "Corretor Certo",
+      "url": "https://flippa.com/12011220",
+      "price": 40,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 29
+    },
+    {
+      "id": "11999063",
+      "title": "Vision post website about business, tech, crypto and more",
+      "url": "https://flippa.com/11999063",
+      "price": 579,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 31
+    },
+    {
+      "id": "12030580",
+      "title": "Revoca AAMS - Italian Niche Website (No AI) - Huge Potential EMD - 5-20 Clicks a Day",
+      "url": "https://flippa.com/12030580",
+      "price": 238,
+      "monthlyRevenue": null,
+      "multiple": 2.4,
+      "pageNumber": 31
+    },
+    {
+      "id": "10736019",
+      "title": "Lease Finance Brokerage Brand / Lease Finance Lead Gen Business - 550% ROI",
+      "url": "https://flippa.com/10736019",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "11825820",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11825820",
+      "price": 12305,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 31
+    },
+    {
+      "id": "11714004",
+      "title": "Hit Music Group",
+      "url": "https://flippa.com/11714004",
+      "price": 3000,
+      "monthlyRevenue": null,
+      "multiple": 2.8,
+      "pageNumber": 31
+    },
+    {
+      "id": "11730688",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11730688",
+      "price": 615,
+      "monthlyRevenue": null,
+      "multiple": 0.3,
+      "pageNumber": 31
+    },
+    {
+      "id": "11996028",
+      "title": "Chalk & Clay",
+      "url": "https://flippa.com/11996028",
+      "price": 239,
+      "monthlyRevenue": null,
+      "multiple": 7.9,
+      "pageNumber": 31
+    },
+    {
+      "id": "11936192",
+      "title": "oneirichome.com",
+      "url": "https://flippa.com/11936192",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 31
+    },
+    {
+      "id": "11886276",
+      "title": "UAE Timing & Personal Calculator",
+      "url": "https://flippa.com/11886276",
+      "price": 248,
+      "monthlyRevenue": null,
+      "multiple": 6.3,
+      "pageNumber": 31
+    },
+    {
+      "id": "10540343",
+      "title": "Investing in Property",
+      "url": "https://flippa.com/10540343",
+      "price": 25000,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 31
+    },
+    {
+      "id": "12013710",
+      "title": "AI Video Generator Powered by Hailuo V2",
+      "url": "https://flippa.com/12013710",
+      "price": 117,
+      "monthlyRevenue": null,
+      "multiple": 4.6,
+      "pageNumber": 31
+    },
+    {
+      "id": "11995067",
+      "title": "Riddles Puzzle",
+      "url": "https://flippa.com/11995067",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "11850459",
+      "title": "Jewelry Reports",
+      "url": "https://flippa.com/11850459",
+      "price": 229,
+      "monthlyRevenue": null,
+      "multiple": 3.6,
+      "pageNumber": 31
+    },
+    {
+      "id": "12042772",
+      "title": "aitoolfind.co - AdSense approved",
+      "url": "https://flippa.com/12042772",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "12029513",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12029513",
+      "price": 118,
+      "monthlyRevenue": 7,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "12000303",
+      "title": "Bapple/Blime Finder",
+      "url": "https://flippa.com/12000303",
+      "price": 215,
+      "monthlyRevenue": null,
+      "multiple": 0.4,
+      "pageNumber": 31
+    },
+    {
+      "id": "11977274",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11977274",
+      "price": 49,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "11947618",
+      "title": "Menubarcode",
+      "url": "https://flippa.com/11947618",
+      "price": 30052,
+      "monthlyRevenue": null,
+      "multiple": 3.9,
+      "pageNumber": 31
+    },
+    {
+      "id": "12009056",
+      "title": "EEasy DIY home storage,aboxone.com",
+      "url": "https://flippa.com/12009056",
+      "price": 300,
+      "monthlyRevenue": null,
+      "multiple": 0.6,
+      "pageNumber": 31
+    },
+    {
+      "id": "12012525",
+      "title": "Recipewikki.com - Adsense Food Blog",
+      "url": "https://flippa.com/12012525",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "12015299",
+      "title": "Makenstitch",
+      "url": "https://flippa.com/12015299",
+      "price": 19682,
+      "monthlyRevenue": null,
+      "multiple": 1.8,
+      "pageNumber": 31
+    },
+    {
+      "id": "12045041",
+      "title": "WonderFascination.com",
+      "url": "https://flippa.com/12045041",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "12005490",
+      "title": "Coverlet AI",
+      "url": "https://flippa.com/12005490",
+      "price": 25,
+      "monthlyRevenue": 25,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "11829888",
+      "title": "u-sendfulfillment.com",
+      "url": "https://flippa.com/11829888",
+      "price": 97829,
+      "monthlyRevenue": null,
+      "multiple": 3.4,
+      "pageNumber": 31
+    },
+    {
+      "id": "10917037",
+      "title": "bestpinch.com",
+      "url": "https://flippa.com/10917037",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 31
+    },
+    {
+      "id": "11995164",
+      "title": "Italian perfume blog with reviews, buying guides & trends. Covers luxury & budget fragrances. Organic traffic in fragrance niche.",
+      "url": "https://flippa.com/11995164",
+      "price": 29,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 33
+    },
+    {
+      "id": "12015370",
+      "title": "woodcraftwiz.com",
+      "url": "https://flippa.com/12015370",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12028363",
+      "title": "DirectoryMaker",
+      "url": "https://flippa.com/12028363",
+      "price": 275,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12006350",
+      "title": "TouchlineTales",
+      "url": "https://flippa.com/12006350",
+      "price": 65,
+      "monthlyRevenue": null,
+      "multiple": 5,
+      "pageNumber": 33
+    },
+    {
+      "id": "10611788",
+      "title": "Online Forex / Share / Indices Trading Company with Platform, CRM & User Portal",
+      "url": "https://flippa.com/10611788",
+      "price": 4999,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "10736817",
+      "title": "howwritecv.com",
+      "url": "https://flippa.com/10736817",
+      "price": 249,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 33
+    },
+    {
+      "id": "11027033",
+      "title": "mobileminer.org",
+      "url": "https://flippa.com/11027033",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12005290",
+      "title": "VibeSync is a unique verified ERC20 token SaaS asset on Base network with branding & legal docs, monetization ready! crypto knowledge i will give you for free.",
+      "url": "https://flippa.com/12005290",
+      "price": 6478,
+      "monthlyRevenue": null,
+      "multiple": 0.1,
+      "pageNumber": 33
+    },
+    {
+      "id": "11995107",
+      "title": "FOOD foodwp",
+      "url": "https://flippa.com/11995107",
+      "price": 109,
+      "monthlyRevenue": null,
+      "multiple": 0.6,
+      "pageNumber": 33
+    },
+    {
+      "id": "10628259",
+      "title": "contentwritingservices.net",
+      "url": "https://flippa.com/10628259",
+      "price": 2800,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 33
+    },
+    {
+      "id": "11838307",
+      "title": "devonlarratt.info",
+      "url": "https://flippa.com/11838307",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "11984174",
+      "title": "ReelUGC - AI UGC & Carousel Generator",
+      "url": "https://flippa.com/11984174",
+      "price": 25,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "11975291",
+      "title": "Call Pronto Limited",
+      "url": "https://flippa.com/11975291",
+      "price": 13540,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 33
+    },
+    {
+      "id": "11979274",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11979274",
+      "price": 11210,
+      "monthlyRevenue": null,
+      "multiple": 3.5,
+      "pageNumber": 33
+    },
+    {
+      "id": "12028871",
+      "title": "tryprismai.com",
+      "url": "https://flippa.com/12028871",
+      "price": 1804,
+      "monthlyRevenue": null,
+      "multiple": 0.1,
+      "pageNumber": 33
+    },
+    {
+      "id": "12044135",
+      "title": "lawyersai.us",
+      "url": "https://flippa.com/12044135",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12021896",
+      "title": "ScriptBuzz.com",
+      "url": "https://flippa.com/12021896",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12019824",
+      "title": "Security and Self-Defense affiliate blog",
+      "url": "https://flippa.com/12019824",
+      "price": 23,
+      "monthlyRevenue": null,
+      "multiple": 2.6,
+      "pageNumber": 33
+    },
+    {
+      "id": "11833950",
+      "title": "RevOps Limited",
+      "url": "https://flippa.com/11833950",
+      "price": 1269,
+      "monthlyRevenue": null,
+      "multiple": 3.1,
+      "pageNumber": 33
+    },
+    {
+      "id": "11976485",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11976485",
+      "price": 22320,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "10878285",
+      "title": "Russian Hockey Fans",
+      "url": "https://flippa.com/10878285",
+      "price": 3999,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "10768814",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10768814",
+      "price": 2500,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "11841542",
+      "title": "ALLPOS Software",
+      "url": "https://flippa.com/11841542",
+      "price": 3236,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 33
+    },
+    {
+      "id": "12009677",
+      "title": "Bugis Junction",
+      "url": "https://flippa.com/12009677",
+      "price": 75,
+      "monthlyRevenue": null,
+      "multiple": 3.9,
+      "pageNumber": 33
+    },
+    {
+      "id": "12031055",
+      "title": "Atom Writer",
+      "url": "https://flippa.com/12031055",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 33
+    },
+    {
+      "id": "11762419",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11762419",
+      "price": 961908,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11986308",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11986308",
+      "price": 12,
+      "monthlyRevenue": null,
+      "multiple": 0.6,
+      "pageNumber": 35
+    },
+    {
+      "id": "11877882",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11877882",
+      "price": 1017,
+      "monthlyRevenue": null,
+      "multiple": 4.1,
+      "pageNumber": 35
+    },
+    {
+      "id": "12032273",
+      "title": "Evershine Coating Co",
+      "url": "https://flippa.com/12032273",
+      "price": 5747,
+      "monthlyRevenue": null,
+      "multiple": 0.1,
+      "pageNumber": 35
+    },
+    {
+      "id": "12043260",
+      "title": "Fasto Recipes",
+      "url": "https://flippa.com/12043260",
+      "price": 2,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11958564",
+      "title": "Tooling fun",
+      "url": "https://flippa.com/11958564",
+      "price": 75,
+      "monthlyRevenue": null,
+      "multiple": 4.4,
+      "pageNumber": 35
+    },
+    {
+      "id": "11994565",
+      "title": "Monstera Expert",
+      "url": "https://flippa.com/11994565",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "10621307",
+      "title": "playerzdominiance.com",
+      "url": "https://flippa.com/10621307",
+      "price": 1200,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 35
+    },
+    {
+      "id": "12031696",
+      "title": "WA, United States",
+      "url": "https://flippa.com/12031696",
+      "price": 167,
+      "monthlyRevenue": null,
+      "multiple": 0.9,
+      "pageNumber": 35
+    },
+    {
+      "id": "11784556",
+      "title": "Techinfobeez.com",
+      "url": "https://flippa.com/11784556",
+      "price": 668,
+      "monthlyRevenue": null,
+      "multiple": 0.5,
+      "pageNumber": 35
+    },
+    {
+      "id": "11950735",
+      "title": "Capperauditor",
+      "url": "https://flippa.com/11950735",
+      "price": 210,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "12003234",
+      "title": "ZenImprovement.com",
+      "url": "https://flippa.com/12003234",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11919357",
+      "title": "Living in Monaco magazine",
+      "url": "https://flippa.com/11919357",
+      "price": 902053,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "10364696",
+      "title": "Super Seller",
+      "url": "https://flippa.com/10364696",
+      "price": 1298,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "10364689",
+      "title": "Super Seller",
+      "url": "https://flippa.com/10364689",
+      "price": 1298,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "10364682",
+      "title": "Super Seller",
+      "url": "https://flippa.com/10364682",
+      "price": 1298,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11860082",
+      "title": "coinscipher.com",
+      "url": "https://flippa.com/11860082",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11301863",
+      "title": "Connecticut Probate Solutions LLC",
+      "url": "https://flippa.com/11301863",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11857493",
+      "title": "SketchThis Kitchen Design",
+      "url": "https://flippa.com/11857493",
+      "price": 4900,
+      "monthlyRevenue": null,
+      "multiple": 4.7,
+      "pageNumber": 35
+    },
+    {
+      "id": "10736814",
+      "title": "eczemacuretoday.com",
+      "url": "https://flippa.com/10736814",
+      "price": 207,
+      "monthlyRevenue": null,
+      "multiple": 1,
+      "pageNumber": 35
+    },
+    {
+      "id": "10903807",
+      "title": "x1cable.com",
+      "url": "https://flippa.com/10903807",
+      "price": 550,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 35
+    },
+    {
+      "id": "12004781",
+      "title": "Projecta Vibes",
+      "url": "https://flippa.com/12004781",
+      "price": 583,
+      "monthlyRevenue": null,
+      "multiple": 7.8,
+      "pageNumber": 35
+    },
+    {
+      "id": "12033489",
+      "title": "Blindlove AI- Matchmaking + 1Million views",
+      "url": "https://flippa.com/12033489",
+      "price": 22,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 35
+    },
+    {
+      "id": "11872481",
+      "title": "Cold Plunge Facts",
+      "url": "https://flippa.com/11872481",
+      "price": 1219,
+      "monthlyRevenue": null,
+      "multiple": 1.2,
+      "pageNumber": 35
+    },
+    {
+      "id": "11944816",
+      "title": "ChatBreezes | Social Messaging CRM with 2,400+ Users",
+      "url": "https://flippa.com/11944816",
+      "price": 11,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 35
+    },
+    {
+      "id": "11914936",
+      "title": "ACROBAT SYSTEMS",
+      "url": "https://flippa.com/11914936",
+      "price": 833,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12004480",
+      "title": "Cover Craft",
+      "url": "https://flippa.com/12004480",
+      "price": 6,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12040046",
+      "title": "EntersAI.com",
+      "url": "https://flippa.com/12040046",
+      "price": 0,
+      "monthlyRevenue": 0,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "10874411",
+      "title": "mysecretdiary.me",
+      "url": "https://flippa.com/10874411",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11627222",
+      "title": "Confidential Listing - NDA Required",
+      "url": "https://flippa.com/11627222",
+      "price": 1143,
+      "monthlyRevenue": null,
+      "multiple": 4.4,
+      "pageNumber": 37
+    },
+    {
+      "id": "12011071",
+      "title": "Adsterra monetized | $5/month VPS | SEO traffic from Bing | No paid ads or social media",
+      "url": "https://flippa.com/12011071",
+      "price": 129,
+      "monthlyRevenue": 129,
+      "multiple": 1.8,
+      "pageNumber": 37
+    },
+    {
+      "id": "10770207",
+      "title": "businessbookny.com",
+      "url": "https://flippa.com/10770207",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11881242",
+      "title": "L’Observatoire de l’Europe | Automated Content Gnews",
+      "url": "https://flippa.com/11881242",
+      "price": 47147,
+      "monthlyRevenue": null,
+      "multiple": 1.7,
+      "pageNumber": 37
+    },
+    {
+      "id": "12044580",
+      "title": "War Survival",
+      "url": "https://flippa.com/12044580",
+      "price": 4,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12025765",
+      "title": "WordPop AI Writing Studio",
+      "url": "https://flippa.com/12025765",
+      "price": 97,
+      "monthlyRevenue": null,
+      "multiple": 3.3,
+      "pageNumber": 37
+    },
+    {
+      "id": "11993565",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11993565",
+      "price": 431,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11832085",
+      "title": "CoreAlgoPlus",
+      "url": "https://flippa.com/11832085",
+      "price": 775,
+      "monthlyRevenue": null,
+      "multiple": 1,
+      "pageNumber": 37
+    },
+    {
+      "id": "12011679",
+      "title": "MyMakeupCorner.com",
+      "url": "https://flippa.com/12011679",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": 24,
+      "pageNumber": 37
+    },
+    {
+      "id": "12004756",
+      "title": "BestShopFashion.com",
+      "url": "https://flippa.com/12004756",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11858521",
+      "title": "Plan It Out",
+      "url": "https://flippa.com/11858521",
+      "price": 687,
+      "monthlyRevenue": null,
+      "multiple": 4.9,
+      "pageNumber": 37
+    },
+    {
+      "id": "10879078",
+      "title": "Super Seller",
+      "url": "https://flippa.com/10879078",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11979505",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11979505",
+      "price": 33197,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12043019",
+      "title": "theinvestorsnews.com",
+      "url": "https://flippa.com/12043019",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12003176",
+      "title": "CompanyCraft",
+      "url": "https://flippa.com/12003176",
+      "price": 71,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12028582",
+      "title": "PetWellnessWave.com",
+      "url": "https://flippa.com/12028582",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "11981537",
+      "title": "FL, United States",
+      "url": "https://flippa.com/11981537",
+      "price": 38,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12030824",
+      "title": "RetreatVenues.com",
+      "url": "https://flippa.com/12030824",
+      "price": 50,
+      "monthlyRevenue": null,
+      "multiple": 6,
+      "pageNumber": 37
+    },
+    {
+      "id": "10916978",
+      "title": "leathernecktech.com",
+      "url": "https://flippa.com/10916978",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 37
+    },
+    {
+      "id": "12012562",
+      "title": "BIM and Beam",
+      "url": "https://flippa.com/12012562",
+      "price": 31,
+      "monthlyRevenue": null,
+      "multiple": 7.4,
+      "pageNumber": 37
+    },
+    {
+      "id": "11790780",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11790780",
+      "price": 53984,
+      "monthlyRevenue": null,
+      "multiple": 3,
+      "pageNumber": 37
+    },
+    {
+      "id": "12034083",
+      "title": "Sauna Planet",
+      "url": "https://flippa.com/12034083",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12000628",
+      "title": "muchbetter.life",
+      "url": "https://flippa.com/12000628",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12009365",
+      "title": "United Kingdom",
+      "url": "https://flippa.com/12009365",
+      "price": 6,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 39
+    },
+    {
+      "id": "10656591",
+      "title": "programplug.com",
+      "url": "https://flippa.com/10656591",
+      "price": 249,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "11997771",
+      "title": "Vacation Diaries",
+      "url": "https://flippa.com/11997771",
+      "price": 8,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12018139",
+      "title": "CA, United States",
+      "url": "https://flippa.com/12018139",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12013086",
+      "title": "planjournal",
+      "url": "https://flippa.com/12013086",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "10658307",
+      "title": "This is the sign you've been looking for 1.GUIDE",
+      "url": "https://flippa.com/10658307",
+      "price": 6800,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12042760",
+      "title": "MeowMagicHub.com",
+      "url": "https://flippa.com/12042760",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12042752",
+      "title": "PuppyHavenWorld.com",
+      "url": "https://flippa.com/12042752",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 39
+    },
+    {
+      "id": "12014889",
+      "title": "Roofing Cost Calculator UK",
+      "url": "https://flippa.com/12014889",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "11984426",
+      "title": "Hotels Costa Rica",
+      "url": "https://flippa.com/11984426",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "10905334",
+      "title": "General Knowledge",
+      "url": "https://flippa.com/10905334",
+      "price": 4,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12043558",
+      "title": "GardenGalaxyHub.com",
+      "url": "https://flippa.com/12043558",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "10940765",
+      "title": "bananas.app",
+      "url": "https://flippa.com/10940765",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "11992187",
+      "title": "Model Verse",
+      "url": "https://flippa.com/11992187",
+      "price": 205,
+      "monthlyRevenue": null,
+      "multiple": 2.9,
+      "pageNumber": 39
+    },
+    {
+      "id": "11830169",
+      "title": "Its Luxe Time | Automated Content Website",
+      "url": "https://flippa.com/11830169",
+      "price": 12435,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 39
+    },
+    {
+      "id": "11727990",
+      "title": "www.popup.lt",
+      "url": "https://flippa.com/11727990",
+      "price": 130,
+      "monthlyRevenue": null,
+      "multiple": 3.1,
+      "pageNumber": 39
+    },
+    {
+      "id": "10902057",
+      "title": "Compare Car Amps",
+      "url": "https://flippa.com/10902057",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "11733867",
+      "title": "Nutrifoodguide",
+      "url": "https://flippa.com/11733867",
+      "price": 2138,
+      "monthlyRevenue": null,
+      "multiple": 2,
+      "pageNumber": 39
+    },
+    {
+      "id": "11978808",
+      "title": "AbuseReport.com",
+      "url": "https://flippa.com/11978808",
+      "price": 6863,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12044273",
+      "title": "Leotec GmbH",
+      "url": "https://flippa.com/12044273",
+      "price": 8087,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12020660",
+      "title": "ZenMindSanctuary.com",
+      "url": "https://flippa.com/12020660",
+      "price": 3,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "10785219",
+      "title": "howtomakehome.com",
+      "url": "https://flippa.com/10785219",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "11961245",
+      "title": "flyingamigo.com",
+      "url": "https://flippa.com/11961245",
+      "price": 31,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 39
+    },
+    {
+      "id": "12008224",
+      "title": "marketcap.company",
+      "url": "https://flippa.com/12008224",
+      "price": 79,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11981481",
+      "title": "Second Shoot Collective",
+      "url": "https://flippa.com/11981481",
+      "price": 48,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "10829004",
+      "title": "bitcoin500x.com",
+      "url": "https://flippa.com/10829004",
+      "price": 3500,
+      "monthlyRevenue": null,
+      "multiple": 500,
+      "pageNumber": 41
+    },
+    {
+      "id": "12030575",
+      "title": "Casino SPID - Niche Italian Gambling Website - Unique Content (No AI) - Ready to Monetize",
+      "url": "https://flippa.com/12030575",
+      "price": 35,
+      "monthlyRevenue": null,
+      "multiple": 4.5,
+      "pageNumber": 41
+    },
+    {
+      "id": "11017764",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11017764",
+      "price": 953,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "10998643",
+      "title": "WP Chronicle",
+      "url": "https://flippa.com/10998643",
+      "price": 20,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11997116",
+      "title": "CalcHub.xyz",
+      "url": "https://flippa.com/11997116",
+      "price": 79,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12022081",
+      "title": "CatsNeeds.com",
+      "url": "https://flippa.com/12022081",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12007223",
+      "title": "TubPicks.com",
+      "url": "https://flippa.com/12007223",
+      "price": 112,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12020943",
+      "title": "partbid.com",
+      "url": "https://flippa.com/12020943",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 41
+    },
+    {
+      "id": "12011457",
+      "title": "Dominate the PTC Industry with PTC.ad",
+      "url": "https://flippa.com/12011457",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11995405",
+      "title": "Great Travel Secrets",
+      "url": "https://flippa.com/11995405",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11995121",
+      "title": "petlifedaily.com",
+      "url": "https://flippa.com/11995121",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12042905",
+      "title": "https://unicodechecker.com",
+      "url": "https://flippa.com/12042905",
+      "price": 194,
+      "monthlyRevenue": null,
+      "multiple": 1.5,
+      "pageNumber": 41
+    },
+    {
+      "id": "12032264",
+      "title": "CA, United States",
+      "url": "https://flippa.com/12032264",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11018786",
+      "title": "MOMReps.com",
+      "url": "https://flippa.com/11018786",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11989964",
+      "title": "Duskmall.com",
+      "url": "https://flippa.com/11989964",
+      "price": 1600,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 41
+    },
+    {
+      "id": "12041945",
+      "title": "Gameplan AI",
+      "url": "https://flippa.com/12041945",
+      "price": 28,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12045380",
+      "title": "Qrlinko.com",
+      "url": "https://flippa.com/12045380",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11988094",
+      "title": "SteadyShuttle",
+      "url": "https://flippa.com/11988094",
+      "price": 677,
+      "monthlyRevenue": null,
+      "multiple": 2.7,
+      "pageNumber": 41
+    },
+    {
+      "id": "10765464",
+      "title": "makipayx.com",
+      "url": "https://flippa.com/10765464",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11998259",
+      "title": "shootingranges.co",
+      "url": "https://flippa.com/11998259",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12003286",
+      "title": "pcviewed.com",
+      "url": "https://flippa.com/12003286",
+      "price": 66,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "12032138",
+      "title": "CanadaCrossroads",
+      "url": "https://flippa.com/12032138",
+      "price": 200,
+      "monthlyRevenue": null,
+      "multiple": 4.1,
+      "pageNumber": 41
+    },
+    {
+      "id": "10933910",
+      "title": "reviewvolleyballinstrument.com",
+      "url": "https://flippa.com/10933910",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 41
+    },
+    {
+      "id": "11968404",
+      "title": "AstroAlign Travel",
+      "url": "https://flippa.com/11968404",
+      "price": 58,
+      "monthlyRevenue": null,
+      "multiple": 1.4,
+      "pageNumber": 43
+    },
+    {
+      "id": "12028990",
+      "title": "Freezod.com",
+      "url": "https://flippa.com/12028990",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11979093",
+      "title": "Sales Technologies Pty Ltd",
+      "url": "https://flippa.com/11979093",
+      "price": 25,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12013070",
+      "title": "LinkedParent.Com",
+      "url": "https://flippa.com/12013070",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12017202",
+      "title": "CBDmindful.Com",
+      "url": "https://flippa.com/12017202",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10908705",
+      "title": "petpawshub.com",
+      "url": "https://flippa.com/10908705",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10811576",
+      "title": "studiospresso.com",
+      "url": "https://flippa.com/10811576",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11777034",
+      "title": "TestBank Resources",
+      "url": "https://flippa.com/11777034",
+      "price": 9,
+      "monthlyRevenue": null,
+      "multiple": 1.6,
+      "pageNumber": 43
+    },
+    {
+      "id": "11788878",
+      "title": "Mosque Prayer App",
+      "url": "https://flippa.com/11788878",
+      "price": 26425,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10545364",
+      "title": "Classified ads website with multiple monetization opportunities",
+      "url": "https://flippa.com/10545364",
+      "price": 4000,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 43
+    },
+    {
+      "id": "11999477",
+      "title": "Sun Rise and Glamp",
+      "url": "https://flippa.com/11999477",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11016937",
+      "title": "Wicked Good Jobs / Cannabis - Marijuana",
+      "url": "https://flippa.com/11016937",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10898241",
+      "title": "mileonefitness.com",
+      "url": "https://flippa.com/10898241",
+      "price": 6000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12027566",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12027566",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10755447",
+      "title": "fitnessmealz.com",
+      "url": "https://flippa.com/10755447",
+      "price": 2999,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10846122",
+      "title": "outofofficejobs.com",
+      "url": "https://flippa.com/10846122",
+      "price": 6000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10378123",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10378123",
+      "price": 5000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12029083",
+      "title": "holidaytripsplanner.com",
+      "url": "https://flippa.com/12029083",
+      "price": 3000,
+      "monthlyRevenue": 3000,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11025415",
+      "title": "Core Web Vitals Studio",
+      "url": "https://flippa.com/11025415",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "10749063",
+      "title": "intimacyfactor.com",
+      "url": "https://flippa.com/10749063",
+      "price": 155,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12006395",
+      "title": "FL, United States",
+      "url": "https://flippa.com/12006395",
+      "price": 2499,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12026587",
+      "title": "Clip Flow AI - SaaS Business (No Code Knowledge Required)",
+      "url": "https://flippa.com/12026587",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11989832",
+      "title": "CelebsHeight",
+      "url": "https://flippa.com/11989832",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "12040685",
+      "title": "Bitjob.org - Crypto & Blockchain job listing platform.",
+      "url": "https://flippa.com/12040685",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 43
+    },
+    {
+      "id": "11902136",
+      "title": "Homeadvancement",
+      "url": "https://flippa.com/11902136",
+      "price": 108,
+      "monthlyRevenue": null,
+      "multiple": 6.2,
+      "pageNumber": 43
+    },
+    {
+      "id": "12025979",
+      "title": "CompleteBookWriting",
+      "url": "https://flippa.com/12025979",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12007554",
+      "title": "UGCvideoCreators",
+      "url": "https://flippa.com/12007554",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12042583",
+      "title": "freecalculatorskit.com",
+      "url": "https://flippa.com/12042583",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12028287",
+      "title": "Networking solution: Web Platform for digital business cards, linked with NFC Cards Ecommerce",
+      "url": "https://flippa.com/12028287",
+      "price": 169,
+      "monthlyRevenue": null,
+      "multiple": 3.4,
+      "pageNumber": 45
+    },
+    {
+      "id": "11017168",
+      "title": "Sewing Streak",
+      "url": "https://flippa.com/11017168",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10689573",
+      "title": "ePal.gg Clone (they have hundreds of thousands of users) over a few months.",
+      "url": "https://flippa.com/10689573",
+      "price": 9996,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12017488",
+      "title": "pixaras.com",
+      "url": "https://flippa.com/12017488",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10572590",
+      "title": "mystudentlounge.com",
+      "url": "https://flippa.com/10572590",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "11773541",
+      "title": "Fintech Marketing agency",
+      "url": "https://flippa.com/11773541",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12008897",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/12008897",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 45
+    },
+    {
+      "id": "10612542",
+      "title": "evpndeals.com",
+      "url": "https://flippa.com/10612542",
+      "price": 1000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "11982862",
+      "title": "thesecretsolesociety.com",
+      "url": "https://flippa.com/11982862",
+      "price": 1449,
+      "monthlyRevenue": null,
+      "multiple": 2.1,
+      "pageNumber": 45
+    },
+    {
+      "id": "10711175",
+      "title": "talkingotc.com",
+      "url": "https://flippa.com/10711175",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10792597",
+      "title": "lawserviceproviders.com",
+      "url": "https://flippa.com/10792597",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10831470",
+      "title": "playlistparrot.com",
+      "url": "https://flippa.com/10831470",
+      "price": 8,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "11989409",
+      "title": "Ortodoncia Invisalign",
+      "url": "https://flippa.com/11989409",
+      "price": 825,
+      "monthlyRevenue": null,
+      "multiple": 3.8,
+      "pageNumber": 45
+    },
+    {
+      "id": "10748622",
+      "title": "roomdock.com",
+      "url": "https://flippa.com/10748622",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10649649",
+      "title": "SaaS / Lifestyle",
+      "url": "https://flippa.com/10649649",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "11973041",
+      "title": "www.dunno.online",
+      "url": "https://flippa.com/11973041",
+      "price": 42281,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12032277",
+      "title": "DogsGenie.Com",
+      "url": "https://flippa.com/12032277",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12045733",
+      "title": "Switzerland",
+      "url": "https://flippa.com/12045733",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10725685",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/10725685",
+      "price": 10000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "12026378",
+      "title": "EmailMarketingBooster",
+      "url": "https://flippa.com/12026378",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10757816",
+      "title": "thepeoplesreviewer.com",
+      "url": "https://flippa.com/10757816",
+      "price": 999,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10895713",
+      "title": "bidcamper.com",
+      "url": "https://flippa.com/10895713",
+      "price": 6000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 45
+    },
+    {
+      "id": "10981927",
+      "title": "Redo Kitchen and Bath",
+      "url": "https://flippa.com/10981927",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12032178",
+      "title": "Studycollab",
+      "url": "https://flippa.com/12032178",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10840928",
+      "title": "FL, United States",
+      "url": "https://flippa.com/10840928",
+      "price": 1000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11968348",
+      "title": "Calathea Essentials | Gardening & Hobbies",
+      "url": "https://flippa.com/11968348",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10915451",
+      "title": "Cloud saas for italian fashion retailers",
+      "url": "https://flippa.com/10915451",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10839729",
+      "title": "superbossmode.com",
+      "url": "https://flippa.com/10839729",
+      "price": 9,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11874985",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11874985",
+      "price": 5766,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10862108",
+      "title": "corpintechservices.com",
+      "url": "https://flippa.com/10862108",
+      "price": 12,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11996029",
+      "title": "flipbros.net",
+      "url": "https://flippa.com/11996029",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12012684",
+      "title": "aiautomationservices.co",
+      "url": "https://flippa.com/12012684",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 47
+    },
+    {
+      "id": "12021857",
+      "title": "Pantry Experts",
+      "url": "https://flippa.com/12021857",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10685110",
+      "title": "nationwidesurveillance.com",
+      "url": "https://flippa.com/10685110",
+      "price": 1995,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11017811",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11017811",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12021831",
+      "title": "EasyTravelTrips.com",
+      "url": "https://flippa.com/12021831",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12045064",
+      "title": "SmartStatement",
+      "url": "https://flippa.com/12045064",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11016359",
+      "title": "good travel maker",
+      "url": "https://flippa.com/11016359",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11018114",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11018114",
+      "price": 112,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12042353",
+      "title": "Eco Home Smart",
+      "url": "https://flippa.com/12042353",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11852186",
+      "title": "proindiancasinos.com",
+      "url": "https://flippa.com/11852186",
+      "price": 33,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12018008",
+      "title": "InvSure.com - Cloud Accounting, HRM, CRM, Tax with Payment Gateways (SaaS)",
+      "url": "https://flippa.com/12018008",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12017991",
+      "title": "Invzio.com - Cloud Based Billing Accounting Software Platform (SaaS)",
+      "url": "https://flippa.com/12017991",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11932241",
+      "title": "Scooter Insights",
+      "url": "https://flippa.com/11932241",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12033969",
+      "title": "AZONGoodDeals.com",
+      "url": "https://flippa.com/12033969",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "12028241",
+      "title": "PetBestDeals.com",
+      "url": "https://flippa.com/12028241",
+      "price": 1,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "10930180",
+      "title": "farmandrancher.com",
+      "url": "https://flippa.com/10930180",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 47
+    },
+    {
+      "id": "11998023",
+      "title": "RestroNearMe",
+      "url": "https://flippa.com/11998023",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "10789277",
+      "title": "adulords.com",
+      "url": "https://flippa.com/10789277",
+      "price": 3500,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12007916",
+      "title": "muziqio.com",
+      "url": "https://flippa.com/12007916",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12040686",
+      "title": "Own a Digital Marketplace Ready for Success!",
+      "url": "https://flippa.com/12040686",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12017272",
+      "title": "Resumecore.io -  AI SaaS to Create Perfect Resumes in minutes",
+      "url": "https://flippa.com/12017272",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "10879835",
+      "title": "yonderaustralia.com.au",
+      "url": "https://flippa.com/10879835",
+      "price": 5000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11978725",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11978725",
+      "price": 455,
+      "monthlyRevenue": 455,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12015063",
+      "title": "BeachBliss: Coastal Explorer",
+      "url": "https://flippa.com/12015063",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "10930299",
+      "title": "Locaseniors",
+      "url": "https://flippa.com/10930299",
+      "price": 8000,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11975260",
+      "title": "JYJ Publishing",
+      "url": "https://flippa.com/11975260",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": 0,
+      "pageNumber": 49
+    },
+    {
+      "id": "12007548",
+      "title": "BusinessBoostPlan",
+      "url": "https://flippa.com/12007548",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "10926056",
+      "title": "cyanvoice.com",
+      "url": "https://flippa.com/10926056",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12026121",
+      "title": "Link, Email, Message, and Image safety checks for individual consumers, and for businesses as well, via a public API. Includes Chrome extension with 40+ users.",
+      "url": "https://flippa.com/12026121",
+      "price": 7,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11790074",
+      "title": "Moneyona.com",
+      "url": "https://flippa.com/11790074",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12013691",
+      "title": "Super Seller",
+      "url": "https://flippa.com/12013691",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11999823",
+      "title": "TravelClip.info",
+      "url": "https://flippa.com/11999823",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12031577",
+      "title": "Saltwater Fish Keeping",
+      "url": "https://flippa.com/12031577",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11999543",
+      "title": "Influence Engine: AI Platform That Shapes What Thousands Eat & Buy",
+      "url": "https://flippa.com/11999543",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12009099",
+      "title": "magneticleadai.com (Best saas platform for lead generation)",
+      "url": "https://flippa.com/12009099",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11426842",
+      "title": "Kdrama World",
+      "url": "https://flippa.com/11426842",
+      "price": 5,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12033737",
+      "title": "FileCorrupter.com",
+      "url": "https://flippa.com/12033737",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11999851",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11999851",
+      "price": 999,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "11997980",
+      "title": "Verified Listing",
+      "url": "https://flippa.com/11997980",
+      "price": 43551,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12021647",
+      "title": "Relishgoodfood",
+      "url": "https://flippa.com/12021647",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    },
+    {
+      "id": "12031391",
+      "title": "Super Seller",
+      "url": "https://flippa.com/12031391",
+      "price": 0,
+      "monthlyRevenue": null,
+      "multiple": null,
+      "pageNumber": 49
+    }
+  ]
+}

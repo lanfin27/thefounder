@@ -1,4 +1,5 @@
 import React from 'react'
+import { cn } from '@/lib/utils'
 
 interface CardProps {
   children: React.ReactNode
@@ -17,6 +18,11 @@ interface CardContentProps {
 }
 
 interface CardTitleProps {
+  children: React.ReactNode
+  className?: string
+}
+
+interface CardDescriptionProps {
   children: React.ReactNode
   className?: string
 }
@@ -52,9 +58,17 @@ export const CardContent: React.FC<CardContentProps> = ({ children, className = 
 
 export const CardTitle: React.FC<CardTitleProps> = ({ children, className = '' }) => {
   return (
-    <h3 className={`text-lg font-semibold text-gray-900 ${className}`}>
+    <h3 className={cn('text-lg font-semibold text-gray-900', className)}>
       {children}
     </h3>
+  )
+}
+
+export const CardDescription: React.FC<CardDescriptionProps> = ({ children, className = '' }) => {
+  return (
+    <p className={cn('text-sm text-gray-600', className)}>
+      {children}
+    </p>
   )
 }
 

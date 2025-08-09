@@ -1,0 +1,770 @@
+{
+  "timestamp": "2025-08-04T15:49:33.963Z",
+  "stats": {
+    "totalPages": 30,
+    "totalListings": 900,
+    "withTitle": 480,
+    "withPrice": 900,
+    "withRevenue": 0,
+    "withMultiple": 0,
+    "withURL": 900,
+    "cloudflareEncounters": 30,
+    "successfulBypasses": 30
+  },
+  "listings": [
+    {
+      "id": "unified_1754320988014_0",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988014_1",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988014_2",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988014_3",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_4",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_5",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_6",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_7",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_8",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_9",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_10",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_11",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_12",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_13",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_14",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_15",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_16",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_17",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_18",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_19",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_20",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_21",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_22",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_23",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_24",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_25",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988015_26",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988016_27",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988016_28",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754320988016_29",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028027_0",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_1",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_2",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_3",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_4",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_5",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_6",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_7",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_8",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028028_9",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_10",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_11",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_12",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_13",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_14",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_15",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_16",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_17",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_18",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_19",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_20",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_21",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_22",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_23",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_24",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_25",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_26",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_27",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_28",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321028029_29",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070013_0",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070013_1",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070013_2",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070013_3",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_4",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_5",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_6",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_7",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_8",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_9",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_10",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_11",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_12",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_13",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_14",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_15",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/apps?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_16",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_17",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_18",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Domains",
+      "url": "https://flippa.com/domains",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_19",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 5 years",
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_20",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_21",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070014_22",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_23",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/domains?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_24",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_25",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_26",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Ecommerce",
+      "url": "https://flippa.com/buy/sitetype/ecommerce",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_27",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bage%5D%5Bmax%5D=6&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_28",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321070015_29",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/buy/sitetype/ecommerce?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bsitetype%5D=ecommerce%2Cdropship%2Cshopify%2Cdigital-products%2Cinventory-holding&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_0",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_1",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_2",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "All Websites",
+      "url": "https://flippa.com/websites",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_3",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "0 - 6 months",
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_4",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_5",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_6",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_7",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "url": "https://flippa.com/websites?filter%5Bprice%5D%5Bmax%5D=999&filter%5Bprice%5D%5Bmin%5D=0&filter%5Bstatus%5D=open&initial=T",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_8",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    },
+    {
+      "id": "unified_1754321114045_9",
+      "extractionMethod": "improved-unified",
+      "price": 999,
+      "title": "Editor’s Choice",
+      "url": "https://flippa.com/apps",
+      "category": "Internet"
+    }
+  ]
+}

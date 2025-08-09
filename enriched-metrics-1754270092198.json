@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-08-04T01:14:52.198Z",
+  "totalListings": 475,
+  "pricePercentiles": {
+    "p10": 5,
+    "p25": 39,
+    "p50": 606,
+    "p75": 4999,
+    "p90": 31919
+  },
+  "multiplePercentiles": {
+    "p10": 0.7,
+    "p25": 1.5,
+    "p50": 2.4,
+    "p75": 3.56,
+    "p90": 5
+  },
+  "categoryDistribution": {
+    "other": 475
+  },
+  "qualityDistribution": {
+    "excellent": 10,
+    "good": 242,
+    "fair": 133,
+    "poor": 90
+  }
+}

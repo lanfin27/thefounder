@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-04T10:02:20.512Z",
+  "runtime": 0.35381666666666667,
+  "totalProcessed": 0,
+  "extractionRates": {
+    "title": 0,
+    "price": 0,
+    "revenue": 0,
+    "multiple": 0,
+    "url": 0,
+    "category": 0
+  },
+  "improvements": {
+    "title": {
+      "prev": 30.7,
+      "current": 0
+    },
+    "price": {
+      "prev": 100,
+      "current": 0
+    },
+    "revenue": {
+      "prev": 77,
+      "current": 0
+    },
+    "multiple": {
+      "prev": 77.5,
+      "current": 0
+    }
+  }
+}

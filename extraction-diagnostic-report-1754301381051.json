@@ -1,0 +1,130 @@
+{
+  "timestamp": "2025-08-04T09:55:45.314Z",
+  "domStructure": {},
+  "selectorTests": {
+    "title": {
+      "tested": 5,
+      "working": [
+        {
+          "selector": "h1",
+          "count": 3,
+          "firstMatch": "Search Online Businesses for Sale"
+        },
+        {
+          "selector": "h2",
+          "count": 1,
+          "firstMatch": "General FAQ’s"
+        },
+        {
+          "selector": "h3",
+          "count": 1,
+          "firstMatch": "Elevate Your Buying Experience with Flippa Premium"
+        },
+        {
+          "selector": "a[href*=\"flippa\"]",
+          "count": 595,
+          "firstMatch": "Websites"
+        }
+      ],
+      "failed": [
+        "[data-testid*=\"title\"]"
+      ],
+      "matches": 600
+    },
+    "price": {
+      "tested": 3,
+      "working": [],
+      "failed": [
+        "[data-testid*=\"price\"]",
+        ".price",
+        ".amount"
+      ],
+      "matches": 0
+    },
+    "revenue": {
+      "tested": 3,
+      "working": [],
+      "failed": [
+        "[data-testid*=\"revenue\"]",
+        ".revenue",
+        ".monthly-revenue"
+      ],
+      "matches": 0
+    },
+    "multiple": {
+      "tested": 2,
+      "working": [],
+      "failed": [
+        "[data-testid*=\"multiple\"]",
+        ".multiple"
+      ],
+      "matches": 0
+    },
+    "url": {
+      "tested": 2,
+      "working": [
+        {
+          "selector": "a[href*=\"flippa.com/\"]",
+          "count": 590,
+          "firstMatch": "Websites"
+        }
+      ],
+      "failed": [
+        "a[href*=\"/listings/\"]"
+      ],
+      "matches": 590
+    },
+    "category": {
+      "tested": 3,
+      "working": [],
+      "failed": [
+        ".category",
+        "[data-testid=\"category\"]",
+        ".industry"
+      ],
+      "matches": 0
+    }
+  },
+  "workingSelectors": {},
+  "failureReasons": {},
+  "recommendations": [],
+  "criticalFindings": [
+    "DOM analysis error: el.className.split is not a function\npptr:evaluate;ExtractionDiagnosticSystem.analyzeDOMStructure%20(C%3A%5CUsers%5CKIMJAEHEON%5Cthe-founder%5Cscripts%5Cextraction-diagnostic-system.js%3A92%3A38):21:40",
+    "Selector discovery error: el.className.split is not a function\npptr:evaluate;ExtractionDiagnosticSystem.discoverWorkingSelectors%20(C%3A%5CUsers%5CKIMJAEHEON%5Cthe-founder%5Cscripts%5Cextraction-diagnostic-system.js%3A330%3A43):31:63"
+  ],
+  "extractionRates": {
+    "title": "30.7",
+    "price": "100.0",
+    "revenue": "77.0",
+    "multiple": "77.5",
+    "sampleSize": 1000
+  },
+  "extractionLogic": {
+    "containerDetection": {
+      "method": "price-based",
+      "containersFound": 200,
+      "issues": []
+    },
+    "fieldExtraction": {
+      "attemptedExtractions": 3,
+      "successfulExtractions": 2,
+      "issues": [
+        "price extraction failed - no matching element"
+      ]
+    },
+    "confidenceThreshold": {
+      "threshold": 3,
+      "averageConfidence": 0,
+      "belowThreshold": 1,
+      "issues": [
+        "Confidence too low - listing would be filtered out"
+      ]
+    }
+  },
+  "summary": {
+    "criticalIssuesFound": 2,
+    "recommendationsGenerated": 0,
+    "rootCause": "Container detection method failing - using price-based instead of structure-based",
+    "estimatedImpact": "Fixing container detection will improve extraction rates to 90%+"
+  }
+}

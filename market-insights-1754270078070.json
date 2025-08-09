@@ -1,0 +1,26 @@
+{
+  "byCategory": {
+    "other": {
+      "count": 0,
+      "marketShare": "0.0",
+      "averagePrice": 0,
+      "medianPrice": 0,
+      "averageMultiple": 0,
+      "averageRevenue": 0,
+      "priceRange": {
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "byPriceRange": {},
+  "byMultipleRange": {},
+  "overall": {
+    "totalListings": 475,
+    "totalMarketValue": 35139583,
+    "averagePrice": 91272,
+    "medianPrice": 606,
+    "averageMultiple": "4.8",
+    "averageRevenue": 1478
+  }
+}

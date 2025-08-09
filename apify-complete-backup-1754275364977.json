@@ -1,0 +1,440 @@
+{
+  "timestamp": "2025-08-04T02:42:44.976Z",
+  "extractionStats": {
+    "totalListings": 7,
+    "fieldCompleteness": {
+      "id": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "listing_url": {
+        "count": 7,
+        "percentage": "100.0"
+      },
+      "title": {
+        "count": 7,
+        "percentage": "100.0"
+      },
+      "property_name": {
+        "count": 7,
+        "percentage": "100.0"
+      },
+      "summary": {
+        "count": 7,
+        "percentage": "100.0"
+      },
+      "price": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "revenue_average": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "multiple": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "revenue_multiple": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "category": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "property_type": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "monetization": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "country_name": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "currency_label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "established_at": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "formatted_age_in_years": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "age_label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "annual_organic_traffic": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "sale_method": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "sale_method_title": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "end_at": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "status": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "bid_count": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "has_verified_revenue": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "has_verified_traffic": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "editors_choice": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "sponsored": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "super_seller": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "managed_by_flippa": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "manually_vetted": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "open_listing": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "open_to_offer": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "under_offer": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "price_dropped": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "watched": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "listing_watchable": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "thumbnail_url": {
+        "count": 7,
+        "percentage": "100.0"
+      },
+      "hover_image_url": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "default_image_url": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "blurred_image_url": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "action_button_text": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "action_class": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/0/label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/0/value": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/1/label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/1/value": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/2/label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/2/value": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/3/label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/3/value": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/4/label": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "key_data/4/value": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "equity_sale_percentage": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "early_access_listing": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "early_access_days_remaining": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "confidential": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "display_verification_badge": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "special_tags": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "protect_listing": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "ready_made": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "broker_seller": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "invest": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "show_multiple": {
+        "count": 0,
+        "percentage": "0.0"
+      },
+      "hide_profit": {
+        "count": 0,
+        "percentage": "0.0"
+      }
+    },
+    "pagesProcessed": 170,
+    "detailPagesVisited": 7,
+    "errors": 0,
+    "startTime": "2025-08-04T01:35:46.570Z"
+  },
+  "totalFields": 64,
+  "apifyCompatible": true,
+  "listings": [
+    {
+      "_internal_id": "complete_1754275212245_3",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "The #1 marketplace for buying and selling websites",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "The #1 marketplace for buying and selling websites",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212245_8",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "The #1 marketplace to buy and sell apps - Android and iOS",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "The #1 marketplace to buy and sell apps - Android and iOS",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212246_13",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "Where entrepreneurs come to buy & sell domains",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "Where entrepreneurs come to buy & sell domains",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212246_15",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "Ecommerce businesses and websites for sale",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "Ecommerce businesses and websites for sale",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212246_18",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "Ecommerce businesses and websites for sale",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "Ecommerce businesses and websites for sale",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212247_20",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "Content websites and online businesses for sale",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "Content websites and online businesses for sale",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    },
+    {
+      "_internal_id": "complete_1754275212247_23",
+      "_extraction_confidence": 3,
+      "_found_fields": [
+        "listing_url",
+        "title",
+        "summary"
+      ],
+      "_search_page_data": true,
+      "listing_url": "https://flippa.com/websites",
+      "title": "Content websites and online businesses for sale",
+      "summary": "Browse Categories",
+      "_deep_extraction": true,
+      "_additional_fields": [
+        "listing_url",
+        "title",
+        "property_name",
+        "summary",
+        "thumbnail_url"
+      ],
+      "property_name": "Content websites and online businesses for sale",
+      "thumbnail_url": "https://static.flippa.com/assets/icons/premium-badge-0581d695f706008fa03700cbe92ee1a0d2712b712770eb47b38d58a074417e5c.svg",
+      "_deep_extracted": true
+    }
+  ]
+}

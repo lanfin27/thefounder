@@ -1,0 +1,428 @@
+{
+  "timestamp": "2025-08-04T01:39:21.009Z",
+  "totalApifyFields": 73,
+  "fieldsWithData": 4,
+  "completenessScore": 5.5,
+  "categoryAnalysis": {
+    "core_fields": {
+      "total": 23,
+      "found": 4,
+      "percentage": "17.4",
+      "fields": {}
+    },
+    "boolean_fields": {
+      "total": 22,
+      "found": 0,
+      "percentage": "0.0",
+      "fields": {}
+    },
+    "image_fields": {
+      "total": 4,
+      "found": 0,
+      "percentage": "0.0",
+      "fields": {}
+    },
+    "action_fields": {
+      "total": 2,
+      "found": 0,
+      "percentage": "0.0",
+      "fields": {}
+    },
+    "key_data_fields": {
+      "total": 10,
+      "found": 0,
+      "percentage": "0.0",
+      "fields": {}
+    },
+    "additional_fields": {
+      "total": 12,
+      "found": 0,
+      "percentage": "0.0",
+      "fields": {}
+    }
+  },
+  "fieldAnalysis": {
+    "id": {
+      "found": 100,
+      "percentage": "100.0",
+      "samples": [
+        40452,
+        40453,
+        40782
+      ]
+    },
+    "listing_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "title": {
+      "found": 100,
+      "percentage": "100.0",
+      "samples": [
+        "Confidential Listing - NDA Required",
+        "Confidential Listing - NDA Required",
+        "CA, United States"
+      ]
+    },
+    "property_name": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "summary": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "price": {
+      "found": 92,
+      "percentage": "92.0",
+      "samples": [
+        105984,
+        2,
+        95
+      ]
+    },
+    "revenue_average": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "multiple": {
+      "found": 82,
+      "percentage": "82.0",
+      "samples": [
+        3.2,
+        5.5,
+        2.2
+      ]
+    },
+    "revenue_multiple": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "category": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "property_type": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "monetization": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "country_name": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "currency_label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "established_at": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "formatted_age_in_years": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "age_label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "annual_organic_traffic": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "sale_method": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "sale_method_title": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "end_at": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "status": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "bid_count": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "has_verified_revenue": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "has_verified_traffic": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "editors_choice": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "sponsored": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "super_seller": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "managed_by_flippa": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "manually_vetted": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "open_listing": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "open_to_offer": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "under_offer": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "price_dropped": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "watched": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "listing_watchable": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "early_access_listing": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "confidential": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "display_verification_badge": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "protect_listing": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "ready_made": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "broker_seller": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "invest": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "show_multiple": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "hide_profit": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "thumbnail_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "hover_image_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "default_image_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "blurred_image_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "action_button_text": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "action_class": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/0/label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/0/value": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/1/label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/1/value": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/2/label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/2/value": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/3/label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/3/value": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/4/label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "key_data/4/value": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "equity_sale_percentage": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "early_access_days_remaining": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "special_tags": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "basic_info": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "blurred_or_thumbnail_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "confidential_overlay_class": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "confidential_thumbnail_url": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "default_image": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "display_confidential_label": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "early_access_overlay_title_suffix": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "early_access_percentage": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    },
+    "has_multiple?": {
+      "found": 0,
+      "percentage": "0.0",
+      "samples": []
+    }
+  },
+  "status": "PARTIAL"
+}
