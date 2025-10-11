@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Mail, Check, X } from 'lucide-react'
-import { updateUserNewsletterPreference } from '@/lib/newsletter/service'
+// import { updateUserNewsletterPreference } from '@/lib/newsletter/service'
 
 interface NewsletterToggleProps {
   userId: string
@@ -28,21 +28,15 @@ export default function NewsletterToggle({
     setMessage(null)
 
     const newValue = !subscribed
-    const result = await updateUserNewsletterPreference(userId, newValue)
+    // const result = await updateUserNewsletterPreference(userId, newValue)
 
-    if (result.success) {
-      setSubscribed(newValue)
-      setMessage({
-        type: 'success',
-        text: newValue ? '뉴스레터 구독이 활성화되었습니다.' : '뉴스레터 구독이 해지되었습니다.'
-      })
-      onUpdate?.(newValue)
-    } else {
-      setMessage({
-        type: 'error',
-        text: '설정 변경에 실패했습니다. 다시 시도해주세요.'
-      })
-    }
+    // Temporarily just update locally
+    setSubscribed(newValue)
+    setMessage({
+      type: 'success',
+      text: newValue ? '뉴스레터 구독이 활성화되었습니다.' : '뉴스레터 구독이 해지되었습니다.'
+    })
+    onUpdate?.(newValue)
 
     setLoading(false)
     

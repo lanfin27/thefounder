@@ -57,7 +57,9 @@ export async function unlinkOAuthAccount(provider: OAuthProvider) {
     return { error: new Error(`No ${provider} identity found`) }
   }
 
-  const { data, error } = await supabase.auth.unlinkIdentity(identity as any)
+  const { data, error } = await supabase.auth.unlinkIdentity({
+    identity_id: identity.identity_id!
+  })
 
   return { data, error }
 }

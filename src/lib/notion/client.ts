@@ -24,7 +24,7 @@ export async function getPublishedPosts() {
     ],
   })
 
-  return response.results as any as NotionPage[]
+  return response.results as NotionPage[]
 }
 
 export async function getPostBySlug(slug: string) {
@@ -42,7 +42,7 @@ export async function getPostBySlug(slug: string) {
     return null
   }
 
-  const page = response.results[0] as any as NotionPage
+  const page = response.results[0] as NotionPage
   const blocks = await getPageBlocks(page.id)
 
   return {
@@ -100,5 +100,5 @@ export async function getPostsByCategory(category: string) {
     ],
   })
 
-  return response.results as any as NotionPage[]
+  return response.results as NotionPage[]
 }

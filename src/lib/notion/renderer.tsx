@@ -60,7 +60,7 @@ export function renderBlock(block: any) {
       const caption = value.caption ? renderRichText(value.caption) : ''
       return (
         <figure key={id} className="my-6">
-          <img src={src} alt={caption as string || undefined} className="rounded-lg w-full" />
+          <img src={src} alt={caption} className="rounded-lg w-full" />
           {caption && (
             <figcaption className="text-center text-sm text-gray-600 mt-2">
               {caption}
