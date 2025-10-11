@@ -10,11 +10,10 @@ export default async function Header() {
 
   const navigation = [
     { name: '홈', href: '/' },
-    { name: '뉴스레터', href: '/posts?category=뉴스레터' },
-    { name: 'SaaS', href: '/posts?category=SaaS' },
-    { name: '블로그', href: '/posts?category=블로그' },
-    { name: '창업', href: '/posts?category=창업' },
-    { name: '산업 트렌드', href: '/charts' },
+    { name: '트렌드', href: '/posts?category=trend' },
+    { name: '인사이트', href: '/posts?category=insight' },
+    { name: '블로그', href: '/posts?category=blog' },
+    { name: '성공사례', href: '/posts?category=casestudy' }
   ]
 
   return (

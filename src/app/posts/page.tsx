@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/notion/converter'
 import PostCard from '@/components/blog/PostCard'
 import CategoryFilter from '@/components/blog/CategoryFilter'
+import { CATEGORY_MAPPING } from '@/constants/categories'
 
 export const metadata: Metadata = {
   title: '블로그 | The Founder',
@@ -14,10 +15,15 @@ export default async function PostsPage({
   searchParams: { category?: string }
 }) {
   const posts = await getAllPosts()
-  
+
   // Filter by category if provided
   const filteredPosts = searchParams.category
-    ? posts.filter(post => post.category === searchParams.category)
+    ? posts.filter(post => {
+        // Check if the post's category matches the new category slug
+        const mappedCategory = CATEGORY_MAPPING[post.category || '']
+        return mappedCategory === searchParams.category ||
+               post.category === searchParams.category
+      })
     : posts
   
   return (

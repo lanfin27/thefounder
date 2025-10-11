@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { CATEGORIES } from '@/constants/categories'
 
 interface CategoryFilterProps {
   currentCategory?: string
@@ -9,10 +10,11 @@ interface CategoryFilterProps {
 
 const categories = [
   { id: 'all', name: '전체', value: '' },
-  { id: 'newsletter', name: '뉴스레터', value: '뉴스레터' },
-  { id: 'saas', name: 'SaaS', value: 'SaaS' },
-  { id: 'blog', name: '블로그', value: '블로그' },
-  { id: 'startup', name: '창업', value: '창업' },
+  ...CATEGORIES.map(cat => ({
+    id: cat.id,
+    name: cat.koreanName,
+    value: cat.slug
+  }))
 ]
 
 export default function CategoryFilter({ currentCategory }: CategoryFilterProps) {

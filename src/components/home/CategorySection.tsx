@@ -1,39 +1,17 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { TrendingUp, Cpu, Briefcase, Users } from 'lucide-react'
+import CategoryTag from '@/components/ui/CategoryTag'
+import { CATEGORIES } from '@/constants/categories'
+import { TrendingUp, Lightbulb, BookOpen, Trophy } from 'lucide-react'
 
-const categories = [
-  {
-    id: 'newsletter',
-    name: '뉴스레터',
-    description: '주간 스타트업 인사이트',
-    icon: TrendingUp,
-    count: 24,
-  },
-  {
-    id: 'saas',
-    name: 'SaaS',
-    description: 'SaaS 비즈니스와 전략',
-    icon: Cpu,
-    count: 18,
-  },
-  {
-    id: 'blog',
-    name: '블로그',
-    description: '창업가들의 경험담',
-    icon: Briefcase,
-    count: 32,
-  },
-  {
-    id: 'startup',
-    name: '창업',
-    description: '스타트업 성장 이야기',
-    icon: Users,
-    count: 15,
-  },
-]
+// Icon mapping for categories
+const categoryIcons = {
+  trend: TrendingUp,
+  insight: Lightbulb,
+  blog: BookOpen,
+  casestudy: Trophy
+}
 
 export default function CategorySection() {
   return (
@@ -48,35 +26,54 @@ export default function CategorySection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category, index) => (
+        {/* Category Tags with hover animation */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {CATEGORIES.map((category, index) => (
             <motion.div
               key={category.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link
-                href={`/posts?category=${category.name}`}
-                className="block p-6 bg-white border border-medium-gray-border rounded-lg hover:border-medium-green transition-all duration-medium group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-full bg-medium-green-light flex items-center justify-center group-hover:bg-medium-green transition-colors">
-                    <category.icon className="w-5 h-5 text-medium-green group-hover:text-white" />
-                  </div>
-                  <span className="text-caption text-medium-black-tertiary">
-                    {category.count} 글
-                  </span>
-                </div>
-                <h3 className="text-heading-4 font-serif text-medium-black mb-2 group-hover:text-medium-green transition-colors text-korean">
-                  {category.name}
-                </h3>
-                <p className="text-body-small text-medium-black-secondary text-korean">
-                  {category.description}
-                </p>
-              </Link>
+              <CategoryTag
+                koreanName={category.koreanName}
+                englishName={category.englishName}
+                slug={category.slug}
+                size="large"
+              />
             </motion.div>
           ))}
+        </div>
+
+        {/* Category Cards with descriptions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {CATEGORIES.map((category, index) => {
+            const Icon = categoryIcons[category.id as keyof typeof categoryIcons]
+
+            return (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="group"
+              >
+                <div className="p-6 bg-white border border-medium-gray-border rounded-lg hover:border-medium-green transition-all duration-medium h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-full bg-medium-green-light flex items-center justify-center group-hover:bg-medium-green transition-colors">
+                      <Icon className="w-5 h-5 text-medium-green group-hover:text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-heading-4 font-serif text-medium-black mb-2 group-hover:text-medium-green transition-colors text-korean">
+                    {category.koreanName}
+                  </h3>
+                  <p className="text-body-small text-medium-black-secondary text-korean">
+                    {category.description}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

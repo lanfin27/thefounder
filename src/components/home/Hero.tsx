@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -23,26 +22,6 @@ export default function Hero() {
             <br className="hidden md:block" />
             매주 금요일, 가장 중요한 소식을 전해드립니다.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/membership"
-              className="btn-primary text-body-small"
-            >
-              프리미엄 시작하기
-            </Link>
-            
-            <button
-              onClick={() => {
-                document.getElementById('industry-charts')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                })
-              }}
-              className="btn-secondary text-body-small flex items-center gap-2"
-            >
-              📊 실시간 차트 보기
-            </button>
-          </div>
         </motion.div>
       </div>
     </section>
