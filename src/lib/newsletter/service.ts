@@ -34,7 +34,7 @@ export async function subscribeToNewsletter({
         .update({
           status: 'active',
           unsubscribed_at: null,
-          user_id: userId || existing.user_id,
+          user_id: userId || (existing as any).user_id,
           tags,
           updated_at: new Date().toISOString()
         })

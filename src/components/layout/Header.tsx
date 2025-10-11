@@ -1,109 +1,97 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import UserMenu from '@/components/auth/UserMenu'
-import MobileMenu from './MobileMenu'
-import { Calculator } from 'lucide-react'
-import { SearchButton } from './HeaderClient'
 
 export default async function Header() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  const navigation = [
-    { name: '홈', href: '/' },
-    { name: '뉴스레터', href: '/posts?category=뉴스레터' },
-    { name: 'SaaS', href: '/posts?category=SaaS' },
-    { name: '블로그', href: '/posts?category=블로그' },
-    { name: '창업', href: '/posts?category=창업' },
-    { name: '산업 트렌드', href: '/charts' },
-  ]
-
   return (
-    <header className="fixed top-0 z-40 w-full bg-white border-b border-medium-gray-border">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 md:h-16">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl md:text-3xl font-serif font-bold text-medium-black tracking-tight">
-                The Founder
-              </span>
+          <Link href="/" className="flex items-center">
+            <span className="text-2xl font-bold text-gray-900">
+              The Founder
+            </span>
+          </Link>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="/posts"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              콘텐츠
             </Link>
-          </div>
+            <Link
+              href="/posts?category=뉴스레터"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              뉴스레터
+            </Link>
+            <Link
+              href="/posts?category=SaaS"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              SaaS
+            </Link>
+            <Link
+              href="/about"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              About
+            </Link>
+          </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-medium-black-secondary hover:text-medium-black text-body-small font-normal transition-colors duration-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Section */}
-          <div className="flex items-center gap-2 md:gap-4">
-            {/* Search Icon */}
-            <SearchButton />
-
+          {/* Auth Section */}
+          <div className="flex items-center gap-4">
             {user ? (
               <>
                 <Link
-                  href="/valuation"
-                  className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
+                  href="/my/posts"
+                  className="text-sm text-gray-600 hover:text-gray-900"
                 >
-                  <Calculator className="w-4 h-4" />
-                  밸류에이션
+                  내 글
                 </Link>
-                <Link
-                  href="/membership"
-                  className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
-                >
-                  멤버십
-                </Link>
-                {/* Admin Dashboard Link - show only for admin users */}
-                {user.email === 'admin@thefounder.com' && (
-                  <Link
-                    href="/admin/scraping"
-                    className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 transition-colors duration-medium"
-                  >
-                    대시보드
-                  </Link>
-                )}
-                <UserMenu user={{
-                  id: user.id,
-                  email: user.email!,
-                  name: user.user_metadata?.name,
-                  avatar_url: user.user_metadata?.avatar_url,
-                  membership_status: 'free',
-                  created_at: user.created_at,
-                  updated_at: user.updated_at || user.created_at,
-                }} />
+                <UserMenu user={user} />
               </>
             ) : (
               <>
                 <Link
                   href="/auth/login"
-                  className="hidden md:inline-flex items-center text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
+                  className="text-sm text-gray-600 hover:text-gray-900"
                 >
                   로그인
                 </Link>
                 <Link
-                  href="/membership"
-                  className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium rounded-full text-white bg-medium-green hover:bg-medium-green-dark transition-all duration-medium"
+                  href="/auth/signup"
+                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-colors"
                 >
                   시작하기
                 </Link>
               </>
             )}
-            
-            <MobileMenu navigation={navigation} user={user} />
+
+            {/* Mobile Menu Button */}
+            <button className="md:hidden p-2 text-gray-600">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
+  )
+}
+
+function UserMenu({ user }: { user: any }) {
+  return (
+    <div className="relative">
+      <button className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-medium text-gray-600">
+        {user.email?.[0]?.toUpperCase() || 'U'}
+      </button>
+    </div>
   )
 }

@@ -31,8 +31,8 @@ export async function GET() {
       success: true,
       totalPosts: posts.length,
       posts: simplifiedPosts,
-      availableCategories: [...new Set(posts.map(p => p.category).filter(Boolean))],
-      availableAuthors: [...new Set(posts.map(p => p.author).filter(Boolean))]
+      availableCategories: Array.from(new Set(posts.map(p => p.category).filter(Boolean))),
+      availableAuthors: Array.from(new Set(posts.map(p => p.author).filter(Boolean)))
     })
   } catch (error) {
     console.error('Test sync error:', error)

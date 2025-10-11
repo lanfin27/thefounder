@@ -18,7 +18,7 @@ export async function debugNotionProperties() {
     })
     
     console.log('=== Notion Database Properties ===')
-    console.log('Database Title:', database.title[0]?.plain_text || 'Untitled')
+    console.log('Database Title:', (database as any).title?.[0]?.plain_text || 'Untitled')
     console.log('\nProperties:')
     
     Object.entries(database.properties).forEach(([key, value]) => {

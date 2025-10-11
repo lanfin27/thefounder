@@ -61,6 +61,6 @@ export function calculateReadingTime(content: string, wordsPerMinute: number = 2
 }
 
 export function extractFirstParagraphs(content: string, paragraphCount: number = 3): string {
-  const paragraphs = content.match(/<p[^>]*>.*?<\/p>/gs) || []
+  const paragraphs = content.match(/<p[^>]*>[\s\S]*?<\/p>/g) || []
   return paragraphs.slice(0, paragraphCount).join('\n')
 }

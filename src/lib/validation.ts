@@ -192,7 +192,7 @@ export class FormValidator<T extends Record<string, any>> {
   validate(data: T): { valid: boolean; errors: Partial<Record<keyof T, string>> } {
     const errors: Partial<Record<keyof T, string>> = {}
     
-    for (const [field, validators] of this.rules.entries()) {
+    for (const [field, validators] of Array.from(this.rules.entries())) {
       const value = data[field]
       
       for (const validator of validators) {
