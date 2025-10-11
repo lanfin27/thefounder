@@ -9,10 +9,14 @@ export default async function DashboardPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
+  if (!user) {
+    return <div>Unauthorized</div>
+  }
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
-    .eq('id', user!.id)
+    .eq('id', user.id)
     .single()
 
   // Fetch reading history
@@ -29,7 +33,7 @@ export default async function DashboardPage() {
         cover
       )
     `)
-    .eq('user_id', user!.id)
+    .eq('user_id', user.id)
     .order('last_read_at', { ascending: false })
     .limit(10)
 
@@ -49,7 +53,7 @@ export default async function DashboardPage() {
         is_premium
       )
     `)
-    .eq('user_id', user!.id)
+    .eq('user_id', user.id)
     .order('created_at', { ascending: false })
     .limit(10)
 
@@ -57,12 +61,12 @@ export default async function DashboardPage() {
   const { count: totalReadPosts } = await supabase
     .from('user_reading_history')
     .select('*', { count: 'exact', head: true })
-    .eq('user_id', user!.id)
+    .eq('user_id', user.id)
 
   const { data: totalReadingTime } = await supabase
     .from('user_reading_history')
     .select('total_reading_time')
-    .eq('user_id', user!.id)
+    .eq('user_id', user.id)
 
   const totalMinutes = totalReadingTime?.reduce((acc, curr) => acc + (curr.total_reading_time || 0), 0) || 0
   const totalHours = (totalMinutes / 3600).toFixed(1)

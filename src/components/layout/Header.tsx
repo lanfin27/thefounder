@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import UserMenu from '@/components/auth/UserMenu'
 import MobileMenu from './MobileMenu'
-import { Calculator } from 'lucide-react'
 import { SearchButton } from './HeaderClient'
 
 export default async function Header() {
@@ -51,13 +50,6 @@ export default async function Header() {
 
             {user ? (
               <>
-                <Link
-                  href="/valuation"
-                  className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
-                >
-                  <Calculator className="w-4 h-4" />
-                  밸류에이션
-                </Link>
                 <Link
                   href="/membership"
                   className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
