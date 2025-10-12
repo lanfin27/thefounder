@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getPostBySlug } from '@/lib/notion/client'
 import { renderBlock } from '@/lib/notion/renderer'
 import { createClient } from '@/lib/supabase/server'
-import PremiumGate from '@/components/blog/PremiumGate'
+import PaywallGate from '@/components/blog/PaywallGate'
 import PostHeader from '@/components/blog/PostHeader'
 import PostContent from '@/components/blog/PostContent'
 
@@ -19,10 +19,6 @@ export default async function BlogPostPage({
 
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  
-  // TODO: Check actual membership status from database
-  const isPremiumMember = false
-  const isLocked = false // post.page.properties.Premium?.checkbox && !isPremiumMember
 
   return (
     <article className="min-h-screen bg-white">
@@ -33,19 +29,18 @@ export default async function BlogPostPage({
         author={{ name: 'The Founder 팀', avatar: '' }}
         readingTime={Math.ceil(post.blocks.length / 5)}
       />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-3xl mx-auto">
-          {isLocked ? (
-            <div>
-              <div className="blog-content mb-8">
-                {post.blocks.slice(0, 3).map((block) => renderBlock(block))}
-              </div>
-              <PremiumGate />
-            </div>
-          ) : (
+          <PaywallGate
+            isUserLoggedIn={!!user}
+            postTitle={post.page.properties['제목'].title[0].plain_text}
+            postId={post.page.id}
+            contentId={post.page.id}
+            triggerPoint={0.33}
+          >
             <PostContent blocks={post.blocks} />
-          )}
+          </PaywallGate>
         </div>
       </div>
     </article>
