@@ -81,11 +81,9 @@ export default function SignupPromptModal({
 
         {/* Content */}
         <div className="text-center">
-          {/* Logo/Icon */}
-          <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+          {/* Logo */}
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900">The Founder</h1>
           </div>
 
           {/* Title */}
@@ -151,13 +149,6 @@ export default function SignupPromptModal({
                 로그인
               </button>
             </div>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <p className="text-xs text-gray-500">
-              신용카드 불필요 • 언제든 탈퇴 가능 • 10만+ 독자
-            </p>
           </div>
         </div>
       </div>
