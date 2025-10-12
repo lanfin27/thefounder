@@ -6,9 +6,7 @@ import { NOTION_PROPERTIES, NOTION_STATUS } from './korean-properties'
 import { getFlexibleProperty, extractPropertyValue } from './flexible-property-getter'
 import { generateKoreanSlug } from '@/lib/utils/korean-slug'
 import { AVAILABLE_NOTION_PROPERTIES, DEFAULT_AUTHOR, DEFAULT_READING_TIME, mapAvailableProperties } from './available-properties'
-import { renderBlock } from './renderer'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import { renderBlockToHtml } from './renderer-html'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -96,11 +94,8 @@ async function getBlocks(blockId: string): Promise<any[]> {
 
 // Convert blocks to HTML string
 function blocksToHtml(blocks: any[]): string {
-  const elements = blocks.map(block => renderBlock(block))
-  const html = ReactDOMServer.renderToStaticMarkup(
-    React.createElement('div', {}, elements)
-  )
-  return html
+  const htmlParts = blocks.map(block => renderBlockToHtml(block))
+  return htmlParts.join('')
 }
 
 export async function convertPageToPost(page: any): Promise<BlogPost | null> {
