@@ -10,23 +10,45 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;')
 }
 
-// YouTube URL 파싱
-function getYouTubeEmbedUrl(url: string): string | null {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
-  const match = url.match(regExp)
-  if (match && match[2].length === 11) {
-    return `https://www.youtube.com/embed/${match[2]}`
+// YouTube ID 추출 (개선된 버전)
+function extractYouTubeId(url: string): string | null {
+  // 다양한 YouTube URL 형식 처리
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+    /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
+    /youtu\.be\/([^&\n?#]+)/,
+    /youtube\.com\/embed\/([^&\n?#]+)/,
+    /youtube\.com\/v\/([^&\n?#]+)/
+  ]
+
+  for (const pattern of patterns) {
+    const match = url.match(pattern)
+    if (match && match[1]) {
+      console.log(`Extracted YouTube ID: ${match[1]} from URL: ${url}`)
+      return match[1]
+    }
   }
+
+  console.warn(`Could not extract YouTube ID from URL: ${url}`)
   return null
 }
 
-// Vimeo URL 파싱
-function getVimeoEmbedUrl(url: string): string | null {
-  const regExp = /vimeo\.com\/(\d+)/
-  const match = url.match(regExp)
-  if (match && match[1]) {
-    return `https://player.vimeo.com/video/${match[1]}`
+// Vimeo ID 추출 (개선된 버전)
+function extractVimeoId(url: string): string | null {
+  const patterns = [
+    /vimeo\.com\/(\d+)/,
+    /player\.vimeo\.com\/video\/(\d+)/
+  ]
+
+  for (const pattern of patterns) {
+    const match = url.match(pattern)
+    if (match && match[1]) {
+      console.log(`Extracted Vimeo ID: ${match[1]} from URL: ${url}`)
+      return match[1]
+    }
   }
+
+  console.warn(`Could not extract Vimeo ID from URL: ${url}`)
   return null
 }
 
@@ -131,56 +153,96 @@ export function renderBlockToHtml(block: any): string {
       return `<figure class="my-6"><img src="${imageUrl}" alt="" class="w-full rounded-lg"/>${caption}</figure>`
 
     case 'video':
-      const videoUrl = value.external?.url || value.file?.url
-      if (!videoUrl) return ''
+      // 비디오 블록 구조 디버깅
+      console.log('Video block structure:', JSON.stringify(value, null, 2))
+
+      // 비디오 URL 추출 (다양한 구조 처리)
+      let videoUrl = ''
+      if (value?.external?.url) {
+        videoUrl = value.external.url
+      } else if (value?.file?.url) {
+        videoUrl = value.file.url
+      } else if (value?.url) {
+        videoUrl = value.url
+      }
+
+      if (!videoUrl) {
+        console.warn('No video URL found in block:', value)
+        return ''
+      }
+
+      console.log(`Processing video URL: ${videoUrl}`)
 
       // YouTube 처리
-      const youtubeEmbed = getYouTubeEmbedUrl(videoUrl)
-      if (youtubeEmbed) {
-        return `
-          <div class="my-6 relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
-            <iframe
-              src="${youtubeEmbed}"
-              class="absolute top-0 left-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        `
+      if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+        const youtubeId = extractYouTubeId(videoUrl)
+        if (youtubeId) {
+          return `
+            <div class="my-6 relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+              <iframe
+                src="https://www.youtube.com/embed/${youtubeId}"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                class="rounded-lg"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          `
+        }
       }
 
       // Vimeo 처리
-      const vimeoEmbed = getVimeoEmbedUrl(videoUrl)
-      if (vimeoEmbed) {
-        return `
-          <div class="my-6 relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
-            <iframe
-              src="${vimeoEmbed}"
-              class="absolute top-0 left-0 w-full h-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        `
+      if (videoUrl.includes('vimeo.com')) {
+        const vimeoId = extractVimeoId(videoUrl)
+        if (vimeoId) {
+          return `
+            <div class="my-6 relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+              <iframe
+                src="https://player.vimeo.com/video/${vimeoId}"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                class="rounded-lg"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          `
+        }
       }
 
       // 일반 비디오
-      return `<video controls class="w-full my-6 rounded-lg"><source src="${videoUrl}" /></video>`
+      return `
+        <video controls class="w-full my-6 rounded-lg">
+          <source src="${videoUrl}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      `
 
     case 'embed':
-      const embedUrl = value.url
-      if (!embedUrl) return ''
+      // 임베드 블록 구조 디버깅
+      console.log('Embed block structure:', JSON.stringify(value, null, 2))
+
+      const embedUrl = value?.url || ''
+      if (!embedUrl) {
+        console.warn('No embed URL found in block:', value)
+        return ''
+      }
+
+      console.log(`Processing embed URL: ${embedUrl}`)
 
       // YouTube 임베드
       if (embedUrl.includes('youtube.com') || embedUrl.includes('youtu.be')) {
-        const youtubeEmbedUrl = getYouTubeEmbedUrl(embedUrl)
-        if (youtubeEmbedUrl) {
+        const youtubeId = extractYouTubeId(embedUrl)
+        if (youtubeId) {
           return `
-            <div class="my-6 relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
+            <div class="my-6 relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
               <iframe
-                src="${youtubeEmbedUrl}"
-                class="absolute top-0 left-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src="https://www.youtube.com/embed/${youtubeId}"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                class="rounded-lg"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
@@ -190,13 +252,15 @@ export function renderBlockToHtml(block: any): string {
 
       // Vimeo 임베드
       if (embedUrl.includes('vimeo.com')) {
-        const vimeoEmbedUrl = getVimeoEmbedUrl(embedUrl)
-        if (vimeoEmbedUrl) {
+        const vimeoId = extractVimeoId(embedUrl)
+        if (vimeoId) {
           return `
-            <div class="my-6 relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
+            <div class="my-6 relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
               <iframe
-                src="${vimeoEmbedUrl}"
-                class="absolute top-0 left-0 w-full h-full"
+                src="https://player.vimeo.com/video/${vimeoId}"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                class="rounded-lg"
+                frameborder="0"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen>
               </iframe>
@@ -205,12 +269,13 @@ export function renderBlockToHtml(block: any): string {
         }
       }
 
-      // 일반 iframe 임베드
+      // 기타 임베드 (Twitter, Instagram 등)
       return `
         <div class="my-6">
           <iframe
             src="${embedUrl}"
             class="w-full h-96 rounded-lg border"
+            frameborder="0"
             allowfullscreen>
           </iframe>
         </div>

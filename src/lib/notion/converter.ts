@@ -94,6 +94,13 @@ async function getBlocks(blockId: string): Promise<any[]> {
 
 // Convert blocks to HTML string
 function blocksToHtml(blocks: any[]): string {
+  // 비디오/임베드 블록 확인 (디버깅용)
+  blocks.forEach((block, index) => {
+    if (block.type === 'video' || block.type === 'embed') {
+      console.log(`Found ${block.type} block at index ${index}:`, JSON.stringify(block, null, 2))
+    }
+  })
+
   const htmlParts = blocks.map(block => renderBlockToHtml(block))
   return htmlParts.join('')
 }
