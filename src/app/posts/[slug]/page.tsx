@@ -2,8 +2,6 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/notion/converter'
 import { createClient } from '@/lib/supabase/server'
-import { checkUserSubscription } from '@/lib/subscription/service'
-import { truncateContent } from '@/utils/content'
 import PostHeader from '@/components/blog/PostHeader'
 import MarkdownRenderer from '@/components/blog/MarkdownRenderer'
 import PaywallGate from '@/components/blog/PaywallGate'
@@ -66,14 +64,9 @@ export default async function PostPage({
   
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  
-  // Check subscription status
-  const subscription = await checkUserSubscription(user?.id)
-  const canAccessPremium = subscription.status === 'premium' && subscription.isActive
-  const showPaywall = post.isPremium && !canAccessPremium
-  
-  // Prepare truncated content for paywall
-  const truncatedContent = showPaywall ? truncateContent(post.content, 300) : post.content
+
+  // All content is now free with registration
+  // No more premium checks needed
   
   return (
     <>
@@ -86,11 +79,6 @@ export default async function PostPage({
               <span className="text-caption font-medium text-medium-green">
                 {post.category}
               </span>
-              {post.isPremium && (
-                <span className="text-caption font-medium text-medium-green">
-                  Premium
-                </span>
-              )}
             </div>
             
             <h1 className="text-heading-1 font-serif text-medium-black mb-6 text-korean">
@@ -133,9 +121,7 @@ export default async function PostPage({
           
           {/* Article Content */}
           <PaywallGate
-            truncatedContent={truncatedContent}
             isUserLoggedIn={!!user}
-            isPremiumContent={post.isPremium}
             postTitle={post.title}
             postId={post.id}
           >
@@ -143,12 +129,12 @@ export default async function PostPage({
               <MarkdownRenderer content={post.content} />
             </div>
           </PaywallGate>
-          
+
           {/* Analytics tracking */}
           <PostAnalytics
             postId={post.id}
             userId={user?.id}
-            enabled={!showPaywall}
+            enabled={true}
           />
         </div>
         

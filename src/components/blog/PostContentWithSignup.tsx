@@ -2,21 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import SignupPromptModal from '@/components/auth/SignupPromptModal'
+import MarkdownRenderer from '@/components/blog/MarkdownRenderer'
 import { useScrollTrigger } from '@/hooks/useScrollTrigger'
 
-interface PaywallGateProps {
-  children: React.ReactNode
-  isUserLoggedIn: boolean
-  postTitle: string
-  postId: string
+interface PostContentWithSignupProps {
+  content: string
+  isAuthenticated: boolean
 }
 
-export default function PaywallGate({
-  children,
-  isUserLoggedIn,
-  postTitle,
-  postId
-}: PaywallGateProps) {
+export default function PostContentWithSignup({ content, isAuthenticated }: PostContentWithSignupProps) {
   const { triggered } = useScrollTrigger(0.33)
   const [showModal, setShowModal] = useState(false)
   const [hasSeenModal, setHasSeenModal] = useState(false)
@@ -31,20 +25,20 @@ export default function PaywallGate({
 
   useEffect(() => {
     // Show modal when user scrolls 1/3 and is not authenticated
-    if (triggered && !isUserLoggedIn && !hasSeenModal) {
+    if (triggered && !isAuthenticated && !hasSeenModal) {
       setShowModal(true)
       setHasSeenModal(true)
       // Mark as shown in session storage
       sessionStorage.setItem('signup-prompt-shown', 'true')
     }
-  }, [triggered, isUserLoggedIn, hasSeenModal])
+  }, [triggered, isAuthenticated, hasSeenModal])
 
-  // All content is now free with login
   return (
     <>
-      {children}
+      {/* Post content */}
+      <MarkdownRenderer content={content} />
 
-      {/* Signup prompt modal for non-logged-in users */}
+      {/* Signup prompt modal */}
       <SignupPromptModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
