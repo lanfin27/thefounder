@@ -6,6 +6,9 @@ import { NOTION_PROPERTIES, NOTION_STATUS } from './korean-properties'
 import { getFlexibleProperty, extractPropertyValue } from './flexible-property-getter'
 import { generateKoreanSlug } from '@/lib/utils/korean-slug'
 import { AVAILABLE_NOTION_PROPERTIES, DEFAULT_AUTHOR, DEFAULT_READING_TIME, mapAvailableProperties } from './available-properties'
+import { renderBlock } from './renderer'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -63,6 +66,43 @@ export function generateSlugFromKorean(title: string): string {
   return generateKoreanSlug(title)
 }
 
+// Recursively fetch all blocks from a page
+async function getBlocks(blockId: string): Promise<any[]> {
+  const blocks: any[] = []
+  let cursor: string | undefined = undefined
+
+  do {
+    const { results, next_cursor } = await notion.blocks.children.list({
+      block_id: blockId,
+      start_cursor: cursor,
+      page_size: 100,
+    })
+
+    blocks.push(...results)
+
+    // Fetch children for blocks that have them
+    for (const block of results) {
+      if ((block as any).has_children) {
+        const children = await getBlocks(block.id)
+        ;(block as any).children = children
+      }
+    }
+
+    cursor = next_cursor || undefined
+  } while (cursor)
+
+  return blocks
+}
+
+// Convert blocks to HTML string
+function blocksToHtml(blocks: any[]): string {
+  const elements = blocks.map(block => renderBlock(block))
+  const html = ReactDOMServer.renderToStaticMarkup(
+    React.createElement('div', {}, elements)
+  )
+  return html
+}
+
 export async function convertPageToPost(page: any): Promise<BlogPost | null> {
   try {
     // Log available properties for debugging
@@ -112,23 +152,43 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
                     page.cover?.file?.url || 
                     ''
     
-    // Convert blocks to markdown
+    // Convert blocks to rich HTML
     let content = ''
+    let markdownContent = ''
     let minutes = DEFAULT_READING_TIME
-    
+
     try {
-      const mdblocks = await n2m.pageToMarkdown(page.id)
-      const mdString = n2m.toMarkdownString(mdblocks)
-      content = mdString?.parent || ''
-      
-      // Calculate reading time only if content exists
-      if (content && content.trim().length > 0) {
-        const result = readingTime(content)
-        minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+      // Fetch all blocks for rich rendering
+      console.log(`Fetching blocks for page: ${title}`)
+      const blocks = await getBlocks(page.id)
+
+      // Convert blocks to HTML
+      content = blocksToHtml(blocks)
+      console.log(`Generated ${content.length} characters of HTML content`)
+
+      // Also generate markdown for reading time calculation
+      try {
+        const mdblocks = await n2m.pageToMarkdown(page.id)
+        const mdString = n2m.toMarkdownString(mdblocks)
+        markdownContent = mdString?.parent || ''
+
+        // Calculate reading time from markdown
+        if (markdownContent && markdownContent.trim().length > 0) {
+          const result = readingTime(markdownContent)
+          minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+        }
+      } catch (mdError) {
+        console.error('Error generating markdown for reading time:', mdError)
+        // Estimate reading time from HTML content
+        const plainText = content.replace(/<[^>]*>/g, ' ')
+        if (plainText.trim().length > 0) {
+          const result = readingTime(plainText)
+          minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+        }
       }
     } catch (error) {
       console.error('Error converting page content:', error)
-      content = summary || '' // Fallback to summary if content conversion fails
+      content = `<p>${summary}</p>` || '' // Fallback to summary if content conversion fails
     }
     
     const author = extractPropertyValue(props.author) || DEFAULT_AUTHOR

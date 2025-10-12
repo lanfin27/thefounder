@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/notion/converter'
 import { createClient } from '@/lib/supabase/server'
 import PostHeader from '@/components/blog/PostHeader'
-import MarkdownRenderer from '@/components/blog/MarkdownRenderer'
+import NotionContentRenderer from '@/components/blog/NotionContentRenderer'
 import PaywallGate from '@/components/blog/PaywallGate'
 import RelatedPosts from '@/components/blog/RelatedPosts'
 import PostAnalytics from '@/components/blog/PostAnalytics'
@@ -126,7 +126,7 @@ export default async function PostPage({
             postId={post.id}
           >
             <div className="blog-content">
-              <MarkdownRenderer content={post.content} />
+              <NotionContentRenderer content={post.content} isRichContent={true} />
             </div>
           </PaywallGate>
 
