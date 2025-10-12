@@ -13,6 +13,39 @@ const notion = new Client({
 
 const n2m = new NotionToMarkdown({ notionClient: notion })
 
+// Category mapping from Korean to English
+const CATEGORY_MAPPING: Record<string, string> = {
+  // Korean categories → English categories
+  '트렌드': 'trend',
+  '뉴스레터': 'trend',
+  '인사이트': 'insight',
+  'SaaS': 'insight',
+  '블로그': 'blog',
+  'Blog': 'blog',
+  '성공사례': 'casestudy',
+  '창업': 'casestudy',
+  'Startup': 'casestudy',
+  // Fallback for unmapped categories
+  'trend': 'trend',
+  'insight': 'insight',
+  'blog': 'blog',
+  'casestudy': 'casestudy'
+}
+
+// Status mapping from Korean to English
+const STATUS_MAPPING: Record<string, string> = {
+  '초안': 'draft',
+  '검토중': 'review',
+  '발행': 'published',
+  'Draft': 'draft',
+  'Review': 'review',
+  'Published': 'published',
+  // Fallback for already English statuses
+  'draft': 'draft',
+  'review': 'review',
+  'published': 'published'
+}
+
 // Custom transformer for Korean content
 n2m.setCustomTransformer('image', async (block: any) => {
   const imageUrl = block.image?.external?.url || block.image?.file?.url
@@ -47,11 +80,21 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
     }
     
     const summary = extractPropertyValue(props.summary) || ''
-    const category = extractPropertyValue(props.category)
-    const status = extractPropertyValue(props.status)
-    
+
+    // Map category from Korean to English
+    const originalCategory = extractPropertyValue(props.category) || '블로그'
+    const category = CATEGORY_MAPPING[originalCategory] || originalCategory.toLowerCase()
+
+    // Map status from Korean to English
+    const originalStatus = extractPropertyValue(props.status) || '발행'
+    const status = STATUS_MAPPING[originalStatus] || 'published'
+
+    // Log mapping for debugging
+    console.log(`Category mapping: ${originalCategory} → ${category}`)
+    console.log(`Status mapping: ${originalStatus} → ${status}`)
+
     // Skip if not published
-    if (status !== NOTION_STATUS.PUBLISHED) {
+    if (status !== 'published') {
       console.log(`Skipping draft/review post: ${title}`)
       return null
     }
@@ -123,10 +166,26 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const pages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
-      property: NOTION_PROPERTIES.STATUS,
-      select: {
-        equals: NOTION_STATUS.PUBLISHED
-      }
+      or: [
+        {
+          property: NOTION_PROPERTIES.STATUS,
+          select: {
+            equals: '발행'
+          }
+        },
+        {
+          property: NOTION_PROPERTIES.STATUS,
+          select: {
+            equals: 'Published'
+          }
+        },
+        {
+          property: NOTION_PROPERTIES.STATUS,
+          select: {
+            equals: 'published'
+          }
+        }
+      ]
     },
     sorts: [
       {
@@ -152,10 +211,26 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const allPosts = await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID!,
       filter: {
-        property: NOTION_PROPERTIES.STATUS,
-        select: {
-          equals: NOTION_STATUS.PUBLISHED
-        }
+        or: [
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: '발행'
+            }
+          },
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: 'Published'
+            }
+          },
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: 'published'
+            }
+          }
+        ]
       }
     })
     

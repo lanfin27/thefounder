@@ -9,31 +9,35 @@ export async function POST(request: NextRequest) {
     if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_TOKEN}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
-    
+
+    console.log('=== Starting Notion Sync ===')
+    console.log('Timestamp:', new Date().toISOString())
+
     // Fetch all posts from Notion
     console.log('Fetching posts from Notion...')
     const posts = await getAllPosts()
-    console.log(`Found ${posts.length} posts`)
-    
+    console.log(`Found ${posts.length} posts from Notion`)
+
     // Create admin client
     let supabase
     try {
       supabase = createAdminClient()
     } catch (error) {
       console.error('Failed to create admin client:', error)
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: 'Failed to create Supabase admin client',
         details: error instanceof Error ? error.message : 'Unknown error'
       }, { status: 500 })
     }
-    
-    // Debug: Log the first post to check structure
+
+    // Debug: Log sample post structure
     if (posts.length > 0) {
-      console.log('First post structure:', {
+      console.log('Sample post structure:', {
         id: posts[0].id,
         title: posts[0].title,
-        author: posts[0].author,
-        authorType: typeof posts[0].author
+        category: posts[0].category,
+        status: posts[0].status,
+        author: posts[0].author
       })
     }
 
@@ -57,34 +61,80 @@ export async function POST(request: NextRequest) {
     }))
 
     console.log('Upserting posts to database...')
-    
-    // Upsert posts to database
-    const { data, error } = await supabase
-      .from('posts')
-      .upsert(postsData, { onConflict: 'id' })
-      .select()
-    
-    if (error) {
-      console.error('Supabase error:', error)
-      console.error('Error details:', {
-        message: error.message,
-        details: error.details,
-        hint: error.hint,
-        code: error.code
-      })
-      return NextResponse.json({ 
-        error: 'Failed to sync posts',
-        details: error.message,
-        hint: error.hint || 'Check if the posts table exists and has the correct schema'
-      }, { status: 500 })
+
+    // Batch processing for better performance
+    const batchSize = 10
+    let successCount = 0
+    let failedPosts: string[] = []
+    let syncedPosts: any[] = []
+
+    for (let i = 0; i < postsData.length; i += batchSize) {
+      const batch = postsData.slice(i, i + batchSize)
+      const batchNumber = Math.floor(i / batchSize) + 1
+      const totalBatches = Math.ceil(postsData.length / batchSize)
+
+      console.log(`Processing batch ${batchNumber}/${totalBatches} (${batch.length} posts)`)
+
+      try {
+        const { data, error } = await supabase
+          .from('posts')
+          .upsert(batch, { onConflict: 'id' })
+          .select()
+
+        if (error) {
+          console.error(`Batch ${batchNumber} error:`, error.message)
+
+          // Try individual upserts for failed batch
+          for (const post of batch) {
+            try {
+              const { data: singleData, error: singleError } = await supabase
+                .from('posts')
+                .upsert(post, { onConflict: 'id' })
+                .select()
+                .single()
+
+              if (singleError) {
+                console.error(`Failed to sync: ${post.title}`, singleError.message)
+                failedPosts.push(post.title)
+              } else {
+                successCount++
+                syncedPosts.push(singleData)
+                console.log(`✓ Synced: ${post.title}`)
+              }
+            } catch (err) {
+              console.error(`Exception syncing: ${post.title}`, err)
+              failedPosts.push(post.title)
+            }
+          }
+        } else {
+          successCount += batch.length
+          if (data) syncedPosts.push(...data)
+          console.log(`✓ Batch ${batchNumber} synced successfully`)
+        }
+      } catch (err) {
+        console.error(`Batch ${batchNumber} exception:`, err)
+        batch.forEach(post => failedPosts.push(post.title))
+      }
     }
 
-    console.log('Successfully synced posts:', data?.length || 0)
-    
+    console.log('=== Sync Complete ===')
+    console.log(`Success: ${successCount}/${postsData.length} posts`)
+    if (failedPosts.length > 0) {
+      console.log('Failed posts:', failedPosts)
+    }
+
     return NextResponse.json({
       success: true,
-      count: posts.length,
-      posts: posts.map(p => ({ id: p.id, title: p.title, slug: p.slug }))
+      total: posts.length,
+      synced: successCount,
+      failed: failedPosts.length,
+      failedPosts: failedPosts,
+      posts: posts.map(p => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        category: p.category
+      }))
     })
   } catch (error) {
     console.error('Sync error:', error)

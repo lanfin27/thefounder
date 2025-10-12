@@ -83,9 +83,9 @@ export default function PaywallGate({
 
       // CSS-based prevention
       document.body.style.userSelect = 'none'
-      document.body.style.webkitUserSelect = 'none'
-      document.body.style.msUserSelect = 'none'
-      document.body.style.mozUserSelect = 'none'
+      ;(document.body.style as any).webkitUserSelect = 'none'
+      ;(document.body.style as any).msUserSelect = 'none'
+      ;(document.body.style as any).mozUserSelect = 'none'
     }
 
     return () => {
@@ -96,9 +96,9 @@ export default function PaywallGate({
       document.removeEventListener('keydown', preventKeyboardShortcuts)
 
       document.body.style.userSelect = ''
-      document.body.style.webkitUserSelect = ''
-      document.body.style.msUserSelect = ''
-      document.body.style.mozUserSelect = ''
+      ;(document.body.style as any).webkitUserSelect = ''
+      ;(document.body.style as any).msUserSelect = ''
+      ;(document.body.style as any).mozUserSelect = ''
     }
   }, [isBlurred])
 
@@ -123,7 +123,7 @@ export default function PaywallGate({
           WebkitUserSelect: isBlurred ? 'none' : 'auto',
           msUserSelect: isBlurred ? 'none' : 'auto',
           MozUserSelect: isBlurred ? 'none' : 'auto'
-        }}
+        } as React.CSSProperties}
         onCopy={(e) => {
           if (isBlurred) {
             e.preventDefault()
