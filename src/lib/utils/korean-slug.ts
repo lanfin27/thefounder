@@ -502,11 +502,18 @@ export function generateKoreanSlug(text: string): string {
     .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
     .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
   
-  // If the result is empty or too short, generate a fallback
+  // If the result is empty or too short, generate a fallback based on the original text
   if (!cleanedText || cleanedText.length < 3) {
-    // Generate a random ID for uniqueness
-    const timestamp = Date.now().toString(36)
-    cleanedText = `post-${timestamp}`
+    // Create a consistent hash from the original text
+    let hash = 0
+    for (let i = 0; i < text.length; i++) {
+      const char = text.charCodeAt(i)
+      hash = ((hash << 5) - hash) + char
+      hash = hash & hash // Convert to 32bit integer
+    }
+    // Convert to base36 and ensure it's positive
+    const consistentId = Math.abs(hash).toString(36).substring(0, 8)
+    cleanedText = `post-${consistentId}`
   }
   
   // Limit slug length

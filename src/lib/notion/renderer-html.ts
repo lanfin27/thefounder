@@ -145,12 +145,48 @@ export function renderBlockToHtml(block: any): string {
       return `<li class="ml-6 mb-2 list-decimal">${renderRichTextToHtml(value.rich_text)}</li>`
 
     case 'image':
-      const imageUrl = value.type === 'external' ? value.external?.url : value.file?.url
-      if (!imageUrl) return ''
-      const caption = value.caption?.length > 0
-        ? `<figcaption class="text-center text-sm text-gray-600 mt-2">${renderRichTextToHtml(value.caption)}</figcaption>`
-        : ''
-      return `<figure class="my-6"><img src="${imageUrl}" alt="" class="w-full rounded-lg"/>${caption}</figure>`
+      // 이미지 블록 디버깅
+      console.log('Image block detected:', JSON.stringify(block.image, null, 2))
+
+      let imageUrl = ''
+
+      // Notion API v2 이미지 구조 처리
+      if (block.image?.file?.url) {
+        imageUrl = block.image.file.url
+        console.log('Found image URL in file:', imageUrl)
+      } else if (block.image?.external?.url) {
+        imageUrl = block.image.external.url
+        console.log('Found image URL in external:', imageUrl)
+      } else if (block.image?.type === 'file' && block.image?.file) {
+        imageUrl = block.image.file.url || block.image.file
+        console.log('Found image URL in type=file:', imageUrl)
+      } else if (block.image?.type === 'external' && block.image?.external) {
+        imageUrl = block.image.external.url || block.image.external
+        console.log('Found image URL in type=external:', imageUrl)
+      }
+
+      if (!imageUrl) {
+        console.error('Image URL not found. Block structure:', block)
+        return '<!-- Image block found but URL extraction failed -->'
+      }
+
+      // 캡션 처리
+      let captionHtml = ''
+      if (block.image?.caption && block.image.caption.length > 0) {
+        captionHtml = `<figcaption class="text-center text-sm text-gray-600 mt-2">${renderRichTextToHtml(block.image.caption)}</figcaption>`
+      }
+
+      return `
+        <figure class="my-6">
+          <img
+            src="${imageUrl}"
+            alt=""
+            class="w-full rounded-lg"
+            loading="lazy"
+          />
+          ${captionHtml}
+        </figure>
+      `
 
     case 'video':
       // 비디오 블록 구조 디버깅

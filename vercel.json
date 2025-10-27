@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "app/api/cron/youtube-smart-update/route.ts": {
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/youtube-smart-update",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}

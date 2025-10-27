@@ -80,6 +80,13 @@ async function getBlocks(blockId: string): Promise<any[]> {
 
     // Fetch children for blocks that have them
     for (const block of results) {
+      // 이미지 블록 감지 로그만 추가
+      if ((block as any).type === 'image') {
+        console.log('📸 Image block found in Notion response')
+        console.log('Image block ID:', block.id)
+        console.log('Image data structure:', JSON.stringify((block as any).image, null, 2))
+      }
+
       if ((block as any).has_children) {
         const children = await getBlocks(block.id)
         ;(block as any).children = children
@@ -94,15 +101,74 @@ async function getBlocks(blockId: string): Promise<any[]> {
 
 // Convert blocks to HTML string
 function blocksToHtml(blocks: any[]): string {
-  // 비디오/임베드 블록 확인 (디버깅용)
+  // 모든 블록 타입 확인 (디버깅용)
   blocks.forEach((block, index) => {
-    if (block.type === 'video' || block.type === 'embed') {
+    if (block.type === 'video' || block.type === 'embed' || block.type === 'image') {
       console.log(`Found ${block.type} block at index ${index}:`, JSON.stringify(block, null, 2))
     }
   })
 
   const htmlParts = blocks.map(block => renderBlockToHtml(block))
   return htmlParts.join('')
+}
+
+export async function getPageContent(pageId: string): Promise<string> {
+  try {
+    console.log(`\n=== Getting content for page: ${pageId} ===`)
+
+    // 먼저 페이지 정보 확인
+    const page = await notion.pages.retrieve({ page_id: pageId })
+    console.log('Page title:', (page as any).properties?.['제목']?.title?.[0]?.text?.content)
+
+    // 블록 가져오기
+    const blocks = await getBlocks(pageId)
+
+    // 블록 타입 분석
+    const blockTypes = blocks.reduce((acc, block) => {
+      const type = (block as any).type
+      acc[type] = (acc[type] || 0) + 1
+      return acc
+    }, {} as Record<string, number>)
+
+    console.log('Block type summary:', blockTypes)
+
+    // 이미지 블록 확인
+    const imageBlocks = blocks.filter(b => (b as any).type === 'image')
+    console.log(`Found ${imageBlocks.length} image blocks`)
+
+    if (imageBlocks.length > 0) {
+      console.log('Image blocks found:')
+      imageBlocks.forEach((block: any, i: number) => {
+        console.log(`  Image ${i + 1}:`, {
+          id: block.id,
+          hasFile: !!block.image?.file,
+          hasExternal: !!block.image?.external,
+          fileUrl: block.image?.file?.url?.substring(0, 50) + '...',
+          externalUrl: block.image?.external?.url?.substring(0, 50) + '...'
+        })
+      })
+    }
+
+    // HTML 변환
+    const htmlContent = blocks
+      .map(block => renderBlockToHtml(block))
+      .join('')
+
+    // 생성된 HTML에 img 태그가 있는지 확인
+    const imgCount = (htmlContent.match(/<img/g) || []).length
+    console.log(`Generated HTML contains ${imgCount} <img> tags`)
+
+    if (imageBlocks.length > 0 && imgCount === 0) {
+      console.error('⚠️ Image blocks exist but no <img> tags generated!')
+    }
+
+    console.log(`=== Content generation complete ===\n`)
+
+    return htmlContent
+  } catch (error) {
+    console.error('Error getting page content:', error)
+    return ''
+  }
 }
 
 export async function convertPageToPost(page: any): Promise<BlogPost | null> {
@@ -141,18 +207,28 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
       return null
     }
     
-    // Always generate slug from title (no Slug property in Notion)
-    const slug = generateSlugFromKorean(title)
-    console.log(`Generated slug: ${slug} from title: ${title}`)
+    // Generate consistent slug from title + page ID for uniqueness
+    // Use the first 8 chars of page ID (without dashes) as a unique suffix
+    const shortId = page.id.replace(/-/g, '').substring(0, 8)
+    const baseSlug = generateSlugFromKorean(title)
+
+    // Combine readable slug with short ID for consistency and uniqueness
+    const slug = `${baseSlug}-${shortId}`
+    console.log(`Generated consistent slug: ${slug} from title: ${title}`)
     
-    // Get cover image
+    // Get cover image (improved extraction)
     const coverFiles = extractPropertyValue(props.cover) || []
     const coverFromProp = coverFiles[0]
-    const coverUrl = coverFromProp?.external?.url || 
-                    coverFromProp?.file?.url || 
-                    page.cover?.external?.url || 
-                    page.cover?.file?.url || 
-                    ''
+    let coverUrl = coverFromProp?.external?.url ||
+                   coverFromProp?.file?.url ||
+                   page.cover?.external?.url ||
+                   page.cover?.file?.url ||
+                   ''
+
+    // Handle Notion S3 URLs
+    if (coverUrl && (coverUrl.includes('s3.us-west') || coverUrl.includes('amazonaws.com'))) {
+      console.log(`Cover image using S3 URL: ${coverUrl}`)
+    }
     
     // Convert blocks to rich HTML
     let content = ''
@@ -160,12 +236,9 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
     let minutes = DEFAULT_READING_TIME
 
     try {
-      // Fetch all blocks for rich rendering
+      // Use the enhanced getPageContent function for better debugging
       console.log(`Fetching blocks for page: ${title}`)
-      const blocks = await getBlocks(page.id)
-
-      // Convert blocks to HTML
-      content = blocksToHtml(blocks)
+      content = await getPageContent(page.id)
       console.log(`Generated ${content.length} characters of HTML content`)
 
       // Also generate markdown for reading time calculation
@@ -298,14 +371,16 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     
     console.log(`Found ${allPosts.results.length} published posts`)
     
-    // Find post by matching generated slug from title
+    // Find post by matching generated slug from title + ID
     for (const page of allPosts.results) {
       const props = mapAvailableProperties(page)
       const title = extractPropertyValue(props.title) || ''
-      const generatedSlug = generateKoreanSlug(title)
-      
+      const shortId = page.id.replace(/-/g, '').substring(0, 8)
+      const baseSlug = generateSlugFromKorean(title)
+      const generatedSlug = `${baseSlug}-${shortId}`
+
       // Check against both encoded and decoded versions
-      if (slug === generatedSlug || 
+      if (slug === generatedSlug ||
           decodedSlug === generatedSlug ||
           slug.toLowerCase() === generatedSlug.toLowerCase() ||
           decodedSlug.toLowerCase() === generatedSlug.toLowerCase()) {

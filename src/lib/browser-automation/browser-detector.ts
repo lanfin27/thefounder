@@ -126,7 +126,7 @@ export class BrowserDetector extends EventEmitter {
         capabilities
       };
     } catch (error) {
-      console.log('Playwright not available:', error.message);
+      console.log('Playwright not available:', error instanceof Error ? error.message : 'Unknown error');
       return null;
     }
   }
@@ -148,7 +148,7 @@ export class BrowserDetector extends EventEmitter {
         capabilities
       };
     } catch (error) {
-      console.log('Puppeteer not available:', error.message);
+      console.log('Puppeteer not available:', error instanceof Error ? error.message : 'Unknown error');
       return null;
     }
   }
@@ -165,7 +165,7 @@ export class BrowserDetector extends EventEmitter {
   private async getPuppeteerVersion(): Promise<string> {
     try {
       const puppeteer = await import('puppeteer');
-      return puppeteer.executablePath ? '21.0.0' : '21.0.0'; // Default version
+      return typeof puppeteer.executablePath === 'function' ? '21.0.0' : '21.0.0'; // Default version
     } catch {
       return '21.0.0';
     }
@@ -213,7 +213,7 @@ export class BrowserDetector extends EventEmitter {
 
       await browser.close();
     } catch (error) {
-      console.warn('Error testing Playwright capabilities:', error.message);
+      console.warn('Error testing Playwright capabilities:', error instanceof Error ? error.message : 'Unknown error');
     }
 
     return capabilities;
@@ -258,7 +258,7 @@ export class BrowserDetector extends EventEmitter {
 
       await browser.close();
     } catch (error) {
-      console.warn('Error testing Puppeteer capabilities:', error.message);
+      console.warn('Error testing Puppeteer capabilities:', error instanceof Error ? error.message : 'Unknown error');
     }
 
     return capabilities;
@@ -359,7 +359,7 @@ export class BrowserDetector extends EventEmitter {
       console.log(`${result ? '✅' : '❌'} ${methodName}: ${result ? 'SUPPORTED' : 'NOT SUPPORTED'}`);
       return result;
     } catch (error) {
-      console.log(`❌ ${methodName}: ERROR - ${error.message}`);
+      console.log(`❌ ${methodName}: ERROR - ${error instanceof Error ? error.message : 'Unknown error'}`);
       return false;
     }
   }
