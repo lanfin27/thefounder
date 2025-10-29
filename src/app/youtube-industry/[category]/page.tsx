@@ -10,6 +10,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import CategoryChart from '@/components/youtube-industry/CategoryChart'
 import ChannelComparisonChart from '@/components/youtube-industry/ChannelComparisonChart'
+import { getIndustryIcon, getIndustryName } from '@/lib/industry-icons'
 
 interface Category {
   code: string
@@ -173,10 +174,10 @@ export default function CategoryPage() {
           </button>
 
           <div className="flex items-center gap-3">
-            <span className="text-4xl">{category.icon || '📺'}</span>
+            <span className="text-4xl">{category.icon || getIndustryIcon(categoryCode)}</span>
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                {category.name}
+                {category.name || getIndustryName(categoryCode)}
               </h1>
               {category.description && (
                 <p className="text-gray-600 dark:text-gray-400 mt-1">
@@ -250,9 +251,14 @@ export default function CategoryPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {channels.map((channel) => (
-              <div
+              <a
                 key={channel.id}
-                className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition"
+                href={`https://www.youtube.com/channel/${channel.channel_id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${channel.name} on YouTube`}
+                title={`${channel.name} YouTube 채널로 이동`}
+                className="block bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-xl hover:scale-[1.02] transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start gap-4">
                   {channel.thumbnail_url ? (
@@ -312,7 +318,25 @@ export default function CategoryPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+
+                {/* External link indicator */}
+                <div className="mt-3 flex items-center justify-end text-blue-600 dark:text-blue-400 text-xs font-medium">
+                  <span>YouTube에서 보기</span>
+                  <svg
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </div>
+              </a>
             ))}
           </div>
         )}

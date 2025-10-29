@@ -30,6 +30,7 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
 import { cn } from '@/lib/utils'
+import { CategorySelector } from './CategorySelector'
 
 interface Channel {
   id: string
@@ -56,10 +57,18 @@ interface Category {
   name: string
 }
 
-export function ChannelManager() {
-  const [channels, setChannels] = useState<Channel[]>([])
-  const [categories, setCategories] = useState<Category[]>([])
-  const [loading, setLoading] = useState(true)
+interface ChannelManagerProps {
+  initialChannels?: Channel[]
+  initialCategories?: Category[]
+}
+
+export function ChannelManager({
+  initialChannels,
+  initialCategories,
+}: ChannelManagerProps = {}) {
+  const [channels, setChannels] = useState<Channel[]>(initialChannels || [])
+  const [categories, setCategories] = useState<Category[]>(initialCategories || [])
+  const [loading, setLoading] = useState(!initialChannels)
   const [error, setError] = useState<string | null>(null)
   const [updating, setUpdating] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
@@ -73,9 +82,25 @@ export function ChannelManager() {
   const [showBulkDeleteDialog, setShowBulkDeleteDialog] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
 
+  // Category update handler
+  const handleCategoryUpdate = (channelId: string, newCategory: string) => {
+    setChannels(prev =>
+      prev.map(ch =>
+        ch.channel_id === channelId
+          ? { ...ch, category_code: newCategory }
+          : ch
+      )
+    )
+  }
+
   useEffect(() => {
-    fetchChannels()
-    fetchCategories()
+    // Only fetch if data wasn't provided via props
+    if (!initialChannels) {
+      fetchChannels()
+    }
+    if (!initialCategories) {
+      fetchCategories()
+    }
   }, [])
 
   const fetchChannels = async () => {
@@ -696,9 +721,12 @@ export function ChannelManager() {
                           )}
                         </td>
                         <td className="p-3">
-                          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
-                            {channel.category_code}
-                          </span>
+                          <CategorySelector
+                            channelId={channel.channel_id}
+                            currentCategory={channel.category_code}
+                            categories={categories}
+                            onUpdate={(newCategory) => handleCategoryUpdate(channel.channel_id, newCategory)}
+                          />
                         </td>
                         <td className="p-3">
                           <div className="flex flex-col gap-1">

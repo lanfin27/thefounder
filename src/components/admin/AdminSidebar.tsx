@@ -5,7 +5,7 @@
  * 관리자 페이지 사이드바 네비게이션
  */
 
-import { LayoutDashboard, Database, Calendar, Settings, FileText, Activity } from 'lucide-react'
+import { LayoutDashboard, Database, Tags, Calendar, Settings, FileText, Activity } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -20,6 +20,11 @@ const menuItems = [
     title: '채널 관리',
     href: '/admin/youtube-industry/channels',
     icon: Database
+  },
+  {
+    title: '카테고리 관리',
+    href: '/admin/youtube-industry/categories',
+    icon: Tags
   },
   {
     title: '스케줄',

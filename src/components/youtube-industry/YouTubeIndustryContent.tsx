@@ -1,21 +1,45 @@
 'use client'
 
 /**
- * YouTube Industry Content - Client-Side Data Fetching
+ * YouTube Industry Content - Client Component
  *
- * 완전한 클라이언트 사이드 렌더링으로 Hydration Error 방지
+ * Props를 통해 서버에서 페칭한 데이터를 받거나, 없으면 클라이언트에서 페칭
  */
 
 import { useState, useEffect } from 'react'
 import YouTubeIndustryDashboard from './YouTubeIndustryDashboard'
 
-export default function YouTubeIndustryContent() {
-  const [categories, setCategories] = useState<any[]>([])
-  const [channels, setChannels] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+interface YouTubeIndustryContentProps {
+  initialCategories?: any[]
+  initialChannels?: any[]
+}
+
+export default function YouTubeIndustryContent({
+  initialCategories,
+  initialChannels,
+}: YouTubeIndustryContentProps = {}) {
+  const [categories, setCategories] = useState<any[]>(initialCategories || [])
+  const [channels, setChannels] = useState<any[]>(initialChannels || [])
+  const [isLoading, setIsLoading] = useState(!initialCategories || !initialChannels)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('[YouTubeIndustryContent Client] Component mounted')
+    console.log(`[YouTubeIndustryContent] Received Props:`)
+    console.log(`  - initialCategories: ${initialCategories?.length || 0} items`)
+    console.log(`  - initialChannels: ${initialChannels?.length || 0} items`)
+
+    // Only fetch if data wasn't provided via props
+    if (initialCategories && initialChannels) {
+      console.log('[YouTubeIndustryContent] ✅ Using server-fetched data (Props)')
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      return
+    }
+
+    console.log('[YouTubeIndustryContent] ⚠️ Props missing - falling back to client fetch')
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
     async function fetchData() {
       const startTime = Date.now()
 

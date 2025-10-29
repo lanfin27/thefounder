@@ -9,23 +9,25 @@
 
 /**
  * Y코드 카테고리 (Y01~Y15)
+ *
+ * 전체 카테고리 정의는 @/lib/industry-icons.tsx 참조
  */
 export type YCategoryCode =
-  | 'Y01' // 패션
-  | 'Y02' // 뷰티
-  | 'Y03' // 먹방
-  | 'Y04' // 게임
+  | 'Y01' // 음악
+  | 'Y02' // 영화/애니메이션
+  | 'Y03' // 먹방 ⬅️ 중요!
+  | 'Y04' // 동물
   | 'Y05' // 스포츠
-  | 'Y06' // 음악
-  | 'Y07' // 브이로그
-  | 'Y08' // 교육
-  | 'Y09' // 테크
+  | 'Y06' // 여행/이벤트
+  | 'Y07' // 게임
+  | 'Y08' // 인물/블로그
+  | 'Y09' // 코미디
   | 'Y10' // 엔터테인먼트
-  | 'Y11' // 키즈
-  | 'Y12' // 여행
-  | 'Y13' // 반려동물
-  | 'Y14' // 비즈니스
-  | 'Y15' // 라이프스타일
+  | 'Y11' // 뉴스/정치
+  | 'Y12' // 노하우/스타일
+  | 'Y13' // 교육
+  | 'Y14' // 과학기술
+  | 'Y15' // 비영리/사회운동
 
 /**
  * Y코드 산업 카테고리 정보
@@ -347,129 +349,28 @@ export type AggregateMetrics = (channels: Channel[]) => IndustryMetrics
 
 /**
  * Y코드 카테고리 정의
+ *
+ * ⚠️ DEPRECATED: industry-icons.tsx를 사용하세요!
+ * @deprecated Use getAllIndustries() from @/lib/industry-icons instead
+ *
+ * 이 상수는 하위 호환성을 위해 유지되지만,
+ * industry-icons.tsx의 데이터를 기반으로 동적으로 생성됩니다.
  */
-export const Y_CATEGORIES: Record<YCategoryCode, Omit<YCategory, 'topChannels' | 'metrics' | 'lastUpdated'>> = {
-  Y01: {
-    code: 'Y01',
-    name: '패션',
-    nameEn: 'Fashion',
-    description: '패션, 스타일링, 의류 관련 콘텐츠',
-    emoji: '👗',
-    color: '#FF6B9D'
-  },
-  Y02: {
-    code: 'Y02',
-    name: '뷰티',
-    nameEn: 'Beauty',
-    description: '메이크업, 스킨케어, 헤어 관련 콘텐츠',
-    emoji: '💄',
-    color: '#FFA07A'
-  },
-  Y03: {
-    code: 'Y03',
-    name: '먹방',
-    nameEn: 'Mukbang',
-    description: '음식, 요리, 먹방 관련 콘텐츠',
-    emoji: '🍕',
-    color: '#FFD700'
-  },
-  Y04: {
-    code: 'Y04',
-    name: '게임',
-    nameEn: 'Gaming',
-    description: '게임 플레이, 리뷰, e스포츠 관련 콘텐츠',
-    emoji: '🎮',
-    color: '#9370DB'
-  },
-  Y05: {
-    code: 'Y05',
-    name: '스포츠',
-    nameEn: 'Sports',
-    description: '스포츠, 피트니스, 운동 관련 콘텐츠',
-    emoji: '⚽',
-    color: '#32CD32'
-  },
-  Y06: {
-    code: 'Y06',
-    name: '음악',
-    nameEn: 'Music',
-    description: '음악, 커버, 뮤직비디오 관련 콘텐츠',
-    emoji: '🎵',
-    color: '#FF1493'
-  },
-  Y07: {
-    code: 'Y07',
-    name: '브이로그',
-    nameEn: 'Vlog',
-    description: '일상, 브이로그 관련 콘텐츠',
-    emoji: '📹',
-    color: '#FF4500'
-  },
-  Y08: {
-    code: 'Y08',
-    name: '교육',
-    nameEn: 'Education',
-    description: '교육, 강의, 튜토리얼 관련 콘텐츠',
-    emoji: '📚',
-    color: '#4169E1'
-  },
-  Y09: {
-    code: 'Y09',
-    name: '테크',
-    nameEn: 'Tech',
-    description: '기술, 가젯, 리뷰 관련 콘텐츠',
-    emoji: '💻',
-    color: '#00CED1'
-  },
-  Y10: {
-    code: 'Y10',
-    name: '엔터테인먼트',
-    nameEn: 'Entertainment',
-    description: '예능, 코미디, 엔터테인먼트 관련 콘텐츠',
-    emoji: '🎬',
-    color: '#FF6347'
-  },
-  Y11: {
-    code: 'Y11',
-    name: '키즈',
-    nameEn: 'Kids',
-    description: '어린이, 가족 관련 콘텐츠',
-    emoji: '👶',
-    color: '#FFB6C1'
-  },
-  Y12: {
-    code: 'Y12',
-    name: '여행',
-    nameEn: 'Travel',
-    description: '여행, 관광, 문화 관련 콘텐츠',
-    emoji: '✈️',
-    color: '#87CEEB'
-  },
-  Y13: {
-    code: 'Y13',
-    name: '반려동물',
-    nameEn: 'Pets',
-    description: '반려동물, 동물 관련 콘텐츠',
-    emoji: '🐶',
-    color: '#DEB887'
-  },
-  Y14: {
-    code: 'Y14',
-    name: '비즈니스',
-    nameEn: 'Business',
-    description: '비즈니스, 창업, 재테크 관련 콘텐츠',
-    emoji: '💼',
-    color: '#2F4F4F'
-  },
-  Y15: {
-    code: 'Y15',
-    name: '라이프스타일',
-    nameEn: 'Lifestyle',
-    description: '라이프스타일, 힐링 관련 콘텐츠',
-    emoji: '🌿',
-    color: '#98FB98'
-  }
-}
+import { getAllIndustries } from '@/lib/industry-icons'
+
+const _industryCategories = getAllIndustries()
+export const Y_CATEGORIES: Record<YCategoryCode, Omit<YCategory, 'topChannels' | 'metrics' | 'lastUpdated'>> =
+  _industryCategories.reduce((acc, cat) => {
+    acc[cat.code as YCategoryCode] = {
+      code: cat.code as YCategoryCode,
+      name: cat.name,
+      nameEn: cat.nameEn,
+      description: cat.description,
+      emoji: cat.emoji,
+      color: cat.color
+    }
+    return acc
+  }, {} as Record<YCategoryCode, Omit<YCategory, 'topChannels' | 'metrics' | 'lastUpdated'>>)
 
 /**
  * 시간 범위 옵션

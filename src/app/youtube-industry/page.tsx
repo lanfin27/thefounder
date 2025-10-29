@@ -1,12 +1,11 @@
 /**
- * YouTube Industry Index Dashboard - Main Page
- *
- * 완전한 클라이언트 사이드 렌더링으로 Hydration Error 방지
+ * YouTube Industry Index Dashboard - Main Page (Server Component)
+ * YouTubeIndustryContent로 데이터 전달
  */
 
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
-import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { ytSupabase } from '@/lib/youtube-supabase/client'
+import YouTubeIndustryContent from '@/components/youtube-industry/YouTubeIndustryContent'
 
 export const metadata: Metadata = {
   title: '유튜브 산업지수 | The Founder',
@@ -15,124 +14,107 @@ export const metadata: Metadata = {
     title: '유튜브 산업지수',
     description: 'Y코드 산업별 유튜브 채널 트렌드와 영상당 조회수 분석 대시보드',
     type: 'website'
+  },
+  twitter: {
+    card: 'summary',
+    title: '유튜브 산업지수',
+    description: 'Y코드 산업별 유튜브 채널 트렌드와 영상당 조회수 분석 대시보드'
   }
 }
 
-// 🔥 SSR 완전 비활성화 - Hydration Error 방지
-const YouTubeIndustryContent = dynamic(
-  () => import('@/components/youtube-industry/YouTubeIndustryContent'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Loading Skeleton */}
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="animate-pulse">
-            {/* Market Overview Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                  <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded mb-3"></div>
-                  <div className="h-8 w-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                </div>
-              ))}
-            </div>
+// ✅ CRITICAL: 캐싱 완전 비활성화
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
-            {/* Market Map Skeleton */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
-              <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-              <div className="h-96 bg-gray-100 dark:bg-gray-900 rounded-lg"></div>
-            </div>
+export default async function YouTubeIndustryPage() {
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+  console.log('📊 [YouTube Industry Page] Server-side data fetching')
+  console.log(`🕐 Timestamp: ${new Date().toISOString()}`)
 
-            {/* Trending Channels Skeleton */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[1, 2].map((i) => (
-                <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                  <div className="h-6 w-40 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-                  <div className="space-y-3">
-                    {[1, 2, 3, 4, 5].map((j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                        <div className="flex-1">
-                          <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-                          <div className="h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                        </div>
-                        <div className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+  try {
+    // ✅ 카테고리 데이터
+    const { data: categories, error: categoriesError } = await ytSupabase
+      .from('youtube_categories')
+      .select('*')
+      .order('code', { ascending: true })
 
-          {/* Loading Message */}
-          <div className="fixed bottom-8 right-8 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-            <span className="text-sm font-medium">초기화 중...</span>
-          </div>
-        </main>
+    if (categoriesError) throw categoriesError
+
+    console.log(`✅ Fetched ${categories?.length || 0} categories`)
+
+    // ✅ 채널 데이터 (subscribers 사용!)
+    const { data: channels, error: channelsError } = await ytSupabase
+      .from('youtube_channels')
+      .select('*')
+      .order('subscribers', { ascending: false})  // ✅ subscribers!
+
+    if (channelsError) throw channelsError
+
+    console.log(`✅ Fetched ${channels?.length || 0} channels`)
+
+    // ✅ 데이터 정규화
+    const normalizedChannels = channels.map(ch => ({
+      id: ch.id,
+      channel_id: ch.channel_id,
+      name: ch.name || ch.channel_title || ch.title || 'Unknown',
+      channel_title: ch.channel_title || ch.name || ch.title || 'Unknown',
+      // ✅ CRITICAL: subscribers 필드 사용!
+      subscribers: ch.subscribers || 0,
+      subscriber_count: ch.subscribers || 0,  // 호환성
+      // ✅ total_views 필드 사용!
+      total_views: ch.total_views || 0,
+      view_count: ch.total_views || 0,  // 호환성
+      video_count: ch.video_count || 0,
+      views_per_video: ch.views_per_video || 0,
+      category_code: ch.category_code || '',
+      status: ch.status || 'active',
+      is_active: ch.is_active,
+      description: ch.description,
+      thumbnail_url: ch.thumbnail_url,
+      // Metrics
+      daily_change_rate: ch.daily_change_rate || 0,
+      weekly_change_rate: ch.weekly_change_rate || 0,
+      monthly_change_rate: ch.monthly_change_rate || 0,
+      engagement_rate: ch.engagement_rate || 0,
+      shorts_ratio: ch.shorts_ratio || 0,
+      // Timestamps
+      created_at: ch.created_at?.toString(),
+      updated_at: ch.updated_at?.toString(),
+      last_updated: ch.last_updated?.toString() || ch.updated_at?.toString(),
+    }))
+
+    // 우낌표 채널 확인
+    const wooxmall = normalizedChannels.find(
+      ch => ch.name?.includes('우낌표')
+    )
+    if (wooxmall) {
+      console.log(`🔍 우낌표 채널: ${wooxmall.name} = ${wooxmall.category_code}`)
+    }
+
+    console.log('✅ Data normalized and ready')
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+    // ✅ Client Component로 전달 (기존 구조 복원!)
+    return (
+      <YouTubeIndustryContent
+        initialCategories={categories}
+        initialChannels={normalizedChannels}
+      />
+    )
+  } catch (error) {
+    console.error('❌ Page error:', error)
+
+    return (
+      <div className="container mx-auto p-6">
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <h2 className="font-bold">데이터 로딩 실패</h2>
+          <p>{error instanceof Error ? error.message : '알 수 없는 오류'}</p>
+          <p className="text-sm mt-3">
+            💡 Hint: <code>node scripts/check-db-schema.js</code>로 DB 스키마 확인
+          </p>
+        </div>
       </div>
     )
   }
-)
-
-export default function YouTubeIndustryPage() {
-  return (
-    <ErrorBoundary>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                  유튜브 산업지수
-                </h1>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                  Y코드 산업별 채널 트렌드 및 영상당 조회수 분석
-                </p>
-              </div>
-
-              <div className="mt-4 md:mt-0 flex items-center gap-3">
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-sm bg-green-600"></div>
-                    <span className="text-gray-600 dark:text-gray-400">상승</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-sm bg-red-600"></div>
-                    <span className="text-gray-600 dark:text-gray-400">하락</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-sm bg-gray-400"></div>
-                    <span className="text-gray-600 dark:text-gray-400">보합</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Main Dashboard - Client Side Only */}
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <YouTubeIndustryContent />
-        </main>
-
-        {/* Footer Info */}
-        <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-              <p>
-                데이터는 매일 업데이트되며, 영상당 조회수를 기준으로 산업 규모를 측정합니다.
-              </p>
-              <p className="mt-1">
-                사각형 크기 = 평균 영상당 조회수 | 색상 = 일간 변화율
-              </p>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </ErrorBoundary>
-  )
 }

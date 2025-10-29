@@ -12,7 +12,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { ChevronLeft, TrendingUp, TrendingDown, Activity, Users, Eye } from 'lucide-react'
-import { Y_CATEGORIES } from '@/types/youtube-industry'
 import { formatNumber, formatChangeRate, formatViewsPerVideo } from '@/lib/youtube-industry/utils'
 import MultiChannelTrendChart from './MultiChannelTrendChart'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -41,7 +40,7 @@ export default function CategoryDetailView({ category, channels, chartData }: Ca
   const [selectedChannelIds, setSelectedChannelIds] = useState<string[]>([])
   const [hoveredChannelId, setHoveredChannelId] = useState<string | null>(null)
 
-  const categoryInfo = Y_CATEGORIES[category.code]
+  // Use DB category data directly (no hardcoded Y_CATEGORIES)
 
   // 초기 선택: 상위 5개 채널
   useEffect(() => {
@@ -143,8 +142,8 @@ export default function CategoryDetailView({ category, channels, chartData }: Ca
             </button>
             <div className="flex-1">
               <h1 className="text-2xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                <span className="text-3xl">{categoryInfo?.emoji || '📊'}</span>
-                {categoryInfo?.name || category.name}
+                <span className="text-3xl">{category.emoji || category.icon || '📊'}</span>
+                {category.name}
               </h1>
               <div className="flex items-center gap-4 mt-1 text-sm text-gray-600 dark:text-gray-400">
                 <span>{categoryStats.channelCount}개 채널</span>

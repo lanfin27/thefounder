@@ -11,7 +11,7 @@
 
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { YCategoryCode, Y_CATEGORIES } from '@/types/youtube-industry'
+import { YCategoryCode } from '@/types/youtube-industry'
 
 interface MarketMapViewProps {
   categories: any[]
@@ -181,14 +181,14 @@ export default function MarketMapView({
     return () => resizeObserver.disconnect()
   }, [])
 
-  // 카테고리 데이터 준비 - 모든 15개 카테고리 포함
+  // 카테고리 데이터 준비 - DB의 실제 카테고리만 사용 (Single Source of Truth)
   const categoryData = useMemo(() => {
-    const data = Object.keys(Y_CATEGORIES).map(code => {
-      const categoryCode = code as YCategoryCode
-      const categoryInfo = Y_CATEGORIES[categoryCode]
+    console.log('[MarketMapView] 🗺️ Preparing data for categories:', categories.length)
 
-      // 실제 데이터 찾기
-      const category = categories.find(c => c.code === categoryCode)
+    const data = categories.map(category => {
+      const categoryCode = category.code as YCategoryCode
+
+      // Props로 전달받은 카테고리 데이터 직접 사용 (Y_CATEGORIES 제거)
       const categoryChannels = category?.topChannels || []
       const validChannels = categoryChannels.filter((ch: any) => ch.subscribers > 0)
 
@@ -222,8 +222,8 @@ export default function MarketMapView({
 
       return {
         code: categoryCode,
-        name: categoryInfo.name,
-        emoji: categoryInfo.emoji,
+        name: category.name, // DB 카테고리 이름 사용
+        emoji: category.emoji || category.icon || '📊', // ✅ DB 아이콘만 사용
         value: Math.max(avgViewsPerVideo, 50000), // 최소값 보장
         avgViewsPerVideo: Math.max(avgViewsPerVideo, 50000),
         dailyChange,

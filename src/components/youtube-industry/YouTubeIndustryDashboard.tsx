@@ -13,6 +13,7 @@ import MarketMapView from './MarketMapView'
 import IndustryRankTable from './IndustryRankTable'
 import TrendingChannels from './TrendingChannels'
 import MarketOverview from './MarketOverview'
+import { IndustryChartsGrid } from './IndustryChartsGrid'
 
 interface YouTubeIndustryDashboardProps {
   initialCategories: any[]
@@ -93,7 +94,7 @@ export default function YouTubeIndustryDashboard({
       return {
         code: category.code,
         name: category.name,
-        emoji: category.icon || '📊',
+        emoji: category.emoji || category.icon || '📊',  // ✅ DB emoji 우선 사용
         color: '#3b82f6',
         description: category.description || '',
         topChannels: categoryChannels
@@ -167,6 +168,15 @@ export default function YouTubeIndustryDashboard({
         categories={categoriesWithStats}
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
+      />
+
+      {/* Industry Charts Grid - Mini Trend Charts */}
+      <IndustryChartsGrid
+        categories={categoriesWithStats.map(cat => ({
+          code: cat.code,
+          name: cat.name,
+          emoji: cat.emoji
+        }))}
       />
 
       {/* Trending Channels - 급등/급락 */}
