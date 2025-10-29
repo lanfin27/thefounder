@@ -220,11 +220,15 @@ export class BatchProcessor {
 
   /**
    * Save updated channel data to Supabase
+   * ✅ UPDATED: Now also creates history records
    */
   async saveChannelData(channelData: ChannelData[]): Promise<void> {
     if (channelData.length === 0) return
 
     try {
+      const now = new Date()
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()) // Midnight today
+
       const updates = channelData.map(channel => ({
         channel_id: channel.channel_id,
         name: channel.name,
@@ -234,21 +238,142 @@ export class BatchProcessor {
         views_per_video: channel.video_count > 0
           ? Math.round(channel.total_views / channel.video_count)
           : 0,
-        last_updated: new Date().toISOString()
+        last_updated: now.toISOString()
       }))
 
       const supabase = this.getSupabaseClient()
-      const { error } = await supabase
+
+      // 1. Update main channel table
+      const { error: channelError } = await supabase
         .from('youtube_channels')
         .upsert(updates, { onConflict: 'channel_id' })
 
-      if (error) {
-        console.error('[BatchProcessor] Failed to save channel data:', error)
-      } else {
-        console.log(`[BatchProcessor] Saved ${updates.length} channels to database`)
+      if (channelError) {
+        console.error('[BatchProcessor] Failed to save channel data:', channelError)
+        return
       }
+
+      console.log(`[BatchProcessor] ✅ Saved ${updates.length} channels to database`)
+
+      // 2. ✅ NEW: Create or update history records for today
+      const historyRecords = channelData.map(channel => ({
+        channel_id: channel.channel_id,
+        date: today.toISOString(),
+        subscribers: channel.subscribers,
+        total_views: channel.total_views,
+        video_count: channel.video_count,
+        views_per_video: channel.video_count > 0
+          ? Math.round(channel.total_views / channel.video_count)
+          : 0,
+        created_at: now.toISOString(),
+        updated_at: now.toISOString()
+      }))
+
+      // Check if today's history already exists
+      for (const record of historyRecords) {
+        const { data: existing } = await supabase
+          .from('youtube_channel_history')
+          .select('id')
+          .eq('channel_id', record.channel_id)
+          .gte('date', today.toISOString())
+          .lt('date', new Date(today.getTime() + 86400000).toISOString()) // Next day
+          .single()
+
+        if (existing) {
+          // Update existing record
+          await supabase
+            .from('youtube_channel_history')
+            .update({
+              subscribers: record.subscribers,
+              total_views: record.total_views,
+              video_count: record.video_count,
+              views_per_video: record.views_per_video,
+              updated_at: now.toISOString()
+            })
+            .eq('id', existing.id)
+        } else {
+          // Insert new record
+          await supabase
+            .from('youtube_channel_history')
+            .insert(record)
+        }
+      }
+
+      console.log(`[BatchProcessor] ✅ Saved ${historyRecords.length} history records for ${today.toISOString().split('T')[0]}`)
+
+      // 3. ✅ NEW: Calculate daily_views_per_video (difference from yesterday)
+      await this.calculateDailyViewsPerVideo(channelData.map(c => c.channel_id))
+
     } catch (error) {
       console.error('[BatchProcessor] Error saving to database:', error)
+    }
+  }
+
+  /**
+   * ✅ NEW: Calculate daily_views_per_video based on yesterday vs today difference
+   */
+  private async calculateDailyViewsPerVideo(channelIds: string[]): Promise<void> {
+    try {
+      const supabase = this.getSupabaseClient()
+      const now = new Date()
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+      const yesterday = new Date(today.getTime() - 86400000)
+
+      console.log('[BatchProcessor] 📊 Calculating daily_views_per_video...')
+
+      for (const channelId of channelIds) {
+        // Get today's data
+        const { data: todayData } = await supabase
+          .from('youtube_channel_history')
+          .select('*')
+          .eq('channel_id', channelId)
+          .gte('date', today.toISOString())
+          .lt('date', new Date(today.getTime() + 86400000).toISOString())
+          .single()
+
+        if (!todayData) continue
+
+        // Get yesterday's data
+        const { data: yesterdayData } = await supabase
+          .from('youtube_channel_history')
+          .select('*')
+          .eq('channel_id', channelId)
+          .gte('date', yesterday.toISOString())
+          .lt('date', today.toISOString())
+          .single()
+
+        let dailyViews = 0
+        let dailyViewsPerVideo = 0
+
+        if (yesterdayData) {
+          // Calculate difference
+          dailyViews = Math.max(0, (todayData.total_views || 0) - (yesterdayData.total_views || 0))
+          dailyViewsPerVideo = todayData.video_count > 0
+            ? Math.round(dailyViews / todayData.video_count)
+            : 0
+        } else {
+          // No yesterday data (new channel) - use average views per video as estimate
+          dailyViewsPerVideo = todayData.views_per_video || 0
+        }
+
+        // Update channel table
+        await supabase
+          .from('youtube_channels')
+          .update({ daily_views_per_video: dailyViewsPerVideo })
+          .eq('channel_id', channelId)
+
+        // Update today's history record
+        await supabase
+          .from('youtube_channel_history')
+          .update({ daily_views_per_video: dailyViewsPerVideo })
+          .eq('channel_id', channelId)
+          .gte('date', today.toISOString())
+          .lt('date', new Date(today.getTime() + 86400000).toISOString())
+      }
+
+      console.log(`[BatchProcessor] ✅ Calculated daily_views_per_video for ${channelIds.length} channels`)
+    } catch (error) {
+      console.error('[BatchProcessor] Error calculating daily views:', error)
     }
   }
 

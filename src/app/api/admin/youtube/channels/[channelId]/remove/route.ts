@@ -4,7 +4,14 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { YouTubeService } from '@/lib/youtube/youtube-service'
+import { ytSupabaseAdmin } from '@/lib/youtube-supabase/client'
+
+// ✅ CRITICAL: API 캐싱 비활성화
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
 interface RouteParams {
   params: {
@@ -43,8 +50,46 @@ export async function DELETE(
       reason
     })
 
-    // Execute removal
+    // 1. 채널 정보 조회 (카테고리 코드 확인용)
     const service = new YouTubeService()
+    let oldCategoryCode: string | null = null
+
+    try {
+      const channelInfo = await service.getChannelInfo(channelId)
+      oldCategoryCode = channelInfo?.category_code || null
+      console.log('[Remove API] Channel category:', oldCategoryCode)
+    } catch (error) {
+      console.warn('[Remove API] Could not fetch channel category:', error)
+      // 계속 진행 (카테고리 정보 없이도 삭제는 가능)
+    }
+
+    // 2. ✅ NEW: 히스토리 데이터 삭제 (Hard Delete 시에만)
+    if (hardDelete) {
+      console.log('[Remove API] 🗑️ Deleting channel history data...')
+      try {
+        const { error: historyError, count } = await ytSupabaseAdmin
+          .from('youtube_channel_history')
+          .delete()
+          .eq('channel_id', channelId)
+
+        if (historyError) {
+          console.error('[Remove API] ⚠️ Failed to delete history data:', historyError)
+          // 히스토리 삭제 실패는 치명적이지 않으므로 경고만 출력
+        } else {
+          console.log('[Remove API] ✅ History data deleted:', {
+            channelId,
+            recordsDeleted: count || 0
+          })
+        }
+      } catch (historyDeletionError) {
+        console.error('[Remove API] ⚠️ Exception deleting history data:', historyDeletionError)
+        // 계속 진행 - 히스토리 삭제 실패는 치명적이지 않음
+      }
+    } else {
+      console.log('[Remove API] ℹ️ Soft delete - keeping history data')
+    }
+
+    // 3. Execute removal
     const result = await service.removeChannel(
       channelId,
       deletedBy,
@@ -71,14 +116,64 @@ export async function DELETE(
       )
     }
 
+    // 4. ✅ CRITICAL: 캐시 무효화 - 모든 관련 페이지 revalidate
+    console.log('[Remove API] 🔄 Revalidating all affected paths and tags...')
+
+    const pathsToRevalidate = [
+      // Admin 페이지
+      '/admin/youtube-industry/channels',
+      '/admin/youtube-industry/categories',
+
+      // User 메인 페이지
+      '/youtube-industry',
+
+      // 해당 카테고리 상세 페이지
+      oldCategoryCode ? `/youtube-industry/${oldCategoryCode}` : null,
+    ].filter(Boolean) as string[]
+
+    try {
+      // Path 기반 캐시 무효화
+      for (const path of pathsToRevalidate) {
+        revalidatePath(path, 'page')
+        console.log(`[Remove API] ✅ Revalidated path: ${path}`)
+      }
+
+      // Tag 기반 캐시 무효화 (추가 안전장치)
+      const tagsToRevalidate = [
+        'youtube-channels',
+        'youtube-categories',
+        oldCategoryCode ? `category-${oldCategoryCode}` : null,
+        'treemap-data',
+      ].filter(Boolean) as string[]
+
+      for (const tag of tagsToRevalidate) {
+        revalidateTag(tag)
+        console.log(`[Remove API] ✅ Revalidated tag: ${tag}`)
+      }
+
+      console.log('[Remove API] ✅ All caches revalidated successfully')
+    } catch (revalidateError) {
+      console.error('[Remove API] ⚠️ Revalidation error:', revalidateError)
+      // 캐시 무효화 실패는 치명적이지 않으므로 계속 진행
+    }
+
     console.log('[Remove API] ✓ Channel removed successfully:', channelId)
     return NextResponse.json({
       success: true,
       message: hardDelete
-        ? 'Channel permanently deleted'
-        : 'Channel deactivated successfully',
+        ? 'Channel permanently deleted and all statistics will be recalculated'
+        : 'Channel deactivated and all statistics will be recalculated',
       channelId,
-      hardDelete
+      hardDelete,
+      oldCategory: oldCategoryCode,
+      revalidated: {
+        paths: pathsToRevalidate,
+        timestamp: new Date().toISOString()
+      }
+    }, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      }
     })
 
   } catch (error) {
@@ -135,11 +230,28 @@ export async function POST(
       )
     }
 
+    // ✅ 재활성화 시에도 캐시 무효화
+    console.log('[Remove API] 🔄 Revalidating caches for reactivation...')
+
+    try {
+      revalidatePath('/admin/youtube-industry/channels', 'page')
+      revalidatePath('/youtube-industry', 'page')
+      revalidateTag('youtube-channels')
+      revalidateTag('youtube-categories')
+      console.log('[Remove API] ✅ Caches revalidated')
+    } catch (error) {
+      console.error('[Remove API] ⚠️ Revalidation error:', error)
+    }
+
     console.log('[Remove API] ✓ Channel reactivated successfully:', channelId)
     return NextResponse.json({
       success: true,
       message: 'Channel reactivated successfully',
       channelId
+    }, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      }
     })
 
   } catch (error) {

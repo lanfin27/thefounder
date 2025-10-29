@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { ytSupabaseAdmin } from '@/lib/youtube-supabase/client'
 
 // ✅ CRITICAL: API 캐싱 비활성화
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
 interface RouteContext {
   params: {
@@ -112,15 +113,44 @@ export async function PUT(
     })
 
     // ✅ CRITICAL: Next.js 캐시 무효화 - 모든 관련 페이지 revalidate
-    console.log('[Category Update API] 🔄 Revalidating pages...')
-    try {
-      // Admin 채널 관리 페이지
-      revalidatePath('/admin/youtube-industry/channels')
-      console.log('[Category Update API] ✅ Revalidated: /admin/youtube-industry/channels')
+    console.log('[Category Update API] 🔄 Revalidating all affected paths and tags...')
 
-      // User 대시보드 페이지
-      revalidatePath('/youtube-industry')
-      console.log('[Category Update API] ✅ Revalidated: /youtube-industry')
+    const pathsToRevalidate = [
+      // Admin 페이지
+      '/admin/youtube-industry/channels',
+      '/admin/youtube-industry/categories',
+
+      // User 메인 페이지
+      '/youtube-industry',
+
+      // 이전 카테고리 상세 페이지
+      oldCategory ? `/youtube-industry/${oldCategory}` : null,
+
+      // 새 카테고리 상세 페이지
+      `/youtube-industry/${categoryCode}`,
+    ].filter(Boolean) as string[]
+
+    try {
+      // Path 기반 캐시 무효화
+      for (const path of pathsToRevalidate) {
+        revalidatePath(path, 'page')
+        console.log(`[Category Update API] ✅ Revalidated path: ${path}`)
+      }
+
+      // Tag 기반 캐시 무효화 (추가 안전장치)
+      const tagsToRevalidate = [
+        'youtube-channels',
+        'youtube-categories',
+        `category-${oldCategory}`,
+        `category-${categoryCode}`,
+      ]
+
+      for (const tag of tagsToRevalidate) {
+        revalidateTag(tag)
+        console.log(`[Category Update API] ✅ Revalidated tag: ${tag}`)
+      }
+
+      console.log('[Category Update API] ✅ All caches revalidated successfully')
     } catch (revalidateError) {
       console.error('[Category Update API] ⚠️ Revalidation error:', revalidateError)
       // 캐시 무효화 실패는 치명적이지 않으므로 계속 진행
@@ -131,12 +161,16 @@ export async function PUT(
     return NextResponse.json(
       {
         success: true,
-        message: 'Category updated successfully',
+        message: 'Category updated and all statistics will be recalculated on next page load',
         data: updatedChannel,
         changes: {
           from: oldCategory,
           to: updatedChannel.category_code,
         },
+        revalidated: {
+          paths: pathsToRevalidate,
+          timestamp: new Date().toISOString()
+        }
       },
       {
         status: 200,

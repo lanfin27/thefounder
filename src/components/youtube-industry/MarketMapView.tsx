@@ -9,14 +9,16 @@
  * - 모든 카테고리 표시 (검은색 영역 없음)
  */
 
-import { useState, useMemo, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { YCategoryCode } from '@/types/youtube-industry'
+import { TreemapCategoryData } from '@/lib/youtube-industry/treemap-data-generator'
 
 interface MarketMapViewProps {
-  categories: any[]
+  data: TreemapCategoryData[]
   selectedCategory: YCategoryCode | null
   onSelectCategory: (code: YCategoryCode | null) => void
+  timestamp?: number
 }
 
 interface TreemapRect {
@@ -151,17 +153,52 @@ function layoutRow(
 }
 
 export default function MarketMapView({
-  categories,
+  data,
   selectedCategory,
-  onSelectCategory
+  onSelectCategory,
+  timestamp
 }: MarketMapViewProps) {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'category' | 'channel'>('category')
   const containerRef = useRef<HTMLDivElement>(null)
   const [dimensions, setDimensions] = useState({ width: 1200, height: 600 })
+  const [mounted, setMounted] = useState(false)
+  const renderCount = useRef(0)
+  renderCount.current += 1
 
-  // 반응형 크기 조정
+  // ✅ CRITICAL: 클라이언트 마운트 확인
   useEffect(() => {
+    setMounted(true)
+    console.log('\n🗺️  [MarketMapView] Client mounted')
+  }, [])
+
+  // ✅ CRITICAL: Props 변경 로깅
+  useEffect(() => {
+    if (!mounted) return
+
+    console.log('\n🗺️  [MarketMapView] Mounted/Updated')
+    console.log('🗺️  [MarketMapView] Render count:', renderCount.current)
+    console.log('🗺️  [MarketMapView] Timestamp:', timestamp ? new Date(timestamp).toISOString() : 'N/A')
+    console.log('🗺️  [MarketMapView] Data items:', data.length)
+
+    // 여행 카테고리 검증
+    const travel = data.find(item => item.code === 'Y05')
+    if (travel) {
+      console.log('✅ [MarketMapView] Y05 여행 data:', {
+        channels: travel.channels,
+        subscribers: `${(travel.totalSubscribers / 1_000_000).toFixed(1)}M`,
+        topChannels: travel.topChannels?.map(ch => ch.name),
+        generatedAt: travel.generatedAt,
+      })
+    } else {
+      console.warn('⚠️  [MarketMapView] Y05 여행 not found in data!')
+    }
+  }, [data, timestamp, mounted])
+
+  // ✅ CRITICAL: 반응형 크기 조정 (Early return 전에 선언!)
+  useEffect(() => {
+    if (!mounted) return // 조건부 로직은 Hook 안에서
+
     const updateDimensions = () => {
       if (containerRef.current) {
         const width = containerRef.current.offsetWidth
@@ -179,77 +216,40 @@ export default function MarketMapView({
     }
 
     return () => resizeObserver.disconnect()
-  }, [])
+  }, [mounted])
 
-  // 카테고리 데이터 준비 - DB의 실제 카테고리만 사용 (Single Source of Truth)
-  const categoryData = useMemo(() => {
-    console.log('[MarketMapView] 🗺️ Preparing data for categories:', categories.length)
+  // ✅ 서버 또는 마운트 전에는 로딩 UI 반환 (모든 Hook 호출 후!)
+  if (!mounted) {
+    return (
+      <div className="w-full h-[600px] flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-lg">
+        <p className="text-gray-600 dark:text-gray-400">지도맵 준비 중...</p>
+      </div>
+    )
+  }
 
-    const data = categories.map(category => {
-      const categoryCode = category.code as YCategoryCode
+  // ❌ useMemo 제거 - Props 직접 사용
+  // data는 이미 TreemapCategoryData 형식으로 들어옴
+  const categoryData = data.map(item => ({
+    code: item.code,
+    name: item.name,
+    emoji: item.icon,
+    value: item.value || item.totalSubscribers,
+    avgViewsPerVideo: (item.totalViews / (item.channels || 1)),
+    dailyChange: item.dailyChangeRate,
+    weeklyChange: item.weeklyChangeRate,
+    channelCount: item.channels,
+    topChannels: item.topChannels
+  })).sort((a, b) => b.value - a.value)
 
-      // Props로 전달받은 카테고리 데이터 직접 사용 (Y_CATEGORIES 제거)
-      const categoryChannels = category?.topChannels || []
-      const validChannels = categoryChannels.filter((ch: any) => ch.subscribers > 0)
+  // ❌ useMemo 제거 - 직접 계산
+  const hoveredInfo = hoveredCategory
+    ? categoryData.find(c => c.code === hoveredCategory)
+    : null
 
-      let avgViewsPerVideo = 0
-      let dailyChange = 0
-      let weeklyChange = 0
-
-      if (validChannels.length > 0) {
-        avgViewsPerVideo = validChannels.reduce((sum: number, ch: any) =>
-          sum + (ch.views_per_video || ch.total_views / (ch.video_count || 1) || 0), 0
-        ) / validChannels.length
-
-        dailyChange = validChannels.reduce((sum: number, ch: any) =>
-          sum + (ch.daily_change_rate || 0), 0
-        ) / validChannels.length
-
-        weeklyChange = validChannels.reduce((sum: number, ch: any) =>
-          sum + (ch.weekly_change_rate || 0), 0
-        ) / validChannels.length
-      } else {
-        // 데이터 없는 카테고리도 표시
-        avgViewsPerVideo = 80000 + Math.random() * 120000 // 80K~200K
-        const trends: Record<YCategoryCode, number> = {
-          'Y01': 2.5, 'Y02': 1.8, 'Y03': -2.1, 'Y04': 3.1, 'Y05': 3.3,
-          'Y06': 0.8, 'Y07': -0.5, 'Y08': 5.5, 'Y09': 5.5, 'Y10': 4.2,
-          'Y11': -1.5, 'Y12': -0.5, 'Y13': 2.0, 'Y14': -0.2, 'Y15': 1.5
-        }
-        dailyChange = trends[categoryCode] + (Math.random() - 0.5) * 2
-        weeklyChange = dailyChange * 7
-      }
-
-      return {
-        code: categoryCode,
-        name: category.name, // DB 카테고리 이름 사용
-        emoji: category.emoji || category.icon || '📊', // ✅ DB 아이콘만 사용
-        value: Math.max(avgViewsPerVideo, 50000), // 최소값 보장
-        avgViewsPerVideo: Math.max(avgViewsPerVideo, 50000),
-        dailyChange,
-        weeklyChange,
-        channelCount: validChannels.length,
-        topChannels: validChannels.sort((a: any, b: any) =>
-          (b.views_per_video || 0) - (a.views_per_video || 0)
-        ).slice(0, 5)
-      }
-    })
-
-    // 값 기준으로 정렬 (큰 것부터) - Treemap 알고리즘 최적화
-    return data.sort((a, b) => b.value - a.value)
-  }, [categories])
-
-  // 호버된 카테고리의 상세 정보
-  const hoveredInfo = useMemo(() => {
-    if (!hoveredCategory) return null
-    return categoryData.find(c => c.code === hoveredCategory)
-  }, [hoveredCategory, categoryData])
-
-  // 트리맵 계산
-  const treeMapRects = useMemo(() => {
-    if (dimensions.width <= 0 || dimensions.height <= 0) return []
-    return squarify(categoryData, 0, 0, dimensions.width, dimensions.height)
-  }, [categoryData, dimensions])
+  // ❌ useMemo 제거 - 직접 계산 (강제 재계산)
+  const treeMapRects = (dimensions.width <= 0 || dimensions.height <= 0)
+    ? []
+    : squarify(categoryData, 0, 0, dimensions.width, dimensions.height)
 
   // 색상 결정 함수 (Finviz 스타일)
   const getColorByChange = (change: number): string => {
@@ -315,7 +315,7 @@ export default function MarketMapView({
         >
           {treeMapRects.map((rect, index) => (
             <div
-              key={`${rect.code}-${index}`}
+              key={`${rect.code}-${index}-${timestamp}`}
               className="absolute border border-gray-300 dark:border-gray-700 overflow-hidden
                          cursor-pointer transition-all duration-150"
               style={{

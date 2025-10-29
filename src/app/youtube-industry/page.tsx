@@ -6,6 +6,7 @@
 import { Metadata } from 'next'
 import { ytSupabase } from '@/lib/youtube-supabase/client'
 import YouTubeIndustryContent from '@/components/youtube-industry/YouTubeIndustryContent'
+import { generateFreshTreemapData, verifyTreemapDataForCategory } from '@/lib/youtube-industry/treemap-data-generator'
 
 export const metadata: Metadata = {
   title: '유튜브 산업지수 | The Founder',
@@ -92,14 +93,34 @@ export default async function YouTubeIndustryPage() {
       console.log(`🔍 우낌표 채널: ${wooxmall.name} = ${wooxmall.category_code}`)
     }
 
+    // 카테고리별 채널 수 로깅
+    console.log('📊 Category distribution:')
+    categories.forEach(cat => {
+      const catChannels = normalizedChannels.filter(ch => ch.category_code === cat.code)
+      const totalSubs = catChannels.reduce((sum, ch) => sum + ch.subscribers, 0)
+      console.log(`  ${cat.emoji || cat.icon} ${cat.name}: ${catChannels.length} channels, ${(totalSubs / 1000000).toFixed(1)}M subscribers`)
+    })
+
     console.log('✅ Data normalized and ready')
+
+    // ✅ 🔥 NEW: Treemap 데이터 완전 새로 생성
+    console.log('\n🗺️  [Page] Generating fresh Treemap data...')
+    const treemapData = await generateFreshTreemapData()
+    console.log(`✅ [Page] Treemap data generated: ${treemapData.length} categories`)
+
+    // ✅ 🔥 NEW: 여행 카테고리 검증 (디버깅)
+    await verifyTreemapDataForCategory('Y05')
+
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
-    // ✅ Client Component로 전달 (기존 구조 복원!)
+    // ✅ Client Component로 전달 + timestamp 추가 + treemap 데이터 추가
+    const timestamp = Date.now()
     return (
       <YouTubeIndustryContent
         initialCategories={categories}
         initialChannels={normalizedChannels}
+        initialTreemapData={treemapData}
+        timestamp={timestamp}
       />
     )
   } catch (error) {

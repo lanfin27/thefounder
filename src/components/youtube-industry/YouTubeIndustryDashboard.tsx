@@ -7,22 +7,40 @@
  * 서버에서 전달받은 데이터 사용
  */
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import dynamic from 'next/dynamic'
 import { YCategoryCode } from '@/types/youtube-industry'
-import MarketMapView from './MarketMapView'
 import IndustryRankTable from './IndustryRankTable'
 import TrendingChannels from './TrendingChannels'
 import MarketOverview from './MarketOverview'
 import { IndustryChartsGrid } from './IndustryChartsGrid'
+import { TreemapCategoryData } from '@/lib/youtube-industry/treemap-data-generator'
+
+// ✅ CRITICAL: MarketMapView를 동적 로딩 (SSR 비활성화)
+const MarketMapView = dynamic(() => import('./MarketMapView'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[600px] flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+      <div className="space-y-4 text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+        <p className="text-gray-600 dark:text-gray-400">산업지도맵 로딩 중...</p>
+      </div>
+    </div>
+  ),
+})
 
 interface YouTubeIndustryDashboardProps {
   initialCategories: any[]
   initialChannels: any[]
+  initialTreemapData: TreemapCategoryData[]
+  timestamp?: number
 }
 
 export default function YouTubeIndustryDashboard({
   initialCategories = [],  // 🔥 기본값 설정
-  initialChannels = []      // 🔥 기본값 설정
+  initialChannels = [],     // 🔥 기본값 설정
+  initialTreemapData = [],  // 🔥 NEW: Treemap 데이터
+  timestamp
 }: YouTubeIndustryDashboardProps) {
   const [selectedCategory, setSelectedCategory] = useState<YCategoryCode | null>(null)
   const [lastUpdated] = useState<Date>(new Date())
@@ -31,13 +49,23 @@ export default function YouTubeIndustryDashboard({
   // 🔥 배열 보장 및 로깅
   const categories = Array.isArray(initialCategories) ? initialCategories : []
   const channels = Array.isArray(initialChannels) ? initialChannels : []
+  const treemapData = Array.isArray(initialTreemapData) ? initialTreemapData : []
 
-  console.log('[YouTubeIndustryDashboard] Rendering with:', {
+  console.log('🎨 [YouTubeIndustryDashboard] Rendering with:', {
     categoriesCount: categories.length,
     channelsCount: channels.length,
-    categoriesType: Array.isArray(initialCategories) ? 'array' : typeof initialCategories,
-    channelsType: Array.isArray(initialChannels) ? 'array' : typeof initialChannels
+    treemapDataCount: treemapData.length,
+    timestamp: timestamp ? new Date(timestamp).toISOString() : 'N/A',
   })
+
+  // 여행 카테고리 검증
+  const travel = treemapData.find(item => item.code === 'Y05')
+  if (travel) {
+    console.log('✅ [Dashboard] Y05 여행 treemap data:', {
+      channels: travel.channels,
+      topChannels: travel.topChannels?.map(ch => ch.name),
+    })
+  }
 
   // 클라이언트에서만 시간 표시 (Hydration 에러 방지)
   useEffect(() => {
@@ -61,60 +89,53 @@ export default function YouTubeIndustryDashboard({
     )
   }
 
-  // 메트릭 계산
-  const metrics = useMemo(() => {
-    const totalSubscribers = channels.reduce((sum, ch) => sum + (ch.subscribers || 0), 0)
-    const totalViews = channels.reduce((sum, ch) => sum + (ch.total_views || 0), 0)
-    const avgEngagement = channels.length > 0
-      ? channels.reduce((sum, ch) => sum + (ch.engagement_rate || 0), 0) / channels.length
-      : 0
+  // ❌ useMemo 제거 - 직접 계산
+  const totalSubscribers = channels.reduce((sum, ch) => sum + (ch.subscribers || 0), 0)
+  const totalViews = channels.reduce((sum, ch) => sum + (ch.total_views || 0), 0)
+  const avgEngagement = channels.length > 0
+    ? channels.reduce((sum, ch) => sum + (ch.engagement_rate || 0), 0) / channels.length
+    : 0
+
+  const metrics = {
+    totalSubscribers,
+    totalViews,
+    avgEngagement,
+    totalChannels: channels.length
+  }
+
+  // ❌ categoriesWithStats useMemo 제거 - 단순 계산
+  const categoriesWithStats = categories.map((category) => {
+    const categoryChannels = channels.filter(ch => ch.category_code === category.code)
+
+    const catTotalViews = categoryChannels.reduce((sum, ch) => sum + (ch.total_views || 0), 0)
+    const totalVideos = categoryChannels.reduce((sum, ch) => sum + (ch.video_count || 0), 0)
+
+    const avgViewsPerVideo = category.avg_views_per_video ||
+      (totalVideos > 0 ? catTotalViews / totalVideos : 0)
 
     return {
-      totalSubscribers,
-      totalViews,
-      avgEngagement,
-      totalChannels: channels.length
+      code: category.code,
+      name: category.name,
+      emoji: category.emoji || category.icon || '📊',
+      color: '#3b82f6',
+      description: category.description || '',
+      topChannels: categoryChannels
+        .sort((a, b) => (b.views_per_video || 0) - (a.views_per_video || 0))
+        .slice(0, 10),
+      metrics: {
+        totalChannels: categoryChannels.length,
+        totalViews: catTotalViews,
+        totalVideos: totalVideos,
+        averageViewsPerVideo: avgViewsPerVideo,
+        dailyChange: category.daily_change_rate || 0,
+        weeklyChange: category.weekly_change_rate || 0,
+        monthlyChange: category.monthly_change_rate || 0,
+        marketShare: totalViews > 0 ? (catTotalViews / totalViews) * 100 : 0,
+        volatility: 0
+      },
+      lastUpdated: new Date(category.updated_at || Date.now())
     }
-  }, [channels])
-
-  // 카테고리별 통계
-  const categoriesWithStats = useMemo(() => {
-    console.log('[YouTubeIndustryDashboard] Calculating category stats...')
-
-    return categories.map((category) => {
-      const categoryChannels = channels.filter(ch => ch.category_code === category.code)
-
-      const totalViews = categoryChannels.reduce((sum, ch) => sum + (ch.total_views || 0), 0)
-      const totalVideos = categoryChannels.reduce((sum, ch) => sum + (ch.video_count || 0), 0)
-
-      // 카테고리 테이블의 avg_views_per_video를 우선 사용, 없으면 계산
-      const avgViewsPerVideo = category.avg_views_per_video ||
-        (totalVideos > 0 ? totalViews / totalVideos : 0)
-
-      return {
-        code: category.code,
-        name: category.name,
-        emoji: category.emoji || category.icon || '📊',  // ✅ DB emoji 우선 사용
-        color: '#3b82f6',
-        description: category.description || '',
-        topChannels: categoryChannels
-          .sort((a, b) => (b.views_per_video || 0) - (a.views_per_video || 0))
-          .slice(0, 10), // 상위 10개 채널
-        metrics: {
-          totalChannels: categoryChannels.length,
-          totalViews: totalViews,
-          totalVideos: totalVideos,
-          averageViewsPerVideo: avgViewsPerVideo,
-          dailyChange: category.daily_change_rate || 0,
-          weeklyChange: category.weekly_change_rate || 0,
-          monthlyChange: category.monthly_change_rate || 0,
-          marketShare: totalViews > 0 ? (totalViews / metrics.totalViews) * 100 : 0,
-          volatility: 0
-        },
-        lastUpdated: new Date(category.updated_at || Date.now())
-      }
-    })
-  }, [categories, channels, metrics.totalViews])
+  })
 
   // 트렌딩 채널 계산
   const trendingChannels = useMemo(() => {
@@ -164,10 +185,12 @@ export default function YouTubeIndustryDashboard({
       )}
 
       {/* Market Map - Finviz Style */}
+      {/* ✅ Props 직접 전달 - useMemo 없음 */}
       <MarketMapView
-        categories={categoriesWithStats}
+        data={treemapData}
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
+        timestamp={timestamp}
       />
 
       {/* Industry Charts Grid - Mini Trend Charts */}
@@ -213,3 +236,4 @@ export default function YouTubeIndustryDashboard({
     </div>
   )
 }
+

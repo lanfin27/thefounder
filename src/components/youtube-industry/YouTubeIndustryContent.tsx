@@ -8,20 +8,67 @@
 
 import { useState, useEffect } from 'react'
 import YouTubeIndustryDashboard from './YouTubeIndustryDashboard'
+import { TreemapCategoryData } from '@/lib/youtube-industry/treemap-data-generator'
 
 interface YouTubeIndustryContentProps {
   initialCategories?: any[]
   initialChannels?: any[]
+  initialTreemapData?: TreemapCategoryData[]
+  timestamp?: number
 }
 
 export default function YouTubeIndustryContent({
   initialCategories,
   initialChannels,
+  initialTreemapData,
+  timestamp,
 }: YouTubeIndustryContentProps = {}) {
   const [categories, setCategories] = useState<any[]>(initialCategories || [])
   const [channels, setChannels] = useState<any[]>(initialChannels || [])
+  const [treemapData, setTreemapData] = useState<TreemapCategoryData[]>(initialTreemapData || [])
+  const [lastUpdate, setLastUpdate] = useState(timestamp)
+  const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(!initialCategories || !initialChannels)
   const [error, setError] = useState<string | null>(null)
+
+  // ✅ CRITICAL: 클라이언트 마운트 확인
+  useEffect(() => {
+    setIsClient(true)
+    console.log('\n🔄 [YouTubeIndustryContent] Client mounted')
+  }, [])
+
+  // ✅ CRITICAL: Props 변경 시 강제 업데이트
+  useEffect(() => {
+    if (!isClient) return
+
+    if (initialCategories && initialChannels && initialTreemapData) {
+      console.log('\n🔄 [YouTubeIndustryContent Client] Props updated!')
+      console.log('📊 [Client Content] New timestamp:', timestamp)
+      console.log('📊 [Client Content] Old timestamp:', lastUpdate)
+      console.log('📊 [Client Content] Categories:', initialCategories.length)
+      console.log('📊 [Client Content] Channels:', initialChannels.length)
+      console.log('📊 [Client Content] Treemap items:', initialTreemapData.length)
+
+      // 여행 카테고리 검증
+      const travel = initialTreemapData.find(item => item.code === 'Y05')
+      if (travel) {
+        console.log('✅ [Client Content] Y05 여행:', {
+          channels: travel.channels,
+          subscribers: `${(travel.totalSubscribers / 1_000_000).toFixed(1)}M`,
+          topChannels: travel.topChannels?.map(ch => ch.name),
+          generatedAt: travel.generatedAt,
+        })
+      } else {
+        console.warn('⚠️  [Client Content] Y05 여행 not found in treemap data!')
+      }
+
+      // ✅ 강제 업데이트
+      setCategories(initialCategories)
+      setChannels(initialChannels)
+      setTreemapData(initialTreemapData)
+      setLastUpdate(timestamp)
+    }
+  }, [initialCategories, initialChannels, initialTreemapData, timestamp, lastUpdate, isClient])
 
   useEffect(() => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
@@ -29,6 +76,7 @@ export default function YouTubeIndustryContent({
     console.log(`[YouTubeIndustryContent] Received Props:`)
     console.log(`  - initialCategories: ${initialCategories?.length || 0} items`)
     console.log(`  - initialChannels: ${initialChannels?.length || 0} items`)
+    console.log(`  - timestamp: ${timestamp ? new Date(timestamp).toISOString() : 'N/A'}`)
 
     // Only fetch if data wasn't provided via props
     if (initialCategories && initialChannels) {
@@ -270,6 +318,8 @@ export default function YouTubeIndustryContent({
     <YouTubeIndustryDashboard
       initialCategories={categories}
       initialChannels={channels}
+      initialTreemapData={treemapData}
+      timestamp={timestamp}
     />
   )
 }
