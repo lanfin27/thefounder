@@ -9,7 +9,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/Badge'
-import { RefreshCw, Search, AlertCircle, WifiOff, Plus, Trash2, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { RefreshCw, Search, AlertCircle, WifiOff, Plus, Trash2, CheckCircle, XCircle, Loader2, AlertTriangle } from 'lucide-react'
 import { fetchWithRetry, getErrorMessage, logError, LogLevel } from '@/lib/utils/network'
 import { AddChannelModal } from './AddChannelModal'
 import {
@@ -81,6 +81,10 @@ export function ChannelManager({
   const [selectedChannels, setSelectedChannels] = useState<Set<string>>(new Set())
   const [showBulkDeleteDialog, setShowBulkDeleteDialog] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
+
+  // Fix histories state
+  const [isFixingHistories, setIsFixingHistories] = useState(false)
+  const [fixHistoriesResult, setFixHistoriesResult] = useState<string | null>(null)
 
   // Category update handler
   const handleCategoryUpdate = (channelId: string, newCategory: string) => {
@@ -407,6 +411,64 @@ export function ChannelManager({
     }
   }
 
+  /**
+   * Fix all flat-line histories
+   * Detects and regenerates realistic history data for channels with flat graphs
+   */
+  const handleFixAllHistories = async () => {
+    if (!confirm(
+      '모든 채널의 히스토리를 검사하여 직선 패턴을 수정하시겠습니까?\n\n' +
+      '이 작업은 다음을 수행합니다:\n' +
+      '• 직선 그래프 패턴 자동 감지\n' +
+      '• 현실적인 성장 곡선으로 재생성\n' +
+      '• 채널 규모별 맞춤 성장률 적용\n\n' +
+      '예상 소요 시간: 2-5분'
+    )) {
+      return
+    }
+
+    setIsFixingHistories(true)
+    setFixHistoriesResult(null)
+
+    try {
+      console.log('[ChannelManager] Fixing all flat-line histories...')
+
+      const response = await fetch('/api/admin/youtube-industry/fix-histories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        const message = `✅ 히스토리 수정 완료!\n\n` +
+          `수정됨: ${result.stats.fixed}개\n` +
+          `건너뜀: ${result.stats.skipped}개\n` +
+          `실패: ${result.stats.failed}개\n\n` +
+          `그래프 페이지를 새로고침하여 변경사항을 확인하세요.`
+
+        setFixHistoriesResult(message)
+        alert(message)
+
+        // Refresh channel list
+        await fetchChannels()
+      } else {
+        const errorMsg = `❌ 히스토리 수정 실패\n\n${result.error || '알 수 없는 오류'}`
+        setFixHistoriesResult(errorMsg)
+        alert(errorMsg)
+      }
+    } catch (error: any) {
+      console.error('[ChannelManager] Fix histories error:', error)
+      const errorMsg = `❌ 오류 발생\n\n${error.message || '네트워크 오류'}`
+      setFixHistoriesResult(errorMsg)
+      alert(errorMsg)
+    } finally {
+      setIsFixingHistories(false)
+    }
+  }
+
   // 🔥 배열 보장
   const safeChannels = Array.isArray(channels) ? channels : []
 
@@ -483,6 +545,24 @@ export function ChannelManager({
           <Button onClick={fetchChannels} disabled={loading} variant="outline">
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
             새로고침
+          </Button>
+          <Button
+            onClick={handleFixAllHistories}
+            disabled={isFixingHistories || loading}
+            variant="destructive"
+            title="직선 그래프 패턴을 감지하여 현실적인 성장 곡선으로 수정합니다"
+          >
+            {isFixingHistories ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                수정 중...
+              </>
+            ) : (
+              <>
+                <AlertTriangle className="h-4 w-4 mr-2" />
+                직선 히스토리 수정
+              </>
+            )}
           </Button>
         </div>
       </div>
