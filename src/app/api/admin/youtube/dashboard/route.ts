@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
+import { YouTubeAPIQuotaTracker } from '@/lib/youtube/api-quota-tracker'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_YT_SUPABASE_URL!,
@@ -13,18 +14,7 @@ const supabase = createClient(
 
 export async function GET(request: NextRequest) {
   try {
-    console.log('Dashboard API called')
-
-    // API 설정 조회
-    const { data: apiConfig, error: apiConfigError } = await supabase
-      .from('youtube_api_config')
-      .select('*')
-      .eq('is_primary', true)
-      .single()
-
-    if (apiConfigError && apiConfigError.code !== 'PGRST116') {
-      console.warn('API config error:', apiConfigError)
-    }
+    console.log('[Dashboard API] === REQUEST START ===')
 
     // 채널 통계 (삭제된 채널 제외)
     const { count: channelCount, error: channelError } = await supabase
@@ -33,7 +23,7 @@ export async function GET(request: NextRequest) {
       .neq('status', 'deleted')
 
     if (channelError) {
-      console.warn('Channel count error:', channelError)
+      console.warn('[Dashboard API] Channel count error:', channelError)
     }
 
     const { count: categoryCount, error: categoryError } = await supabase
@@ -41,7 +31,7 @@ export async function GET(request: NextRequest) {
       .select('*', { count: 'exact', head: true })
 
     if (categoryError) {
-      console.warn('Category count error:', categoryError)
+      console.warn('[Dashboard API] Category count error:', categoryError)
     }
 
     // 최근 작업
@@ -52,7 +42,7 @@ export async function GET(request: NextRequest) {
       .limit(5)
 
     if (jobsError) {
-      console.warn('Recent jobs error:', jobsError)
+      console.warn('[Dashboard API] Recent jobs error:', jobsError)
     }
 
     // 실행 중인 작업
@@ -62,7 +52,7 @@ export async function GET(request: NextRequest) {
       .eq('status', 'running')
 
     if (runningError) {
-      console.warn('Running jobs error:', runningError)
+      console.warn('[Dashboard API] Running jobs error:', runningError)
     }
 
     // 활성 스케줄
@@ -72,27 +62,47 @@ export async function GET(request: NextRequest) {
       .eq('enabled', true)
 
     if (schedulesError) {
-      console.warn('Active schedules error:', schedulesError)
+      console.warn('[Dashboard API] Active schedules error:', schedulesError)
     }
+
+    // 실시간 API 사용량 조회 (새로운 quota tracking 시스템 사용)
+    console.log('[Dashboard API] Fetching real-time API usage...')
+    const usedToday = await YouTubeAPIQuotaTracker.getTodayUsage()
+    const remaining = await YouTubeAPIQuotaTracker.getRemainingQuota()
+    const quota = 10000
+    const percentage = (usedToday / quota) * 100
+    const costPerChannel = YouTubeAPIQuotaTracker.calculateChannelUpdateCost()
+    const maxChannels = Math.floor(remaining / costPerChannel)
+
+    console.log('[Dashboard API] API Usage:', {
+      used: usedToday,
+      remaining,
+      percentage: `${percentage.toFixed(1)}%`,
+      maxChannels
+    })
 
     const response = {
       totalChannels: channelCount || 0,
       totalCategories: categoryCount || 0,
       apiUsage: {
-        used: apiConfig?.used_today || 0,
-        limit: apiConfig?.daily_limit || 10000,
-        percentage: apiConfig ? ((apiConfig.used_today || 0) / (apiConfig.daily_limit || 10000) * 100) : 0
+        used: usedToday,
+        limit: quota,
+        percentage,
+        remaining,
+        maxChannels,
+        costPerChannel
       },
       activeSchedules: activeSchedules?.length || 0,
       runningJobs: runningJobs?.length || 0,
       recentJobs: recentJobs || []
     }
 
-    console.log('Dashboard response:', response)
+    console.log('[Dashboard API] ✅ Dashboard response prepared')
+    console.log('[Dashboard API] === REQUEST END ===')
 
     return NextResponse.json(response)
   } catch (error) {
-    console.error('Dashboard API Error:', error)
+    console.error('[Dashboard API] ❌ Error:', error)
     return NextResponse.json(
       {
         error: 'Failed to fetch dashboard data',

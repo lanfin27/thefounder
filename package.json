@@ -79,6 +79,7 @@
     "yt:verify-setup": "tsx scripts/verify-setup.ts"
   },
   "dependencies": {
+    "@google-cloud/service-usage": "^4.2.1",
     "@notionhq/client": "^2.2.14",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-dialog": "^1.1.15",

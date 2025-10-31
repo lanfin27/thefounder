@@ -64,3 +64,9 @@ debug-*.png
 
 # Null file
 nul
+
+# Google Cloud Service Account (보안 중요!)
+google-service-account.json
+*.json
+!package.json
+!tsconfig.json

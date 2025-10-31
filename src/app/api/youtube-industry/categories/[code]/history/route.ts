@@ -29,7 +29,7 @@ export async function GET(
     // 쿼리 시작
     let query = ytSupabase
       .from('youtube_channel_history')
-      .select('date, category_code, views_per_video')
+      .select('date, category_code, views_per_video, daily_views_per_video, video_count, subscribers')
       .eq('category_code', categoryCode)
 
     let startDateStr: string | null = null
@@ -45,12 +45,12 @@ export async function GET(
       console.log('[History API] 📅 Date range:', startDateStr, 'to', new Date().toISOString().split('T')[0])
       query = query.gte('date', startDateStr)
     } else {
-      // 전체 기간: 최대 10년으로 제한
-      const tenYearsAgo = new Date()
-      tenYearsAgo.setFullYear(tenYearsAgo.getFullYear() - 10)
-      startDateStr = tenYearsAgo.toISOString().split('T')[0]
+      // 전체 기간: 최대 7년으로 제한 (히스토리 생성 기간과 일치)
+      const sevenYearsAgo = new Date()
+      sevenYearsAgo.setFullYear(sevenYearsAgo.getFullYear() - 7)
+      startDateStr = sevenYearsAgo.toISOString().split('T')[0]
 
-      console.log('[History API] 🗓️  10-year limit: Fetching data from', startDateStr, 'to today')
+      console.log('[History API] 🗓️  7-year limit: Fetching data from', startDateStr, 'to today')
       query = query.gte('date', startDateStr)
     }
 
@@ -84,13 +84,14 @@ export async function GET(
     // ✅ 데이터 정제: null/0/undefined 값 필터링
     const validData = data.filter((record: any) => {
       const isValid =
-        record.views_per_video != null &&
-        record.views_per_video > 0 &&
+        record.daily_views_per_video != null &&
+        record.daily_views_per_video > 0 &&
         record.date != null
 
       if (!isValid) {
         console.log('[History API] 🔍 Filtered out invalid record:', {
           date: record.date,
+          daily_views_per_video: record.daily_views_per_video,
           views_per_video: record.views_per_video,
           category_code: record.category_code,
         })
@@ -107,7 +108,7 @@ export async function GET(
       if (!acc[curr.date]) {
         acc[curr.date] = { total: 0, count: 0 }
       }
-      acc[curr.date].total += curr.views_per_video
+      acc[curr.date].total += curr.daily_views_per_video
       acc[curr.date].count += 1
       return acc
     }, {})
@@ -115,7 +116,7 @@ export async function GET(
     const chartData = Object.entries(dailyAverages)
       .map(([date, value]: [string, any]) => ({
         date,
-        viewsPerVideo: Math.round(value.total / value.count),
+        viewsPerVideo: Math.round(value.total / value.count), // Frontend expects 'viewsPerVideo'
         timestamp: new Date(date).getTime(),
       }))
       .sort((a, b) => a.timestamp - b.timestamp)
@@ -132,7 +133,7 @@ export async function GET(
       monthly: monthAgo ? ((latest - monthAgo) / monthAgo) * 100 : 0,
     }
 
-    // 10년 제한 통계
+    // 7년 제한 통계
     if (period === 'all' && chartData.length > 0) {
       const oldestDate = chartData[0]?.date
       const newestDate = chartData[chartData.length - 1]?.date
@@ -140,7 +141,7 @@ export async function GET(
         ? ((new Date(newestDate).getTime() - new Date(oldestDate).getTime()) / (365.25 * 24 * 60 * 60 * 1000)).toFixed(1)
         : 'N/A'
 
-      console.log(`[History API] 📊 10-year filtered data:`, {
+      console.log(`[History API] 📊 7-year filtered data:`, {
         categoryCode,
         oldestDate,
         newestDate,
@@ -165,7 +166,7 @@ export async function GET(
       meta: {
         categoryCode,
         period,
-        tenYearLimit: period === 'all' ? startDateStr : null,
+        sevenYearLimit: period === 'all' ? startDateStr : null,
         recordCount: chartData.length,
         dateRange: chartData.length > 0 ? {
           start: chartData[0]?.date,

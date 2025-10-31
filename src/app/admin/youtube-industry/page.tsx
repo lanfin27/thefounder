@@ -1,3 +1,5 @@
+'use client'
+
 /**
  * YouTube Industry Admin Dashboard Page
  * 관리자 대시보드 메인 페이지
