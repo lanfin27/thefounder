@@ -26,24 +26,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
-      <body className="font-sans">
+    <html lang="ko" className="h-full">
+      <body className="font-sans h-full overflow-hidden">
         <AuthProvider>
           <ToastProvider>
             <ClientLayout>
+              {/* Header - Fixed at top */}
               <Header />
 
-              {/* Medium 3단 레이아웃 */}
-              <div className="flex min-h-screen max-w-[1336px] mx-auto">
-                {/* 왼쪽 사이드바 - 네비게이션 */}
+              {/* Main Layout - 3 columns with single scroll */}
+              <div className="flex h-[calc(100vh-56px)] overflow-hidden max-w-[1440px] mx-auto">
+                {/* Left Sidebar - Scrollable */}
                 <Sidebar />
 
-                {/* 중앙 메인 콘텐츠 */}
-                <main className="flex-1 max-w-[728px] mx-auto px-6">
-                  {children}
+                {/* Main Content - Scrollable */}
+                <main className="flex-1 overflow-y-auto">
+                  <div className="max-w-[680px] mx-auto px-6 py-8">
+                    {children}
+                  </div>
                 </main>
 
-                {/* 오른쪽 사이드바 - 추천 */}
+                {/* Right Sidebar - Scrollable */}
                 <RightSidebar />
               </div>
             </ClientLayout>
