@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Menu, X, Edit3 } from 'lucide-react';
+import { Search, Menu, X, Settings } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,18 +11,25 @@ const navigation = [
   { name: 'Following', href: '/following' },
 ];
 
+// TODO: 실제 Supabase Auth로 교체
+const TEMP_IS_ADMIN = false;
+
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  // TODO: 실제 로그인 상태 체크
+  const isLoggedIn = false;
+  const isAdmin = TEMP_IS_ADMIN;
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light">
-      <div className="max-w-[1336px] mx-auto px-6">
-        <div className="flex h-14 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light h-14">
+      <div className="h-full max-w-[1440px] mx-auto px-6">
+        <div className="flex h-full items-center justify-between">
           {/* Left: Logo & Nav */}
           <div className="flex items-center gap-8">
-            {/* Mobile Menu Button (왼쪽으로 이동) */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 -ml-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
@@ -37,12 +44,12 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <span className="text-h3 font-serif font-bold text-ink-900">
+              <span className="text-xl font-serif font-bold text-ink-900">
                 The Founder
               </span>
             </Link>
 
-            {/* Desktop Navigation - 간소화 */}
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
@@ -50,7 +57,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-small transition-colors relative py-4 ${
+                    className={`text-small transition-colors relative h-14 flex items-center ${
                       isActive
                         ? 'text-ink-900 font-medium'
                         : 'text-ink-600 hover:text-ink-900'
@@ -60,7 +67,7 @@ export default function Header() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute -bottom-[1px] left-0 right-0 h-[1px] bg-ink-900"
+                        className="absolute bottom-0 left-0 right-0 h-[1px] bg-ink-900"
                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                       />
                     )}
@@ -71,40 +78,56 @@ export default function Header() {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Search */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="hidden sm:flex p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
+              className="p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </button>
 
-            {/* Write Button */}
-            <Link
-              href="/write"
-              className="hidden md:flex items-center gap-2 px-3 py-2 text-small text-ink-700 hover:text-ink-900 transition-colors"
-            >
-              <Edit3 className="h-4 w-4" />
-              <span>Write</span>
-            </Link>
+            {/* Admin Only: Write + Settings */}
+            {isAdmin && (
+              <>
+                <Link
+                  href="/admin/write"
+                  className="hidden md:inline-flex px-4 py-2 bg-green-primary text-white rounded-full text-small font-medium hover:bg-green-hover transition-colors"
+                >
+                  Write
+                </Link>
+                <Link
+                  href="/admin"
+                  className="hidden md:flex p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
+                  aria-label="Admin"
+                >
+                  <Settings className="h-5 w-5" />
+                </Link>
+              </>
+            )}
 
-            {/* Sign In */}
-            <Link
-              href="/auth/signin"
-              className="hidden md:inline-flex px-4 py-2 text-small text-ink-900 hover:bg-ink-100 rounded-full transition-colors"
-            >
-              Sign In
-            </Link>
-
-            {/* Get Started */}
-            <Link
-              href="/auth/signup"
-              className="hidden md:inline-flex px-4 py-2 bg-green-primary text-white rounded-full text-small font-medium hover:bg-green-hover transition-colors"
-            >
-              Get started
-            </Link>
+            {/* Sign In / User Menu */}
+            {!isLoggedIn ? (
+              <>
+                <Link
+                  href="/auth/signin"
+                  className="hidden md:inline-flex px-4 py-2 text-small text-ink-900 hover:bg-ink-100 rounded-full transition-colors"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className="hidden md:inline-flex px-4 py-2 bg-ink-900 text-white rounded-full text-small font-medium hover:bg-ink-800 transition-colors"
+                >
+                  Get started
+                </Link>
+              </>
+            ) : (
+              <button className="w-8 h-8 rounded-full bg-ink-900 text-white flex items-center justify-center text-small font-medium">
+                U
+              </button>
+            )}
           </div>
         </div>
 
@@ -137,19 +160,19 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-border-light bg-white"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="lg:hidden absolute top-14 left-0 right-0 bg-white border-b border-divider shadow-lg"
           >
-            <nav className="py-4 flex flex-col gap-1">
+            <nav className="px-6 py-4 space-y-1">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`px-4 py-3 rounded-lg text-small transition-colors ${
+                    className={`block px-4 py-3 rounded-lg text-small transition-colors ${
                       isActive
                         ? 'bg-ink-100 text-ink-900 font-medium'
                         : 'text-ink-700 hover:bg-ink-50'
@@ -161,30 +184,46 @@ export default function Header() {
                 );
               })}
 
-              <div className="mt-4 pt-4 border-t border-divider flex flex-col gap-2">
-                <Link
-                  href="/write"
-                  className="px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50 flex items-center gap-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Edit3 className="h-4 w-4" />
-                  <span>Write</span>
-                </Link>
-                <Link
-                  href="/auth/signin"
-                  className="px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/auth/signup"
-                  className="btn-medium-primary text-center"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get started
-                </Link>
-              </div>
+              {isAdmin && (
+                <>
+                  <div className="divider-medium my-2" />
+                  <Link
+                    href="/admin/write"
+                    className="block px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Write
+                  </Link>
+                  <Link
+                    href="/admin"
+                    className="block px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Admin Dashboard
+                  </Link>
+                </>
+              )}
+
+              <div className="divider-medium my-2" />
+
+              {!isLoggedIn && (
+                <>
+                  <Link
+                    href="/auth/signin"
+                    className="block px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    className="block px-4 py-3 bg-ink-900 text-white rounded-lg text-small font-medium text-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get started
+                  </Link>
+                </>
+              )}
             </nav>
           </motion.div>
         )}

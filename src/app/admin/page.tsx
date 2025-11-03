@@ -1,57 +1,58 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { 
-  Database, 
-  Activity,
-  BarChart3,
+import { AdminGuard } from '@/components/admin/AdminGuard';
+import Link from 'next/link';
+import {
   FileText,
+  Database,
+  Users,
+  BarChart3,
   ArrowRight
-} from 'lucide-react'
+} from 'lucide-react';
 
-export default function AdminPage() {
+export default function AdminDashboard() {
   const sections = [
     {
-      title: 'Flippa Listings Dashboard',
-      description: 'View and analyze 5,645+ Flippa business listings with advanced filtering, search, and export capabilities.',
-      href: '/admin/flippa-listings',
-      icon: Database,
-      stats: '5,645+ records',
-      color: 'bg-blue-500'
-    },
-    {
-      title: 'Enhanced Scraping Dashboard',
-      description: 'Advanced scraping tools with real-time monitoring, performance metrics, and Apify-level capabilities.',
-      href: '/admin/scraping',
-      icon: Activity,
-      stats: 'Real-time monitoring',
-      color: 'bg-green-500'
-    },
-    {
-      title: 'Scraping Status',
-      description: 'Monitor current scraping jobs, success rates, and system performance.',
-      href: '/admin/scraping-status',
-      icon: BarChart3,
-      stats: 'Live status',
-      color: 'bg-purple-500'
+      title: 'Posts Management',
+      description: 'Create, edit, and manage all articles and blog posts on The Founder platform.',
+      href: '/admin/posts',
+      icon: FileText,
+      stats: 'Content management',
+      color: 'bg-green-primary'
     },
     {
       title: 'Notion Sync',
-      description: 'Synchronize blog posts from Notion database to the website.',
+      description: 'Synchronize blog posts from Notion database to the website with automatic updates.',
       href: '/admin/sync',
-      icon: FileText,
+      icon: Database,
       stats: 'Content sync',
-      color: 'bg-orange-500'
+      color: 'bg-ink-700'
+    },
+    {
+      title: 'Users Management',
+      description: 'Manage user accounts, permissions, and access control for the platform.',
+      href: '/admin/users',
+      icon: Users,
+      stats: 'User control',
+      color: 'bg-ink-600'
+    },
+    {
+      title: 'Analytics Dashboard',
+      description: 'View detailed analytics, performance metrics, and content statistics.',
+      href: '/admin/analytics',
+      icon: BarChart3,
+      stats: 'Insights & metrics',
+      color: 'bg-ink-500'
     }
-  ]
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="mt-2 text-gray-600">
-            Manage your application data, scraping operations, and content synchronization.
+    <AdminGuard>
+      <div className="max-w-4xl mx-auto py-12">
+        <div className="mb-10">
+          <h1 className="text-h1 font-serif font-bold text-ink-900 mb-2">Admin Dashboard</h1>
+          <p className="text-body text-ink-700">
+            Manage content, users, and analytics for The Founder platform.
           </p>
         </div>
 
@@ -60,36 +61,64 @@ export default function AdminPage() {
             <Link
               key={section.href}
               href={section.href}
-              className="group relative bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 p-6"
+              className="group relative bg-white border-2 border-ink-200 rounded-xl hover:border-green-primary hover:bg-green-light transition-all p-8"
             >
-              <div className="flex items-start space-x-4">
-                <div className={`${section.color} rounded-lg p-3 text-white`}>
-                  <section.icon className="h-6 w-6" />
-                </div>
+              <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <div className={`${section.color} rounded-lg p-3 text-white inline-flex mb-4`}>
+                    <section.icon className="h-6 w-6" />
+                  </div>
+                  <h2 className="text-h3 font-serif font-bold text-ink-900 mb-2 group-hover:text-green-primary transition-colors">
                     {section.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-600">
+                  </h2>
+                  <p className="text-caption text-ink-700 mb-3">
                     {section.description}
                   </p>
-                  <div className="mt-3 flex items-center text-sm text-gray-500">
+                  <div className="flex items-center text-tiny text-ink-600">
                     <span className="font-medium">{section.stats}</span>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                <ArrowRight className="h-5 w-5 text-ink-400 group-hover:text-green-primary transition-colors flex-shrink-0 ml-4 mt-3" />
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-yellow-800">Admin Access Required</h3>
-          <p className="mt-1 text-sm text-yellow-700">
-            These sections require admin authentication. Make sure you have the correct admin token configured.
-          </p>
+        {/* Legacy dashboards - keeping for backward compatibility */}
+        <div className="mt-12 pt-8 border-t border-divider">
+          <h2 className="text-h3 font-serif font-bold text-ink-900 mb-6">Legacy Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              href="/admin/flippa-listings"
+              className="p-6 border border-ink-200 rounded-lg hover:border-ink-300 hover:bg-ink-50 transition-colors"
+            >
+              <h3 className="text-body font-medium text-ink-900 mb-1">Flippa Listings</h3>
+              <p className="text-caption text-ink-600">5,645+ business listings</p>
+            </Link>
+            <Link
+              href="/admin/scraping-status"
+              className="p-6 border border-ink-200 rounded-lg hover:border-ink-300 hover:bg-ink-50 transition-colors"
+            >
+              <h3 className="text-body font-medium text-ink-900 mb-1">Scraping Status</h3>
+              <p className="text-caption text-ink-600">Monitor scraping jobs</p>
+            </Link>
+            <Link
+              href="/admin/youtube-channels"
+              className="p-6 border border-ink-200 rounded-lg hover:border-ink-300 hover:bg-ink-50 transition-colors"
+            >
+              <h3 className="text-body font-medium text-ink-900 mb-1">YouTube Channels</h3>
+              <p className="text-caption text-ink-600">Manage channel data</p>
+            </Link>
+            <Link
+              href="/admin/youtube-industry"
+              className="p-6 border border-ink-200 rounded-lg hover:border-ink-300 hover:bg-ink-50 transition-colors"
+            >
+              <h3 className="text-body font-medium text-ink-900 mb-1">YouTube Industry</h3>
+              <p className="text-caption text-ink-600">Industry analytics</p>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </AdminGuard>
+  );
 }
