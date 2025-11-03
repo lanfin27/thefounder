@@ -46,14 +46,26 @@
     font-feature-settings: 'liga' 1, 'calt' 1;
   }
 
-  /* Links - Medium style */
+  /* Links - 기본은 밑줄 없음 */
   a {
-    @apply text-ink-900 underline decoration-1 underline-offset-2;
-    @apply transition-colors duration-200;
+    @apply text-ink-900 no-underline transition-colors duration-200;
   }
 
+  /* 본문 내 링크만 밑줄 */
+  article a:not(.no-underline),
+  .prose a {
+    @apply underline decoration-1 underline-offset-2;
+  }
+
+  /* 호버 시 */
   a:hover {
     @apply text-ink-700;
+  }
+
+  /* 네비게이션 링크 호버 */
+  nav a:hover,
+  header a:hover {
+    @apply underline;
   }
 
   /* Focus states */

@@ -8,10 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
   { name: 'For you', href: '/' },
-  { name: '트렌드', href: '/trend' },
-  { name: '인사이트', href: '/insight' },
-  { name: '사례', href: '/casestudy' },
-  { name: '블로그', href: '/blog' },
+  { name: 'Following', href: '/following' },
 ];
 
 export default function Header() {
@@ -21,10 +18,23 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light">
-      <div className="container-site">
+      <div className="max-w-[1336px] mx-auto px-6">
         <div className="flex h-14 items-center justify-between">
           {/* Left: Logo & Nav */}
           <div className="flex items-center gap-8">
+            {/* Mobile Menu Button (왼쪽으로 이동) */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 -ml-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
+              aria-label="Menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <span className="text-h3 font-serif font-bold text-ink-900">
@@ -32,7 +42,7 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - 간소화 */}
             <nav className="hidden lg:flex items-center gap-6">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
@@ -40,7 +50,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-small transition-colors relative ${
+                    className={`text-small transition-colors relative py-4 ${
                       isActive
                         ? 'text-ink-900 font-medium'
                         : 'text-ink-600 hover:text-ink-900'
@@ -50,7 +60,7 @@ export default function Header() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute -bottom-[14px] left-0 right-0 h-[1px] bg-ink-900"
+                        className="absolute -bottom-[1px] left-0 right-0 h-[1px] bg-ink-900"
                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                       />
                     )}
@@ -74,7 +84,7 @@ export default function Header() {
             {/* Write Button */}
             <Link
               href="/write"
-              className="hidden md:flex items-center gap-2 px-4 py-2 text-small text-ink-700 hover:text-ink-900 transition-colors"
+              className="hidden md:flex items-center gap-2 px-3 py-2 text-small text-ink-700 hover:text-ink-900 transition-colors"
             >
               <Edit3 className="h-4 w-4" />
               <span>Write</span>
@@ -91,23 +101,10 @@ export default function Header() {
             {/* Get Started */}
             <Link
               href="/auth/signup"
-              className="hidden md:inline-flex btn-medium-primary"
+              className="hidden md:inline-flex px-4 py-2 bg-green-primary text-white rounded-full text-small font-medium hover:bg-green-hover transition-colors"
             >
               Get started
             </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
-              aria-label="Menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </button>
           </div>
         </div>
 
@@ -145,7 +142,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden border-t border-border-light bg-white"
           >
-            <nav className="container-site py-4 flex flex-col gap-1">
+            <nav className="py-4 flex flex-col gap-1">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (

@@ -106,42 +106,37 @@ const latestStories = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section - Medium Style */}
-      <section className="border-b border-divider bg-gradient-to-b from-ink-50 to-white">
-        <div className="container-site py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h1 className="text-hero font-serif font-bold text-ink-900 mb-6 leading-tight">
-              한국 1인 창업가를 위한
-              <br />
-              <span className="text-green-primary">깊이 있는 인사이트</span>
-            </h1>
+    <div className="py-8">
+      {/* Hero - 간소화 */}
+      <section className="mb-12">
+        <h1 className="text-hero font-serif font-bold text-ink-900 mb-6 leading-tight">
+          한국 1인 창업가를 위한
+          <br />
+          <span className="text-green-primary">깊이 있는 인사이트</span>
+        </h1>
 
-            <p className="text-subtitle text-ink-700 mb-8 max-w-2xl leading-relaxed">
-              실제 창업가들의 생생한 경험과 성공 사례를 통해 당신의 비즈니스를 한 단계 성장시키세요
-            </p>
+        <p className="text-subtitle text-ink-700 mb-8 max-w-2xl leading-relaxed">
+          실제 창업가들의 생생한 경험과 성공 사례를 통해 당신의 비즈니스를 한 단계 성장시키세요
+        </p>
 
-            <Link
-              href="/explore"
-              className="inline-flex items-center btn-medium-primary text-base px-8 py-3"
-            >
-              Start reading
-            </Link>
-          </div>
-        </div>
+        <Link
+          href="/explore"
+          className="inline-flex items-center px-8 py-3 bg-green-primary text-white rounded-full text-base font-medium hover:bg-green-hover transition-colors"
+        >
+          Start reading
+        </Link>
       </section>
 
       {/* Trending Section - Medium's "Trending on Medium" */}
-      <section className="border-b border-divider py-10">
-        <div className="container-site">
-          <div className="flex items-center gap-3 mb-6">
-            <TrendingUp className="h-6 w-6" />
-            <h2 className="text-caption font-semibold tracking-tight uppercase">
-              Trending on The Founder
-            </h2>
-          </div>
+      <section className="border-b border-divider py-10 -mx-6 px-6">
+        <div className="flex items-center gap-3 mb-6">
+          <TrendingUp className="h-6 w-6" />
+          <h2 className="text-caption font-semibold tracking-tight uppercase">
+            Trending on The Founder
+          </h2>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             {trendingPosts.map((post) => (
               <Link
                 key={post.id}
@@ -172,13 +167,11 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
-          </div>
         </div>
       </section>
 
       {/* Latest Stories - Medium Feed Style */}
       <section className="py-12">
-        <div className="container-content">
           <div className="mb-10">
             <h2 className="text-h3 font-serif font-bold text-ink-900 mb-2">
               Latest
@@ -244,11 +237,12 @@ export default function HomePage() {
                 )}
               </article>
             ))}
-          </div>
+        </div>
 
-          <div className="mt-10 text-center">
-            <button className="btn-medium-secondary">Load more stories</button>
-          </div>
+        <div className="mt-10 text-center">
+          <button className="px-4 py-2 border border-ink-900 text-ink-900 rounded-full text-small font-medium hover:bg-ink-900 hover:text-white transition-colors">
+            Load more stories
+          </button>
         </div>
       </section>
     </div>
