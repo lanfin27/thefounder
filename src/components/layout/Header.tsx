@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import UserMenu from '@/components/auth/UserMenu'
 import MobileMenu from './MobileMenu'
+import { Calculator } from 'lucide-react'
 import { SearchButton } from './HeaderClient'
 
 export default async function Header() {
@@ -9,11 +10,10 @@ export default async function Header() {
   const { data: { user } } = await supabase.auth.getUser()
 
   const navigation = [
-    { name: '홈', href: '/' },
-    { name: '트렌드', href: '/posts?category=trend' },
-    { name: '인사이트', href: '/posts?category=insight' },
-    { name: '블로그', href: '/posts?category=blog' },
-    { name: '성공사례', href: '/posts?category=casestudy' }
+    { name: '🔥 트렌드', href: '/trend' },
+    { name: '🎬 인사이트', href: '/insight' },
+    { name: '📚 사례', href: '/casestudy' },
+    { name: '✍️ 블로그', href: '/blog' },
   ]
 
   return (
@@ -49,6 +49,13 @@ export default async function Header() {
 
             {user ? (
               <>
+                <Link
+                  href="/valuation"
+                  className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"
+                >
+                  <Calculator className="w-4 h-4" />
+                  밸류에이션
+                </Link>
                 <Link
                   href="/membership"
                   className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-medium-green hover:text-medium-green-dark transition-colors duration-medium"

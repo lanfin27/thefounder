@@ -80,6 +80,13 @@ export default function MobileMenu({ navigation, user }: MobileMenuProps) {
                       대시보드
                     </Link>
                     <Link
+                      href="/valuation"
+                      className="block py-3 text-medium-black hover:text-medium-green text-body-small transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      밸류에이션
+                    </Link>
+                    <Link
                       href="/membership"
                       className="block py-3 text-medium-black hover:text-medium-green text-body-small transition-colors"
                       onClick={() => setIsOpen(false)}

@@ -83,6 +83,7 @@ export async function POST(request: NextRequest) {
 
         if (error) {
           console.error(`Batch ${batchNumber} error:`, error.message)
+          console.error(`Full error details:`, JSON.stringify(error, null, 2))
 
           // Try individual upserts for failed batch
           for (const post of batch) {
@@ -95,14 +96,19 @@ export async function POST(request: NextRequest) {
 
               if (singleError) {
                 console.error(`Failed to sync: ${post.title}`, singleError.message)
+                console.error(`Full error details:`, JSON.stringify(singleError, null, 2))
                 failedPosts.push(post.title)
               } else {
                 successCount++
                 syncedPosts.push(singleData)
                 console.log(`✓ Synced: ${post.title}`)
               }
-            } catch (err) {
-              console.error(`Exception syncing: ${post.title}`, err)
+            } catch (err: any) {
+              console.error(`Exception syncing: ${post.title}`)
+              console.error(`Exception type: ${err.constructor.name}`)
+              console.error(`Exception message: ${err.message}`)
+              console.error(`Full exception:`, err)
+              if (err.cause) console.error(`Cause:`, err.cause)
               failedPosts.push(post.title)
             }
           }
