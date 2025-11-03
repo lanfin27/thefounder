@@ -24,8 +24,8 @@ export default function Header() {
   const isAdmin = TEMP_IS_ADMIN;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light h-14">
-      <div className="h-full max-w-[1440px] mx-auto px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-border-light h-14">
+      <div className="h-full max-w-none mx-auto px-6">
         <div className="flex h-full items-center justify-between">
           {/* Left: Logo & Nav */}
           <div className="flex items-center gap-8">

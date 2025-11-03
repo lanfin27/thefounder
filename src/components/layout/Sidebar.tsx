@@ -29,7 +29,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden lg:block w-64 border-r border-divider bg-white overflow-y-auto">
+    <aside className="hidden lg:block w-64 border-r border-divider bg-white overflow-y-auto flex-shrink-0">
       <nav className="py-6 px-4 space-y-1">
         {/* 기본 네비게이션 */}
         {mainNavigation.map((item) => {

@@ -30,7 +30,7 @@ const featuredPosts = [
 
 export function RightSidebar() {
   return (
-    <aside className="hidden xl:block w-[368px] border-l border-divider bg-white overflow-y-auto">
+    <aside className="hidden xl:block w-[368px] border-l border-divider bg-white overflow-y-auto flex-shrink-0">
       <div className="py-10 px-8">
         {/* Featured Posts */}
         <section className="mb-10">

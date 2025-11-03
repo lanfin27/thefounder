@@ -31,22 +31,22 @@ export default function RootLayout({
         <AuthProvider>
           <ToastProvider>
             <ClientLayout>
-              {/* Header - Fixed at top */}
+              {/* Fixed Header */}
               <Header />
 
-              {/* Main Layout - 3 columns with single scroll */}
-              <div className="flex h-[calc(100vh-56px)] overflow-hidden max-w-[1440px] mx-auto">
-                {/* Left Sidebar - Scrollable */}
+              {/* Main Container - 3 Column Layout */}
+              <div className="flex h-[calc(100vh-56px)]">
+                {/* Left Sidebar - Independent Scroll */}
                 <Sidebar />
 
-                {/* Main Content - Scrollable */}
-                <main className="flex-1 overflow-y-auto">
+                {/* Main Content Area - Independent Scroll */}
+                <main className="flex-1 overflow-y-auto bg-white">
                   <div className="max-w-[680px] mx-auto px-6 py-8">
                     {children}
                   </div>
                 </main>
 
-                {/* Right Sidebar - Scrollable */}
+                {/* Right Sidebar - Independent Scroll */}
                 <RightSidebar />
               </div>
             </ClientLayout>
