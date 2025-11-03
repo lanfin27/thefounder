@@ -106,13 +106,14 @@
     box-sizing: border-box;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    font-family: var(--font-sans);
-    color: var(--color-text-primary);
-    background: var(--color-bg-primary);
+    @apply bg-surface-0 text-ink-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Medium 스타일 타이포그래피 */

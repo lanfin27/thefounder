@@ -286,3 +286,70 @@ export interface FormState<T = any> {
 export type ActionType<T extends string, P = void> = P extends void
   ? { type: T }
   : { type: T; payload: P }
+
+// Content Platform Types (The Founder)
+export interface Category {
+  id: string
+  name: string
+  slug: string
+  emoji: string
+  description: string
+  count?: number
+}
+
+export interface PostMeta {
+  id: string
+  title: string
+  slug: string
+  summary: string
+  category: string
+  coverImage?: string
+  author: string
+  authorAvatar?: string
+  publishedAt: string
+  readingTime: number
+  viewCount?: number
+  likeCount?: number
+  featured?: boolean
+  tags?: string[]
+}
+
+export interface ContentCardProps {
+  post: PostMeta
+  layout?: 'default' | 'featured' | 'compact'
+  showCategory?: boolean
+  showAuthor?: boolean
+  className?: string
+}
+
+export interface Author {
+  id: string
+  name: string
+  email: string
+  avatar?: string
+  bio?: string
+  website?: string
+  socialLinks?: {
+    twitter?: string
+    linkedin?: string
+    github?: string
+  }
+}
+
+export interface Newsletter {
+  email: string
+  subscribedAt: string
+  status: 'active' | 'unsubscribed'
+  preferences?: string[]
+}
+
+export interface NavigationItem {
+  label: string
+  href: string
+  external?: boolean
+}
+
+export interface FooterSection {
+  title: string
+  links: NavigationItem[]
+}
