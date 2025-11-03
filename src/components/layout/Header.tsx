@@ -1,82 +1,140 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Search, Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Search, Menu, X, Edit3 } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
+  { name: 'For you', href: '/' },
   { name: '트렌드', href: '/trend' },
   { name: '인사이트', href: '/insight' },
   { name: '사례', href: '/casestudy' },
   { name: '블로그', href: '/blog' },
-]
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-surface-0 border-b border-border-100">
-      <nav className="container mx-auto px-4 max-w-container">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-border-light">
+      <div className="container-site">
+        <div className="flex h-14 items-center justify-between">
+          {/* Left: Logo & Nav */}
+          <div className="flex items-center gap-8">
+            {/* Logo */}
             <Link href="/" className="flex items-center">
-              <h1 className="text-h3 font-bold text-ink-900">
+              <span className="text-h3 font-serif font-bold text-ink-900">
                 The Founder
-              </h1>
+              </span>
             </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-6">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`text-small transition-colors relative ${
+                      isActive
+                        ? 'text-ink-900 font-medium'
+                        : 'text-ink-600 hover:text-ink-900'
+                    }`}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute -bottom-[14px] left-0 right-0 h-[1px] bg-ink-900"
+                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-body-sm text-ink-500 hover:text-ink-900 transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Actions */}
-          <div className="flex items-center space-x-4">
+          {/* Right: Actions */}
+          <div className="flex items-center gap-4">
+            {/* Search */}
             <button
-              className="text-ink-500 hover:text-ink-900 transition-colors"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="hidden sm:flex p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="h-5 w-5" />
             </button>
 
-            <Link href="/auth/login" className="hidden md:inline-flex">
-              <button className="text-body-sm text-ink-500 hover:text-ink-900 transition-colors">
-                로그인
-              </button>
+            {/* Write Button */}
+            <Link
+              href="/write"
+              className="hidden md:flex items-center gap-2 px-4 py-2 text-small text-ink-700 hover:text-ink-900 transition-colors"
+            >
+              <Edit3 className="h-4 w-4" />
+              <span>Write</span>
             </Link>
 
-            <Link href="/membership" className="hidden md:inline-flex">
-              <button className="px-4 py-2 text-body-sm font-medium bg-ink-900 text-white rounded-full hover:bg-ink-700 transition-colors">
-                시작하기
-              </button>
+            {/* Sign In */}
+            <Link
+              href="/auth/signin"
+              className="hidden md:inline-flex px-4 py-2 text-small text-ink-900 hover:bg-ink-100 rounded-full transition-colors"
+            >
+              Sign In
+            </Link>
+
+            {/* Get Started */}
+            <Link
+              href="/auth/signup"
+              className="hidden md:inline-flex btn-medium-primary"
+            >
+              Get started
             </Link>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-ink-500 hover:text-ink-900 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              className="lg:hidden p-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
+              aria-label="Menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
         </div>
-      </nav>
+
+        {/* Search Bar (Expandable) */}
+        <AnimatePresence>
+          {searchOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden border-t border-border-light"
+            >
+              <div className="py-4">
+                <div className="relative max-w-md">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-ink-400" />
+                  <input
+                    type="text"
+                    placeholder="Search The Founder"
+                    className="w-full pl-10 pr-4 py-2 bg-ink-50 border border-border-light rounded-full text-small focus:outline-none focus:border-ink-900 transition-colors"
+                    autoFocus
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -85,41 +143,55 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-border-100 bg-surface-0"
+            className="lg:hidden border-t border-border-light bg-white"
           >
-            <div className="container mx-auto px-4 py-6 space-y-4">
-              {navigation.map((item) => (
+            <nav className="container-site py-4 flex flex-col gap-1">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`px-4 py-3 rounded-lg text-small transition-colors ${
+                      isActive
+                        ? 'bg-ink-100 text-ink-900 font-medium'
+                        : 'text-ink-700 hover:bg-ink-50'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+
+              <div className="mt-4 pt-4 border-t border-divider flex flex-col gap-2">
                 <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block text-body text-ink-700 hover:text-ink-900 transition-colors"
+                  href="/write"
+                  className="px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50 flex items-center gap-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  <Edit3 className="h-4 w-4" />
+                  <span>Write</span>
                 </Link>
-              ))}
-              <div className="pt-4 border-t border-border-100 space-y-3">
                 <Link
-                  href="/auth/login"
-                  className="block text-body text-ink-700 hover:text-ink-900 transition-colors"
+                  href="/auth/signin"
+                  className="px-4 py-3 rounded-lg text-small text-ink-700 hover:bg-ink-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  로그인
+                  Sign In
                 </Link>
                 <Link
-                  href="/membership"
+                  href="/auth/signup"
+                  className="btn-medium-primary text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <button className="w-full px-4 py-2 text-body-sm font-medium bg-ink-900 text-white rounded-full hover:bg-ink-700 transition-colors">
-                    시작하기
-                  </button>
+                  Get started
                 </Link>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }

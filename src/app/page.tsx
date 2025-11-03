@@ -1,267 +1,253 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Mail, ArrowRight, TrendingUp, Lightbulb, BookOpen, Pen } from 'lucide-react'
+import { TrendingUp, Bookmark, MoreHorizontal } from 'lucide-react'
 
-const categories = [
+// Trending posts data
+const trendingPosts = [
   {
-    id: 'trend',
-    name: '트렌드',
-    emoji: '🔥',
-    icon: TrendingUp,
-    description: '최신 스타트업 트렌드와 산업 동향',
-    color: 'from-red-500 to-orange-500',
-    count: 24,
+    id: '1',
+    number: '01',
+    title: '2025년 주목해야 할 AI 스타트업 트렌드 10가지',
+    author: 'The Founder',
+    category: '트렌드',
+    readingTime: 4,
   },
   {
-    id: 'insight',
-    name: '인사이트',
-    emoji: '💡',
-    icon: Lightbulb,
-    description: '성공한 창업가들의 깊이 있는 인사이트',
-    color: 'from-yellow-500 to-amber-500',
-    count: 18,
+    id: '2',
+    number: '02',
+    title: '토스 이승건 대표가 말하는 Product-Market Fit',
+    author: 'The Founder',
+    category: '인사이트',
+    readingTime: 5,
   },
   {
-    id: 'casestudy',
-    name: '사례',
-    emoji: '📚',
-    icon: BookOpen,
-    description: '실전 창업 사례와 성공/실패 스토리',
-    color: 'from-blue-500 to-cyan-500',
-    count: 32,
+    id: '3',
+    number: '03',
+    title: '월 매출 0원에서 1억까지, 6개월의 여정',
+    author: 'The Founder',
+    category: '사례',
+    readingTime: 6,
   },
   {
-    id: 'blog',
-    name: '블로그',
-    emoji: '✍️',
-    icon: Pen,
-    description: '창업 여정의 솔직한 이야기들',
-    color: 'from-purple-500 to-pink-500',
-    count: 15,
+    id: '4',
+    number: '04',
+    title: '1인 창업가를 위한 노코드 도구 총정리',
+    author: 'The Founder',
+    category: '트렌드',
+    readingTime: 7,
+  },
+  {
+    id: '5',
+    number: '05',
+    title: '실패한 스타트업에서 배운 5가지 교훈',
+    author: 'The Founder',
+    category: '인사이트',
+    readingTime: 8,
+  },
+  {
+    id: '6',
+    number: '06',
+    title: 'SaaS 제품으로 월 $10K MRR 달성하기',
+    author: 'The Founder',
+    category: '사례',
+    readingTime: 9,
   },
 ]
 
-const trendingPosts = [
+// Latest stories data
+const latestStories = [
   {
-    id: 1,
-    title: '2025년 주목해야 할 AI 스타트업 트렌드 10가지',
-    category: '트렌드',
-    readTime: 8,
-  },
-  {
-    id: 2,
-    title: '토스 이승건 대표가 말하는 Product-Market Fit 찾기',
+    id: '1',
+    title: '토스 이승건 대표가 말하는 Product-Market Fit 찾는 법',
+    excerpt: '하나의 기능으로 상황을 완전히 조작할 수 있다는 믿음. 제품 성장의 핵심은 무엇인지 토스의 사례를 통해 알아봅니다.',
+    author: 'The Founder',
     category: '인사이트',
-    readTime: 12,
+    publishedAt: 'Oct 27',
+    readingTime: 11,
   },
   {
-    id: 3,
-    title: '월 매출 0원에서 1억까지, 6개월의 여정',
+    id: '2',
+    title: '당근마켓은 어떻게 지역 커뮤니티를 장악했나',
+    excerpt: '하이퍼로컬 비즈니스의 성공 방정식을 당근마켓의 사례를 통해 분석합니다.',
+    author: 'The Founder',
     category: '사례',
-    readTime: 15,
+    publishedAt: 'Oct 26',
+    readingTime: 9,
+  },
+  {
+    id: '3',
+    title: '개발자 없이 월 $10K MRR 달성한 노코드 SaaS 스토리',
+    excerpt: 'Webflow, Airtable, Zapier만으로 글로벌 SaaS를 만든 1인 창업가의 여정',
+    author: 'The Founder',
+    category: '사례',
+    publishedAt: 'Oct 25',
+    readingTime: 15,
+  },
+  {
+    id: '4',
+    title: 'ChatGPT를 활용한 콘텐츠 자동화 시스템 구축',
+    excerpt: 'AI를 활용하여 콘텐츠 제작 시간을 90% 단축한 실전 사례와 구체적인 방법론',
+    author: 'The Founder',
+    category: '트렌드',
+    publishedAt: 'Oct 24',
+    readingTime: 12,
+  },
+  {
+    id: '5',
+    title: '뉴스레터로 월 $20K 버는 1인 창업가의 비법',
+    excerpt: 'Substack과 beehiiv를 활용한 뉴스레터 비즈니스 성장 전략',
+    author: 'The Founder',
+    category: '사례',
+    publishedAt: 'Oct 23',
+    readingTime: 10,
   },
 ]
 
 export default function HomePage() {
-  const [email, setEmail] = useState('')
-  const [isSubscribed, setIsSubscribed] = useState(false)
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-
-    // Simulate subscription
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setIsSubscribed(true)
-    setEmail('')
-
-    setTimeout(() => setIsSubscribed(false), 4000)
-  }
-
   return (
-    <div className="min-h-screen bg-surface-0">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-surface-0 to-surface-50 border-b border-border-100">
-        <div className="container mx-auto px-4 max-w-container py-section-lg">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-h1 font-bold text-ink-900 mb-6"
-            >
-              한국 1인 창업가를 위한{' '}
-              <span className="text-primary-600">깊이 있는 인사이트</span>
-            </motion.h1>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Medium Style */}
+      <section className="border-b border-divider bg-gradient-to-b from-ink-50 to-white">
+        <div className="container-site py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h1 className="text-hero font-serif font-bold text-ink-900 mb-6 leading-tight">
+              한국 1인 창업가를 위한
+              <br />
+              <span className="text-green-primary">깊이 있는 인사이트</span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-body-lg text-ink-700 mb-10"
-            >
-              실제로 성공한 창업가들의 인터뷰, 최신 트렌드 분석, 실전 사례를 매주 이메일로 받아보세요
-            </motion.p>
-
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              onSubmit={handleNewsletterSubmit}
-              className="max-w-md mx-auto"
-            >
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-400 w-5 h-5" />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="이메일 주소를 입력하세요"
-                    required
-                    className="w-full h-14 pl-12 pr-4 rounded-full border-2 border-border-200 bg-surface-0 text-body text-ink-900 focus:border-primary-600 focus:outline-none transition-colors"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="h-14 px-8 bg-primary-600 text-white font-semibold rounded-full hover:bg-primary-700 transition-colors whitespace-nowrap"
-                >
-                  무료 구독하기
-                </button>
-              </div>
-            </motion.form>
-
-            {isSubscribed && (
-              <motion.p
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="mt-4 text-body text-semantic-success font-medium"
-              >
-                ✓ 구독해주셔서 감사합니다!
-              </motion.p>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Trending Posts */}
-      <section className="border-b border-border-100 bg-surface-0">
-        <div className="container mx-auto px-4 max-w-container py-section">
-          <div className="flex items-center gap-2 mb-8">
-            <TrendingUp className="w-6 h-6 text-primary-600" />
-            <h2 className="text-h2 font-bold text-ink-900">지금 뜨는 글</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {trendingPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <Link href={`/posts/${post.id}`}>
-                  <div className="p-6 rounded-lg border border-border-100 bg-surface-0 hover:border-primary-600 hover:shadow-md transition-all">
-                    <span className="text-body-sm font-medium text-primary-600 mb-2 block">
-                      {post.category}
-                    </span>
-                    <h3 className="text-body-lg font-semibold text-ink-900 mb-3 group-hover:text-primary-600 transition-colors">
-                      {post.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-body-sm text-ink-500">
-                      <span>{post.readTime}분</span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        더 읽기 <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Categories */}
-      <section className="bg-surface-50">
-        <div className="container mx-auto px-4 max-w-container py-section-lg">
-          <h2 className="text-h2 font-bold text-ink-900 mb-4 text-center">
-            카테고리별로 둘러보기
-          </h2>
-          <p className="text-body-lg text-ink-700 mb-12 text-center">
-            관심 있는 주제를 선택하여 더 많은 콘텐츠를 만나보세요
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category, index) => (
-              <motion.div
-                key={category.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link href={`/${category.id}`}>
-                  <div className="group h-full p-8 rounded-xl border border-border-100 bg-surface-0 hover:border-primary-600 hover:shadow-lg transition-all">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <category.icon className="w-7 h-7 text-white" />
-                    </div>
-
-                    <h3 className="text-h3 font-bold text-ink-900 mb-2 group-hover:text-primary-600 transition-colors">
-                      {category.name}
-                    </h3>
-
-                    <p className="text-body-sm text-ink-600 mb-4">
-                      {category.description}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-body-sm text-ink-500">
-                        {category.count}개의 글
-                      </span>
-                      <ArrowRight className="w-5 h-5 text-primary-600 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter CTA */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-700">
-        <div className="container mx-auto px-4 max-w-container py-section">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-h2 font-bold text-white mb-4">
-              매주 화요일, 당신의 인박스에서 만나요
-            </h2>
-            <p className="text-body-lg text-primary-100 mb-8">
-              5,000명이 넘는 창업가들이 The Founder 뉴스레터를 구독하고 있습니다
+            <p className="text-subtitle text-ink-700 mb-8 max-w-2xl leading-relaxed">
+              실제 창업가들의 생생한 경험과 성공 사례를 통해 당신의 비즈니스를 한 단계 성장시키세요
             </p>
 
-            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="이메일 주소"
-                  required
-                  className="flex-1 h-14 px-6 rounded-full border-2 border-transparent bg-white text-body text-ink-900 focus:border-primary-300 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="h-14 px-8 bg-ink-900 text-white font-semibold rounded-full hover:bg-ink-700 transition-colors whitespace-nowrap"
-                >
-                  무료 구독
-                </button>
-              </div>
-            </form>
+            <Link
+              href="/explore"
+              className="inline-flex items-center btn-medium-primary text-base px-8 py-3"
+            >
+              Start reading
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trending Section - Medium's "Trending on Medium" */}
+      <section className="border-b border-divider py-10">
+        <div className="container-site">
+          <div className="flex items-center gap-3 mb-6">
+            <TrendingUp className="h-6 w-6" />
+            <h2 className="text-caption font-semibold tracking-tight uppercase">
+              Trending on The Founder
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+            {trendingPosts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/post/${post.id}`}
+                className="group flex gap-4 items-start"
+              >
+                <span className="text-3xl font-serif font-bold text-ink-200 pt-1">
+                  {post.number}
+                </span>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="avatar-medium w-5 h-5 bg-ink-900" />
+                    <span className="text-tiny text-ink-900 font-medium">
+                      {post.author}
+                    </span>
+                  </div>
+
+                  <h3 className="text-caption font-bold text-ink-900 mb-2 line-clamp-2 group-hover:underline">
+                    {post.title}
+                  </h3>
+
+                  <div className="flex items-center gap-2 text-tiny text-ink-600">
+                    <span>{post.category}</span>
+                    <span>·</span>
+                    <span>{post.readingTime} min read</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Stories - Medium Feed Style */}
+      <section className="py-12">
+        <div className="container-content">
+          <div className="mb-10">
+            <h2 className="text-h3 font-serif font-bold text-ink-900 mb-2">
+              Latest
+            </h2>
+            <p className="text-small text-ink-600">
+              최신 인사이트와 성공 사례를 만나보세요
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {latestStories.map((story, index) => (
+              <article
+                key={story.id}
+                className="flex gap-8 pb-10 border-b border-divider last:border-0"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="avatar-medium w-6 h-6 bg-ink-300" />
+                    <Link
+                      href={`/author/${story.author}`}
+                      className="text-tiny text-ink-900 hover:underline no-underline"
+                    >
+                      {story.author}
+                    </Link>
+                  </div>
+
+                  <Link href={`/post/${story.id}`} className="group">
+                    <h2 className="text-h3 font-serif font-bold text-ink-900 mb-2 group-hover:underline">
+                      {story.title}
+                    </h2>
+                    <p className="text-caption text-ink-700 mb-4 line-clamp-2 hidden sm:block">
+                      {story.excerpt}
+                    </p>
+                  </Link>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 text-tiny text-ink-600">
+                      <span className="badge-medium">{story.category}</span>
+                      <span>{story.publishedAt}</span>
+                      <span>·</span>
+                      <span>{story.readingTime} min read</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        className="p-2 -mr-2 rounded-full hover:bg-ink-100 transition-colors"
+                        aria-label="Bookmark"
+                      >
+                        <Bookmark className="h-5 w-5 text-ink-600" />
+                      </button>
+                      <button
+                        className="p-2 -mr-2 rounded-full hover:bg-ink-100 transition-colors"
+                        aria-label="More options"
+                      >
+                        <MoreHorizontal className="h-5 w-5 text-ink-600" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {index < 2 && (
+                  <div className="hidden md:block flex-shrink-0 w-40 h-32 bg-ink-200 rounded" />
+                )}
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <button className="btn-medium-secondary">Load more stories</button>
           </div>
         </div>
       </section>

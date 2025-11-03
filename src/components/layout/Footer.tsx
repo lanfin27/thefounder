@@ -1,105 +1,86 @@
 import Link from 'next/link'
-import { Twitter, Linkedin, Github, Mail } from 'lucide-react'
 
 const footerSections = [
   {
-    title: '콘텐츠',
+    title: 'About',
     links: [
-      { label: '트렌드', href: '/trend' },
-      { label: '인사이트', href: '/insight' },
-      { label: '사례', href: '/casestudy' },
-      { label: '블로그', href: '/blog' },
+      { name: 'About us', href: '/about' },
+      { name: 'Careers', href: '/careers' },
+      { name: 'Contact', href: '/contact' },
     ],
   },
   {
-    title: '서비스',
+    title: 'Legal',
     links: [
-      { label: '멤버십', href: '/membership' },
-      { label: '뉴스레터', href: '/newsletter' },
-      { label: '밸류에이션', href: '/valuation' },
+      { name: 'Terms', href: '/terms' },
+      { name: 'Privacy', href: '/privacy' },
+      { name: 'Guidelines', href: '/guidelines' },
     ],
   },
-  {
-    title: '회사',
-    links: [
-      { label: '소개', href: '/about' },
-      { label: '문의', href: '/contact' },
-      { label: '채용', href: '/careers' },
-    ],
-  },
-  {
-    title: '법적 고지',
-    links: [
-      { label: '이용약관', href: '/terms' },
-      { label: '개인정보처리방침', href: '/privacy' },
-    ],
-  },
-]
-
-const socialLinks = [
-  { icon: Twitter, href: 'https://twitter.com/thefounder', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/thefounder', label: 'LinkedIn' },
-  { icon: Github, href: 'https://github.com/thefounder', label: 'GitHub' },
-  { icon: Mail, href: 'mailto:hello@thefounder.kr', label: 'Email' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-50 border-t border-border-100">
-      <div className="container mx-auto px-4 max-w-container py-section">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-body-sm font-semibold text-ink-900 mb-4">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-body-sm text-ink-500 hover:text-ink-900 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    <footer className="border-t border-divider bg-white">
+      <div className="container-site py-12">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <span className="text-h3 font-serif font-bold text-ink-900">
+                The Founder
+              </span>
+            </Link>
+            <p className="text-small text-ink-600 max-w-xs">
+              한국 1인 창업가들의 성장을 돕는 인사이트 콘텐츠 허브
+            </p>
+          </div>
+
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-8">
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-small font-semibold text-ink-900 mb-3">
+                  {section.title}
+                </h3>
+                <ul className="space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="text-small text-ink-600 hover:text-ink-900 no-underline hover:underline transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border-100 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            {/* Logo and Copyright */}
-            <div className="flex flex-col items-center md:items-start gap-3">
-              <Link href="/">
-                <h3 className="text-h3 font-bold text-ink-900">
-                  The Founder
-                </h3>
-              </Link>
-              <p className="text-body-sm text-ink-500">
-                © {new Date().getFullYear()} The Founder. All rights reserved.
-              </p>
-            </div>
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-divider flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-tiny text-ink-600">
+            © {new Date().getFullYear()} The Founder
+          </p>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink-500 hover:text-ink-900 transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <Link
+              href="https://twitter.com/thefounder"
+              className="text-tiny text-ink-600 hover:text-ink-900 no-underline transition-colors"
+            >
+              Twitter
+            </Link>
+            <Link
+              href="https://linkedin.com/company/thefounder"
+              className="text-tiny text-ink-600 hover:text-ink-900 no-underline transition-colors"
+            >
+              LinkedIn
+            </Link>
           </div>
         </div>
       </div>
