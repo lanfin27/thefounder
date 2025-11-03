@@ -195,7 +195,16 @@ export default function CategoryChart({ categoryCode, onPeriodChange }: Category
               dataKey="timestamp"
               type="number"
               domain={['dataMin', 'dataMax']}
-              tickFormatter={(timestamp) => format(new Date(timestamp), 'MM/dd')}
+              tickFormatter={(timestamp) => {
+                // Show years for multi-year data
+                if (period === 'all' || period === '1y') {
+                  return format(new Date(timestamp), 'yyyy-MM/dd')
+                }
+                return format(new Date(timestamp), 'MM/dd')
+              }}
+              angle={period === 'all' || period === '1y' ? -45 : 0}
+              textAnchor={period === 'all' || period === '1y' ? 'end' : 'middle'}
+              height={period === 'all' || period === '1y' ? 80 : 50}
               stroke="#9ca3af"
             />
             <YAxis

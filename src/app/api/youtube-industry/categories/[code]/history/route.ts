@@ -45,17 +45,35 @@ export async function GET(
       console.log('[History API] 📅 Date range:', startDateStr, 'to', new Date().toISOString().split('T')[0])
       query = query.gte('date', startDateStr)
     } else {
-      // 전체 기간: 최대 7년으로 제한 (히스토리 생성 기간과 일치)
-      const sevenYearsAgo = new Date()
-      sevenYearsAgo.setFullYear(sevenYearsAgo.getFullYear() - 7)
-      startDateStr = sevenYearsAgo.toISOString().split('T')[0]
+      // 전체 기간: 실제 데이터의 최소 날짜부터 조회
+      console.log('[History API] 📅 Period: ALL - Fetching from earliest available data')
 
-      console.log('[History API] 🗓️  7-year limit: Fetching data from', startDateStr, 'to today')
+      // 먼저 실제 데이터의 최소 날짜 조회
+      const { data: minDateData } = await ytSupabase
+        .from('youtube_channel_history')
+        .select('date')
+        .eq('category_code', categoryCode)
+        .order('date', { ascending: true })
+        .limit(1)
+
+      if (minDateData && minDateData.length > 0) {
+        startDateStr = minDateData[0].date
+        console.log('[History API] ✅ Earliest date found:', startDateStr)
+      } else {
+        // 폴백: 데이터가 없으면 7년 전부터
+        const sevenYearsAgo = new Date()
+        sevenYearsAgo.setFullYear(sevenYearsAgo.getFullYear() - 7)
+        startDateStr = sevenYearsAgo.toISOString().split('T')[0]
+        console.log('[History API] ⚠️  No data found, using 7-year fallback:', startDateStr)
+      }
+
       query = query.gte('date', startDateStr)
     }
 
     // 카테고리별 일별 평균 조회수 조회
-    const { data, error } = await query.order('date', { ascending: true })
+    const { data, error } = await query
+      .order('date', { ascending: true })
+      .limit(10000)  // ✅ Supabase 기본 1000개 제한 해제!
 
     if (error) {
       console.error('[History API] ❌ Error:', error)
@@ -80,6 +98,11 @@ export async function GET(
     }
 
     console.log('[History API] 📊 Raw data:', data.length, 'records')
+
+    // ⚠️ 10,000개 제한에 걸렸는지 확인
+    if (data.length === 10000) {
+      console.warn('[History API] ⚠️ Hit 10,000 record limit! Some data may be truncated.')
+    }
 
     // ✅ 데이터 정제: null/0/undefined 값 필터링
     const validData = data.filter((record: any) => {
@@ -133,15 +156,15 @@ export async function GET(
       monthly: monthAgo ? ((latest - monthAgo) / monthAgo) * 100 : 0,
     }
 
-    // 7년 제한 통계
-    if (period === 'all' && chartData.length > 0) {
+    // 날짜 범위 통계
+    if (chartData.length > 0) {
       const oldestDate = chartData[0]?.date
       const newestDate = chartData[chartData.length - 1]?.date
       const yearSpan = oldestDate && newestDate
         ? ((new Date(newestDate).getTime() - new Date(oldestDate).getTime()) / (365.25 * 24 * 60 * 60 * 1000)).toFixed(1)
         : 'N/A'
 
-      console.log(`[History API] 📊 7-year filtered data:`, {
+      console.log(`[History API] 📊 Date range in data:`, {
         categoryCode,
         oldestDate,
         newestDate,
@@ -166,8 +189,10 @@ export async function GET(
       meta: {
         categoryCode,
         period,
-        sevenYearLimit: period === 'all' ? startDateStr : null,
+        startDate: period === 'all' ? startDateStr : null,
         recordCount: chartData.length,
+        rawRecordCount: data.length,
+        hitLimit: data.length === 10000,
         dateRange: chartData.length > 0 ? {
           start: chartData[0]?.date,
           end: chartData[chartData.length - 1]?.date,

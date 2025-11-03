@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/Badge'
 import { RefreshCw, Search, AlertCircle, WifiOff, Plus, Trash2, CheckCircle, XCircle, Loader2, ChevronRight, ChevronDown, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react'
 import { fetchWithRetry, getErrorMessage, logError, LogLevel } from '@/lib/utils/network'
 import { AddChannelModal } from './AddChannelModal'
+import { BulkUploadButton } from './BulkUploadButton'
 import {
   Select,
   SelectContent,
@@ -920,6 +921,8 @@ export function ChannelManager({
             <Plus className="h-4 w-4 mr-2" />
             채널 추가
           </Button>
+
+          <BulkUploadButton />
 
           <Button
             onClick={handleSimulation}

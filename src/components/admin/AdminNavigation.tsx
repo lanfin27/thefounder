@@ -14,7 +14,8 @@ import {
   Activity,
   FileText,
   BarChart3,
-  Settings
+  Settings,
+  Youtube
 } from 'lucide-react'
 
 const navigation = [
@@ -29,6 +30,12 @@ const navigation = [
     href: '/admin/sync',
     icon: FileText,
     description: 'Notion sync'
+  },
+  {
+    name: 'YouTube Industry Admin',
+    href: '/admin/youtube-industry',
+    icon: Youtube,
+    description: '실시간 API 사용량 및 시스템 모니터링'
   }
 ]
 

@@ -47,6 +47,7 @@ export async function GET(
         .eq('channel_id', channelId)
         .gte('date', startDateStr)
         .order('date', { ascending: true })
+        .limit(10000)  // ✅ Supabase 기본 1000개 제한 해제!
 
       if (periodError) {
         error = periodError
@@ -77,20 +78,38 @@ export async function GET(
         }
       }
     } else {
-      // 전체 기간: 최대 10년으로 제한
-      const tenYearsAgo = new Date()
-      tenYearsAgo.setFullYear(tenYearsAgo.getFullYear() - 10)
-      startDateStr = tenYearsAgo.toISOString().split('T')[0]
+      // 전체 기간: 실제 데이터의 최소 날짜부터 조회
+      console.log('[Channel History API] 📅 Period: ALL - Fetching from earliest available data')
 
-      console.log('[Channel History API] 🗓️  10-year limit: Fetching data from', startDateStr, 'to today')
+      // 먼저 실제 데이터의 최소 날짜 조회
+      const { data: minDateData } = await ytSupabase
+        .from('youtube_channel_history')
+        .select('date')
+        .eq('channel_id', channelId)
+        .order('date', { ascending: true })
+        .limit(1)
 
-      // 10년 이내 데이터 조회
+      if (minDateData && minDateData.length > 0) {
+        startDateStr = minDateData[0].date
+        console.log('[Channel History API] ✅ Earliest date found:', startDateStr)
+      } else {
+        // 폴백: 데이터가 없으면 10년 전부터
+        const tenYearsAgo = new Date()
+        tenYearsAgo.setFullYear(tenYearsAgo.getFullYear() - 10)
+        startDateStr = tenYearsAgo.toISOString().split('T')[0]
+        console.log('[Channel History API] ⚠️  No data found, using 10-year fallback:', startDateStr)
+      }
+
+      console.log('[Channel History API] 📅 Date range:', startDateStr, 'to', new Date().toISOString().split('T')[0])
+
+      // 전체 데이터 조회
       const result = await ytSupabase
         .from('youtube_channel_history')
         .select('date, views_per_video, channel_id')
         .eq('channel_id', channelId)
         .gte('date', startDateStr)
         .order('date', { ascending: true })
+        .limit(10000)  // ✅ Supabase 기본 1000개 제한 해제!
 
       data = result.data || []
       error = result.error
@@ -196,6 +215,11 @@ export async function GET(
 
     console.log('[Channel History API] 📊 Raw data:', data.length, 'records')
 
+    // ⚠️ 10,000개 제한에 걸렸는지 확인
+    if (data.length === 10000) {
+      console.warn('[Channel History API] ⚠️ Hit 10,000 record limit! Some data may be truncated.')
+    }
+
     // ✅ 데이터 정제: null/0/undefined 값 필터링
     const cleanedData = data
       .filter((record: any) => {
@@ -228,7 +252,7 @@ export async function GET(
       console.log('[Channel History API] 🗑️  Filtered out:', filteredCount, 'invalid records')
     }
 
-    // 10년 제한 통계 (all 기간일 때)
+    // 날짜 범위 통계 (all 기간일 때)
     if (period === 'all' && cleanedData.length > 0) {
       const oldestDate = cleanedData[0]?.date
       const newestDate = cleanedData[cleanedData.length - 1]?.date
@@ -236,7 +260,7 @@ export async function GET(
         ? ((new Date(newestDate).getTime() - new Date(oldestDate).getTime()) / (365.25 * 24 * 60 * 60 * 1000)).toFixed(1)
         : 'N/A'
 
-      console.log(`[Channel History API] 📊 10-year filtered data:`, {
+      console.log(`[Channel History API] 📊 Date range in data:`, {
         channelId,
         oldestDate,
         newestDate,
@@ -251,10 +275,11 @@ export async function GET(
       meta: {
         channelId,
         period,
-        tenYearLimit: period === 'all' ? startDateStr : null,
+        startDate: period === 'all' ? startDateStr : null,
         originalCount: data.length,
         cleanedCount: cleanedData.length,
         filteredCount,
+        hitLimit: data.length === 10000,
         dateRange: cleanedData.length > 0 ? {
           start: cleanedData[0]?.date,
           end: cleanedData[cleanedData.length - 1]?.date,
