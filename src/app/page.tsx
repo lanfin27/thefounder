@@ -1,6 +1,6 @@
 import { FeaturedVisual } from '@/components/sections/FeaturedVisual';
 import { NewsletterInline } from '@/components/sections/NewsletterInline';
-import { LatestStoriesInfinite } from '@/components/sections/LatestStoriesInfinite';
+import { LatestPosts } from '@/components/sections/LatestPosts';
 
 // Mock data
 const latestStories = [
@@ -60,10 +60,8 @@ export default function HomePage() {
       {/* Newsletter Section - max-w-7xl 적용 */}
       <NewsletterInline />
 
-      {/* Latest Stories Section - Infinite Scroll */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <LatestStoriesInfinite initialStories={latestStories} />
-      </div>
+      {/* 🔥 Latest Posts Section - Medium Style */}
+      <LatestPosts />
     </div>
   );
 }
