@@ -10,12 +10,9 @@ export default function Header() {
 
   return (
     <>
-      {/* 🚨 sticky 제거 (layout에서 fixed 처리) */}
+      {/* 🔥 max-w 컨테이너 제거 - Header가 화면 전체 폭 사용 */}
       <header className="bg-white border-b border-gray-200">
-        <div className="w-full">
-          <div className="max-w-[1400px] mx-auto">
-            {/* 🚨 중요: px-6 (양쪽 패딩) + justify-between (강제 양끝) */}
-            <div className="flex items-center justify-between h-16 px-6">
+        <div className="flex items-center justify-between h-16 px-6">
 
               {/* 🚨 왼쪽: 햄버거 + 로고 (완전히 왼쪽 끝) */}
               <div className="flex items-center gap-3 flex-shrink-0">
@@ -72,25 +69,23 @@ export default function Header() {
                 >
                   Get started
                 </Link>
-              </div>
-            </div>
-
-            {/* Mobile Search Bar */}
-            {isSearchOpen && (
-              <div className="px-6 pb-4 md:hidden">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="w-full pl-12 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-gray-300 focus:bg-white"
-                    autoFocus
-                  />
-                </div>
-              </div>
-            )}
           </div>
         </div>
+
+        {/* Mobile Search Bar */}
+        {isSearchOpen && (
+          <div className="px-6 pb-4 md:hidden">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full pl-12 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-gray-300 focus:bg-white"
+                autoFocus
+              />
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Mobile Sidebar */}
