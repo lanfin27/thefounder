@@ -33,7 +33,8 @@ export default function RootLayout({
             <ClientLayout>
               <SidebarProvider>
                 {/* 🚨 Header를 완전히 독립적으로 (fixed로 화면 전체 폭) */}
-                <div className="fixed top-0 left-0 right-0 z-50">
+                {/* 🔥 z-[100]으로 Sidebar들 위에 표시 */}
+                <div className="fixed top-0 left-0 right-0 z-[100]">
                   <Header />
                 </div>
 
