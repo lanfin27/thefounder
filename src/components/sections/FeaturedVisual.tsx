@@ -74,6 +74,7 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
   const leftPost = displayPosts[0];
   const centerPost = displayPosts[1]; // 중앙 큰 포스트
   const rightPosts = displayPosts.slice(2, 4); // 오른쪽 2개
+  const extraPost = displayPosts[4]; // 🆕 5번째 포스트
 
   return (
     <section className="w-full bg-white border-b border-gray-100">
@@ -91,7 +92,7 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
         </div>
 
         {/* 🚨 낭만투자파트너스 레이아웃: 1 + 1(큰) + 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
 
           {/* 왼쪽: 작은 카드 1개 */}
           <Link
@@ -197,6 +198,44 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
             ))}
           </div>
         </div>
+
+        {/* 🆕 5번째 포스트 (하단, 전체 폭) */}
+        {extraPost && (
+          <Link
+            href={`/posts/${extraPost.slug}`}
+            className="group flex gap-6 p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
+          >
+            <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-lg">
+              {extraPost.image_url && (
+                <Image
+                  src={extraPost.image_url}
+                  alt={extraPost.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="192px"
+                />
+              )}
+            </div>
+            <div className="flex-1 space-y-2">
+              {extraPost.category && (
+                <span className="text-xs font-semibold text-gray-500 uppercase">
+                  {extraPost.category}
+                </span>
+              )}
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                {extraPost.title}
+              </h3>
+              {extraPost.excerpt && (
+                <p className="text-gray-600 text-sm line-clamp-2">
+                  {extraPost.excerpt}
+                </p>
+              )}
+              {extraPost.published_at && (
+                <p className="text-xs text-gray-400">{extraPost.published_at}</p>
+              )}
+            </div>
+          </Link>
+        )}
       </div>
     </section>
   );
