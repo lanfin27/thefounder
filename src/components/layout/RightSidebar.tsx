@@ -73,12 +73,12 @@ export function RightSidebar() {
 
   return (
     <aside className="hidden xl:block fixed right-0 top-14 bottom-0 w-[368px] border-l border-divider bg-white overflow-y-auto">
-      <div className="py-10 px-8">
+      <div className="py-10 px-8 font-sans">
         {/* Founder Picks */}
         <section className="mb-10">
           <div className="flex items-center gap-2 mb-4">
             <Sparkles className="h-4 w-4 text-green-primary" />
-            <h2 className="text-sm font-bold text-ink-900">
+            <h2 className="text-sm font-bold text-ink-900 font-sans">
               Founder Picks
             </h2>
           </div>
@@ -120,7 +120,7 @@ export function RightSidebar() {
 
         {/* Topics (키워드 기반) */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-ink-900 mb-4">
+          <h2 className="text-sm font-bold text-ink-900 mb-4 font-sans">
             Topics
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -149,7 +149,7 @@ export function RightSidebar() {
 
         {/* Reading List */}
         <section className="mb-10 p-5 bg-ink-50 rounded-xl">
-          <h2 className="text-sm font-bold text-ink-900 mb-3">
+          <h2 className="text-sm font-bold text-ink-900 mb-3 font-sans">
             Reading List
           </h2>
           <div className="flex items-start gap-3 mb-4">

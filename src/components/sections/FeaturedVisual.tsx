@@ -71,10 +71,10 @@ export function FeaturedVisual() {
   const lastPost = featuredPosts[5];
 
   return (
-    <section className="pt-8 pb-12 px-6 bg-white">
+    <section className="pb-12 px-6 bg-white">
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 pt-8">
           <div>
             <span className="inline-block px-3 py-1 bg-green-light text-green-primary text-xs font-semibold rounded-full mb-2">
               FEATURED
@@ -93,7 +93,7 @@ export function FeaturedVisual() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 bg-white">
           {/* Main Featured (Left - 2 columns on desktop) */}
           <Link
             href={`/post/${mainPost.slug}`}
@@ -124,7 +124,7 @@ export function FeaturedVisual() {
           </Link>
 
           {/* Right Column - 2x2 Grid */}
-          <div className="lg:col-span-1 grid grid-cols-1 gap-4">
+          <div className="lg:col-span-1 grid grid-cols-1 gap-4 bg-white">
             {gridPosts.map((post) => (
               <Link
                 key={post.id}

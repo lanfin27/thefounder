@@ -53,7 +53,7 @@ const latestStories = [
 
 export default function HomePage() {
   return (
-    <div className="pb-16">
+    <div className="bg-white">
       {/* Featured Visual Section - 낭만파트너스 스타일 */}
       <FeaturedVisual />
 

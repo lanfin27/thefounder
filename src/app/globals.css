@@ -1,77 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  /* Base Styles */
   * {
     @apply antialiased;
   }
 
   html {
     font-size: 100%;
-    /* overflow 제거 - 자연스러운 전체 페이지 스크롤 */
   }
 
   body {
-    @apply bg-white text-ink-900 font-sans;
+    @apply bg-white text-ink-900;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* overflow 제거 - 전체 페이지 스크롤 */
   }
 
-  /* Medium-style Typography */
+  /* 모든 헤딩을 Sans로 강제 */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-ink-900;
-    font-feature-settings: 'liga' 1, 'calt' 1;
+    @apply text-ink-900;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
+    font-weight: 700;
   }
 
   h1 {
-    @apply text-h1;
+    @apply text-4xl lg:text-5xl leading-tight;
   }
 
   h2 {
-    @apply text-h2;
+    @apply text-3xl lg:text-4xl leading-snug;
   }
 
   h3 {
-    @apply text-h3;
+    @apply text-2xl lg:text-3xl;
   }
 
-  /* Body text - 21px is crucial for readability */
   p {
-    @apply text-body text-ink-900 mb-6;
-    font-feature-settings: 'liga' 1, 'calt' 1;
+    @apply text-base lg:text-lg text-ink-700 leading-relaxed;
   }
 
-  /* Links - 기본은 밑줄 없음 */
+  /* Links */
   a {
     @apply text-ink-900 no-underline transition-colors duration-200;
   }
 
-  /* 본문 내 링크만 밑줄 */
-  article a:not(.no-underline),
-  .prose a {
-    @apply underline decoration-1 underline-offset-2;
-  }
-
-  /* 호버 시 */
   a:hover {
-    @apply text-ink-700;
+    @apply text-green-primary;
   }
 
-  /* 네비게이션 링크 호버 */
-  nav a:hover,
-  header a:hover {
-    @apply underline;
-  }
-
-  /* Focus states */
+  /* Focus */
   *:focus-visible {
-    @apply outline-none ring-2 ring-ink-900 ring-offset-2;
+    @apply outline-none ring-2 ring-green-primary ring-offset-2;
   }
 
   /* Selection */
@@ -81,68 +62,18 @@
 }
 
 @layer components {
-  /* Container Variants */
-  .container-site {
-    @apply max-w-site mx-auto px-6 lg:px-8;
-  }
-
-  .container-content {
-    @apply max-w-container mx-auto px-6;
-  }
-
-  .container-article {
-    @apply max-w-article mx-auto px-6;
-  }
-
-  /* Card - Medium Style */
-  .card-medium {
-    @apply bg-white border border-border-light rounded-lg;
-    @apply transition-all duration-200;
-  }
-
-  .card-medium:hover {
-    @apply border-border-medium shadow-card;
-  }
-
-  /* Button Variants */
-  .btn-medium-primary {
-    @apply px-4 py-2 bg-green-primary text-white rounded-full;
-    @apply text-small font-medium transition-all duration-200;
-    @apply hover:bg-green-hover;
-  }
-
-  .btn-medium-secondary {
-    @apply px-4 py-2 border border-ink-900 text-ink-900 rounded-full;
-    @apply text-small font-medium transition-all duration-200;
-    @apply hover:bg-ink-900 hover:text-white;
-  }
-
-  .btn-medium-ghost {
-    @apply px-4 py-2 text-ink-700 rounded-full;
-    @apply text-small font-medium transition-all duration-200;
-    @apply hover:bg-ink-100;
-  }
-
-  /* Avatar */
-  .avatar-medium {
-    @apply rounded-full bg-ink-200 object-cover;
-  }
-
-  /* Divider */
-  .divider-medium {
-    @apply border-t border-divider;
-  }
-
-  /* Badge */
   .badge-medium {
     @apply inline-flex items-center px-3 py-1 rounded-full;
-    @apply text-tiny font-medium;
-    @apply bg-ink-100 text-ink-700;
+    @apply text-xs font-medium bg-ink-100 text-ink-700;
+  }
+
+  .badge-small {
+    @apply inline-flex items-center px-2 py-0.5 rounded;
+    @apply text-xs font-medium bg-ink-100 text-ink-700;
   }
 }
 
 @layer utilities {
-  /* Text truncation */
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -155,12 +86,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-
-  /* Smooth scroll */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
   }
 }
 
