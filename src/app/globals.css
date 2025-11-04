@@ -107,3 +107,16 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+
+/* CRITICAL: Remove ALL spacing above Featured section */
+main > div:first-child,
+main > section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* CRITICAL: Remove spacing after header */
+header + * {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}

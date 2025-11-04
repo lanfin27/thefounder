@@ -53,8 +53,8 @@ const latestStories = [
 
 export default function HomePage() {
   return (
-    <div className="bg-white">
-      {/* Featured Visual Section - 낭만파트너스 스타일 */}
+    <div className="min-h-screen">
+      {/* NO padding, NO margin, NO gaps */}
       <FeaturedVisual />
 
       {/* Newsletter - Featured 바로 아래 */}

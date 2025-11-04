@@ -71,10 +71,10 @@ export function FeaturedVisual() {
   const lastPost = featuredPosts[5];
 
   return (
-    <section className="pb-12 px-6 bg-white">
+    <section className="mt-0 pb-12 px-6 bg-white">
       <div className="max-w-[1200px] mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center justify-between mb-8 pt-8">
+        {/* Section Header - NO top spacing */}
+        <div className="flex items-center justify-between mb-8 pt-6">
           <div>
             <span className="inline-block px-3 py-1 bg-green-light text-green-primary text-xs font-semibold rounded-full mb-2">
               FEATURED
