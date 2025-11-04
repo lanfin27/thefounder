@@ -1,86 +1,77 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, ArrowRight } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export function NewsletterInline() {
   const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setStatus('loading');
 
-    try {
-      // API 호출 로직 추가
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Mock
+    // TODO: Newsletter signup API
+    setTimeout(() => {
       setStatus('success');
       setEmail('');
-    } catch (error) {
-      setStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+      setTimeout(() => setStatus('idle'), 3000);
+    }, 1000);
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-green-50 to-green-100">
+    <section className="w-full bg-gradient-to-br from-green-50 to-emerald-50 py-16">
+      {/* 🚨 중요: max-w-7xl로 Featured와 동일한 폭 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-primary/10 mb-6">
-          <Mail className="h-8 w-8 text-green-primary" />
-        </div>
 
-        <h2 className="text-3xl lg:text-4xl font-bold text-ink-900 mb-4">
-          매주 최고의 인사이트를 받아보세요
-        </h2>
+          {/* Icon */}
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-sm mb-6">
+            <Mail className="w-8 h-8 text-green-600" />
+          </div>
 
-        <p className="text-lg text-ink-700 mb-8">
-          1,000+ 창업가들이 구독 중인 The Founder 뉴스레터로
-          <br className="hidden sm:block" />
-          매주 엄선된 창업 인사이트를 받아보세요
-        </p>
+          {/* Heading */}
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            매주 최고의 인사이트를 받아보세요
+          </h2>
 
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
-          {status === 'success' ? (
-            <div className="p-4 bg-green-primary/10 text-green-primary rounded-xl text-sm font-medium">
-              ✨ 구독해주셔서 감사합니다! 이메일을 확인해주세요.
-            </div>
-          ) : (
-            <div className="flex gap-2">
-              <div className="flex-1 relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-ink-400" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="이메일 주소를 입력하세요"
-                  required
-                  className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-ink-200 focus:border-green-primary focus:outline-none transition-colors text-base"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="px-6 py-4 bg-green-primary text-white rounded-xl font-medium hover:bg-green-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 whitespace-nowrap"
-              >
-                {isSubmitting ? '처리중...' : '구독하기'}
-                <ArrowRight className="h-5 w-5" />
-              </button>
+          {/* Subheading */}
+          <p className="text-lg text-gray-600 mb-8">
+            1,000+ 창업가들이 구독 중인 The Founder 뉴스레터로<br />
+            매주 엄선된 창업 인사이트를 받아보세요
+          </p>
+
+          {/* Form - max-w-xl로 Featured 폭과 조화 */}
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="이메일 주소를 입력하세요"
+              required
+              disabled={status === 'loading' || status === 'success'}
+              className="flex-1 px-5 py-3.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed text-base"
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading' || status === 'success'}
+              className="px-8 py-3.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 active:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-base shadow-sm hover:shadow"
+            >
+              {status === 'loading' ? '구독 중...' : status === 'success' ? '✓ 완료!' : '구독하기 →'}
+            </button>
+          </form>
+
+          {/* Status Messages */}
+          {status === 'success' && (
+            <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm font-medium inline-block">
+              ✓ 구독이 완료되었습니다!
             </div>
           )}
 
-          {status === 'error' && (
-            <p className="mt-3 text-sm text-red-600">
-              오류가 발생했습니다. 다시 시도해주세요.
-            </p>
-          )}
-        </form>
-
-        <p className="mt-4 text-sm text-ink-600">
-          언제든지 구독을 취소할 수 있습니다. 스팸은 절대 보내지 않습니다.
-        </p>
+          {/* Privacy Notice */}
+          <p className="mt-6 text-sm text-gray-500">
+            언제든지 구독을 취소할 수 있습니다. 스팸은 절대 보내지 않습니다.
+          </p>
         </div>
       </div>
     </section>

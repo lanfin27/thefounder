@@ -2,224 +2,174 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 
-interface FeaturedPost {
+interface Post {
   id: string;
-  slug: string;
   title: string;
-  excerpt: string;
-  category: string;
-  readingTime: number;
+  slug: string;
+  excerpt?: string;
+  category?: string;
   image_url?: string;
 }
 
-// Mock data - 나중에 Admin에서 제어
-const featuredPosts: FeaturedPost[] = [
-  {
-    id: '1',
-    slug: 'founder-mindset',
-    title: '위대한 창업가를 만드는 30가지 조언',
-    excerpt: '실제로 성공한 창업가들의 공통점',
-    category: '인사이트',
-    readingTime: 8,
-    image_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=675&fit=crop',
-  },
-  {
-    id: '2',
-    slug: 'ai-coding',
-    title: '코딩은 AI가 한다, 그럼 창업자는 뭘 해야 하나',
-    excerpt: 'Product의 시대에서 Distribution의 시대로',
-    category: '트렌드',
-    readingTime: 6,
-    image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop',
-  },
-  {
-    id: '3',
-    slug: 'gpt-automation',
-    title: '직접 만든 낭만GPT "김만반"에게 질문 해주세요',
-    excerpt: '자동화로 매출 500% 성장',
-    category: '사례',
-    readingTime: 10,
-    image_url: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=675&fit=crop',
-  },
-  {
-    id: '4',
-    slug: 'side-project',
-    title: '모두가 글로벌을 외치지만 한국의 자동차 금융 시장에 기회가 있습니다',
-    excerpt: '월 100만원에서 1000만원까지',
-    category: '사례',
-    readingTime: 7,
-    image_url: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1200&h=675&fit=crop',
-  },
-  {
-    id: '5',
-    slug: 'saas-growth',
-    title: 'SaaS 제품으로 월 $10K MRR 달성하기',
-    excerpt: '0에서 시작한 SaaS 성장 스토리',
-    category: '인사이트',
-    readingTime: 9,
-    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop',
-  },
-  {
-    id: '6',
-    slug: 'kpop-startup',
-    title: '혼돈의 KPOP 산업, 답은 어디에 있을까?',
-    excerpt: 'K-POP 산업의 미래와 기회',
-    category: '트렌드',
-    readingTime: 5,
-    image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=675&fit=crop',
-  },
-];
+interface FeaturedVisualProps {
+  posts?: Post[];
+}
 
-export function FeaturedVisual() {
-  // 첫 번째는 크게, 나머지는 2x2 그리드
-  const mainPost = featuredPosts[0];
-  const gridPosts = featuredPosts.slice(1, 5);
-  const lastPost = featuredPosts[5];
+export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
+  // 기본 포스트 데이터 (이미지 URL 포함)
+  const defaultPosts: Post[] = [
+    {
+      id: '1',
+      title: '위대한 창업가를 만드는 30가지 조언',
+      slug: 'great-founder-30-tips',
+      excerpt: '성공한 창업가들의 공통된 습관',
+      category: '트렌드',
+      image_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=675&fit=crop'
+    },
+    {
+      id: '2',
+      title: '코딩은 AI가 한다, 그럼 창업자는 뭘 해야 하나',
+      slug: 'ai-age-founder-role',
+      excerpt: 'AI 시대의 창업자 역할',
+      category: '인사이트',
+      image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop'
+    },
+    {
+      id: '3',
+      title: '성공 하려면? 실패하는 방법 한 가지만 피하면 된다',
+      slug: 'how-to-succeed',
+      excerpt: '실패 패턴 분석',
+      category: '사례',
+      image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop'
+    },
+    {
+      id: '4',
+      title: '모든 것은 임직원 채용 방법에 따라 결정됩니다',
+      slug: 'hiring-strategy',
+      excerpt: '채용이 회사를 만든다',
+      category: '블로그',
+      image_url: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=675&fit=crop'
+    },
+    {
+      id: '5',
+      title: 'SaaS로 $10K MRR 달성하기',
+      slug: 'saas-10k-mrr',
+      excerpt: 'B2B SaaS 성장 전략',
+      category: '사례',
+      image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop'
+    },
+  ];
+
+  const displayPosts = posts.length > 0 ? posts : defaultPosts;
+  const featuredPost = displayPosts[0];
+  const sidePosts = displayPosts.slice(1, 5);
 
   return (
-    <section className="mt-0 pb-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header - NO top spacing */}
-        <div className="flex items-center justify-between mb-8 pt-6">
-          <div>
-            <span className="inline-block px-3 py-1 bg-green-light text-green-primary text-xs font-semibold rounded-full mb-2">
-              FEATURED
-            </span>
-            <h2 className="text-3xl font-bold text-ink-900">
-              주목할 만한 이야기
-            </h2>
-          </div>
-          <Link
-            href="/featured"
-            className="hidden md:flex items-center gap-2 text-sm text-green-primary hover:text-green-hover font-medium transition-colors"
-          >
-            전체 보기
-            <ChevronRight className="h-4 w-4" />
-          </Link>
+    <section className="w-full bg-white">
+      {/* Container - 낭만투자파트너스와 동일한 max-w-7xl */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+
+        {/* Header */}
+        <div className="mb-8">
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
+            FEATURED
+          </p>
+          <h2 className="text-2xl font-bold text-gray-900">
+            주목할 만한 이야기
+          </h2>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main Featured (Left - 2 columns on desktop) */}
+        {/* Grid Layout - gap-4로 공백 최소화 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+          {/* Left: Main Featured Card */}
           <Link
-            href={`/post/${mainPost.slug}`}
-            className="lg:col-span-2 group relative overflow-hidden rounded-xl bg-gray-900 block"
-            style={{ aspectRatio: '16/9' }}
+            href={`/posts/${featuredPost.slug}`}
+            className="group relative block overflow-hidden rounded-lg bg-gray-900"
+            style={{
+              aspectRatio: '16/9',
+            }}
           >
-            {/* Background Image or Gradient */}
-            {mainPost.image_url ? (
-              <Image
-                src={mainPost.image_url}
-                alt={mainPost.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 66vw"
-              />
-            ) : (
-              <div className="absolute inset-0">
-                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+            {/* Background Image */}
+            {featuredPost.image_url && (
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src={featuredPost.image_url}
+                  alt={featuredPost.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                  quality={85}
+                />
               </div>
             )}
 
-            {/* Content Overlay */}
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-              <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">
-                {mainPost.category}
-              </span>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-2 group-hover:text-green-light transition-colors leading-tight">
-                {mainPost.title}
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              {featuredPost.category && (
+                <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium mb-3">
+                  {featuredPost.category}
+                </span>
+              )}
+              <h3 className="text-xl font-bold mb-2 line-clamp-2">
+                {featuredPost.title}
               </h3>
-              <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                {mainPost.excerpt}
-              </p>
-              <div className="flex items-center gap-2 text-white/60 text-xs">
-                <span>{mainPost.readingTime}분 읽기</span>
-              </div>
+              {featuredPost.excerpt && (
+                <p className="text-gray-200 text-sm line-clamp-2">
+                  {featuredPost.excerpt}
+                </p>
+              )}
             </div>
           </Link>
 
-          {/* Right Column - 2x2 Grid */}
-          <div className="lg:col-span-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-            {gridPosts.map((post) => (
+          {/* Right: 4 Small Cards in 2x2 Grid - gap-4 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {sidePosts.map((post) => (
               <Link
                 key={post.id}
-                href={`/post/${post.slug}`}
-                className="group relative overflow-hidden rounded-lg bg-gray-900 block"
-                style={{ aspectRatio: '16/9' }}
+                href={`/posts/${post.slug}`}
+                className="group relative block overflow-hidden rounded-lg bg-gray-900"
+                style={{
+                  aspectRatio: '16/9',
+                }}
               >
-                {/* Background Image or Gradient */}
-                {post.image_url ? (
-                  <Image
-                    src={post.image_url}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                  />
-                ) : (
-                  <div className="absolute inset-0">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
+                {/* Background Image */}
+                {post.image_url && (
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={post.image_url}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      quality={85}
+                    />
                   </div>
                 )}
 
-                {/* Content Overlay */}
+                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-medium rounded-full mb-2">
-                    {post.category}
-                  </span>
-                  <h3 className="text-sm font-bold text-white mb-1 group-hover:text-green-light transition-colors line-clamp-2 leading-snug">
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  {post.category && (
+                    <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs font-medium mb-2">
+                      {post.category}
+                    </span>
+                  )}
+                  <h3 className="text-sm font-semibold line-clamp-2">
                     {post.title}
                   </h3>
-                  <span className="text-white/60 text-[10px]">
-                    {post.readingTime}분
-                  </span>
                 </div>
               </Link>
             ))}
           </div>
         </div>
-
-        {/* Bottom Featured */}
-        <Link
-          href={`/post/${lastPost.slug}`}
-          className="mt-6 group relative overflow-hidden rounded-lg bg-gray-900 hidden lg:block"
-          style={{ aspectRatio: '21/9' }}
-        >
-          {/* Background Image or Gradient */}
-          {lastPost.image_url ? (
-            <Image
-              src={lastPost.image_url}
-              alt={lastPost.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="100vw"
-            />
-          ) : (
-            <div className="absolute inset-0">
-              <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
-            </div>
-          )}
-
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
-
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 p-8">
-            <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">
-              {lastPost.category}
-            </span>
-            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-green-light transition-colors max-w-xl leading-snug">
-              {lastPost.title}
-            </h3>
-            <p className="text-white/80 text-sm max-w-md">
-              {lastPost.excerpt}
-            </p>
-          </div>
-        </Link>
       </div>
     </section>
   );
