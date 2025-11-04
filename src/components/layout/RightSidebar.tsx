@@ -2,9 +2,23 @@
 
 import Link from 'next/link';
 import { TrendingUp, Bookmark, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-// Mock data
-const founderPicks = [
+interface Topic {
+  id: string;
+  label: string;
+  count: number;
+}
+
+interface FounderPick {
+  id: string;
+  title: string;
+  category: string;
+  readingTime: number;
+}
+
+// Initial mock data - Will be replaced by API
+const INITIAL_FOUNDER_PICKS: FounderPick[] = [
   {
     id: '1',
     title: '위대한 창업가를 만드는 30가지 조건',
@@ -25,133 +39,142 @@ const founderPicks = [
   },
 ];
 
-const topics = [
-  { name: '🔥 트렌드', href: '/trend', count: 24 },
-  { name: '🎬 인사이트', href: '/insight', count: 31 },
-  { name: '📚 사례', href: '/case', count: 42 },
-  { name: '✍️ 블로그', href: '/blog', count: 18 },
+const INITIAL_TOPICS: Topic[] = [
+  { id: 'startup', label: '스타트업', count: 24 },
+  { id: 'ai', label: 'AI', count: 31 },
+  { id: 'saas', label: 'SaaS', count: 42 },
+  { id: 'marketing', label: '마케팅', count: 18 },
+  { id: 'product', label: '제품개발', count: 15 },
+  { id: 'growth', label: '성장전략', count: 22 },
+  { id: 'funding', label: '투자유치', count: 12 },
+  { id: 'solo', label: '1인창업', count: 28 },
 ];
 
 export function RightSidebar() {
+  const [topics, setTopics] = useState<Topic[]>(INITIAL_TOPICS);
+  const [founderPicks, setFounderPicks] = useState<FounderPick[]>(INITIAL_FOUNDER_PICKS);
+
+  useEffect(() => {
+    // Load from API
+    loadHomepageConfig();
+  }, []);
+
+  const loadHomepageConfig = async () => {
+    try {
+      // TODO: Uncomment when API is ready
+      // const response = await fetch('/api/homepage/config');
+      // const data = await response.json();
+      // if (data.founder_picks) setFounderPicks(data.founder_picks);
+      // if (data.topics) setTopics(data.topics);
+    } catch (error) {
+      console.error('Failed to load homepage config:', error);
+    }
+  };
+
   return (
     <aside className="hidden xl:block fixed right-0 top-14 bottom-0 w-[368px] border-l border-divider bg-white overflow-y-auto">
-      <div className="py-8 px-6 space-y-8">
+      <div className="py-10 px-8">
         {/* Founder Picks */}
-        <section>
+        <section className="mb-10">
           <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="h-5 w-5 text-green-primary" />
-            <h3 className="text-base font-bold text-ink-900">
+            <Sparkles className="h-4 w-4 text-green-primary" />
+            <h2 className="text-sm font-bold text-ink-900">
               Founder Picks
-            </h3>
+            </h2>
           </div>
-          <div className="space-y-4">
-            {founderPicks.map((pick) => (
+
+          <div className="space-y-5">
+            {founderPicks.map((post, index) => (
               <Link
-                key={pick.id}
-                href={`/post/${pick.id}`}
+                key={post.id}
+                href={`/post/${post.id}`}
                 className="block group"
               >
-                <div className="space-y-1">
-                  <h4 className="text-sm font-semibold text-ink-900 leading-snug group-hover:text-green-primary transition-colors line-clamp-2">
-                    {pick.title}
-                  </h4>
-                  <div className="flex items-center gap-2 text-xs text-ink-600">
-                    <span className="badge-small">{pick.category}</span>
-                    <span>·</span>
-                    <span>{pick.readingTime}분 읽기</span>
+                <div className="flex items-start gap-3">
+                  <span className="text-[28px] font-bold text-ink-200 leading-none mt-1">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-sm font-bold text-ink-900 group-hover:underline line-clamp-2 leading-snug mb-1">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-[11px] text-ink-600">
+                      <span className="px-2 py-0.5 bg-ink-100 rounded">
+                        {post.category}
+                      </span>
+                      <span>{post.readingTime}분</span>
+                    </div>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
+
           <Link
             href="/featured"
-            className="inline-flex items-center gap-1 mt-4 text-sm text-green-primary hover:text-green-hover font-medium transition-colors"
+            className="inline-block text-[13px] text-green-primary hover:text-green-hover font-medium mt-4"
           >
-            전체 보기
-            <span className="text-lg">→</span>
+            전체 보기 →
           </Link>
         </section>
 
-        {/* Divider */}
-        <div className="border-t border-divider" />
-
-        {/* Topics */}
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="h-5 w-5 text-green-primary" />
-            <h3 className="text-base font-bold text-ink-900">
-              Topics
-            </h3>
-          </div>
-          <div className="space-y-2">
+        {/* Topics (키워드 기반) */}
+        <section className="mb-10">
+          <h2 className="text-sm font-bold text-ink-900 mb-4">
+            Topics
+          </h2>
+          <div className="flex flex-wrap gap-2">
             {topics.map((topic) => (
               <Link
-                key={topic.name}
-                href={topic.href}
-                className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-ink-50 transition-colors group"
+                key={topic.id}
+                href={`/topic/${topic.id}`}
+                className="group inline-flex items-center gap-2 px-3 py-1.5 bg-ink-100 hover:bg-ink-200 rounded-full transition-colors"
               >
-                <span className="text-sm text-ink-700 group-hover:text-ink-900">
-                  {topic.name}
+                <span className="text-[13px] text-ink-900 font-medium">
+                  {topic.label}
                 </span>
-                <span className="text-xs text-ink-500">
+                <span className="text-[11px] text-ink-600">
                   {topic.count}
                 </span>
               </Link>
             ))}
           </div>
+          <Link
+            href="/topics"
+            className="inline-block text-[13px] text-green-primary hover:text-green-hover font-medium mt-4"
+          >
+            더 많은 토픽 →
+          </Link>
         </section>
-
-        {/* Divider */}
-        <div className="border-t border-divider" />
 
         {/* Reading List */}
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <Bookmark className="h-5 w-5 text-green-primary" />
-            <h3 className="text-base font-bold text-ink-900">
-              Reading List
-            </h3>
-          </div>
-          <div className="text-center py-8">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-ink-50 mb-3">
-              <Bookmark className="h-6 w-6 text-ink-400" />
-            </div>
-            <p className="text-sm text-ink-600 mb-4">
-              북마크한 글이 없습니다
+        <section className="mb-10 p-5 bg-ink-50 rounded-xl">
+          <h2 className="text-sm font-bold text-ink-900 mb-3">
+            Reading List
+          </h2>
+          <div className="flex items-start gap-3 mb-4">
+            <Bookmark className="h-5 w-5 text-ink-600 flex-shrink-0 mt-0.5" />
+            <p className="text-[13px] text-ink-700 leading-relaxed">
+              북마크를 클릭하여 글을 저장하고 나중에 읽을 수 있습니다
             </p>
-            <Link
-              href="/bookmarks"
-              className="inline-flex px-4 py-2 bg-ink-900 text-white rounded-full text-sm font-medium hover:bg-ink-800 transition-colors"
-            >
-              둘러보기
-            </Link>
           </div>
+          <button className="w-full px-4 py-2 bg-ink-900 text-white rounded-lg text-[13px] font-medium hover:bg-ink-800 transition-colors">
+            둘러보기
+          </button>
         </section>
 
-        {/* Footer Links */}
-        <div className="pt-4 border-t border-divider">
-          <div className="flex flex-wrap gap-x-3 gap-y-2 text-xs text-ink-500">
-            <Link href="/about" className="hover:text-ink-900 transition-colors">
-              About
-            </Link>
-            <span>·</span>
-            <Link href="/terms" className="hover:text-ink-900 transition-colors">
-              Terms
-            </Link>
-            <span>·</span>
-            <Link href="/privacy" className="hover:text-ink-900 transition-colors">
-              Privacy
-            </Link>
-            <span>·</span>
-            <Link href="/contact" className="hover:text-ink-900 transition-colors">
-              Contact
-            </Link>
+        {/* Footer */}
+        <footer className="border-t border-divider pt-6">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[12px] text-ink-600">
+            <Link href="/about" className="hover:text-ink-900">About</Link>
+            <Link href="/terms" className="hover:text-ink-900">Terms</Link>
+            <Link href="/privacy" className="hover:text-ink-900">Privacy</Link>
+            <Link href="/contact" className="hover:text-ink-900">Contact</Link>
           </div>
-          <p className="mt-3 text-xs text-ink-400">
-            © 2024 The Founder. All rights reserved.
+          <p className="text-[12px] text-ink-400 mt-4">
+            © 2025 The Founder. All rights reserved.
           </p>
-        </div>
+        </footer>
       </div>
     </aside>
   );

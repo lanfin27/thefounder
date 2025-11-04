@@ -71,7 +71,7 @@ export function FeaturedVisual() {
   const lastPost = featuredPosts[5];
 
   return (
-    <section className="pt-8 pb-12 px-6">
+    <section className="pt-8 pb-12 px-6 bg-white">
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
@@ -93,11 +93,11 @@ export function FeaturedVisual() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Main Featured (Left - 2 columns on desktop) */}
           <Link
             href={`/post/${mainPost.slug}`}
-            className="lg:col-span-2 group relative overflow-hidden rounded-2xl bg-ink-900 aspect-[16/9]"
+            className="lg:col-span-2 group relative overflow-hidden rounded-xl bg-ink-900 aspect-[16/9]"
           >
             {/* Gradient Background */}
             <div className="absolute inset-0">
@@ -105,31 +105,31 @@ export function FeaturedVisual() {
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-            <div className="absolute bottom-0 left-0 right-0 p-8">
+            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">
                 {mainPost.category}
               </span>
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-green-light transition-colors">
+              <h3 className="text-xl lg:text-2xl font-bold text-white mb-2 group-hover:text-green-light transition-colors leading-tight">
                 {mainPost.title}
               </h3>
-              <p className="text-white/80 text-sm mb-4 line-clamp-2">
+              <p className="text-white/80 text-sm mb-3 line-clamp-2">
                 {mainPost.excerpt}
               </p>
-              <div className="flex items-center gap-3 text-white/60 text-xs">
+              <div className="flex items-center gap-2 text-white/60 text-xs">
                 <span>{mainPost.readingTime}분 읽기</span>
               </div>
             </div>
           </Link>
 
           {/* Right Column - 2x2 Grid */}
-          <div className="lg:col-span-1 grid grid-cols-1 gap-6">
+          <div className="lg:col-span-1 grid grid-cols-1 gap-4">
             {gridPosts.map((post) => (
               <Link
                 key={post.id}
                 href={`/post/${post.slug}`}
-                className="group relative overflow-hidden rounded-xl bg-ink-900 aspect-[4/3]"
+                className="group relative overflow-hidden rounded-lg bg-ink-900 aspect-[4/3]"
               >
                 {/* Gradient Background */}
                 <div className="absolute inset-0">
@@ -137,13 +137,13 @@ export function FeaturedVisual() {
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] font-medium rounded-full mb-2">
+                  <span className="inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-medium rounded-full mb-2">
                     {post.category}
                   </span>
-                  <h3 className="text-sm font-bold text-white mb-1 group-hover:text-green-light transition-colors line-clamp-2">
+                  <h3 className="text-sm font-bold text-white mb-1 group-hover:text-green-light transition-colors line-clamp-2 leading-snug">
                     {post.title}
                   </h3>
                   <span className="text-white/60 text-[10px]">
@@ -158,19 +158,19 @@ export function FeaturedVisual() {
         {/* Bottom Featured */}
         <Link
           href={`/post/${lastPost.slug}`}
-          className="mt-6 group relative overflow-hidden rounded-xl bg-ink-900 aspect-[21/9] hidden lg:block"
+          className="mt-4 group relative overflow-hidden rounded-lg bg-ink-900 aspect-[21/9] hidden lg:block"
         >
           <div className="absolute inset-0">
             <div className="w-full h-full bg-gradient-to-br from-ink-800 to-ink-900" />
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent" />
 
           <div className="absolute left-0 top-1/2 -translate-y-1/2 p-8">
             <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">
               {lastPost.category}
             </span>
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-light transition-colors max-w-xl">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-green-light transition-colors max-w-xl leading-snug">
               {lastPost.title}
             </h3>
             <p className="text-white/80 text-sm max-w-md">
