@@ -214,3 +214,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     </div>
   );
 }
+
+// 🔥 Default export 추가 (양쪽 import 방식 모두 지원)
+export default SearchModal;

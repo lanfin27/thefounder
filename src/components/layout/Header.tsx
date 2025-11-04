@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Search, Menu, User, X } from 'lucide-react';
 import { useSidebar } from '@/components/layout/Sidebar';
-import { SearchModal } from '@/components/search/SearchModal';
+import SearchModal from '@/components/search/SearchModal';
 
 export default function Header() {
   const { toggle } = useSidebar();
