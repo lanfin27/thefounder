@@ -92,10 +92,10 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
         </div>
 
         {/* 🔥 낭만투자파트너스 레이아웃: (1+5) + 2(큰) + (3+4) */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
           {/* 왼쪽 열: 포스트1 + 포스트5 */}
-          <div className="space-y-6">
+          <div className="lg:col-span-3 space-y-6">
             {/* 포스트 1 */}
             <Link
               href={`/posts/${leftPost.slug}`}
@@ -161,45 +161,51 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
             )}
           </div>
 
-          {/* 중앙: 큰 카드 1개 (col-span-2) */}
-          <Link
-            href={`/posts/${centerPost.slug}`}
-            className="group lg:col-span-2"
-          >
-            <div className="relative w-full overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
-              {centerPost.image_url && (
-                <Image
-                  src={centerPost.image_url}
-                  alt={centerPost.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              )}
-            </div>
-            <div className="space-y-2">
-              {centerPost.category && (
-                <span className="text-xs font-semibold text-gray-500 uppercase">
-                  {centerPost.category}
-                </span>
-              )}
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                {centerPost.title}
-              </h3>
-              {centerPost.excerpt && (
-                <p className="text-gray-600 text-sm line-clamp-2">
-                  {centerPost.excerpt}
-                </p>
-              )}
-              {centerPost.published_at && (
-                <p className="text-xs text-gray-400">{centerPost.published_at}</p>
-              )}
-            </div>
-          </Link>
+          {/* 🔥 중앙: 큰 카드 1개 (col-span-6) - 높이 자동 조정 */}
+          <div className="lg:col-span-6">
+            <Link
+              href={`/posts/${centerPost.slug}`}
+              className="group block h-full"
+            >
+              <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-lg mb-4">
+                {centerPost.image_url && (
+                  <Image
+                    src={centerPost.image_url}
+                    alt={centerPost.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                )}
+                {/* 그라데이션 오버레이 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* 텍스트를 이미지 위에 배치 */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  {centerPost.category && (
+                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white mb-3">
+                      {centerPost.category}
+                    </span>
+                  )}
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors line-clamp-2">
+                    {centerPost.title}
+                  </h3>
+                  {centerPost.excerpt && (
+                    <p className="text-gray-200 text-sm line-clamp-2 mb-2">
+                      {centerPost.excerpt}
+                    </p>
+                  )}
+                  {centerPost.published_at && (
+                    <p className="text-xs text-gray-300">{centerPost.published_at}</p>
+                  )}
+                </div>
+              </div>
+            </Link>
+          </div>
 
           {/* 오른쪽: 작은 카드 2개 (세로 배치) */}
-          <div className="space-y-6">
+          <div className="lg:col-span-3 space-y-6">
             {rightPosts.map((post) => (
               <Link
                 key={post.id}
