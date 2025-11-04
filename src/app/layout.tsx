@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import { Sidebar, SidebarProvider } from '@/components/layout/Sidebar'
+import { RightSidebar } from '@/components/layout/RightSidebar'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/components/ui/Toast'
 import ClientLayout from '@/components/layout/ClientLayout'
@@ -34,11 +35,14 @@ export default function RootLayout({
                 {/* Fixed Header */}
                 <Header />
 
-                {/* Overlay Sidebar */}
+                {/* Left Sidebar */}
                 <Sidebar />
 
-                {/* Main Content - 전체 화면 스크롤 */}
-                <main className="pt-14 min-h-screen bg-white">
+                {/* Right Sidebar */}
+                <RightSidebar />
+
+                {/* Main Content - 전체 화면 스크롤 + Desktop에서 양쪽 Sidebar 여백 */}
+                <main className="pt-14 lg:pl-64 xl:pr-[368px] min-h-screen bg-white">
                   {children}
                 </main>
               </SidebarProvider>

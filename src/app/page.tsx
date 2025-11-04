@@ -1,6 +1,6 @@
 import { FeaturedVisual } from '@/components/sections/FeaturedVisual';
 import { NewsletterInline } from '@/components/sections/NewsletterInline';
-import { StoryCard } from '@/components/cards/StoryCard';
+import { LatestStoriesInfinite } from '@/components/sections/LatestStoriesInfinite';
 
 // Mock data
 const latestStories = [
@@ -53,27 +53,15 @@ const latestStories = [
 
 export default function HomePage() {
   return (
-    <>
+    <div className="pb-16">
       {/* Featured Visual Section - 낭만파트너스 스타일 */}
       <FeaturedVisual />
 
       {/* Newsletter - Featured 바로 아래 */}
       <NewsletterInline />
 
-      {/* Latest Stories */}
-      <section className="py-12 px-6">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-8">
-            Latest
-          </h2>
-
-          <div className="space-y-0">
-            {latestStories.map((story) => (
-              <StoryCard key={story.id} post={story} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+      {/* Latest Stories - Infinite Scroll */}
+      <LatestStoriesInfinite initialStories={latestStories} />
+    </div>
   );
 }

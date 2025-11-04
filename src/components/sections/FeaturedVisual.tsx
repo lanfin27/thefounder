@@ -71,7 +71,7 @@ export function FeaturedVisual() {
   const lastPost = featuredPosts[5];
 
   return (
-    <section className="py-12 px-6">
+    <section className="pt-8 pb-12 px-6">
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">

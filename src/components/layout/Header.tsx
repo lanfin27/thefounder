@@ -22,10 +22,10 @@ export default function Header() {
         <div className="flex h-full items-center justify-between">
           {/* Left: 햄버거 + Logo */}
           <div className="flex items-center gap-4">
-            {/* 햄버거 버튼 - 항상 보임 */}
+            {/* 햄버거 버튼 - 모바일에서만 보임 */}
             <button
               onClick={toggle}
-              className="p-2 -ml-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
+              className="lg:hidden p-2 -ml-2 rounded-full text-ink-700 hover:bg-ink-100 transition-colors"
               aria-label="Menu"
             >
               <Menu className="h-6 w-6" />
