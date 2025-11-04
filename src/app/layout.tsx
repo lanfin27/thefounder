@@ -32,19 +32,24 @@ export default function RootLayout({
           <ToastProvider>
             <ClientLayout>
               <SidebarProvider>
-                {/* Fixed Header */}
-                <Header />
+                {/* 🚨 Header를 완전히 독립적으로 (fixed로 화면 전체 폭) */}
+                <div className="fixed top-0 left-0 right-0 z-50">
+                  <Header />
+                </div>
 
-                {/* Left Sidebar */}
-                <Sidebar />
+                {/* 🚨 Header 높이만큼 padding-top */}
+                <div className="pt-16">
+                  {/* Left Sidebar */}
+                  <Sidebar />
 
-                {/* Right Sidebar */}
-                <RightSidebar />
+                  {/* Right Sidebar */}
+                  <RightSidebar />
 
-                {/* Main Content - 전체 화면 스크롤 + Desktop에서 양쪽 Sidebar 여백 */}
-                <main className="pt-14 lg:pl-64 xl:pr-[368px] min-h-screen bg-white">
-                  {children}
-                </main>
+                  {/* Main Content - Sidebar 여백만 적용 */}
+                  <main className="lg:pl-64 xl:pr-[368px] min-h-screen bg-white">
+                    {children}
+                  </main>
+                </div>
               </SidebarProvider>
             </ClientLayout>
           </ToastProvider>
