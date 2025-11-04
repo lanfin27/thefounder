@@ -25,8 +25,9 @@ export function NewsletterInline() {
   };
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-br from-green-50 to-green-100">
-      <div className="max-w-[800px] mx-auto text-center">
+    <section className="py-16 bg-gradient-to-br from-green-50 to-green-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-primary/10 mb-6">
           <Mail className="h-8 w-8 text-green-primary" />
         </div>
@@ -80,6 +81,7 @@ export function NewsletterInline() {
         <p className="mt-4 text-sm text-ink-600">
           언제든지 구독을 취소할 수 있습니다. 스팸은 절대 보내지 않습니다.
         </p>
+        </div>
       </div>
     </section>
   );

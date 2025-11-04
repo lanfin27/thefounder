@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 interface FeaturedPost {
@@ -10,6 +11,7 @@ interface FeaturedPost {
   excerpt: string;
   category: string;
   readingTime: number;
+  image_url?: string;
 }
 
 // Mock data - 나중에 Admin에서 제어
@@ -71,8 +73,8 @@ export function FeaturedVisual() {
   const lastPost = featuredPosts[5];
 
   return (
-    <section className="mt-0 pb-12 px-6 bg-white">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="mt-0 pb-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - NO top spacing */}
         <div className="flex items-center justify-between mb-8 pt-6">
           <div>
@@ -93,19 +95,30 @@ export function FeaturedVisual() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Featured (Left - 2 columns on desktop) */}
           <Link
             href={`/post/${mainPost.slug}`}
-            className="lg:col-span-2 group relative overflow-hidden rounded-xl bg-ink-900 aspect-[16/9]"
+            className="lg:col-span-2 group relative overflow-hidden rounded-xl bg-gray-900 block"
+            style={{ aspectRatio: '16/9' }}
           >
-            {/* Gradient Background */}
-            <div className="absolute inset-0">
-              <div className="w-full h-full bg-gradient-to-br from-ink-800 to-ink-900" />
-            </div>
+            {/* Background Image or Gradient */}
+            {mainPost.image_url ? (
+              <Image
+                src={mainPost.image_url}
+                alt={mainPost.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 66vw"
+              />
+            ) : (
+              <div className="absolute inset-0">
+                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+              </div>
+            )}
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">
@@ -124,20 +137,31 @@ export function FeaturedVisual() {
           </Link>
 
           {/* Right Column - 2x2 Grid */}
-          <div className="lg:col-span-1 grid grid-cols-1 gap-4 bg-white">
+          <div className="lg:col-span-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             {gridPosts.map((post) => (
               <Link
                 key={post.id}
                 href={`/post/${post.slug}`}
-                className="group relative overflow-hidden rounded-lg bg-ink-900 aspect-[4/3]"
+                className="group relative overflow-hidden rounded-lg bg-gray-900 block"
+                style={{ aspectRatio: '16/9' }}
               >
-                {/* Gradient Background */}
-                <div className="absolute inset-0">
-                  <div className="w-full h-full bg-gradient-to-br from-ink-700 to-ink-900" />
-                </div>
+                {/* Background Image or Gradient */}
+                {post.image_url ? (
+                  <Image
+                    src={post.image_url}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0">
+                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
+                  </div>
+                )}
 
-                {/* Content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                {/* Content Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <span className="inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-medium rounded-full mb-2">
@@ -158,13 +182,25 @@ export function FeaturedVisual() {
         {/* Bottom Featured */}
         <Link
           href={`/post/${lastPost.slug}`}
-          className="mt-4 group relative overflow-hidden rounded-lg bg-ink-900 aspect-[21/9] hidden lg:block"
+          className="mt-6 group relative overflow-hidden rounded-lg bg-gray-900 hidden lg:block"
+          style={{ aspectRatio: '21/9' }}
         >
-          <div className="absolute inset-0">
-            <div className="w-full h-full bg-gradient-to-br from-ink-800 to-ink-900" />
-          </div>
+          {/* Background Image or Gradient */}
+          {lastPost.image_url ? (
+            <Image
+              src={lastPost.image_url}
+              alt={lastPost.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="100vw"
+            />
+          ) : (
+            <div className="absolute inset-0">
+              <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+            </div>
+          )}
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
 
           <div className="absolute left-0 top-1/2 -translate-y-1/2 p-8">
             <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full mb-3">

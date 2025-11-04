@@ -53,15 +53,17 @@ const latestStories = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
-      {/* NO padding, NO margin, NO gaps */}
+    <div className="min-h-screen bg-white">
+      {/* Featured Section - NO top spacing */}
       <FeaturedVisual />
 
-      {/* Newsletter - Featured 바로 아래 */}
+      {/* Newsletter Section - max-w-7xl 적용 */}
       <NewsletterInline />
 
-      {/* Latest Stories - Infinite Scroll */}
-      <LatestStoriesInfinite initialStories={latestStories} />
+      {/* Latest Stories Section - Infinite Scroll */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <LatestStoriesInfinite initialStories={latestStories} />
+      </div>
     </div>
   );
 }

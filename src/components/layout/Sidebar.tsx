@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X, Home, Search, Bookmark, TrendingUp, Video, BookMarked, PenTool } from 'lucide-react';
+import { X, Home, Search, Bookmark, TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Sidebar Context
@@ -49,10 +49,10 @@ const mainNavigation = [
 ];
 
 const categories = [
-  { name: '트렌드', href: '/trend', icon: TrendingUp, emoji: '🔥' },
-  { name: '인사이트', href: '/insight', icon: Video, emoji: '🎬' },
-  { name: '사례', href: '/case', icon: BookMarked, emoji: '📚' },
-  { name: '블로그', href: '/blog', icon: PenTool, emoji: '✍️' },
+  { name: '트렌드', href: '/trend', icon: TrendingUp },
+  { name: '인사이트', href: '/insight', icon: Lightbulb },
+  { name: '사례', href: '/case', icon: BarChart3 },
+  { name: '블로그', href: '/blog', icon: PenTool },
 ];
 
 // Sidebar 내부 콘텐츠 컴포넌트
@@ -113,6 +113,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
           </div>
 
           {categories.map((item) => {
+            const Icon = item.icon;
             const isActive = pathname.startsWith(item.href);
 
             return (
@@ -126,7 +127,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
                     : 'text-ink-700 hover:bg-ink-50'
                 }`}
               >
-                <span className="text-lg">{item.emoji}</span>
+                <Icon className="h-5 w-5" />
                 <span>{item.name}</span>
               </Link>
             );
