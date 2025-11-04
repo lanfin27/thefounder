@@ -10,8 +10,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        {/* 🚨 중요: w-full로 전체 폭 + padding 없음 */}
+      {/* 🚨 중요: lg:ml-[-256px] xl:mr-[-368px] 추가로 Sidebar 영향 제거 */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 lg:ml-[-256px] xl:mr-[-368px]">
+        {/* 🚨 w-full로 전체 폭 + padding 없음 */}
         <div className="w-full">
           <div className="max-w-[1400px] mx-auto">
             {/* 🚨 중요: px-6 (양쪽 패딩) + justify-between (강제 양끝) */}
