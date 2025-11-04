@@ -15,6 +15,14 @@ export function AdminGuard({ children }: AdminGuardProps) {
 
   useEffect(() => {
     async function verifyAdmin() {
+      // 🔥 Development mode: Skip admin check
+      if (process.env.NODE_ENV === 'development') {
+        setIsAdmin(true);
+        setLoading(false);
+        return;
+      }
+
+      // Production: Check admin status
       const adminStatus = await checkAdminStatus();
 
       if (!adminStatus) {
