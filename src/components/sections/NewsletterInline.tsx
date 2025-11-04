@@ -27,7 +27,7 @@ export function NewsletterInline() {
   return (
     <section className="py-16 bg-gradient-to-br from-green-50 to-green-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-primary/10 mb-6">
           <Mail className="h-8 w-8 text-green-primary" />
         </div>
@@ -36,13 +36,13 @@ export function NewsletterInline() {
           매주 최고의 인사이트를 받아보세요
         </h2>
 
-        <p className="text-lg text-ink-700 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-ink-700 mb-8">
           1,000+ 창업가들이 구독 중인 The Founder 뉴스레터로
           <br className="hidden sm:block" />
           매주 엄선된 창업 인사이트를 받아보세요
         </p>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
           {status === 'success' ? (
             <div className="p-4 bg-green-primary/10 text-green-primary rounded-xl text-sm font-medium">
               ✨ 구독해주셔서 감사합니다! 이메일을 확인해주세요.

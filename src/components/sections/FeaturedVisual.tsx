@@ -23,6 +23,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: '실제로 성공한 창업가들의 공통점',
     category: '인사이트',
     readingTime: 8,
+    image_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=675&fit=crop',
   },
   {
     id: '2',
@@ -31,6 +32,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: 'Product의 시대에서 Distribution의 시대로',
     category: '트렌드',
     readingTime: 6,
+    image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop',
   },
   {
     id: '3',
@@ -39,6 +41,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: '자동화로 매출 500% 성장',
     category: '사례',
     readingTime: 10,
+    image_url: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=675&fit=crop',
   },
   {
     id: '4',
@@ -47,6 +50,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: '월 100만원에서 1000만원까지',
     category: '사례',
     readingTime: 7,
+    image_url: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1200&h=675&fit=crop',
   },
   {
     id: '5',
@@ -55,6 +59,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: '0에서 시작한 SaaS 성장 스토리',
     category: '인사이트',
     readingTime: 9,
+    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop',
   },
   {
     id: '6',
@@ -63,6 +68,7 @@ const featuredPosts: FeaturedPost[] = [
     excerpt: 'K-POP 산업의 미래와 기회',
     category: '트렌드',
     readingTime: 5,
+    image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=675&fit=crop',
   },
 ];
 
