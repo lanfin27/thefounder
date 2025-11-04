@@ -91,39 +91,75 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
           </h2>
         </div>
 
-        {/* 🚨 낭만투자파트너스 레이아웃: 1 + 1(큰) + 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
+        {/* 🔥 낭만투자파트너스 레이아웃: (1+5) + 2(큰) + (3+4) */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-          {/* 왼쪽: 작은 카드 1개 */}
-          <Link
-            href={`/posts/${leftPost.slug}`}
-            className="group"
-          >
-            <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
-              {leftPost.image_url && (
-                <Image
-                  src={leftPost.image_url}
-                  alt={leftPost.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 25vw"
-                />
-              )}
-            </div>
-            <div className="space-y-1">
-              {leftPost.category && (
-                <span className="text-xs font-semibold text-gray-500 uppercase">
-                  {leftPost.category}
-                </span>
-              )}
-              <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                {leftPost.title}
-              </h3>
-              {leftPost.published_at && (
-                <p className="text-xs text-gray-400">{leftPost.published_at}</p>
-              )}
-            </div>
-          </Link>
+          {/* 왼쪽 열: 포스트1 + 포스트5 */}
+          <div className="space-y-6">
+            {/* 포스트 1 */}
+            <Link
+              href={`/posts/${leftPost.slug}`}
+              className="group block"
+            >
+              <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
+                {leftPost.image_url && (
+                  <Image
+                    src={leftPost.image_url}
+                    alt={leftPost.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 25vw"
+                  />
+                )}
+              </div>
+              <div className="space-y-1">
+                {leftPost.category && (
+                  <span className="text-xs font-semibold text-gray-500 uppercase">
+                    {leftPost.category}
+                  </span>
+                )}
+                <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                  {leftPost.title}
+                </h3>
+                {leftPost.published_at && (
+                  <p className="text-xs text-gray-400">{leftPost.published_at}</p>
+                )}
+              </div>
+            </Link>
+
+            {/* 포스트 5 */}
+            {extraPost && (
+              <Link
+                href={`/posts/${extraPost.slug}`}
+                className="group block"
+              >
+                <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
+                  {extraPost.image_url && (
+                    <Image
+                      src={extraPost.image_url}
+                      alt={extraPost.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                    />
+                  )}
+                </div>
+                <div className="space-y-1">
+                  {extraPost.category && (
+                    <span className="text-xs font-semibold text-gray-500 uppercase">
+                      {extraPost.category}
+                    </span>
+                  )}
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                    {extraPost.title}
+                  </h3>
+                  {extraPost.published_at && (
+                    <p className="text-xs text-gray-400">{extraPost.published_at}</p>
+                  )}
+                </div>
+              </Link>
+            )}
+          </div>
 
           {/* 중앙: 큰 카드 1개 (col-span-2) */}
           <Link
@@ -198,60 +234,6 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
             ))}
           </div>
         </div>
-
-        {/* 🆕 5번째 포스트 - 낭만투자파트너스 스타일 */}
-        {extraPost && (
-          <Link
-            href={`/posts/${extraPost.slug}`}
-            className="group block"
-          >
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 hover:shadow-sm transition-all">
-              <div className="flex gap-6 p-6">
-                {/* 이미지 */}
-                <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
-                  {extraPost.image_url && (
-                    <Image
-                      src={extraPost.image_url}
-                      alt={extraPost.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="192px"
-                    />
-                  )}
-                </div>
-
-                {/* 텍스트 콘텐츠 */}
-                <div className="flex-1 flex flex-col justify-center space-y-2">
-                  {/* 카테고리 */}
-                  {extraPost.category && (
-                    <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                      {extraPost.category}
-                    </span>
-                  )}
-
-                  {/* 제목 */}
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
-                    {extraPost.title}
-                  </h3>
-
-                  {/* 설명 */}
-                  {extraPost.excerpt && (
-                    <p className="text-gray-600 text-sm line-clamp-2">
-                      {extraPost.excerpt}
-                    </p>
-                  )}
-
-                  {/* 날짜 */}
-                  {extraPost.published_at && (
-                    <p className="text-xs text-gray-400">
-                      {extraPost.published_at}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          </Link>
-        )}
       </div>
     </section>
   );
