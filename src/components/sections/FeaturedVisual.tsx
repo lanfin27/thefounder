@@ -199,40 +199,56 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
           </div>
         </div>
 
-        {/* 🆕 5번째 포스트 (하단, 전체 폭) */}
+        {/* 🆕 5번째 포스트 - 낭만투자파트너스 스타일 */}
         {extraPost && (
           <Link
             href={`/posts/${extraPost.slug}`}
-            className="group flex gap-6 p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
+            className="group block"
           >
-            <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-lg">
-              {extraPost.image_url && (
-                <Image
-                  src={extraPost.image_url}
-                  alt={extraPost.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="192px"
-                />
-              )}
-            </div>
-            <div className="flex-1 space-y-2">
-              {extraPost.category && (
-                <span className="text-xs font-semibold text-gray-500 uppercase">
-                  {extraPost.category}
-                </span>
-              )}
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                {extraPost.title}
-              </h3>
-              {extraPost.excerpt && (
-                <p className="text-gray-600 text-sm line-clamp-2">
-                  {extraPost.excerpt}
-                </p>
-              )}
-              {extraPost.published_at && (
-                <p className="text-xs text-gray-400">{extraPost.published_at}</p>
-              )}
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 hover:shadow-sm transition-all">
+              <div className="flex gap-6 p-6">
+                {/* 이미지 */}
+                <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
+                  {extraPost.image_url && (
+                    <Image
+                      src={extraPost.image_url}
+                      alt={extraPost.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="192px"
+                    />
+                  )}
+                </div>
+
+                {/* 텍스트 콘텐츠 */}
+                <div className="flex-1 flex flex-col justify-center space-y-2">
+                  {/* 카테고리 */}
+                  {extraPost.category && (
+                    <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                      {extraPost.category}
+                    </span>
+                  )}
+
+                  {/* 제목 */}
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
+                    {extraPost.title}
+                  </h3>
+
+                  {/* 설명 */}
+                  {extraPost.excerpt && (
+                    <p className="text-gray-600 text-sm line-clamp-2">
+                      {extraPost.excerpt}
+                    </p>
+                  )}
+
+                  {/* 날짜 */}
+                  {extraPost.published_at && (
+                    <p className="text-xs text-gray-400">
+                      {extraPost.published_at}
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           </Link>
         )}
