@@ -28,10 +28,10 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* 🔥 오른쪽: Search 아이콘 + 가입 아이콘 (모바일 최적화) */}
+        {/* 🔥 오른쪽: Search 아이콘 + 사람 아이콘만 */}
         <div className="flex items-center gap-2 flex-shrink-0">
 
-          {/* 🔥 Search 아이콘 */}
+          {/* Search 아이콘 */}
           <button
             className="p-2 rounded-full hover:bg-gray-100 transition-colors"
             aria-label="Search"
@@ -39,19 +39,11 @@ export default function Header() {
             <Search className="w-5 h-5 text-gray-700" />
           </button>
 
-          {/* 🔥 Sign In - 데스크톱만 텍스트 */}
-          <Link
-            href="/auth/login"
-            className="hidden lg:block px-3 py-2 text-sm text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            Sign in
-          </Link>
-
-          {/* 🔥 Get Started → 가입 아이콘 */}
+          {/* 🔥 사람 아이콘만 (Sign in 제거) */}
           <Link
             href="/auth/signup"
             className="p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors"
-            aria-label="Get started"
+            aria-label="Sign up"
           >
             <User className="w-5 h-5" />
           </Link>

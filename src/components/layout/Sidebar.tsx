@@ -18,7 +18,7 @@ const SidebarContext = createContext<{
 });
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // 🔥 기본값: 열림
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -177,10 +177,12 @@ export function Sidebar() {
         )}
       </AnimatePresence>
 
-      {/* Desktop Sidebar - lg 이상에서 항상 보임 */}
-      <aside className="hidden lg:block fixed left-0 top-14 bottom-0 w-64 bg-white border-r border-divider z-30 overflow-y-auto">
-        <SidebarContent />
-      </aside>
+      {/* Desktop Sidebar - lg 이상에서 토글 가능 */}
+      {isOpen && (
+        <aside className="hidden lg:block fixed left-0 top-14 bottom-0 w-64 bg-white border-r border-divider z-30 overflow-y-auto">
+          <SidebarContent />
+        </aside>
+      )}
 
       {/* Mobile Sidebar - lg 미만에서 슬라이드 */}
       <AnimatePresence>
