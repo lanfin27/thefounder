@@ -19,34 +19,34 @@ interface FeaturedVisualProps {
 }
 
 export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
-  // 기본 포스트 데이터
+  // 기본 포스트 5개
   const defaultPosts: Post[] = [
     {
       id: '1',
       title: '[책] 위대한 창업가를 만드는 30가지 조언',
       slug: 'great-founder-30-tips',
-      excerpt: '성공한 창업가들의 공통된 습관과 사고방식',
+      excerpt: '성공한 창업가들의 공통된 습관',
       category: '트렌드',
       image_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=675&fit=crop',
       published_at: '2025년 6월 9일'
     },
     {
       id: '2',
-      title: '코딩은 AI가 한다, 그럼 창업자는 뭘 해야 하나',
-      slug: 'ai-age-founder',
-      excerpt: 'AI 시대의 창업자 역할 재정의',
-      category: '인사이트',
+      title: '직접 만든 낭만GPT "김냅맨"에게 질문해주세요',
+      slug: 'napkin-gpt',
+      excerpt: '개인화된 AI 도구 만들기',
+      category: '블로그',
       image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop',
       published_at: '2025년 3월 5일'
     },
     {
       id: '3',
-      title: '직접 만든 낭만GPT "김냅맨"에게 질문해주세요',
-      slug: 'napkin-gpt',
-      excerpt: '개인화된 AI 도구 만들기',
-      category: '블로그',
+      title: '코딩은 AI가 한다, 그럼 창업자는 뭘 해야 하나',
+      slug: 'ai-age-founder',
+      excerpt: 'AI 시대의 창업자 역할',
+      category: '관점',
       image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop',
-      published_at: '2025년 2월 27일'
+      published_at: '2025년 8월 14일'
     },
     {
       id: '4',
@@ -57,11 +57,23 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
       image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop',
       published_at: '2025년 1월 17일'
     },
+    {
+      id: '5',
+      title: '혼돈의 KPOP 산업, 답은 어디에 있을까?',
+      slug: 'kpop-industry',
+      excerpt: 'K-POP 시장 분석',
+      category: '사례',
+      image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=675&fit=crop',
+      published_at: '2025년 1월 17일'
+    },
   ];
 
   const displayPosts = posts.length > 0 ? posts : defaultPosts;
-  const featuredPost = displayPosts[0];
-  const sidePosts = displayPosts.slice(1, 4);
+
+  // 🚨 낭만투자파트너스 레이아웃: 왼쪽 1개 + 중앙 1개 (큰) + 오른쪽 2개
+  const leftPost = displayPosts[0];
+  const centerPost = displayPosts[1]; // 중앙 큰 포스트
+  const rightPosts = displayPosts.slice(2, 4); // 오른쪽 2개
 
   return (
     <section className="w-full bg-white border-b border-gray-100">
@@ -78,20 +90,50 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
           </h2>
         </div>
 
-        {/* Grid Layout - 낭만파트너스 스타일 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* 🚨 낭만투자파트너스 레이아웃: 1 + 1(큰) + 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-          {/* Left: Main Featured Card */}
+          {/* 왼쪽: 작은 카드 1개 */}
           <Link
-            href={`/posts/${featuredPost.slug}`}
+            href={`/posts/${leftPost.slug}`}
             className="group"
           >
-            {/* Image Container */}
-            <div className="relative w-full overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
-              {featuredPost.image_url && (
+            <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
+              {leftPost.image_url && (
                 <Image
-                  src={featuredPost.image_url}
-                  alt={featuredPost.title}
+                  src={leftPost.image_url}
+                  alt={leftPost.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 25vw"
+                />
+              )}
+            </div>
+            <div className="space-y-1">
+              {leftPost.category && (
+                <span className="text-xs font-semibold text-gray-500 uppercase">
+                  {leftPost.category}
+                </span>
+              )}
+              <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                {leftPost.title}
+              </h3>
+              {leftPost.published_at && (
+                <p className="text-xs text-gray-400">{leftPost.published_at}</p>
+              )}
+            </div>
+          </Link>
+
+          {/* 중앙: 큰 카드 1개 (col-span-2) */}
+          <Link
+            href={`/posts/${centerPost.slug}`}
+            className="group lg:col-span-2"
+          >
+            <div className="relative w-full overflow-hidden rounded-lg mb-4" style={{ aspectRatio: '16/9' }}>
+              {centerPost.image_url && (
+                <Image
+                  src={centerPost.image_url}
+                  alt={centerPost.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -99,77 +141,56 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                 />
               )}
             </div>
-
-            {/* Text Content - 이미지 아래 */}
             <div className="space-y-2">
-              {/* Category */}
-              {featuredPost.category && (
-                <span className="inline-block text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                  {featuredPost.category}
+              {centerPost.category && (
+                <span className="text-xs font-semibold text-gray-500 uppercase">
+                  {centerPost.category}
                 </span>
               )}
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
-                {featuredPost.title}
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                {centerPost.title}
               </h3>
-
-              {/* Excerpt */}
-              {featuredPost.excerpt && (
+              {centerPost.excerpt && (
                 <p className="text-gray-600 text-sm line-clamp-2">
-                  {featuredPost.excerpt}
+                  {centerPost.excerpt}
                 </p>
               )}
-
-              {/* Meta Info */}
-              {featuredPost.published_at && (
-                <p className="text-xs text-gray-400">
-                  {featuredPost.published_at}
-                </p>
+              {centerPost.published_at && (
+                <p className="text-xs text-gray-400">{centerPost.published_at}</p>
               )}
             </div>
           </Link>
 
-          {/* Right: 3 Small Cards */}
+          {/* 오른쪽: 작은 카드 2개 (세로 배치) */}
           <div className="space-y-6">
-            {sidePosts.map((post) => (
+            {rightPosts.map((post) => (
               <Link
                 key={post.id}
                 href={`/posts/${post.slug}`}
-                className="group flex gap-4"
+                className="group block"
               >
-                {/* Image - 왼쪽 */}
-                <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
+                <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
                   {post.image_url && (
                     <Image
                       src={post.image_url}
                       alt={post.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="128px"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
                     />
                   )}
                 </div>
-
-                {/* Text Content - 오른쪽 */}
-                <div className="flex-1 space-y-1">
-                  {/* Category */}
+                <div className="space-y-1">
                   {post.category && (
-                    <span className="inline-block text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-gray-500 uppercase">
                       {post.category}
                     </span>
                   )}
-
-                  {/* Title */}
-                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                     {post.title}
                   </h3>
-
-                  {/* Date */}
                   {post.published_at && (
-                    <p className="text-xs text-gray-400">
-                      {post.published_at}
-                    </p>
+                    <p className="text-xs text-gray-400">{post.published_at}</p>
                   )}
                 </div>
               </Link>

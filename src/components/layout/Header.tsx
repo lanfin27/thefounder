@@ -12,11 +12,12 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        {/* 🚨 Medium 스타일: max-w-[1400px] */}
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="flex items-center h-16">
 
-            {/* Left: Hamburger + Logo */}
-            <div className="flex items-center gap-4">
+            {/* 왼쪽: flex-shrink-0 (고정 크기) */}
+            <div className="flex items-center gap-4 flex-shrink-0">
               {/* Hamburger Menu */}
               <button
                 onClick={toggle}
@@ -38,9 +39,9 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Center: Search (Desktop) */}
-            <div className="hidden md:flex flex-1 max-w-md mx-8">
-              <div className="relative w-full">
+            {/* 중앙: flex-1 (남은 공간 모두 차지) + justify-center */}
+            <div className="hidden md:flex flex-1 justify-center px-8">
+              <div className="relative w-full max-w-md">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
@@ -50,8 +51,8 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Right: Search Icon (Mobile) + Sign in + Get started */}
-            <div className="flex items-center gap-4">
+            {/* 오른쪽: flex-shrink-0 (고정 크기) */}
+            <div className="flex items-center gap-4 flex-shrink-0">
               {/* Search Icon (Mobile) */}
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
@@ -64,7 +65,7 @@ export default function Header() {
               {/* Sign In */}
               <Link
                 href="/auth/login"
-                className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors whitespace-nowrap"
               >
                 Sign in
               </Link>
@@ -72,7 +73,7 @@ export default function Header() {
               {/* Get Started */}
               <Link
                 href="/auth/signup"
-                className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
+                className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap"
               >
                 Get started
               </Link>
