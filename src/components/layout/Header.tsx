@@ -32,24 +32,17 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* 🔥 중앙: Search 바 (PC만) */}
-          <div className="hidden lg:flex flex-1 justify-center mx-8">
+          {/* 🔥 오른쪽: Search 바 + 사람 아이콘 (한 줄로) */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+
+            {/* 🔥 Search 바 (PC만, 클릭 가능) */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="relative w-full max-w-md"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors"
             >
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search"
-                readOnly
-                className="w-full pl-12 pr-4 py-2.5 bg-gray-50 border border-transparent rounded-full text-sm cursor-pointer hover:bg-gray-100 transition-colors"
-              />
+              <Search className="w-4 h-4 text-gray-400" />
+              <span className="text-sm text-gray-500">Search</span>
             </button>
-          </div>
-
-          {/* 오른쪽: Search 아이콘 (모바일) + 사람 아이콘 */}
-          <div className="flex items-center gap-2 flex-shrink-0">
 
             {/* 🔥 Search 아이콘 (모바일만) */}
             <button
