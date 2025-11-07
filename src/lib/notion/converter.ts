@@ -7,6 +7,7 @@ import { getFlexibleProperty, extractPropertyValue } from './flexible-property-g
 import { generateKoreanSlug } from '@/lib/utils/korean-slug'
 import { AVAILABLE_NOTION_PROPERTIES, DEFAULT_AUTHOR, DEFAULT_READING_TIME, mapAvailableProperties } from './available-properties'
 import { renderBlockToHtml } from './renderer-html'
+import { notionCache, getCacheKey } from '@/lib/cache/notion-cache'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -14,23 +15,32 @@ const notion = new Client({
 
 const n2m = new NotionToMarkdown({ notionClient: notion })
 
-// Category mapping from Korean to English
+// Category mapping - Keep Korean categories as-is for database
 const CATEGORY_MAPPING: Record<string, string> = {
-  // Korean categories → English categories
-  '트렌드': 'trend',
-  '뉴스레터': 'trend',
-  '인사이트': 'insight',
-  'SaaS': 'insight',
-  '블로그': 'blog',
-  'Blog': 'blog',
-  '성공사례': 'casestudy',
-  '창업': 'casestudy',
-  'Startup': 'casestudy',
-  // Fallback for unmapped categories
-  'trend': 'trend',
-  'insight': 'insight',
-  'blog': 'blog',
-  'casestudy': 'casestudy'
+  // Notion categories → Database categories (Korean)
+  '트렌드': '트렌드',
+  '인사이트': '인사이트',
+  '블로그': '블로그',
+  '성공사례': '성공사례',
+  // Legacy mappings for old Notion/DB values
+  '뉴스레터': '트렌드',
+  'SaaS': '인사이트',
+  '창업': '성공사례',
+  '사례': '성공사례',
+  // English fallbacks
+  'Trend': '트렌드',
+  'Insight': '인사이트',
+  'Blog': '블로그',
+  'Case': '성공사례',
+  'Startup': '성공사례'
+}
+
+// Category label mapping (for display)
+const CATEGORY_LABELS: Record<string, string> = {
+  '트렌드': '트렌드',
+  '인사이트': '인사이트',
+  '블로그': '블로그',
+  '성공사례': '성공사례'
 }
 
 // Status mapping from Korean to English
@@ -114,6 +124,14 @@ function blocksToHtml(blocks: any[]): string {
 
 export async function getPageContent(pageId: string): Promise<string> {
   try {
+    // 🔥 캐시 확인
+    const cacheKey = getCacheKey('page-content', pageId)
+    const cached = notionCache.get(cacheKey)
+    if (cached) {
+      console.log(`✅ [getPageContent] Using cached content for page: ${pageId}`)
+      return cached
+    }
+
     console.log(`\n=== Getting content for page: ${pageId} ===`)
 
     // 먼저 페이지 정보 확인
@@ -164,6 +182,9 @@ export async function getPageContent(pageId: string): Promise<string> {
 
     console.log(`=== Content generation complete ===\n`)
 
+    // 🔥 캐시에 저장 (이미 선언된 cacheKey 재사용)
+    notionCache.set(cacheKey, htmlContent)
+
     return htmlContent
   } catch (error) {
     console.error('Error getting page content:', error)
@@ -171,7 +192,7 @@ export async function getPageContent(pageId: string): Promise<string> {
   }
 }
 
-export async function convertPageToPost(page: any): Promise<BlogPost | null> {
+export async function convertPageToPost(page: any, loadContent: boolean = false): Promise<BlogPost | null> {
   try {
     // Log available properties for debugging
     console.log('Converting page with properties:', Object.keys(page.properties || {}))
@@ -191,15 +212,27 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
 
     // Map category from Korean to English
     const originalCategory = extractPropertyValue(props.category) || '블로그'
+    console.log(`\n🔄 [Converter] Original category from Notion: "${originalCategory}"`)
+
     const category = CATEGORY_MAPPING[originalCategory] || originalCategory.toLowerCase()
+    console.log(`🔄 [Converter] Mapped to category: "${category}"`)
+
+    const categoryLabel = CATEGORY_LABELS[category] || originalCategory
+    console.log(`🔄 [Converter] Category label: "${categoryLabel}"`)
 
     // Map status from Korean to English
     const originalStatus = extractPropertyValue(props.status) || '발행'
     const status = STATUS_MAPPING[originalStatus] || 'published'
 
     // Log mapping for debugging
-    console.log(`Category mapping: ${originalCategory} → ${category}`)
-    console.log(`Status mapping: ${originalStatus} → ${status}`)
+    console.log(`✅ [Converter] Category mapping: "${originalCategory}" → "${category}" (label: "${categoryLabel}")`)
+    console.log(`✅ [Converter] Status mapping: "${originalStatus}" → "${status}"`)
+
+    // Verify the category is valid (Korean categories)
+    const validCategories = ['트렌드', '인사이트', '블로그', '성공사례']
+    if (!validCategories.includes(category)) {
+      console.warn(`⚠️  [Converter] Invalid category "${category}" for post "${title}". Should be one of: ${validCategories.join(', ')}`)
+    }
 
     // Skip if not published
     if (status !== 'published') {
@@ -235,35 +268,42 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
     let markdownContent = ''
     let minutes = DEFAULT_READING_TIME
 
-    try {
-      // Use the enhanced getPageContent function for better debugging
-      console.log(`Fetching blocks for page: ${title}`)
-      content = await getPageContent(page.id)
-      console.log(`Generated ${content.length} characters of HTML content`)
-
-      // Also generate markdown for reading time calculation
+    // 🔥 Only load full content when explicitly requested
+    if (loadContent) {
       try {
-        const mdblocks = await n2m.pageToMarkdown(page.id)
-        const mdString = n2m.toMarkdownString(mdblocks)
-        markdownContent = mdString?.parent || ''
+        // Use the enhanced getPageContent function for better debugging
+        console.log(`📄 [Converter] Loading FULL content for: ${title}`)
+        content = await getPageContent(page.id)
+        console.log(`Generated ${content.length} characters of HTML content`)
 
-        // Calculate reading time from markdown
-        if (markdownContent && markdownContent.trim().length > 0) {
-          const result = readingTime(markdownContent)
-          minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+        // Also generate markdown for reading time calculation
+        try {
+          const mdblocks = await n2m.pageToMarkdown(page.id)
+          const mdString = n2m.toMarkdownString(mdblocks)
+          markdownContent = mdString?.parent || ''
+
+          // Calculate reading time from markdown
+          if (markdownContent && markdownContent.trim().length > 0) {
+            const result = readingTime(markdownContent)
+            minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+          }
+        } catch (mdError) {
+          console.error('Error generating markdown for reading time:', mdError)
+          // Estimate reading time from HTML content
+          const plainText = content.replace(/<[^>]*>/g, ' ')
+          if (plainText.trim().length > 0) {
+            const result = readingTime(plainText)
+            minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
+          }
         }
-      } catch (mdError) {
-        console.error('Error generating markdown for reading time:', mdError)
-        // Estimate reading time from HTML content
-        const plainText = content.replace(/<[^>]*>/g, ' ')
-        if (plainText.trim().length > 0) {
-          const result = readingTime(plainText)
-          minutes = Math.ceil(result.minutes) || DEFAULT_READING_TIME
-        }
+      } catch (error) {
+        console.error('Error converting page content:', error)
+        content = `<p>${summary}</p>` || '' // Fallback to summary if content conversion fails
       }
-    } catch (error) {
-      console.error('Error converting page content:', error)
-      content = `<p>${summary}</p>` || '' // Fallback to summary if content conversion fails
+    } else {
+      console.log(`📋 [Converter] Loading METADATA only for: ${title}`)
+      // For list views, just use summary as content placeholder
+      content = ''
     }
     
     const author = extractPropertyValue(props.author) || DEFAULT_AUTHOR
@@ -273,6 +313,7 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
     
     const post: BlogPost = {
       id: page.id,
+      notionId: page.id,  // 🔥 명시적으로 Notion UUID 저장
       title,
       slug,
       summary,
@@ -280,6 +321,7 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
       cover: coverUrl,
       author,
       category: category as BlogPost['category'],
+      categoryLabel,
       tags,
       isPremium,
       status: status as BlogPost['status'],
@@ -287,6 +329,7 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
       createdAt: page.created_time,
       updatedAt: page.last_edited_time,
       readingTime: Math.ceil(minutes),
+      featured: extractPropertyValue(props.featured) || false,
     }
     
     return post
@@ -297,7 +340,20 @@ export async function convertPageToPost(page: any): Promise<BlogPost | null> {
   }
 }
 
-export async function getAllPosts(): Promise<BlogPost[]> {
+export async function getAllPosts(loadContent: boolean = false): Promise<BlogPost[]> {
+  const startTime = Date.now()
+
+  // 🔥 캐시 확인 - loadContent 상태에 따라 다른 캐시 키 사용
+  const cacheKey = getCacheKey('all-posts', loadContent ? 'full' : 'metadata')
+  const cached = notionCache.get(cacheKey)
+  if (cached) {
+    const elapsed = Date.now() - startTime
+    console.log(`✅ [getAllPosts] Returned from cache in ${elapsed}ms (${cached.length} posts, loadContent: ${loadContent})`)
+    return cached
+  }
+
+  console.log(`🔍 [getAllPosts] Fetching from Notion... (loadContent: ${loadContent})`)
+
   const pages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
@@ -329,12 +385,30 @@ export async function getAllPosts(): Promise<BlogPost[]> {
       }
     ]
   })
-  
+
   const posts = await Promise.all(
-    pages.results.map(page => convertPageToPost(page))
+    pages.results.map(page => convertPageToPost(page, loadContent))
   )
-  
-  return posts.filter(Boolean) as BlogPost[]
+
+  const filteredPosts = posts.filter(Boolean) as BlogPost[]
+
+  // 🔥 캐시에 저장
+  notionCache.set(cacheKey, filteredPosts)
+
+  const elapsed = Date.now() - startTime
+  console.log(`✅ [getAllPosts] Fetched ${filteredPosts.length} posts from Notion in ${elapsed}ms (loadContent: ${loadContent})`)
+
+  // Debug: Verify slug exists in posts
+  if (filteredPosts.length > 0) {
+    console.log('📝 [getAllPosts] Sample post structure:', {
+      id: filteredPosts[0]?.id,
+      slug: filteredPosts[0]?.slug,
+      hasSlug: !!filteredPosts[0]?.slug,
+      title: filteredPosts[0]?.title?.substring(0, 30)
+    })
+  }
+
+  return filteredPosts
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -385,7 +459,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
           slug.toLowerCase() === generatedSlug.toLowerCase() ||
           decodedSlug.toLowerCase() === generatedSlug.toLowerCase()) {
         console.log(`Found matching post: ${title}`)
-        const post = await convertPageToPost(page)
+        const post = await convertPageToPost(page, true)  // 🔥 Load full content for individual posts
         if (post) return post
       }
     }
@@ -398,7 +472,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 }
 
-export async function getPostsByCategory(category: BlogPost['category']): Promise<BlogPost[]> {
+export async function getPostsByCategory(category: BlogPost['category'], loadContent: boolean = false): Promise<BlogPost[]> {
   const pages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
@@ -424,10 +498,10 @@ export async function getPostsByCategory(category: BlogPost['category']): Promis
       }
     ]
   })
-  
+
   const posts = await Promise.all(
-    pages.results.map(page => convertPageToPost(page))
+    pages.results.map(page => convertPageToPost(page, loadContent))
   )
-  
+
   return posts.filter(Boolean) as BlogPost[]
 }

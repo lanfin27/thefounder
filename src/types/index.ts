@@ -17,21 +17,24 @@ export interface User {
 }
 
 export interface BlogPost {
-  id: string
+  id: string           // Notion UUID (244fe518-3112-...)
+  notionId: string     // 명시적 Notion UUID (id와 동일하지만 명확성을 위해)
   title: string
-  slug: string
+  slug: string         // URL용 slug (entrepreneurship-...)
   summary: string
   content: string
   cover?: string
   author: string
-  category: '뉴스레터' | 'SaaS' | '블로그' | '창업'
+  category: 'trend' | 'insight' | 'blog' | 'casestudy' | 'trends' | 'insights' | 'cases'
+  categoryLabel?: string // '트렌드', '인사이트', '사례', '블로그'
   tags: string[]
   isPremium: boolean
-  status: '초안' | '검토중' | '발행'
+  status: 'draft' | 'review' | 'published' | '초안' | '검토중' | '발행'
   publishedDate: string
   createdAt: string
   updatedAt: string
   readingTime: number
+  featured?: boolean // For featured section
 }
 
 export interface MembershipPlan {

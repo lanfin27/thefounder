@@ -1,8 +1,21 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { BlogPost } from '@/types'
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import PremiumBadge from '@/components/ui/PremiumBadge'
+
+// 🔥 이미지 프록시 URL 생성
+function getProxiedImageUrl(originalUrl: string): string {
+  if (!originalUrl) return '/images/placeholder.jpg'
+
+  // Notion S3 URL인 경우 프록시 사용
+  if (originalUrl.includes('prod-files-secure.s3') || originalUrl.includes('amazonaws.com')) {
+    return `/api/image-proxy?url=${encodeURIComponent(originalUrl)}`
+  }
+
+  return originalUrl
+}
 
 interface PostCardProps {
   post: BlogPost
@@ -51,10 +64,13 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             
             {post.cover && (
               <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
-                <img
-                  src={post.cover}
+                <Image
+                  src={getProxiedImageUrl(post.cover)}
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="128px"
+                  loading="lazy"
                 />
               </div>
             )}
@@ -104,13 +120,16 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
       <Link href={`/posts/${post.slug}`}>
         {post.cover && (
           <div className="relative h-52 overflow-hidden rounded-lg mb-4">
-            <img
-              src={post.cover}
+            <Image
+              src={getProxiedImageUrl(post.cover)}
               alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="lazy"
             />
             {post.isPremium && (
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 z-10">
                 <PremiumBadge variant="small" />
               </div>
             )}

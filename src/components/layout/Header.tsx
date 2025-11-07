@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Search, Menu, User, X } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { useSidebar } from '@/components/layout/Sidebar';
 import SearchModal from '@/components/search/SearchModal';
+import UserProfileMenu from './UserProfileMenu';
 
 export default function Header() {
   const { toggle } = useSidebar();
@@ -53,14 +54,8 @@ export default function Header() {
               <Search className="w-5 h-5 text-gray-700" />
             </button>
 
-            {/* 사람 아이콘 */}
-            <Link
-              href="/auth/signup"
-              className="p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors"
-              aria-label="Sign up"
-            >
-              <User className="w-5 h-5" />
-            </Link>
+            {/* 사용자 프로필 메뉴 */}
+            <UserProfileMenu />
           </div>
         </div>
       </header>

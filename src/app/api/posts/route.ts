@@ -8,13 +8,13 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category') as BlogPost['category'] | null
     
     let posts: BlogPost[]
-    
+
     if (category) {
-      posts = await getPostsByCategory(category)
+      posts = await getPostsByCategory(category, false)  // 🔥 Load metadata only
     } else {
-      posts = await getAllPosts()
+      posts = await getAllPosts(false)  // 🔥 Load metadata only
     }
-    
+
     return NextResponse.json(posts)
   } catch (error) {
     console.error('Error fetching posts:', error)

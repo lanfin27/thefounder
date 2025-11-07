@@ -1,13 +1,32 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { getPostBySlug, getAllPosts } from '@/lib/notion/converter'
 import { createClient } from '@/lib/supabase/server'
-import PostHeader from '@/components/blog/PostHeader'
 import NotionContentRenderer from '@/components/blog/NotionContentRenderer'
 import PaywallGate from '@/components/blog/PaywallGate'
-import RelatedPosts from '@/components/blog/RelatedPosts'
 import PostAnalytics from '@/components/blog/PostAnalytics'
 import ReadingProgress from '@/components/ui/ReadingProgress'
+import CommentSection from '@/components/post/CommentSection'
+import RecommendedPosts from '@/components/post/RecommendedPosts'
+import BookmarkButton from '@/components/library/BookmarkButton'
+import ReadingTracker from '@/components/library/ReadingTracker'
+
+// Helper function to format category labels
+function getCategoryLabel(category: string): string {
+  const labels: Record<string, string> = {
+    'startup': '스타트업',
+    'tech': '기술',
+    'business': '비즈니스',
+    'insight': '인사이트',
+    'case-study': '성공사례',
+    'interview': '인터뷰'
+  }
+  return labels[category] || category
+}
+
+// 5분마다 재검증 (ISR)
+export const revalidate = 300
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -22,13 +41,13 @@ export async function generateMetadata({
   params: { slug: string }
 }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
-  
+
   if (!post) {
     return {
       title: 'Post Not Found',
     }
   }
-  
+
   return {
     title: `${post.title} | The Founder`,
     description: post.summary,
@@ -54,97 +73,158 @@ export default async function PostPage({
 }: {
   params: { slug: string }
 }) {
-  // Decode the URL parameter to handle encoded slugs
   const decodedSlug = decodeURIComponent(params.slug)
   const post = await getPostBySlug(decodedSlug)
-  
+
   if (!post) {
     notFound()
   }
-  
+
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  // All content is now free with registration
-  // No more premium checks needed
-  
+  const notionPageId = post.notionId || post.id
+
+  // Load recommended posts - prioritize same category
+  const allPosts = await getAllPosts(false)
+  const sameCategoryPosts = allPosts
+    .filter(p => p.category === post.category && p.slug !== post.slug)
+    .slice(0, 3)
+  const otherPosts = allPosts
+    .filter(p => p.category !== post.category && p.slug !== post.slug)
+    .slice(0, 3)
+  const recommendedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 6)
+
+  // Debug: Verify slug exists and format
+  console.log('🔍 [PostPage] Post data:', {
+    id: post.id,
+    slug: post.slug,
+    hasSlug: !!post.slug,
+    title: post.title?.substring(0, 30)
+  })
+
   return (
     <>
       <ReadingProgress />
-      <article className="min-h-screen bg-white pt-20 md:pt-24">
-        <div className="article-container px-4 sm:px-6">
-          {/* Article Header */}
-          <header className="py-8 md:py-12">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-caption font-medium text-medium-green">
-                {post.category}
-              </span>
-            </div>
-            
-            <h1 className="text-heading-1 font-serif text-medium-black mb-6 text-korean">
+      <ReadingTracker postId={post.slug} />
+      <div className="min-h-screen bg-white">
+        {/* Main Content (centered, 680px max-width) */}
+        <article className="mx-auto max-w-2xl px-6 md:px-8">
+          {/* Title Section */}
+          <header className="pt-12 pb-8 border-b border-gray-200">
+            {/* Category Badge - Like Medium's "ILLUMINATION" */}
+            {post.category && (
+              <Link
+                href={`/category/${post.category}`}
+                className="inline-block mb-4"
+              >
+                <span className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                  {getCategoryLabel(post.category)}
+                </span>
+              </Link>
+            )}
+
+            {/* Title */}
+            <h1 className="text-[42px] leading-[1.1] font-bold text-gray-900 mb-4">
               {post.title}
             </h1>
-            
-            <p className="text-body-large text-medium-black-secondary mb-8 text-korean">
-              {post.summary}
-            </p>
-            
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-medium-gray" />
-                <div>
-                  <p className="text-body-small font-medium text-medium-black">
-                    {post.author}
-                  </p>
-                  <p className="text-caption text-medium-black-tertiary">
-                    {new Date(post.publishedDate).toLocaleDateString('ko-KR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })} · {post.readingTime}분 읽기
-                  </p>
-                </div>
+
+            {/* Summary */}
+            {post.summary && (
+              <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                {post.summary}
+              </p>
+            )}
+
+            {/* Meta Info (without author) */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <time dateTime={post.publishedDate}>
+                  {new Date(post.publishedDate).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                {post.readingTime && (
+                  <>
+                    <span>·</span>
+                    <span>{post.readingTime}분 읽기</span>
+                  </>
+                )}
               </div>
+
+              {/* Bookmark Button */}
+              <BookmarkButton postId={post.slug} postTitle={post.title} />
             </div>
           </header>
-          
-          {/* Article Cover Image */}
+
+          {/* Header Image (inside article, after title) */}
           {post.cover && (
-            <div className="mb-12 -mx-4 sm:-mx-6 md:mx-0 md:rounded-lg overflow-hidden">
+            <div className="w-full my-8">
               <img
                 src={post.cover}
                 alt={post.title}
-                className="w-full h-auto"
+                className="w-full h-auto rounded-lg"
               />
             </div>
           )}
-          
-          {/* Article Content */}
+
+          {/* Content */}
           <PaywallGate
             isUserLoggedIn={!!user}
             postTitle={post.title}
             postId={post.id}
           >
-            <div className="blog-content">
+            <div className="prose prose-lg max-w-none py-12 medium-content">
               <NotionContentRenderer content={post.content} isRichContent={true} />
             </div>
           </PaywallGate>
 
-          {/* Analytics tracking */}
+          {/* Analytics */}
           <PostAnalytics
             postId={post.id}
             userId={user?.id}
             enabled={true}
           />
-        </div>
-        
-        {/* Related Posts Section */}
-        <div className="border-t border-medium-gray-border mt-16 pt-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <RelatedPosts currentPost={post} />
+
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 py-8 border-t border-gray-200">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </article>
+
+        {/* Comments Section */}
+        <div id="comments" className="mt-12">
+          <div className="mx-auto max-w-2xl px-6 md:px-8 py-12">
+            <CommentSection postId={notionPageId} />
           </div>
         </div>
-      </article>
+
+        {/* Recommended from Founder */}
+        {recommendedPosts.length > 0 && (
+          <div className="border-t border-gray-200">
+            <div className="mx-auto max-w-2xl px-6 md:px-8 py-12">
+              <h2 className="text-base font-semibold text-gray-900 mb-6">
+                Recommended from Founder
+              </h2>
+              <RecommendedPosts
+                posts={recommendedPosts}
+                currentPostSlug={post.slug}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </>
   )
 }

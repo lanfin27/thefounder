@@ -16,13 +16,22 @@ export async function signInWithOAuth({
   queryParams = {}
 }: OAuthConfig) {
   const supabase = createClient()
-  
+
+  // Google-specific query params for refresh token
+  const providerQueryParams = provider === 'google'
+    ? {
+        access_type: 'offline',
+        prompt: 'consent',
+        ...queryParams
+      }
+    : queryParams
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
       redirectTo: `${window.location.origin}/api/auth/callback?next=${encodeURIComponent(redirectTo)}`,
       scopes: scopes?.join(' '),
-      queryParams
+      queryParams: providerQueryParams
     }
   })
 

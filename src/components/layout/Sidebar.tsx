@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X, Home, Search, Bookmark, TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
+import { X, Home, Bookmark, TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Sidebar Context
@@ -44,15 +44,14 @@ export function useSidebar() {
 
 const mainNavigation = [
   { name: 'Home', href: '/', icon: Home },
-  { name: 'Search', href: '/search', icon: Search },
-  { name: 'Bookmarks', href: '/bookmarks', icon: Bookmark },
+  { name: '내 보관함', href: '/library', icon: Bookmark },
 ];
 
 const categories = [
-  { name: '트렌드', href: '/trend', icon: TrendingUp },
-  { name: '인사이트', href: '/insight', icon: Lightbulb },
-  { name: '사례', href: '/case', icon: BarChart3 },
-  { name: '블로그', href: '/blog', icon: PenTool },
+  { name: '트렌드', href: '/category/trends', icon: TrendingUp },
+  { name: '인사이트', href: '/category/insights', icon: Lightbulb },
+  { name: '사례', href: '/category/cases', icon: BarChart3 },
+  { name: '블로그', href: '/category/blog', icon: PenTool },
 ];
 
 // Sidebar 내부 콘텐츠 컴포넌트

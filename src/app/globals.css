@@ -120,3 +120,198 @@ header + * {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
+/* FadeIn Animation for Dropdown Menus */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* ========================================
+   Medium-Style Typography
+   ======================================== */
+
+.medium-content {
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 1.58;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+/* Paragraphs */
+.medium-content p {
+  margin-top: 0;
+  margin-bottom: 1.58em;
+  font-weight: 400;
+  letter-spacing: -0.003em;
+}
+
+/* Headings */
+.medium-content h1 {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.medium-content h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-top: 1.56em;
+  margin-bottom: 0.46em;
+}
+
+.medium-content h3 {
+  font-size: 26px;
+  line-height: 1.22;
+  font-weight: 700;
+  margin-top: 1.56em;
+  margin-bottom: 0.46em;
+}
+
+/* Links */
+.medium-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s;
+}
+
+.medium-content a:hover {
+  text-decoration-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Blockquotes */
+.medium-content blockquote {
+  margin: 1.58em 0;
+  padding-left: 1.5em;
+  border-left: 3px solid rgba(0, 0, 0, 0.84);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.48;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+/* Lists */
+.medium-content ul,
+.medium-content ol {
+  margin: 1.58em 0;
+  padding-left: 1.5em;
+}
+
+.medium-content li {
+  margin-bottom: 0.46em;
+}
+
+/* Images */
+.medium-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2em auto;
+  border-radius: 4px;
+}
+
+.medium-content figure {
+  margin: 2em 0;
+}
+
+.medium-content figure img {
+  width: 100%;
+  margin: 0;
+}
+
+.medium-content figcaption {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.68);
+  margin-top: 10px;
+}
+
+/* Code Blocks */
+.medium-content pre {
+  margin: 1.58em 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.medium-content code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 3px 4px;
+  border-radius: 3px;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 18px;
+}
+
+.medium-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Horizontal Rule */
+.medium-content hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Tables */
+.medium-content table {
+  width: 100%;
+  margin: 1.58em 0;
+  border-collapse: collapse;
+}
+
+.medium-content th,
+.medium-content td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.medium-content th {
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .medium-content {
+    font-size: 18px;
+  }
+
+  .medium-content h1 {
+    font-size: 32px;
+  }
+
+  .medium-content h2 {
+    font-size: 26px;
+  }
+
+  .medium-content h3 {
+    font-size: 22px;
+  }
+
+  .medium-content blockquote {
+    font-size: 20px;
+    padding-left: 1em;
+  }
+}

@@ -1,74 +1,24 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface Post {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt?: string;
-  category?: string;
-  image_url?: string;
-  author?: string;
-  published_at?: string;
-}
+import { BlogPost } from '@/types';
 
 interface FeaturedVisualProps {
-  posts?: Post[];
+  posts: BlogPost[];
 }
 
-export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
-  // 기본 포스트 5개
-  const defaultPosts: Post[] = [
-    {
-      id: '1',
-      title: '[책] 위대한 창업가를 만드는 30가지 조언',
-      slug: 'great-founder-30-tips',
-      excerpt: '성공한 창업가들의 공통된 습관',
-      category: '트렌드',
-      image_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=675&fit=crop',
-      published_at: '2025년 6월 9일'
-    },
-    {
-      id: '2',
-      title: '직접 만든 낭만GPT "김냅맨"에게 질문해주세요',
-      slug: 'napkin-gpt',
-      excerpt: '개인화된 AI 도구 만들기',
-      category: '블로그',
-      image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop',
-      published_at: '2025년 3월 5일'
-    },
-    {
-      id: '3',
-      title: '코딩은 AI가 한다, 그럼 창업자는 뭘 해야 하나',
-      slug: 'ai-age-founder',
-      excerpt: 'AI 시대의 창업자 역할',
-      category: '관점',
-      image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop',
-      published_at: '2025년 8월 14일'
-    },
-    {
-      id: '4',
-      title: '모두가 글로벌을 외치지만 한국의 자동차 금융 시장에 기회가 있습니다!',
-      slug: 'korea-auto-finance',
-      excerpt: '국내 시장의 숨겨진 기회',
-      category: '사례',
-      image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop',
-      published_at: '2025년 1월 17일'
-    },
-    {
-      id: '5',
-      title: '혼돈의 KPOP 산업, 답은 어디에 있을까?',
-      slug: 'kpop-industry',
-      excerpt: 'K-POP 시장 분석',
-      category: '사례',
-      image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=675&fit=crop',
-      published_at: '2025년 1월 17일'
-    },
-  ];
+export function FeaturedVisual({ posts }: FeaturedVisualProps) {
+  // If no posts, show empty state
+  if (posts.length === 0) {
+    return (
+      <section className="w-full bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <p className="text-center text-gray-500">Featured 포스트가 없습니다.</p>
+        </div>
+      </section>
+    );
+  }
 
-  const displayPosts = posts.length > 0 ? posts : defaultPosts;
+  const displayPosts = posts;
 
   // 🚨 낭만투자파트너스 레이아웃: 왼쪽 1개 + 중앙 1개 (큰) + 오른쪽 2개
   const leftPost = displayPosts[0];
@@ -102,9 +52,9 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
               className="group block"
             >
               <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
-                {leftPost.image_url && (
+                {leftPost.cover && (
                   <Image
-                    src={leftPost.image_url}
+                    src={leftPost.cover}
                     alt={leftPost.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -113,16 +63,16 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                 )}
               </div>
               <div className="space-y-1">
-                {leftPost.category && (
+                {leftPost.categoryLabel && (
                   <span className="text-xs font-semibold text-gray-500 uppercase">
-                    {leftPost.category}
+                    {leftPost.categoryLabel}
                   </span>
                 )}
                 <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                   {leftPost.title}
                 </h3>
-                {leftPost.published_at && (
-                  <p className="text-xs text-gray-400">{leftPost.published_at}</p>
+                {leftPost.publishedDate && (
+                  <p className="text-xs text-gray-400">{new Date(leftPost.publishedDate).toLocaleDateString('ko-KR')}</p>
                 )}
               </div>
             </Link>
@@ -134,9 +84,9 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                 className="group block"
               >
                 <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
-                  {extraPost.image_url && (
+                  {extraPost.cover && (
                     <Image
-                      src={extraPost.image_url}
+                      src={extraPost.cover}
                       alt={extraPost.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -145,16 +95,16 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                   )}
                 </div>
                 <div className="space-y-1">
-                  {extraPost.category && (
+                  {extraPost.categoryLabel && (
                     <span className="text-xs font-semibold text-gray-500 uppercase">
-                      {extraPost.category}
+                      {extraPost.categoryLabel}
                     </span>
                   )}
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                     {extraPost.title}
                   </h3>
-                  {extraPost.published_at && (
-                    <p className="text-xs text-gray-400">{extraPost.published_at}</p>
+                  {extraPost.publishedDate && (
+                    <p className="text-xs text-gray-400">{new Date(extraPost.publishedDate).toLocaleDateString('ko-KR')}</p>
                   )}
                 </div>
               </Link>
@@ -168,9 +118,9 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
               className="group block h-full"
             >
               <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-lg mb-4">
-                {centerPost.image_url && (
+                {centerPost.cover && (
                   <Image
-                    src={centerPost.image_url}
+                    src={centerPost.cover}
                     alt={centerPost.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -183,21 +133,21 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
 
                 {/* 텍스트를 이미지 위에 배치 */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  {centerPost.category && (
+                  {centerPost.categoryLabel && (
                     <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white mb-3">
-                      {centerPost.category}
+                      {centerPost.categoryLabel}
                     </span>
                   )}
                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors line-clamp-2">
                     {centerPost.title}
                   </h3>
-                  {centerPost.excerpt && (
+                  {centerPost.summary && (
                     <p className="text-gray-200 text-sm line-clamp-2 mb-2">
-                      {centerPost.excerpt}
+                      {centerPost.summary}
                     </p>
                   )}
-                  {centerPost.published_at && (
-                    <p className="text-xs text-gray-300">{centerPost.published_at}</p>
+                  {centerPost.publishedDate && (
+                    <p className="text-xs text-gray-300">{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</p>
                   )}
                 </div>
               </div>
@@ -213,9 +163,9 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                 className="group block"
               >
                 <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
-                  {post.image_url && (
+                  {post.cover && (
                     <Image
-                      src={post.image_url}
+                      src={post.cover}
                       alt={post.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -224,16 +174,16 @@ export function FeaturedVisual({ posts = [] }: FeaturedVisualProps) {
                   )}
                 </div>
                 <div className="space-y-1">
-                  {post.category && (
+                  {post.categoryLabel && (
                     <span className="text-xs font-semibold text-gray-500 uppercase">
-                      {post.category}
+                      {post.categoryLabel}
                     </span>
                   )}
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                     {post.title}
                   </h3>
-                  {post.published_at && (
-                    <p className="text-xs text-gray-400">{post.published_at}</p>
+                  {post.publishedDate && (
+                    <p className="text-xs text-gray-400">{new Date(post.publishedDate).toLocaleDateString('ko-KR')}</p>
                   )}
                 </div>
               </Link>
