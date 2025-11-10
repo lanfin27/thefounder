@@ -412,3 +412,191 @@ html {
     display: none;
   }
 }
+
+/* ========================================
+   Notion Callout Styles (Fix Clipping Issue)
+   ======================================== */
+
+/* 1. Basic callout container - fix overflow clipping */
+.notion-callout,
+.callout,
+[class*="notion-callout"],
+[class*="callout"] {
+  /* Prevent content clipping */
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+
+  /* Basic styling */
+  display: flex !important;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  background-color: #F3F4F6;
+  border-left: 3px solid #9CA3AF;
+}
+
+/* 2. Callout icon */
+.notion-callout-icon,
+.callout-icon,
+[class*="callout-icon"] {
+  flex-shrink: 0;
+  font-size: 24px;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: block !important;
+}
+
+/* 3. Callout text container - CRITICAL: prevent clipping */
+.notion-callout-text,
+.callout-text,
+[class*="callout-text"] {
+  /* Fix clipping issue */
+  flex: 1;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  /* Text styling */
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* 4. Callout title */
+.notion-callout-title,
+.callout-title,
+[class*="callout-title"] {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* 5. Callout content - CRITICAL: fix the clipped content below title */
+.notion-callout-content,
+.callout-content,
+[class*="callout-content"],
+.notion-callout p,
+.callout p {
+  /* Fix clipping - this is the KEY fix */
+  display: block !important;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  /* Content styling */
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* 6. Lists inside callouts */
+.notion-callout ul,
+.notion-callout ol,
+.callout ul,
+.callout ol,
+[class*="callout"] ul,
+[class*="callout"] ol {
+  margin: 8px 0;
+  padding-left: 24px;
+  display: block !important;
+  overflow: visible !important;
+  list-style-position: outside;
+}
+
+.notion-callout li,
+.callout li,
+[class*="callout"] li {
+  margin: 4px 0;
+  line-height: 1.6;
+  display: list-item !important;
+  overflow: visible !important;
+}
+
+/* 7. All children elements - force visibility */
+.notion-callout *,
+.callout *,
+[class*="callout"] * {
+  overflow: visible !important;
+  max-height: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 8. Callout color variations */
+
+/* Blue (Info) */
+.notion-callout[style*="rgb(219, 234, 254)"],
+.notion-callout[style*="#dbeafe"],
+.callout-blue {
+  background-color: #E7F5FF;
+  border-left-color: #4A90E2;
+}
+
+/* Yellow (Warning) */
+.notion-callout[style*="rgb(254, 243, 199)"],
+.notion-callout[style*="#fef3c7"],
+.callout-yellow {
+  background-color: #FFF3BF;
+  border-left-color: #FFD43B;
+}
+
+/* Green (Success/Tip) */
+.notion-callout[style*="rgb(220, 252, 231)"],
+.notion-callout[style*="#dcfce7"],
+.callout-green {
+  background-color: #E5F5E5;
+  border-left-color: #51CF66;
+}
+
+/* Red (Alert) */
+.notion-callout[style*="rgb(254, 226, 226)"],
+.notion-callout[style*="#fee2e2"],
+.callout-red {
+  background-color: #FFE5E5;
+  border-left-color: #FF6B6B;
+}
+
+/* Gray (Note) */
+.notion-callout[style*="rgb(243, 244, 246)"],
+.notion-callout[style*="#f3f4f6"],
+.callout-gray {
+  background-color: #F3F4F6;
+  border-left-color: #9CA3AF;
+}
+
+/* Purple (Info) */
+.notion-callout[style*="rgb(237, 233, 254)"],
+.notion-callout[style*="#ede9fe"],
+.callout-purple {
+  background-color: #F3E8FF;
+  border-left-color: #9333EA;
+}
+
+/* 9. Responsive adjustments */
+@media (max-width: 768px) {
+  .notion-callout,
+  .callout,
+  [class*="callout"] {
+    padding: 12px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .notion-callout-icon,
+  .callout-icon,
+  [class*="callout-icon"] {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
