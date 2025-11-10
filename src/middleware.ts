@@ -35,6 +35,57 @@ export async function middleware(request: NextRequest) {
     return response
   }
 
+  // 🔥 Step 2.3: Protect /library routes (requires authentication)
+  if (pathname.startsWith('/library')) {
+    console.log('[Middleware] 📚 Library route access check:', pathname)
+
+    try {
+      // Create response for cookie handling
+      let response = NextResponse.next({
+        request: {
+          headers: request.headers,
+        },
+      })
+
+      // Create Supabase client
+      const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+          cookies: {
+            get(name: string) {
+              return request.cookies.get(name)?.value
+            },
+            set(name: string, value: string, options: CookieOptions) {
+              response.cookies.set({ name, value, ...options })
+            },
+            remove(name: string, options: CookieOptions) {
+              response.cookies.set({ name, value: '', ...options })
+            },
+          },
+        }
+      )
+
+      // Get authenticated user
+      const { data: { user }, error: authError } = await supabase.auth.getUser()
+
+      if (authError || !user) {
+        console.log('[Middleware] ❌ No authenticated user for library, redirecting to login')
+        const redirectUrl = new URL('/auth/login', request.url)
+        redirectUrl.searchParams.set('redirectTo', pathname)
+        return NextResponse.redirect(redirectUrl)
+      }
+
+      console.log('[Middleware] ✅ Library access granted for:', user.email)
+      return response
+    } catch (error) {
+      console.error('[Middleware] ❌ Library auth check error:', error)
+      const redirectUrl = new URL('/auth/login', request.url)
+      redirectUrl.searchParams.set('redirectTo', pathname)
+      return NextResponse.redirect(redirectUrl)
+    }
+  }
+
   // 🔥 Step 2.5: Protect /admin routes (requires admin role)
   if (pathname.startsWith('/admin') &&
       !pathname.startsWith('/admin/youtube-industry') &&

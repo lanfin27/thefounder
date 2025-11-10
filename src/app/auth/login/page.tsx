@@ -3,12 +3,18 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import LoginForm from '@/components/auth/LoginForm'
 
-export default async function LoginPage() {
+type Props = {
+  searchParams: { redirectTo?: string }
+}
+
+export default async function LoginPage({ searchParams }: Props) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
+  // If user is already logged in, redirect to target or home
   if (user) {
-    redirect('/')
+    const redirectTo = searchParams.redirectTo || '/'
+    redirect(redirectTo)
   }
 
   return (
@@ -28,7 +34,7 @@ export default async function LoginPage() {
             </Link>
           </p>
         </div>
-        
+
         <LoginForm />
       </div>
     </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { OAuthButtons } from './OAuthButtons'
 import { Mail, Lock } from 'lucide-react'
@@ -12,7 +12,11 @@ export default function LoginForm() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
   const supabase = createClient()
+
+  // Get redirect destination from URL params (default to '/')
+  const redirectTo = searchParams.get('redirectTo') || '/'
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,15 +32,16 @@ export default function LoginForm() {
       setError(error.message)
       setLoading(false)
     } else {
-      router.push('/')
+      console.log('[LoginForm] Login successful, redirecting to:', redirectTo)
+      router.push(redirectTo)
       router.refresh()
     }
   }
 
   return (
     <div className="space-y-6">
-      <OAuthButtons 
-        redirectTo="/"
+      <OAuthButtons
+        redirectTo={redirectTo}
         onError={(error) => setError(error.message)}
       />
 
