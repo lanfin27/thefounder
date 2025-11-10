@@ -11,6 +11,8 @@ import CommentSection from '@/components/post/CommentSection'
 import RecommendedPosts from '@/components/post/RecommendedPosts'
 import BookmarkButton from '@/components/library/BookmarkButton'
 import ReadingTracker from '@/components/library/ReadingTracker'
+import TableOfContents from '@/components/blog/TableOfContents'
+import { generateTocFromHTML, injectIdsToHeadings } from '@/utils/toc'
 
 // Helper function to format category labels
 function getCategoryLabel(category: string): string {
@@ -110,13 +112,29 @@ export default async function PostPage({
     title: post.title?.substring(0, 30)
   })
 
+  // Generate TOC from post content
+  const tocItems = generateTocFromHTML(post.content)
+  const contentWithIds = injectIdsToHeadings(post.content, tocItems)
+
   return (
     <>
       <ReadingProgress />
       <ReadingTracker postId={post.slug} />
       <div className="min-h-screen bg-white">
-        {/* Main Content (centered, 680px max-width) */}
-        <article className="mx-auto max-w-2xl px-6 md:px-8">
+        {/* Layout with TOC Sidebar */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex gap-12 relative">
+            {/* Left Sidebar: Table of Contents (Desktop only) */}
+            {tocItems.length > 0 && (
+              <aside className="hidden xl:block w-64 flex-shrink-0">
+                <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
+                  <TableOfContents items={tocItems} />
+                </div>
+              </aside>
+            )}
+
+            {/* Main Content (centered, 680px max-width) */}
+            <article className="flex-1 max-w-2xl mx-auto px-0 md:px-0">
           {/* Title Section */}
           <header className="pt-12 pb-8 border-b border-gray-200">
             {/* Category Badge - Like Medium's "ILLUMINATION" */}
@@ -184,7 +202,7 @@ export default async function PostPage({
             postId={post.id}
           >
             <div className="prose prose-lg max-w-none py-12 medium-content">
-              <NotionContentRenderer content={post.content} isRichContent={true} />
+              <NotionContentRenderer content={contentWithIds} isRichContent={true} />
             </div>
           </PaywallGate>
 
@@ -208,9 +226,11 @@ export default async function PostPage({
               ))}
             </div>
           )}
-        </article>
+            </article>
+          </div>
+        </div>
 
-        {/* Comments Section */}
+        {/* Comments Section (Full width, outside TOC layout) */}
         <div id="comments" className="mt-12">
           <div className="mx-auto max-w-2xl px-6 md:px-8 py-12">
             <CommentSection postId={notionPageId} />

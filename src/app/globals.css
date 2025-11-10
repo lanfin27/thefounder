@@ -315,3 +315,100 @@ header + * {
     padding-left: 1em;
   }
 }
+
+/* ========================================
+   Table of Contents (TOC) Sidebar
+   ======================================== */
+
+.toc-sidebar {
+  background: #FAFAFA;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.toc-sidebar h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  transition: all 0.2s ease;
+}
+
+.toc-item a {
+  display: block;
+  padding: 0.25rem 0.75rem;
+  font-size: 14px;
+  color: #6B7280;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.toc-item a:hover {
+  color: #374151;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* H2 level styling */
+.toc-level-2 a {
+  font-weight: 500;
+}
+
+/* H3 level styling (indented) */
+.toc-level-3 a {
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* Active item styling */
+.toc-item.active a {
+  color: #03A87C;
+  font-weight: 600;
+  background: rgba(3, 168, 124, 0.05);
+  border-left-color: #03A87C;
+}
+
+/* Smooth scrollbar for TOC */
+.toc-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for anchor links to account for sticky header */
+:target {
+  scroll-margin-top: 100px;
+}
+
+/* Mobile responsive - hide on smaller screens */
+@media (max-width: 1279px) {
+  .toc-sidebar {
+    display: none;
+  }
+}
