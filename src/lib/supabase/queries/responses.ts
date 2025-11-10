@@ -6,12 +6,22 @@ import type { UserResponse } from '@/types/library'
  */
 
 export async function getUserResponses(): Promise<UserResponse[]> {
+  console.log('🔍 [getUserResponses] Starting query...')
+
   const supabase = createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+
+  if (authError) {
+    console.error('❌ [getUserResponses] Auth error:', authError)
+    throw authError
+  }
 
   if (!user) {
+    console.error('❌ [getUserResponses] No authenticated user')
     throw new Error('Not authenticated')
   }
+
+  console.log('✅ [getUserResponses] User authenticated:', user.id)
 
   const { data, error } = await supabase
     .from('comments')
@@ -27,9 +37,15 @@ export async function getUserResponses(): Promise<UserResponse[]> {
     .order('created_at', { ascending: false })
 
   if (error) {
-    console.error('Error fetching user responses:', error)
+    console.error('❌ [getUserResponses] Supabase error:', error)
+    console.error('   Error code:', error.code)
+    console.error('   Error message:', error.message)
+    console.error('   Error details:', error.details)
+    console.error('   Error hint:', error.hint)
     throw error
   }
+
+  console.log('✅ [getUserResponses] Success! Found', data?.length || 0, 'comments')
 
   // Count replies for each comment
   const commentsWithCounts = await Promise.all(

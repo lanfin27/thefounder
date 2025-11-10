@@ -8,12 +8,22 @@ import type { List, CreateListInput, UpdateListInput, ListItem, AddToListInput }
 // ===== LIST OPERATIONS =====
 
 export async function getUserLists(): Promise<List[]> {
+  console.log('🔍 [getUserLists] Starting query...')
+
   const supabase = createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+
+  if (authError) {
+    console.error('❌ [getUserLists] Auth error:', authError)
+    throw authError
+  }
 
   if (!user) {
+    console.error('❌ [getUserLists] No authenticated user')
     throw new Error('Not authenticated')
   }
+
+  console.log('✅ [getUserLists] User authenticated:', user.id)
 
   const { data, error } = await supabase
     .from('lists')
@@ -25,9 +35,15 @@ export async function getUserLists(): Promise<List[]> {
     .order('created_at', { ascending: false })
 
   if (error) {
-    console.error('Error fetching lists:', error)
+    console.error('❌ [getUserLists] Supabase error:', error)
+    console.error('   Error code:', error.code)
+    console.error('   Error message:', error.message)
+    console.error('   Error details:', error.details)
+    console.error('   Error hint:', error.hint)
     throw error
   }
+
+  console.log('✅ [getUserLists] Success! Found', data?.length || 0, 'lists')
 
   // Format data to include post_count
   return (data || []).map(list => ({
