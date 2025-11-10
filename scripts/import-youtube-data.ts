@@ -389,7 +389,7 @@ async function importInitialChannels() {
 
   if (duplicates.length > 0) {
     console.log(`[Import] ⚠️  Removed ${duplicates.length} duplicate channel(s)`)
-    console.log('[Import] Duplicate channel IDs:', [...new Set(duplicates)].join(', '))
+    console.log('[Import] Duplicate channel IDs:', Array.from(new Set(duplicates)).join(', '))
   }
 
   // Insert in batches of 50

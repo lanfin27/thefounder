@@ -57,17 +57,59 @@ const STATUS_MAPPING: Record<string, string> = {
   'published': 'published'
 }
 
+/**
+ * Convert Notion image URLs to use our proxy to avoid 403 errors
+ * Notion S3 URLs have temporary AWS tokens that expire after 1 hour
+ *
+ * @param notionUrl - The original Notion image URL
+ * @param pageId - The Notion page ID (required for fetching fresh URLs)
+ * @returns Proxied URL or original URL for external images
+ */
+export function getProxiedImageUrl(notionUrl: string | undefined, pageId?: string): string {
+  if (!notionUrl) return ''
+
+  // If it's already a proxied URL, return as-is
+  // This means we're reading from cache/database, which is OK
+  if (notionUrl.startsWith('/api/image-proxy')) {
+    return notionUrl
+  }
+
+  // Check if it's a Notion S3 URL (these URLs expire)
+  const isNotionS3 = notionUrl.includes('prod-files-secure.s3') ||
+                     notionUrl.includes('amazonaws.com') ||
+                     notionUrl.includes('X-Amz')
+
+  if (isNotionS3) {
+    // Extract timestamp from URL for logging
+    const timestampMatch = notionUrl.match(/X-Amz-Date=(\d{8}T\d{6}Z)/)
+    const timestamp = timestampMatch ? timestampMatch[1] : 'unknown'
+
+    // Proxy through our server to avoid 403 errors
+    const encodedUrl = encodeURIComponent(notionUrl)
+    const pageIdParam = pageId ? `&pageId=${encodeURIComponent(pageId)}` : ''
+
+    console.log(`[Converter] 🔄 Converting Notion S3 URL to proxy`)
+    console.log(`[Converter]    Page: ${pageId?.substring(0, 8) || 'none'}`)
+    console.log(`[Converter]    Timestamp: ${timestamp}`)
+    console.log(`[Converter]    URL (first 80): ${notionUrl.substring(0, 80)}...`)
+
+    return `/api/image-proxy?url=${encodedUrl}${pageIdParam}`
+  }
+
+  // For external URLs (like Unsplash), use directly
+  console.log(`[Converter] ℹ️ Using external URL directly: ${notionUrl.substring(0, 80)}...`)
+  return notionUrl
+}
+
 // Custom transformer for Korean content
 n2m.setCustomTransformer('image', async (block: any) => {
   const imageUrl = block.image?.external?.url || block.image?.file?.url
   if (!imageUrl) return ''
-  
-  // Optimize Notion images
-  const optimizedUrl = imageUrl.includes('notion.so') 
-    ? imageUrl.replace('https://www.notion.so', 'https://notion.so')
-    : imageUrl
-    
-  return `![${block.image?.caption?.[0]?.plain_text || ''}](${optimizedUrl})`
+
+  // Use image proxy to avoid 403 errors from expired AWS tokens
+  const proxiedUrl = getProxiedImageUrl(imageUrl)
+
+  return `![${block.image?.caption?.[0]?.plain_text || ''}](${proxiedUrl})`
 })
 
 export function generateSlugFromKorean(title: string): string {
@@ -110,7 +152,7 @@ async function getBlocks(blockId: string): Promise<any[]> {
 }
 
 // Convert blocks to HTML string
-function blocksToHtml(blocks: any[]): string {
+function blocksToHtml(blocks: any[], pageId: string): string {
   // 모든 블록 타입 확인 (디버깅용)
   blocks.forEach((block, index) => {
     if (block.type === 'video' || block.type === 'embed' || block.type === 'image') {
@@ -118,7 +160,7 @@ function blocksToHtml(blocks: any[]): string {
     }
   })
 
-  const htmlParts = blocks.map(block => renderBlockToHtml(block))
+  const htmlParts = blocks.map(block => renderBlockToHtml(block, pageId))
   return htmlParts.join('')
 }
 
@@ -169,7 +211,7 @@ export async function getPageContent(pageId: string): Promise<string> {
 
     // HTML 변환
     const htmlContent = blocks
-      .map(block => renderBlockToHtml(block))
+      .map(block => renderBlockToHtml(block, pageId))
       .join('')
 
     // 생성된 HTML에 img 태그가 있는지 확인
@@ -318,7 +360,7 @@ export async function convertPageToPost(page: any, loadContent: boolean = false)
       slug,
       summary,
       content,
-      cover: coverUrl,
+      cover: getProxiedImageUrl(coverUrl, page.id),  // 🖼️ Use proxy with page ID to fetch fresh URLs
       author,
       category: category as BlogPost['category'],
       categoryLabel,
@@ -504,4 +546,90 @@ export async function getPostsByCategory(category: BlogPost['category'], loadCon
   )
 
   return posts.filter(Boolean) as BlogPost[]
+}
+
+/**
+ * Get posts from a specific Notion database with custom credentials
+ * Used by the multi-source sync feature
+ */
+export async function getPostsFromSource(
+  notionToken: string,
+  notionDatabaseId: string,
+  loadContent: boolean = false
+): Promise<BlogPost[]> {
+  const startTime = Date.now()
+
+  console.log(`\n🔍 [getPostsFromSource] ========== STARTING CUSTOM SOURCE FETCH ==========`)
+  console.log(`🔍 [getPostsFromSource] Token (first 30): ${notionToken.substring(0, 30)}...`)
+  console.log(`🔍 [getPostsFromSource] Token length: ${notionToken.length}`)
+  console.log(`🔍 [getPostsFromSource] Database ID (FULL): ${notionDatabaseId}`)
+  console.log(`🔍 [getPostsFromSource] Database ID length: ${notionDatabaseId.length}`)
+  console.log(`🔍 [getPostsFromSource] Load content: ${loadContent}`)
+  console.log(`====================================================================\n`)
+
+  try {
+    // Create Notion client with custom token
+    const customNotion = new Client({ auth: notionToken })
+    console.log(`✅ [getPostsFromSource] Created Notion client with custom token`)
+
+    // Query the specific database with the same filter as getAllPosts()
+    console.log(`📡 [getPostsFromSource] Querying database: ${notionDatabaseId}`)
+    const pages = await customNotion.databases.query({
+      database_id: notionDatabaseId,
+      filter: {
+        or: [
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: '발행'
+            }
+          },
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: 'Published'
+            }
+          },
+          {
+            property: NOTION_PROPERTIES.STATUS,
+            select: {
+              equals: 'published'
+            }
+          }
+        ]
+      },
+      sorts: [
+        {
+          property: NOTION_PROPERTIES.PUBLISHED_DATE,
+          direction: 'descending'
+        }
+      ]
+    })
+
+    console.log(`✅ [getPostsFromSource] Query returned ${pages.results.length} pages`)
+
+    // Use the EXACT SAME conversion logic as getAllPosts()
+    const posts = await Promise.all(
+      pages.results.map(page => convertPageToPost(page, loadContent))
+    )
+
+    const filteredPosts = posts.filter(Boolean) as BlogPost[]
+
+    const elapsed = Date.now() - startTime
+    console.log(`✅ [getPostsFromSource] Fetched ${filteredPosts.length} posts from custom source in ${elapsed}ms`)
+    console.log(`📄 [getPostsFromSource] Post titles:`)
+    filteredPosts.forEach((post, idx) => {
+      console.log(`  ${idx + 1}. "${post.title}"`)
+    })
+    console.log(`\n====================================================================\n`)
+
+    return filteredPosts
+  } catch (error) {
+    console.error('[getPostsFromSource] ❌ Error:', error)
+    if (error instanceof Error) {
+      console.error('[getPostsFromSource] ❌ Error message:', error.message)
+      console.error('[getPostsFromSource] ❌ Error stack:', error.stack)
+    }
+    throw error
+  }
 }

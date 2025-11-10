@@ -52,7 +52,7 @@ async function verifyHistoryFix() {
 
     if (!updateResult.success) {
       console.error('❌ FAILED: Channel update failed!')
-      console.error('   Error:', updateResult.error || 'Unknown error')
+      console.error('   Error:', (updateResult as any).error || 'Unknown error')
       allTestsPassed = false
       process.exit(1)
     }

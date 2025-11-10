@@ -1,4 +1,5 @@
 // HTML 문자열 생성을 위한 유틸리티 함수들
+import { getProxiedImageUrl } from './converter'
 
 // HTML 이스케이프
 function escapeHtml(text: string): string {
@@ -119,7 +120,7 @@ function renderRichTextToHtml(richTexts: any[]): string {
 }
 
 // Notion 블록을 HTML 문자열로 변환
-export function renderBlockToHtml(block: any): string {
+export function renderBlockToHtml(block: any, pageId?: string): string {
   const { type, id } = block
   const value = block[type]
 
@@ -176,10 +177,13 @@ export function renderBlockToHtml(block: any): string {
         captionHtml = `<figcaption class="text-center text-sm text-gray-600 mt-2">${renderRichTextToHtml(block.image.caption)}</figcaption>`
       }
 
+      // Use image proxy to avoid 403 errors from expired AWS tokens
+      const proxiedImageUrl = getProxiedImageUrl(imageUrl, pageId)
+
       return `
         <figure class="my-6">
           <img
-            src="${imageUrl}"
+            src="${proxiedImageUrl}"
             alt=""
             class="w-full rounded-lg"
             loading="lazy"

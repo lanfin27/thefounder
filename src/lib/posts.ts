@@ -1,19 +1,68 @@
 import { BlogPost } from '@/types';
 import { CATEGORY_TO_SLUG, CategorySlug } from '@/types/post';
 
-// 서버 사이드에서 Notion 데이터 가져오기
-// 클라이언트 사이드에서는 API route를 사용
+/**
+ * Get all posts from Supabase database
+ * This is the single source of truth for all posts across all Notion sources
+ */
 export async function getAllPosts(): Promise<BlogPost[]> {
   try {
     // Check if running on server or client
     if (typeof window === 'undefined') {
-      // Server-side: import directly from converter
-      console.log('🔍 [getAllPosts] Fetching posts from Notion (server-side)');
-      const { getAllPosts: getPostsFromNotion } = await import('@/lib/notion/converter');
-      const posts = await getPostsFromNotion(false);  // 🔥 Load metadata only for list views
-      console.log(`✅ [getAllPosts] Fetched ${posts.length} posts from Notion (metadata only)`);
-      console.log(`📊 [getAllPosts] Categories in posts:`, [...new Set(posts.map(p => p.category))]);
-      return posts;
+      // Server-side: Read from Supabase (single source of truth)
+      console.log('🔍 [getAllPosts] Fetching posts from Supabase (server-side)');
+
+      const { createClient } = await import('@/lib/supabase/server');
+      const supabase = await createClient();
+
+      // Fetch all published posts from Supabase
+      // Note: Posts are saved with English status 'published' from converter
+      const { data: posts, error } = await supabase
+        .from('posts')
+        .select('*')
+        .in('status', ['published', '발행']) // Support both English and Korean status
+        .order('published_date', { ascending: false });
+
+      if (error) {
+        console.error('❌ [getAllPosts] Supabase error:', error);
+        throw error;
+      }
+
+      if (!posts || posts.length === 0) {
+        console.log('⚠️ [getAllPosts] No posts found in Supabase');
+        return [];
+      }
+
+      console.log(`✅ [getAllPosts] Fetched ${posts.length} posts from Supabase`);
+
+      // Transform Supabase data to BlogPost format
+      const blogPosts: BlogPost[] = posts.map(post => ({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        summary: post.summary || '',
+        content: post.content || undefined,
+        cover: post.cover || undefined,
+        author: post.author || 'Anonymous',
+        category: post.category || 'Uncategorized',
+        categoryLabel: post.category || 'Uncategorized',
+        tags: post.tags || [],
+        isPremium: post.is_premium || false,
+        status: post.status || '발행',
+        publishedDate: post.published_date || new Date().toISOString(),
+        readingTime: post.reading_time || 5,
+        date: post.published_date || new Date().toISOString(),
+      }));
+
+      console.log(`📊 [getAllPosts] Categories in posts:`, [...new Set(blogPosts.map(p => p.category))]);
+      console.log(`📊 [getAllPosts] Sample posts (first 2):`, blogPosts.slice(0, 2).map(p => ({
+        id: p.id.substring(0, 8),
+        title: p.title,
+        slug: p.slug,
+        category: p.category
+      })));
+
+      return blogPosts;
     } else {
       // Client-side: fetch from API
       console.log('🔍 [getAllPosts] Fetching posts from API (client-side)');
@@ -92,19 +141,69 @@ export async function getLatestPosts(limit: number = 10): Promise<BlogPost[]> {
     .slice(0, limit);
 }
 
+/**
+ * Get a single post by slug from Supabase
+ */
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     if (typeof window === 'undefined') {
-      // Server-side: import directly from converter
-      const { getPostBySlug: getPostFromNotion } = await import('@/lib/notion/converter');
-      return await getPostFromNotion(slug);
+      // Server-side: Read from Supabase (single source of truth)
+      console.log(`🔍 [getPostBySlug] Fetching post with slug: "${slug}" from Supabase`);
+
+      const { createClient } = await import('@/lib/supabase/server');
+      const supabase = await createClient();
+
+      // Fetch post from Supabase
+      const { data: post, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+      if (error) {
+        if (error.code === 'PGRST116') {
+          // Post not found
+          console.log(`⚠️ [getPostBySlug] Post not found: ${slug}`);
+          return null;
+        }
+        console.error('❌ [getPostBySlug] Supabase error:', error);
+        throw error;
+      }
+
+      if (!post) {
+        console.log(`⚠️ [getPostBySlug] No post found with slug: ${slug}`);
+        return null;
+      }
+
+      console.log(`✅ [getPostBySlug] Found post: "${post.title}"`);
+
+      // Transform to BlogPost format
+      const blogPost: BlogPost = {
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        summary: post.summary || '',
+        content: post.content || '',
+        cover: post.cover || undefined,
+        author: post.author || 'Anonymous',
+        category: post.category || 'Uncategorized',
+        categoryLabel: post.category || 'Uncategorized',
+        tags: post.tags || [],
+        isPremium: post.is_premium || false,
+        status: post.status || '발행',
+        publishedDate: post.published_date || new Date().toISOString(),
+        readingTime: post.reading_time || 5,
+        date: post.published_date || new Date().toISOString(),
+      };
+
+      return blogPost;
     } else {
       // Client-side: Not typically used, but available if needed
       const allPosts = await getAllPosts();
       return allPosts.find(post => post.slug === slug) || null;
     }
   } catch (error) {
-    console.error('Error fetching post by slug:', error);
+    console.error('❌ [getPostBySlug] Error fetching post by slug:', error);
     return null;
   }
 }

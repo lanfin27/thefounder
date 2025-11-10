@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getPostBySlug, getAllPosts } from '@/lib/notion/converter'
+import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import { createClient } from '@/lib/supabase/server'
 import NotionContentRenderer from '@/components/blog/NotionContentRenderer'
 import PaywallGate from '@/components/blog/PaywallGate'
@@ -29,7 +29,9 @@ function getCategoryLabel(category: string): string {
 export const revalidate = 300
 
 export async function generateStaticParams() {
+  console.log('[generateStaticParams] 🔍 Fetching all posts from Supabase')
   const posts = await getAllPosts()
+  console.log(`[generateStaticParams] ✅ Generated params for ${posts.length} posts`)
   return posts.map((post) => ({
     slug: post.slug,
   }))
@@ -74,11 +76,16 @@ export default async function PostPage({
   params: { slug: string }
 }) {
   const decodedSlug = decodeURIComponent(params.slug)
+  console.log(`[PostPage] 🔍 Fetching post with slug: "${decodedSlug}" from Supabase`)
+
   const post = await getPostBySlug(decodedSlug)
 
   if (!post) {
+    console.log(`[PostPage] ❌ Post not found: "${decodedSlug}"`)
     notFound()
   }
+
+  console.log(`[PostPage] ✅ Found post: "${post.title}"`)
 
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

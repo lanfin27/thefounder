@@ -122,7 +122,7 @@ export class YouTubeAPI {
 
     try {
       while (fetchedCount < maxResults) {
-        const response = await axios.get(`${YOUTUBE_API_BASE}/playlistItems`, {
+        const response: any = await axios.get(`${YOUTUBE_API_BASE}/playlistItems`, {
           params: {
             part: 'contentDetails',
             playlistId: playlistId,
