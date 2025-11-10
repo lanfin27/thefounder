@@ -417,9 +417,56 @@ html {
    Notion Callout Styles (Fix Clipping Issue)
    ======================================== */
 
+/* CRITICAL: Force open details/toggle callouts */
+details.notion-callout,
+details.notion-toggle,
+details[class*="callout"] {
+  /* Force always open */
+  display: block !important;
+}
+
+/* Disable summary click */
+details.notion-callout > summary,
+details.notion-toggle > summary,
+details[class*="callout"] > summary {
+  /* Prevent toggle interaction */
+  pointer-events: none !important;
+  cursor: default !important;
+  list-style: none !important;
+
+  /* Remove toggle arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Remove details marker/arrow */
+details.notion-callout > summary::-webkit-details-marker,
+details.notion-toggle > summary::-webkit-details-marker,
+details[class*="callout"] > summary::-webkit-details-marker,
+details.notion-callout > summary::marker,
+details.notion-toggle > summary::marker,
+details[class*="callout"] > summary::marker {
+  display: none !important;
+}
+
+/* Force content visibility inside details */
+details.notion-callout > *:not(summary),
+details.notion-toggle > *:not(summary),
+details[class*="callout"] > *:not(summary) {
+  display: block !important;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* 1. Basic callout container - fix overflow clipping */
 .notion-callout,
 .callout,
+details.notion-callout,
+details.notion-toggle,
 [class*="notion-callout"],
 [class*="callout"] {
   /* Prevent content clipping */
@@ -429,6 +476,7 @@ html {
 
   /* Basic styling */
   display: flex !important;
+  flex-direction: row !important;
   gap: 12px;
   padding: 16px;
   border-radius: 8px;

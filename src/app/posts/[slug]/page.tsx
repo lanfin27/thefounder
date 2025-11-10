@@ -13,6 +13,7 @@ import BookmarkButton from '@/components/library/BookmarkButton'
 import ReadingTracker from '@/components/library/ReadingTracker'
 import TableOfContents from '@/components/blog/TableOfContents'
 import { generateTocFromHTML, injectIdsToHeadings } from '@/utils/toc'
+import ForceOpenCallouts from '@/components/blog/ForceOpenCallouts'
 
 // Helper function to format category labels
 function getCategoryLabel(category: string): string {
@@ -120,6 +121,7 @@ export default async function PostPage({
     <>
       <ReadingProgress />
       <ReadingTracker postId={post.slug} />
+      <ForceOpenCallouts />
       <div className="min-h-screen bg-white">
         {/* Layout with TOC Sidebar */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
