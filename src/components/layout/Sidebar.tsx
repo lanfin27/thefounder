@@ -3,8 +3,9 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X, Home, Bookmark, TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
+import { X, Home, Bookmark, TrendingUp, Lightbulb, BarChart3, PenTool, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useUser } from '@/hooks/useUser';
 
 // Sidebar Context
 const SidebarContext = createContext<{
@@ -57,6 +58,29 @@ const categories = [
 // Sidebar 내부 콘텐츠 컴포넌트
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const pathname = usePathname();
+  const { profile, loading } = useUser();
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  // Load cached admin status on mount
+  useEffect(() => {
+    const cached = localStorage.getItem('user_is_admin');
+    if (cached === 'true') {
+      setShowAdmin(true);
+    }
+  }, []);
+
+  // Update cache when profile loads
+  useEffect(() => {
+    if (!loading && profile) {
+      const isAdmin = profile.role === 'admin';
+      setShowAdmin(isAdmin);
+      localStorage.setItem('user_is_admin', isAdmin.toString());
+    } else if (!loading && !profile) {
+      // Clear cache if no profile (logged out)
+      setShowAdmin(false);
+      localStorage.setItem('user_is_admin', 'false');
+    }
+  }, [loading, profile]);
 
   return (
     <>
@@ -99,6 +123,22 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
             </Link>
           );
         })}
+
+        {/* Admin Menu - Shows based on cached/loaded admin status */}
+        {showAdmin && (
+          <Link
+            href="/admin"
+            onClick={onLinkClick}
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${
+              pathname.startsWith('/admin')
+                ? 'bg-purple-50 text-purple-700 font-medium'
+                : 'text-purple-600 hover:bg-purple-50'
+            }`}
+          >
+            <Shield className="h-5 w-5" />
+            <span>Admin</span>
+          </Link>
+        )}
 
         {/* 구분선 */}
         <div className="border-t border-divider my-4" />

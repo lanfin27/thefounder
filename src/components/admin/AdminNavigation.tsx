@@ -7,6 +7,7 @@ import {
   RefreshCw,
   Youtube,
   Home,
+  Users,
 } from 'lucide-react';
 
 interface MenuItem {
@@ -20,7 +21,7 @@ interface MenuItem {
 export function AdminNavigation() {
   const pathname = usePathname();
 
-  // 🚨 중요: 이 배열에 4개의 메뉴 항목이 있어야 합니다
+  // 🚨 중요: 이 배열에 5개의 메뉴 항목이 있어야 합니다
   const menuItems: MenuItem[] = [
     {
       title: "Monitoring Dashboard",
@@ -50,6 +51,14 @@ export function AdminNavigation() {
       description: "메인 페이지 포스트 선택 및 순서 관리",
       icon: Home,
       href: "/admin/homepage",
+    },
+    // 🆕 5번째 메뉴: 유저 관리 (User Management)
+    {
+      title: "User Management",
+      koreanTitle: "유저 관리",
+      description: "사용자 계정 및 권한 관리",
+      icon: Users,
+      href: "/admin/users",
     },
   ];
 
