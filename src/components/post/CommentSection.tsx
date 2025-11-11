@@ -310,51 +310,134 @@ export default function CommentSection({
   }
 
   const handleCommentSubmit = async (content: string, parentId: string | null) => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('📝 [CommentSection] handleCommentSubmit 시작')
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+    // Step 1: Validate user authentication
+    console.log('🔍 STEP 1: 사용자 인증 확인')
     if (!user) {
+      console.error('❌ 사용자가 로그인되어 있지 않습니다')
       alert('Please sign in to leave a response.')
       return
     }
+    console.log('✅ 사용자 인증 확인 완료:', { userId: user.id, email: user.email })
 
+    // Step 2: Validate postId
+    console.log('🔍 STEP 2: postId 검증')
     if (!postId) {
+      console.error('❌ postId가 없습니다')
       alert('포스트 ID가 없습니다.')
       return
     }
+    console.log('✅ postId 검증 완료:', postId)
+
+    // Step 3: Validate content
+    console.log('🔍 STEP 3: 댓글 내용 검증')
+    const trimmedContent = content.trim()
+    if (!trimmedContent) {
+      console.error('❌ 댓글 내용이 비어있습니다')
+      alert('댓글 내용을 입력해주세요.')
+      return
+    }
+    console.log('✅ 댓글 내용 검증 완료:', {
+      contentLength: trimmedContent.length,
+      isReply: !!parentId,
+      parentId: parentId || 'null (최상위 댓글)'
+    })
 
     try {
+      // Step 4: Prepare comment data with explicit deleted_at field
+      console.log('🔍 STEP 4: 댓글 데이터 준비')
       const commentData = {
         post_id: postId,
         user_id: user.id,
-        content,
-        parent_id: parentId
+        content: trimmedContent,
+        parent_id: parentId,
+        deleted_at: null  // 명시적으로 deleted_at을 null로 설정
       }
+      console.log('✅ 댓글 데이터 준비 완료:', commentData)
 
+      // Step 5: Insert comment into database
+      console.log('🔍 STEP 5: 데이터베이스에 댓글 삽입 시작')
       const { data, error } = await supabase
         .from('comments')
         .insert(commentData)
         .select()
 
       if (error) {
-        console.error('[CommentSection] Error inserting comment:', error)
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+        console.error('❌ [CommentSection] 데이터베이스 삽입 오류')
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+        console.error('Error Code:', error.code)
+        console.error('Error Message:', error.message)
+        console.error('Error Details:', error.details)
+        console.error('Error Hint:', error.hint)
+        console.error('Comment Data:', commentData)
         throw error
       }
 
-      setReplyingTo(null)
-      await fetchComments()
-      router.refresh()
+      console.log('✅ 댓글 삽입 성공!')
+      console.log('삽입된 댓글 데이터:', data)
 
+      // Step 6: Update UI state
+      console.log('🔍 STEP 6: UI 상태 업데이트')
+      setReplyingTo(null)
+      console.log('✅ replyingTo 상태 초기화 완료')
+
+      // Step 7: Refresh comments
+      console.log('🔍 STEP 7: 댓글 목록 새로고침')
+      await fetchComments()
+      console.log('✅ 댓글 목록 새로고침 완료')
+
+      // Step 8: Refresh router
+      console.log('🔍 STEP 8: 라우터 새로고침')
+      router.refresh()
+      console.log('✅ 라우터 새로고침 완료')
+
+      // Step 9: Call onCommentChange callback
       if (onCommentChange) {
+        console.log('🔍 STEP 9: onCommentChange 콜백 호출')
         onCommentChange()
+        console.log('✅ onCommentChange 콜백 완료')
       }
+
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.log('🎉 [CommentSection] 댓글 제출 완료!')
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
     } catch (error: any) {
-      console.error('[CommentSection] Error in handleCommentSubmit:', error)
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('💥 [CommentSection] 댓글 제출 중 오류 발생')
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('Error Type:', error?.constructor?.name || 'Unknown')
+      console.error('Error Code:', error?.code || 'N/A')
+      console.error('Error Message:', error?.message || 'No message')
+      console.error('Full Error Object:', error)
+      console.error('Stack Trace:', error?.stack)
 
       let errorMessage = '댓글 추가 중 오류가 발생했습니다.'
 
+      // Specific error handling
       if (error?.code === '42501') {
         errorMessage = '권한이 없습니다. 다시 로그인해주세요.'
+        console.error('🔒 권한 오류: RLS 정책에 의해 거부되었습니다')
+      } else if (error?.code === '23505') {
+        errorMessage = '중복된 댓글입니다. 잠시 후 다시 시도해주세요.'
+        console.error('🔄 중복 오류: UNIQUE 제약 조건 위반')
+      } else if (error?.code === '23503') {
+        errorMessage = '존재하지 않는 게시글이거나 부모 댓글입니다.'
+        console.error('🔗 참조 오류: FOREIGN KEY 제약 조건 위반')
+      } else if (error?.code === 'PGRST116') {
+        errorMessage = '데이터베이스 연결에 실패했습니다.'
+        console.error('🔌 연결 오류: Supabase 연결 실패')
       } else if (error?.message) {
         errorMessage = `오류: ${error.message}`
+        console.error('📋 일반 오류:', error.message)
       }
+
+      console.error('사용자에게 표시될 메시지:', errorMessage)
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
       alert(errorMessage)
     }

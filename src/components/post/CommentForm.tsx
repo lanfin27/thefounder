@@ -23,19 +23,74 @@ export default function CommentForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!content.trim() || isSubmitting) {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('📝 [CommentForm] handleSubmit 시작')
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+    // Validate content
+    const trimmedContent = content.trim()
+    console.log('🔍 댓글 내용 검증:', {
+      originalLength: content.length,
+      trimmedLength: trimmedContent.length,
+      isEmpty: !trimmedContent,
+      isSubmitting,
+      isReply: !!parentId,
+      parentId: parentId || null
+    })
+
+    if (!trimmedContent) {
+      console.warn('⚠️ 빈 댓글 제출 시도 - 제출 취소')
       return
     }
 
+    if (isSubmitting) {
+      console.warn('⚠️ 이미 제출 중 - 중복 제출 방지')
+      return
+    }
+
+    console.log('✅ 검증 완료 - 제출 진행')
     setIsSubmitting(true)
 
     try {
-      await onSubmit(content.trim(), parentId || null)
+      console.log('🚀 onSubmit 콜백 호출:', {
+        content: trimmedContent,
+        contentLength: trimmedContent.length,
+        parentId: parentId || null
+      })
+
+      await onSubmit(trimmedContent, parentId || null)
+
+      console.log('✅ onSubmit 완료 - 입력 필드 초기화')
       setContent('')
-    } catch (error) {
-      console.error('[CommentForm] Error submitting comment:', error)
-      alert('An error occurred while submitting your response.')
+
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.log('🎉 [CommentForm] 댓글 제출 완료!')
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    } catch (error: any) {
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('💥 [CommentForm] 댓글 제출 중 오류 발생')
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('Error:', error)
+      console.error('Error Type:', error?.constructor?.name || 'Unknown')
+      console.error('Error Message:', error?.message || 'No message')
+      console.error('Stack:', error?.stack)
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+      // More specific error message
+      let userMessage = '댓글 제출 중 오류가 발생했습니다.'
+
+      if (error?.message?.includes('Network')) {
+        userMessage = '네트워크 연결을 확인해주세요.'
+      } else if (error?.message?.includes('timeout')) {
+        userMessage = '요청 시간이 초과되었습니다. 다시 시도해주세요.'
+      } else if (error?.message) {
+        userMessage = `오류: ${error.message}`
+      }
+
+      console.error('사용자 메시지:', userMessage)
+      alert(userMessage)
     } finally {
+      console.log('🔄 isSubmitting 상태를 false로 변경')
       setIsSubmitting(false)
     }
   }
