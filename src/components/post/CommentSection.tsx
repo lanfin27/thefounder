@@ -482,7 +482,7 @@ export default function CommentSection({
   }
 
   return (
-    <div className="comments-section">
+    <div id="comments" className="comments-section">
       {/* 로딩 상태 */}
       {loading && (
         <div className="flex items-center justify-center py-12">

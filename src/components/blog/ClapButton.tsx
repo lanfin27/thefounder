@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { formatCount } from '@/lib/utils/format'
 
 interface Clapper {
   userId: string
@@ -281,7 +282,7 @@ export default function ClapButton({
         {/* 박수 카운트 표시 */}
         {showCount && (
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            👏 {totalClaps.toLocaleString()}
+            👏 {formatCount(totalClaps)}
           </span>
         )}
 
@@ -376,50 +377,50 @@ export default function ClapButton({
   }
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 일반 사용자 UI: 1개 버튼 (토글)
+  // 일반 사용자 UI: Medium 스타일!
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   return (
-    <div className="relative inline-flex items-center gap-2">
-      <button
-        id={`clap-${postSlug}`}
-        onClick={handleRegularClick}
-        disabled={isClapping}
-        className={`
-          ${sizeClasses[size]}
-          flex items-center justify-center
-          rounded-full
-          border border-gray-300
-          ${
-            userHasClapped
-              ? 'bg-green-50 border-green-500'
-              : 'hover:border-gray-500 hover:bg-gray-50'
-          }
-          transition-all duration-200
-          disabled:opacity-50 disabled:cursor-not-allowed
-          relative
-          group
-        `}
-        aria-label={userHasClapped ? '박수 취소' : '박수 보내기'}
-        title={userHasClapped ? '박수 취소하기 (클릭)' : '박수 보내기'}
+    <button
+      id={`clap-${postSlug}`}
+      onClick={handleRegularClick}
+      disabled={isClapping}
+      className="
+        flex items-center gap-2
+        px-3 py-2
+        rounded-md
+        transition-all duration-200
+        hover:bg-gray-100
+        disabled:opacity-50 disabled:cursor-not-allowed
+      "
+      aria-label={userHasClapped ? '박수 취소' : '박수 보내기'}
+      title={userHasClapped ? '박수 취소하기 (클릭)' : '박수 보내기'}
+    >
+      {/* 박수 아이콘 (Medium 스타일) */}
+      <svg
+        className={`w-6 h-6 transition-colors ${
+          userHasClapped
+            ? 'text-green-600' // 박수 누른 상태: 녹색
+            : 'text-gray-600'   // 기본 상태: 회색
+        }`}
+        fill={userHasClapped ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        strokeWidth={userHasClapped ? 0 : 2}
+        viewBox="0 0 24 24"
       >
-        <span className={`transition-transform group-hover:scale-110`}>
-          👏
-        </span>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+        />
+      </svg>
 
-        {/* 박수 완료 표시 */}
-        {userHasClapped && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-            ✓
-          </span>
-        )}
-      </button>
-
+      {/* 박수 수 */}
       {showCount && (
-        <span className="text-sm text-gray-600 font-medium">
-          {totalClaps.toLocaleString()}
+        <span className="text-sm font-medium text-gray-900">
+          {formatCount(totalClaps)}
         </span>
       )}
-    </div>
+    </button>
   )
 }

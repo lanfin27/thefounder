@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import ClapButton from './ClapButton'
+import { formatCount } from '@/lib/utils/format'
 
 interface PostStatsProps {
   postSlug: string
@@ -99,58 +100,52 @@ export default function PostStats({
   }
 
   return (
-    <div className="flex items-center gap-6">
-      {/* Clap Button */}
-      <div className="flex items-center gap-2">
-        <ClapButton
-          postSlug={postSlug}
-          initialClaps={clapsCount}
-          size={size}
-          showCount={!showLabels}
-        />
-        {showLabels && (
-          <span className={`text-gray-700 font-medium ${textSizeClasses[size]}`}>
-            박수 {clapsCount.toLocaleString()}
-          </span>
-        )}
-      </div>
+    <div className="flex items-center gap-4 py-3 border-t border-b border-gray-100">
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* Clap Button (Medium 스타일) */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <ClapButton
+        postSlug={postSlug}
+        initialClaps={clapsCount}
+        size={size}
+        showCount={true}
+      />
 
-      {/* Comments Count */}
-      <div className="flex items-center gap-2">
-        <button
-          onClick={handleCommentClick}
-          className={`
-            ${sizeClasses[size]}
-            flex items-center justify-center
-            rounded-full
-            border border-gray-300
-            hover:border-gray-500
-            hover:bg-gray-50
-            transition-all duration-200
-            group
-          `}
-          aria-label="댓글 보기"
-          title={`${commentsCount}개의 댓글`}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* 댓글 아이콘 (Medium 스타일) */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <button
+        onClick={handleCommentClick}
+        className="
+          flex items-center gap-2
+          px-3 py-2
+          rounded-md
+          transition-all duration-200
+          hover:bg-gray-100
+        "
+        aria-label="댓글 보기"
+        title={`댓글 ${formatCount(commentsCount)}개`}
+      >
+        {/* 댓글 아이콘 (SVG) */}
+        <svg
+          className="w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <span
-            className={`${iconSizeClasses[size]} transition-transform group-hover:scale-110`}
-          >
-            💬
-          </span>
-        </button>
-        {!showLabels && (
-          <span
-            className={`text-gray-600 font-medium min-w-[30px] ${textSizeClasses[size]}`}
-          >
-            {commentsCount.toLocaleString()}
-          </span>
-        )}
-        {showLabels && (
-          <span className={`text-gray-700 font-medium ${textSizeClasses[size]}`}>
-            댓글 {commentsCount.toLocaleString()}
-          </span>
-        )}
-      </div>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          />
+        </svg>
+
+        {/* 댓글 수 */}
+        <span className="text-sm font-medium text-gray-900">
+          {formatCount(commentsCount)}
+        </span>
+      </button>
     </div>
   )
 }
