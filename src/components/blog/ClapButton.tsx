@@ -53,37 +53,33 @@ export default function ClapButton({
     }
   }
 
-  const handleClap = async () => {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 박수 추가 함수 (Admin: 무제한, 일반: 토글 일부)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  const handleAddClap = async () => {
     if (isClapping) return
 
     setIsClapping(true)
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // 박수 추가 or 취소 분기
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-    const method = userHasClapped ? 'DELETE' : 'POST'
-    const action = userHasClapped ? '취소' : '추가'
-
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log(`[ClapButton] 🎯 Clap ${action} started`)
+    console.log('[ClapButton] ➕ Adding clap')
     console.log('[ClapButton] 📊 Current state:', {
-      userHasClapped,
+      isAdmin,
       totalClaps,
-      method,
-      action,
+      userHasClapped,
     })
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
     try {
       const response = await fetch(`/api/posts/${postSlug}/clap`, {
-        method: method,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       })
 
       const data = await response.json()
 
-      console.log(`✅ Clap API Response (${method}):`, {
+      console.log('✅ Clap API Response (POST):', {
         success: data.success,
         oldCount: totalClaps,
         newCount: data.totalClaps,
@@ -98,24 +94,16 @@ export default function ClapButton({
         return
       }
 
-      // POST 요청 시: 이미 박수함
-      if (method === 'POST' && data.alreadyClapped) {
+      // POST 요청 시: 이미 박수함 (일반 사용자만 체크)
+      if (!isAdmin && data.alreadyClapped) {
         console.log('[ClapButton] User already clapped')
         alert('이미 박수를 보냈습니다! 👏')
         setUserHasClapped(true)
         return
       }
 
-      // DELETE 요청 시: 박수 없음 (이미 취소됨)
-      if (method === 'DELETE' && data.notClapped) {
-        console.log('[ClapButton] Clap not found (already removed)')
-        alert('이미 박수가 취소되었습니다')
-        setUserHasClapped(false)
-        return
-      }
-
       if (!response.ok) {
-        throw new Error(data.error || `Failed to ${action} clap`)
+        throw new Error(data.error || 'Failed to add clap')
       }
 
       // 성공 - 강제로 상태 업데이트
@@ -124,10 +112,10 @@ export default function ClapButton({
         return data.totalClaps
       })
 
-      setUserHasClapped(data.userHasClapped)
+      setUserHasClapped(true)
 
-      // Admin인 경우 박수자 목록 표시 (POST일 때만)
-      if (method === 'POST' && data.isAdmin && data.clappers) {
+      // Admin인 경우 박수자 목록 표시
+      if (data.isAdmin && data.clappers) {
         setClappers(data.clappers)
         console.log('👑 Admin: Showing', data.clappers.length, 'clappers')
       }
@@ -144,30 +132,136 @@ export default function ClapButton({
       }, 300)
 
       // 성공 메시지
-      if (method === 'POST') {
-        if (isAdmin) {
-          alert(`박수 완료! 총 ${data.totalClaps}개 (Admin 모드)`)
-        } else {
-          alert('박수를 보냈습니다! 👏')
-        }
+      if (isAdmin) {
+        console.log(`박수 추가 완료! 총 ${data.totalClaps}개`)
       } else {
-        alert(`박수가 취소되었습니다. 현재 ${data.totalClaps}개`)
+        alert('박수를 보냈습니다! 👏')
       }
 
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-      console.log(`[ClapButton] ✅ Clap ${action} SUCCESS!`)
+      console.log('[ClapButton] ✅ Clap 추가 SUCCESS!')
       console.log('[ClapButton] 📊 New state:', {
-        userHasClapped: data.userHasClapped,
+        userHasClapped: true,
         totalClaps: data.totalClaps,
       })
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
     } catch (error: any) {
       console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-      console.error(`[ClapButton] ❌ Clap ${action} FAILED:`, error)
+      console.error('[ClapButton] ❌ Clap 추가 FAILED:', error)
       console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-      alert(error.message || `박수를 ${action}하지 못했습니다`)
+      alert(error.message || '박수를 추가하지 못했습니다')
     } finally {
       setIsClapping(false)
+    }
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 박수 취소 함수 (Admin 전용 또는 일반 토글 일부)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  const handleRemoveClap = async () => {
+    if (isClapping) return
+
+    setIsClapping(true)
+
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('[ClapButton] 🗑️ Removing clap')
+    console.log('[ClapButton] 📊 Current state:', {
+      isAdmin,
+      totalClaps,
+      userHasClapped,
+    })
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+    try {
+      const response = await fetch(`/api/posts/${postSlug}/clap`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      })
+
+      const data = await response.json()
+
+      console.log('✅ Clap API Response (DELETE):', {
+        success: data.success,
+        oldCount: totalClaps,
+        newCount: data.totalClaps,
+        userHasClapped: data.userHasClapped,
+        fullResponse: data,
+      })
+
+      // 인증 필요 (로그인 필수!) - 바로 리다이렉트
+      if (response.status === 401 || data.requiresAuth) {
+        console.log('[ClapButton] Unauthorized, redirecting to login')
+        router.push('/auth/login')
+        return
+      }
+
+      // DELETE 요청 시: 박수 없음 (이미 취소됨)
+      if (data.notClapped) {
+        console.log('[ClapButton] Clap not found (already removed)')
+        if (!isAdmin) {
+          alert('이미 박수가 취소되었습니다')
+        }
+        setUserHasClapped(false)
+        return
+      }
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to remove clap')
+      }
+
+      // 성공 - 강제로 상태 업데이트
+      setTotalClaps((prev) => {
+        console.log(`🔄 Updating claps in UI: ${prev} → ${data.totalClaps}`)
+        return data.totalClaps
+      })
+
+      setUserHasClapped(false)
+
+      // 페이지 전체 새로고침 (Next.js 서버 컴포넌트 데이터 동기화)
+      router.refresh()
+      console.log('🔄 Router refresh called')
+
+      // 애니메이션
+      const button = document.getElementById(`clap-${postSlug}`)
+      button?.classList.add('animate-clap')
+      setTimeout(() => {
+        button?.classList.remove('animate-clap')
+      }, 300)
+
+      // 성공 메시지
+      if (isAdmin) {
+        console.log(`박수 취소 완료! 현재 ${data.totalClaps}개`)
+      } else {
+        alert(`박수가 취소되었습니다. 현재 ${data.totalClaps}개`)
+      }
+
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.log('[ClapButton] ✅ Clap 취소 SUCCESS!')
+      console.log('[ClapButton] 📊 New state:', {
+        userHasClapped: false,
+        totalClaps: data.totalClaps,
+      })
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    } catch (error: any) {
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('[ClapButton] ❌ Clap 취소 FAILED:', error)
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      alert(error.message || '박수를 취소하지 못했습니다')
+    } finally {
+      setIsClapping(false)
+    }
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 일반 사용자 토글 함수
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  const handleRegularClick = async () => {
+    if (userHasClapped) {
+      await handleRemoveClap()
+    } else {
+      await handleAddClap()
     }
   }
 
@@ -177,11 +271,119 @@ export default function ClapButton({
     lg: 'w-12 h-12 text-2xl',
   }
 
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Admin UI: 2개 버튼 (추가 + 취소)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  if (isAdmin) {
+    return (
+      <div className="flex items-center gap-2">
+        {/* 박수 카운트 표시 */}
+        {showCount && (
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            👏 {totalClaps.toLocaleString()}
+          </span>
+        )}
+
+        {/* 박수 추가 버튼 (Admin 전용) */}
+        <button
+          onClick={handleAddClap}
+          disabled={isClapping}
+          className="
+            inline-flex items-center gap-1.5 px-3 py-1.5
+            text-sm font-medium
+            text-green-700 dark:text-green-400
+            bg-green-50 dark:bg-green-900/20
+            border border-green-200 dark:border-green-800
+            rounded-lg
+            hover:bg-green-100 dark:hover:bg-green-900/30
+            disabled:opacity-50 disabled:cursor-not-allowed
+            transition-all duration-200
+          "
+          title="박수 추가 (Admin 전용, 무제한)"
+        >
+          <span className="text-base">➕</span>
+          <span>추가</span>
+        </button>
+
+        {/* 박수 취소 버튼 (Admin 전용) */}
+        <button
+          onClick={handleRemoveClap}
+          disabled={isClapping}
+          className="
+            inline-flex items-center gap-1.5 px-3 py-1.5
+            text-sm font-medium
+            text-red-700 dark:text-red-400
+            bg-red-50 dark:bg-red-900/20
+            border border-red-200 dark:border-red-800
+            rounded-lg
+            hover:bg-red-100 dark:hover:bg-red-900/30
+            disabled:opacity-50 disabled:cursor-not-allowed
+            transition-all duration-200
+          "
+          title="박수 취소 (Admin 전용, 무제한)"
+        >
+          <span className="text-base">➖</span>
+          <span>취소</span>
+        </button>
+
+        {/* Admin 표시 뱃지 */}
+        <span className="
+          px-2 py-0.5 text-xs font-semibold
+          text-purple-700 dark:text-purple-400
+          bg-purple-100 dark:bg-purple-900/30
+          rounded-full
+        ">
+          Admin
+        </span>
+
+        {/* Admin용 박수 목록 버튼 */}
+        {clappers.length > 0 && (
+          <button
+            onClick={() => setShowClappers(!showClappers)}
+            className="text-xs text-blue-600 hover:text-blue-800 underline"
+          >
+            {showClappers ? '숨기기' : '목록'}
+          </button>
+        )}
+
+        {/* Admin용 박수한 사용자 목록 */}
+        {showClappers && clappers.length > 0 && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50 min-w-[320px] max-h-[400px] overflow-y-auto">
+            <h4 className="font-bold text-sm mb-3">
+              박수한 사용자 ({clappers.length}명)
+            </h4>
+            <div className="space-y-2">
+              {clappers.map((clapper, index) => (
+                <div
+                  key={clapper.userId + index}
+                  className="text-xs border-b pb-2 last:border-0"
+                >
+                  <div className="font-medium text-gray-900">
+                    {clapper.name || clapper.email}
+                  </div>
+                  <div className="text-gray-600">{clapper.email}</div>
+                  <div className="text-gray-400">
+                    {new Date(clapper.clappedAt).toLocaleString('ko-KR')}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 일반 사용자 UI: 1개 버튼 (토글)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   return (
     <div className="relative inline-flex items-center gap-2">
       <button
         id={`clap-${postSlug}`}
-        onClick={handleClap}
+        onClick={handleRegularClick}
         disabled={isClapping}
         className={`
           ${sizeClasses[size]}
@@ -199,31 +401,16 @@ export default function ClapButton({
           group
         `}
         aria-label={userHasClapped ? '박수 취소' : '박수 보내기'}
-        title={
-          userHasClapped
-            ? '박수 취소하기 (클릭)'
-            : isAdmin
-            ? 'Admin: 무제한 박수 가능'
-            : '박수 보내기'
-        }
+        title={userHasClapped ? '박수 취소하기 (클릭)' : '박수 보내기'}
       >
-        <span
-          className={`transition-transform group-hover:scale-110`}
-        >
+        <span className={`transition-transform group-hover:scale-110`}>
           👏
         </span>
 
         {/* 박수 완료 표시 */}
-        {userHasClapped && !isAdmin && (
+        {userHasClapped && (
           <span className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
             ✓
-          </span>
-        )}
-
-        {/* Admin 표시 */}
-        {isAdmin && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-            A
           </span>
         )}
       </button>
@@ -232,41 +419,6 @@ export default function ClapButton({
         <span className="text-sm text-gray-600 font-medium">
           {totalClaps.toLocaleString()}
         </span>
-      )}
-
-      {/* Admin용 박수 목록 버튼 */}
-      {isAdmin && clappers.length > 0 && (
-        <button
-          onClick={() => setShowClappers(!showClappers)}
-          className="text-xs text-blue-600 hover:text-blue-800 underline"
-        >
-          {showClappers ? '숨기기' : '목록'}
-        </button>
-      )}
-
-      {/* Admin용 박수한 사용자 목록 */}
-      {isAdmin && showClappers && clappers.length > 0 && (
-        <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50 min-w-[320px] max-h-[400px] overflow-y-auto">
-          <h4 className="font-bold text-sm mb-3">
-            박수한 사용자 ({clappers.length}명)
-          </h4>
-          <div className="space-y-2">
-            {clappers.map((clapper, index) => (
-              <div
-                key={clapper.userId + index}
-                className="text-xs border-b pb-2 last:border-0"
-              >
-                <div className="font-medium text-gray-900">
-                  {clapper.name || clapper.email}
-                </div>
-                <div className="text-gray-600">{clapper.email}</div>
-                <div className="text-gray-400">
-                  {new Date(clapper.clappedAt).toLocaleString('ko-KR')}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       )}
     </div>
   )
