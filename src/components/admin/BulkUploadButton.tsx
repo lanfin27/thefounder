@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Upload, FileSpreadsheet } from 'lucide-react'
 import * as XLSX from 'xlsx'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { BulkUploadResultModal } from './BulkUploadResultModal'
 import type { ExcelChannelRow, BulkValidationResponse } from '@/types/bulk-upload'
 

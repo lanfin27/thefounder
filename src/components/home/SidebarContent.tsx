@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 
 const recommendedTopics = [
   '스타트업',

@@ -6,8 +6,8 @@
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { RefreshCw, Search, AlertCircle, WifiOff, Plus, Trash2, CheckCircle, XCircle, Loader2, ChevronRight, ChevronDown, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react'
 import { fetchWithRetry, getErrorMessage, logError, LogLevel } from '@/lib/utils/network'

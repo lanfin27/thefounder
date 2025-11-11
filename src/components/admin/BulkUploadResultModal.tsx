@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { X, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import type { BulkValidationResponse } from '@/types/bulk-upload'
 
 interface Props {

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { Mail, CheckCircle2, TrendingUp, Users, BookOpen } from 'lucide-react'
 
 export default function HeroSectionNew() {

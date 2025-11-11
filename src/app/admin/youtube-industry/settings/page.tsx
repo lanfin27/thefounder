@@ -5,8 +5,8 @@
 
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
 import { Settings, Key, Database, Bell } from 'lucide-react'
 
 export default function SettingsPage() {

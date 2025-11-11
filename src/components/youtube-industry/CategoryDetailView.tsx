@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation'
 import { ChevronLeft, TrendingUp, TrendingDown, Activity, Users, Eye } from 'lucide-react'
 import { formatNumber, formatChangeRate, formatViewsPerVideo } from '@/lib/youtube-industry/utils'
 import MultiChannelTrendChart from './MultiChannelTrendChart'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 
 interface CategoryDetailViewProps {
   category: any

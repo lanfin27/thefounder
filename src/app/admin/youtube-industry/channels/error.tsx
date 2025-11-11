@@ -103,7 +103,7 @@ export default function Error({
               </Button>
               <Button
                 onClick={reset}
-                variant="default"
+                variant="primary"
                 className="gap-2"
               >
                 <RefreshCw className="w-4 h-4" />

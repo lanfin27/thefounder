@@ -10,7 +10,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { YCategoryCode } from '@/types/youtube-industry'
 import { TreemapCategoryData } from '@/lib/youtube-industry/treemap-data-generator'
 

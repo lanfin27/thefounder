@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, CheckCircle2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 
 export default function HeroSectionCompact() {
   const [email, setEmail] = useState('')
