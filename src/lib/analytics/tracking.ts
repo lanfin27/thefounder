@@ -63,7 +63,7 @@ export class AnalyticsTracker {
 
   private async initializeReadingHistory(postId: string, userId: string) {
     try {
-      await this.supabase.from('user_reading_history').upsert({
+      await this.supabase.from('reading_history').upsert({
         user_id: userId,
         post_id: postId,
         started_at: new Date().toISOString(),
@@ -124,7 +124,7 @@ export class AnalyticsTracker {
     try {
       const completed = progress > 90 // Consider completed if scrolled past 90%
 
-      await this.supabase.from('user_reading_history').update({
+      await this.supabase.from('reading_history').update({
         last_read_at: new Date().toISOString(),
         progress,
         total_reading_time: timeSpent,

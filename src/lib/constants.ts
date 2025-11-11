@@ -181,7 +181,7 @@ export const SUPABASE_TABLES = {
   PROFILES: 'profiles',
   POSTS: 'posts',
   BOOKMARKS: 'bookmarks',
-  USER_READING_HISTORY: 'user_reading_history',
+  READING_HISTORY: 'reading_history',
 } as const
 
 // Regular expressions

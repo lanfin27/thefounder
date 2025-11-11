@@ -60,7 +60,7 @@ export type Database = {
         Insert: Partial<Database['public']['Tables']['post_views']['Row']>
         Update: Partial<Database['public']['Tables']['post_views']['Row']>
       }
-      user_reading_history: {
+      reading_history: {
         Row: {
           id: string
           user_id: string
@@ -73,8 +73,8 @@ export type Database = {
           created_at: string
           updated_at: string
         }
-        Insert: Partial<Database['public']['Tables']['user_reading_history']['Row']>
-        Update: Partial<Database['public']['Tables']['user_reading_history']['Row']>
+        Insert: Partial<Database['public']['Tables']['reading_history']['Row']>
+        Update: Partial<Database['public']['Tables']['reading_history']['Row']>
       }
       newsletter_subscribers: {
         Row: {

@@ -34,7 +34,7 @@ export async function getPostMetrics(postId: string): Promise<PostMetrics> {
 
   // Get reading time stats
   const { data: readingData } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('total_reading_time, progress, completed')
     .eq('post_id', postId)
 
@@ -106,20 +106,20 @@ export async function getUserEngagementMetrics(userId: string) {
 
   // Total posts read
   const { count: totalRead } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', userId)
 
   // Completed posts
   const { count: completedPosts } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', userId)
     .eq('completed', true)
 
   // Total reading time
   const { data: readingTimeData } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('total_reading_time')
     .eq('user_id', userId)
 
@@ -136,7 +136,7 @@ export async function getUserEngagementMetrics(userId: string) {
 
   // Reading streak
   const { data: recentReading } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('last_read_at')
     .eq('user_id', userId)
     .order('last_read_at', { ascending: false })

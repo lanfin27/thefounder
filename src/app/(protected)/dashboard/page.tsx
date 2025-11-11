@@ -21,7 +21,7 @@ export default async function DashboardPage() {
 
   // Fetch reading history
   const { data: readingHistory } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select(`
       *,
       posts!inner(
@@ -59,12 +59,12 @@ export default async function DashboardPage() {
 
   // Calculate stats
   const { count: totalReadPosts } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
 
   const { data: totalReadingTime } = await supabase
-    .from('user_reading_history')
+    .from('reading_history')
     .select('total_reading_time')
     .eq('user_id', user.id)
 

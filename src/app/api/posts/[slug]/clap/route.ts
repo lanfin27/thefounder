@@ -269,3 +269,121 @@ export async function GET(
     return NextResponse.json({ userHasClapped: false, totalClaps: 0 })
   }
 }
+
+// DELETE: 박수 취소 (일반 사용자 포함)
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  try {
+    const { slug } = params
+    console.log(`[Clap API DELETE] Request for slug: ${slug}`)
+
+    const supabase = await createClient()
+
+    // 1. 사용자 인증 확인 (로그인 필수!)
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser()
+
+    if (authError || !user) {
+      console.log('[Clap API DELETE] Unauthorized - Login required')
+      return NextResponse.json(
+        { error: 'Unauthorized', requiresAuth: true },
+        { status: 401 }
+      )
+    }
+
+    console.log(`[Clap API DELETE] User ID: ${user.id}`)
+
+    // 2. Slug로 post 찾기
+    const { data: post, error: postError } = await supabase
+      .from('posts')
+      .select('id, slug, claps_count')
+      .eq('slug', slug)
+      .single()
+
+    if (postError || !post) {
+      console.log(`[Clap API DELETE] Post not found: ${slug}`, postError)
+      return NextResponse.json({ error: 'Post not found' }, { status: 404 })
+    }
+
+    const postId = post.id || post.slug
+    console.log(`[Clap API DELETE] Post ID: ${postId}`)
+
+    // 3. 박수 기록 삭제
+    console.log('[Clap API DELETE] Deleting clap for post:', postId, 'user:', user.id)
+    const { error: deleteError } = await supabase
+      .from('post_claps')
+      .delete()
+      .eq('post_id', postId)
+      .eq('user_id', user.id)
+
+    if (deleteError) {
+      console.error('[Clap API DELETE] Delete error:', deleteError)
+
+      // 삭제할 항목이 없음 (이미 취소됨)
+      if (deleteError.code === 'PGRST116') {
+        console.log('[Clap API DELETE] Clap not found (already removed)')
+        return NextResponse.json(
+          { error: 'Clap not found', notClapped: true },
+          { status: 400 }
+        )
+      }
+
+      throw deleteError
+    }
+
+    console.log('[Clap API DELETE] ✅ Delete success!')
+
+    // 4. 🔥 핵심: post_claps에서 직접 COUNT하고 posts 테이블 즉시 업데이트
+    console.log('[Clap API DELETE] Counting remaining claps from post_claps...')
+
+    const { count, error: countError } = await supabase
+      .from('post_claps')
+      .select('*', { count: 'exact', head: true })
+      .eq('post_id', postId)
+
+    if (countError) {
+      console.error('[Clap API DELETE] ❌ Count error:', countError)
+      throw countError
+    }
+
+    const actualClapsCount = count || 0
+    console.log('[Clap API DELETE] 📊 Remaining claps:', actualClapsCount)
+
+    // 5. 🔥 항상 posts.claps_count 업데이트
+    console.log('[Clap API DELETE] 🔄 Updating posts.claps_count...')
+
+    const { error: updateError } = await supabase
+      .from('posts')
+      .update({ claps_count: actualClapsCount })
+      .eq('id', postId)
+
+    if (updateError) {
+      console.error('[Clap API DELETE] ❌ Update error:', updateError)
+      // 에러가 나도 계속 진행 (카운트는 정확함)
+    } else {
+      console.log('[Clap API DELETE] ✅ Posts table updated to:', actualClapsCount)
+    }
+
+    const finalClapsCount = actualClapsCount
+    console.log('[Clap API DELETE] 🎯 Final claps count:', finalClapsCount)
+
+    // 6. 최종 응답
+    console.log('[Clap API DELETE] 📤 Returning response with totalClaps:', finalClapsCount)
+
+    return NextResponse.json({
+      success: true,
+      totalClaps: finalClapsCount,
+      userHasClapped: false,
+    })
+  } catch (error: any) {
+    console.error('[Clap API DELETE] Error:', error)
+    return NextResponse.json(
+      { error: error.message || 'Failed to remove clap' },
+      { status: 500 }
+    )
+  }
+}
