@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     if (error) throw error;
 
     // Get unique categories
-    const categories = [...new Set(data?.map(p => p.category))].filter(Boolean);
+    const categories = Array.from(new Set(data?.map(p => p.category))).filter(Boolean);
 
     return NextResponse.json({
       success: true,
