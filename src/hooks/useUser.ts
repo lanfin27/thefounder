@@ -1,138 +1,178 @@
-'use client'
+'use client';
 
-/**
- * useUser Hook
- * Client-side hook for user authentication and profile management
- */
+import { createClient } from '@/lib/supabase/client';
+import { User } from '@supabase/supabase-js';
+import { useEffect, useState, useRef } from 'react';
 
-import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase/client'
-import type { User } from '@supabase/supabase-js'
-import type { UserProfile } from '@/types/user'
+interface Profile {
+  id: string;
+  email: string;
+  display_name?: string;
+  avatar_url?: string;
+  role?: 'admin' | 'user';
+  created_at: string;
+  updated_at?: string;
+}
 
 export function useUser() {
-  const [user, setUser] = useState<User | null>(null)
-  const [profile, setProfile] = useState<UserProfile | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const supabase = createClient()
+  // 중복 fetch 방지를 위한 ref
+  const isFetching = useRef(false);
+  const hasInitialized = useRef(false);
 
-    async function fetchUser() {
-      try {
-        setLoading(true)
-        setError(null)
-        console.log('🔍 [useUser] Starting fetchUser...')
+  const supabase = createClient();
 
-        // Get current auth user
-        const { data: { user }, error: authError } = await supabase.auth.getUser()
+  const fetchUser = async () => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('[useUser] 🚀 fetchUser called');
+    console.log('[useUser] ⏰ Time:', new Date().toISOString());
+    console.log('[useUser] 📊 isFetching:', isFetching.current);
+    console.log('[useUser] 📊 hasInitialized:', hasInitialized.current);
 
-        if (authError) {
-          console.error('❌ [useUser] Auth error:', authError)
-          throw authError
-        }
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 중복 호출 방지
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-        console.log('✅ [useUser] Auth user:', user ? {
-          id: user.id,
-          email: user.email,
-          emailConfirmed: !!user.email_confirmed_at
-        } : 'null')
-
-        setUser(user)
-
-        if (user) {
-          // Get user profile
-          console.log('🔍 [useUser] Fetching profile for user ID:', user.id)
-
-          const { data: profile, error: profileError } = await supabase
-            .from('user_profiles')
-            .select('*')
-            .eq('id', user.id)
-            .single()
-
-          if (profileError) {
-            console.error('⚠️ [useUser] Profile error:', {
-              code: profileError.code,
-              message: profileError.message,
-              details: profileError.details,
-              hint: profileError.hint
-            })
-
-            if (profileError.code !== 'PGRST116') {
-              // PGRST116 = no rows returned (profile doesn't exist yet)
-              throw profileError
-            } else {
-              console.log('⚠️ [useUser] Profile not found (PGRST116) - user has no profile yet')
-            }
-          } else {
-            console.log('✅ [useUser] Profile loaded:', {
-              id: profile?.id,
-              email: profile?.email,
-              role: profile?.role,
-              createdAt: profile?.created_at
-            })
-          }
-
-          setProfile(profile)
-        } else {
-          console.log('ℹ️ [useUser] No authenticated user, setting profile to null')
-          setProfile(null)
-        }
-      } catch (err) {
-        console.error('❌ [useUser] Unexpected error:', err)
-        setError(err instanceof Error ? err : new Error('Failed to fetch user'))
-      } finally {
-        setLoading(false)
-        console.log('📊 [useUser] fetchUser completed')
-      }
+    if (isFetching.current) {
+      console.log('[useUser] ⚠️ Already fetching, SKIPPING!');
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      return;
     }
 
-    // Initial fetch
-    fetchUser()
+    isFetching.current = true;
+    console.log('[useUser] 🔒 Set isFetching = true');
 
-    // Listen for auth changes
+    try {
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // User fetch
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+      console.log('[useUser] 📡 Fetching user...');
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError) {
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.error('[useUser] ❌ User error:', userError.message);
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+        setUser(null);
+        setProfile(null);
+        setIsLoading(false);
+        return;
+      }
+
+      console.log('[useUser] ✅ User fetched:', user?.id || 'null');
+
+      if (!user) {
+        console.log('[useUser] ⚠️ No user logged in');
+        setUser(null);
+        setProfile(null);
+        setIsLoading(false);
+        return;
+      }
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // Profile fetch
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+      console.log('[useUser] 📡 Fetching profile for:', user.id);
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single();
+
+      if (profileError) {
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.error('[useUser] ❌ Profile error:', profileError.message);
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      }
+
+      console.log('[useUser] ✅ Profile fetched:', profile?.role || 'no-profile');
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // State update (한 번에!)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+      console.log('[useUser] 🔄 Updating state...');
+      setUser(user);
+      setProfile(profile || null);
+      setIsLoading(false);
+
+      console.log('[useUser] ✅ State updated successfully');
+
+    } catch (err) {
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.error('[useUser] ❌ Unexpected error:', err);
+      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+      setUser(null);
+      setProfile(null);
+      setIsLoading(false);
+
+    } finally {
+      isFetching.current = false;
+      console.log('[useUser] 🔓 Set isFetching = false');
+      console.log('[useUser] ✅ fetchUser completed');
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    }
+  };
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Effect 1: 초기 로드 (마운트 시 한 번만!)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  useEffect(() => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('[useUser] 🎬 Initial mount effect');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+    if (!hasInitialized.current) {
+      hasInitialized.current = true;
+      fetchUser();
+    }
+  }, []); // ← 빈 배열! 한 번만 실행!
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Effect 2: Auth state 변경 감지
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  useEffect(() => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('[useUser] 👂 Setting up auth listener');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        console.log('[useUser] Auth event:', event)
+      (event, session) => {
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('[useUser] 🔔 Auth event:', event);
+        console.log('[useUser] 📊 Session:', session?.user?.id || 'null');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
-        if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-          await fetchUser()
-        } else if (event === 'SIGNED_OUT') {
-          setUser(null)
-          setProfile(null)
+        // 의미있는 이벤트만 처리
+        if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'TOKEN_REFRESHED') {
+          console.log('[useUser] ✅ Meaningful event, fetching user...');
+          fetchUser();
+        } else {
+          console.log('[useUser] ⚠️ Ignoring event:', event);
         }
       }
-    )
+    );
 
+    // ✅ 정리 함수!
     return () => {
-      subscription.unsubscribe()
-    }
-  }, [])
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.log('[useUser] 🧹 Cleaning up auth listener');
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      subscription.unsubscribe();
+    };
+  }, []); // ← 빈 배열! 한 번만 설정!
 
-  const isAdmin = profile?.role === 'admin'
-  const isUser = profile?.role === 'user'
+  const isAdmin = profile?.role === 'admin';
+  const isUser = profile?.role === 'user';
 
-  // Log whenever the returned values change
-  useEffect(() => {
-    console.log('📊 [useUser] Hook state updated:', {
-      hasUser: !!user,
-      userEmail: user?.email,
-      hasProfile: !!profile,
-      profileEmail: profile?.email,
-      role: profile?.role,
-      isAdmin,
-      isUser,
-      loading
-    })
-  }, [user, profile, loading, isAdmin, isUser])
-
-  return {
-    user,
-    profile,
-    loading,
-    error,
-    isAdmin,
-    isUser,
-  }
+  return { user, profile, isLoading, isAdmin, isUser };
 }

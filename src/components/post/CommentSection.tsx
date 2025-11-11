@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { useUser } from '@/hooks/useUser'
 import CommentForm from './CommentForm'
 
 interface Comment {
@@ -167,38 +167,44 @@ export default function CommentSection({
   postId: string
   onCommentChange?: () => void
 }) {
-  const router = useRouter()
+  // Use useUser hook instead of local state
+  const { user, isLoading: userLoading } = useUser()
+
   const [comments, setComments] = useState<Comment[]>([])
-  const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [replyingTo, setReplyingTo] = useState<string | null>(null)
   const supabase = createClient()
 
   useEffect(() => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('[CommentSection] 🎬 useEffect triggered');
+    console.log('[CommentSection] 📝 postId:', postId);
+    console.log('[CommentSection] 👤 user:', user?.id || 'null');
+    console.log('[CommentSection] ⏳ userLoading:', userLoading);
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
     if (!postId) {
-      console.error('[CommentSection] No postId provided')
+      console.log('[CommentSection] ⚠️ No postId, skipping fetch');
       setLoading(false)
       return
     }
+
+    // Wait for user loading to complete
+    if (userLoading) {
+      console.log('[CommentSection] ⏳ User still loading, waiting...');
+      return;
+    }
+
+    console.log('[CommentSection] ✅ Starting fetchComments...');
 
     let isMounted = true
 
     ;(async () => {
       try {
-        // Load user info
-        const { data: { user } } = await supabase.auth.getUser()
-
-        if (!isMounted) return
-
-        if (user) {
-          setUser(user)
-        } else {
-          setUser(null)
-        }
-
         // Load comments
         if (isMounted) setLoading(true)
 
+        console.log('[CommentSection] 📡 Fetching comments from database...');
         const { data, error } = await supabase
           .from('comments')
           .select('*')
@@ -208,11 +214,13 @@ export default function CommentSection({
         if (!isMounted) return
 
         if (error) {
-          console.error('[CommentSection] Error fetching comments:', error)
+          console.error('[CommentSection] ❌ Error fetching comments:', error)
           setComments([])
           setLoading(false)
           return
         }
+
+        console.log('[CommentSection] ✅ Comments fetched:', data?.length || 0);
 
         // Filter and build comment tree
         const validComments = data?.filter(comment =>
@@ -242,8 +250,13 @@ export default function CommentSection({
         setComments(rootComments)
         setLoading(false)
 
+        console.log('[CommentSection] ✅ Comments loaded, root comments:', rootComments.length);
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
       } catch (error) {
-        console.error('[CommentSection] Unexpected error:', error)
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.error('[CommentSection] ❌ Unexpected error:', error);
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
         if (isMounted) {
           setComments([])
           setLoading(false)
@@ -254,12 +267,8 @@ export default function CommentSection({
     return () => {
       isMounted = false
     }
-  }, [postId])
+  }, [postId, userLoading])
 
-  const checkUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser()
-    setUser(user)
-  }
 
   const fetchComments = async () => {
     try {
@@ -390,14 +399,9 @@ export default function CommentSection({
       await fetchComments()
       console.log('✅ 댓글 목록 새로고침 완료')
 
-      // Step 8: Refresh router
-      console.log('🔍 STEP 8: 라우터 새로고침')
-      router.refresh()
-      console.log('✅ 라우터 새로고침 완료')
-
-      // Step 9: Call onCommentChange callback
+      // Step 8: Call onCommentChange callback
       if (onCommentChange) {
-        console.log('🔍 STEP 9: onCommentChange 콜백 호출')
+        console.log('🔍 STEP 8: onCommentChange 콜백 호출')
         onCommentChange()
         console.log('✅ onCommentChange 콜백 완료')
       }
@@ -458,7 +462,6 @@ export default function CommentSection({
       }
 
       await fetchComments()
-      router.refresh()
 
       if (onCommentChange) {
         onCommentChange()
