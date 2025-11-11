@@ -112,37 +112,38 @@ export default function PostStats({
       />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      {/* 댓글 아이콘 (Medium 스타일) */}
+      {/* 댓글 아이콘 (Medium 스타일 - 얇은 선) */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <button
         onClick={handleCommentClick}
         className="
+          group
           flex items-center gap-2
           px-3 py-2
           rounded-md
           transition-all duration-200
-          hover:bg-gray-100
+          hover:bg-gray-50
         "
         aria-label="댓글 보기"
         title={`댓글 ${formatCount(commentsCount)}개`}
       >
-        {/* 댓글 아이콘 (SVG) */}
+        {/* 댓글 아이콘 - 얇은 선 스타일 */}
         <svg
-          className="w-6 h-6 text-gray-600"
+          className="w-6 h-6 text-gray-500 group-hover:text-gray-700 transition-colors duration-200"
           fill="none"
           stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          />
+          {/* 채팅 버블 아이콘 */}
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
 
         {/* 댓글 수 */}
-        <span className="text-sm font-medium text-gray-900">
+        <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors duration-200">
           {formatCount(commentsCount)}
         </span>
       </button>

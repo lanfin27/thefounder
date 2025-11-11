@@ -386,38 +386,47 @@ export default function ClapButton({
       onClick={handleRegularClick}
       disabled={isClapping}
       className="
+        group
         flex items-center gap-2
         px-3 py-2
         rounded-md
         transition-all duration-200
-        hover:bg-gray-100
+        hover:bg-gray-50
         disabled:opacity-50 disabled:cursor-not-allowed
       "
       aria-label={userHasClapped ? '박수 취소' : '박수 보내기'}
       title={userHasClapped ? '박수 취소하기 (클릭)' : '박수 보내기'}
     >
-      {/* 박수 아이콘 (Medium 스타일) */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* 박수 아이콘 - Medium 스타일 (얇은 선) */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <svg
-        className={`w-6 h-6 transition-colors ${
+        className={`w-6 h-6 transition-colors duration-200 ${
           userHasClapped
-            ? 'text-green-600' // 박수 누른 상태: 녹색
-            : 'text-gray-600'   // 기본 상태: 회색
+            ? 'text-green-600' // 클릭 시: 녹색
+            : 'text-gray-500 group-hover:text-gray-700' // 기본: 회색, 호버: 진한 회색
         }`}
-        fill={userHasClapped ? 'currentColor' : 'none'}
+        fill="none"
         stroke="currentColor"
-        strokeWidth={userHasClapped ? 0 : 2}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
-        />
+        {/* Thumbs up 아이콘 */}
+        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
       </svg>
 
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* 박수 수 */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {showCount && (
-        <span className="text-sm font-medium text-gray-900">
+        <span className={`text-sm font-medium transition-colors duration-200 ${
+          userHasClapped
+            ? 'text-gray-900' // 클릭 시: 진한 회색
+            : 'text-gray-600 group-hover:text-gray-900' // 기본: 회색, 호버: 진한 회색
+        }`}>
           {formatCount(totalClaps)}
         </span>
       )}
