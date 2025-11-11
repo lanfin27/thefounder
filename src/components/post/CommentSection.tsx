@@ -167,14 +167,6 @@ export default function CommentSection({
   postId: string
   onCommentChange?: () => void
 }) {
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-  console.log('[CommentSection] 🎬 Component rendered')
-  console.log(`[CommentSection] 📝 postId:`, postId)
-  console.log(`[CommentSection] 📝 postId type:`, typeof postId)
-  console.log(`[CommentSection] 📝 postId length:`, postId?.length)
-  console.log(`[CommentSection] 📝 postId truthy:`, !!postId)
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
   const router = useRouter()
   const [comments, setComments] = useState<Comment[]>([])
   const [user, setUser] = useState<any>(null)
@@ -182,43 +174,30 @@ export default function CommentSection({
   const [replyingTo, setReplyingTo] = useState<string | null>(null)
   const supabase = createClient()
 
-  console.log(`[CommentSection] 🎨 Current state - loading: ${loading}, comments: ${comments.length}`)
-
   useEffect(() => {
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log('[CommentSection] 🎬 useEffect FIRED!')
-    console.log(`[CommentSection] 📝 postId value:`, postId)
-    console.log(`[CommentSection] 📝 postId truthy:`, !!postId)
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
-    // Track if component is still mounted
-    let isMounted = true
-    const abortController = new AbortController()
-
     if (!postId) {
-      console.error('[CommentSection] ❌ No postId provided!')
+      console.error('[CommentSection] No postId provided')
       setLoading(false)
       return
     }
 
-    console.log('[CommentSection] ✅ postId is valid, loading data...')
+    let isMounted = true
 
-    // Load user
-    ;(async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (isMounted) {
-        setUser(user)
-        console.log('[CommentSection] 👤 User loaded:', user?.id)
-      }
-    })()
-
-    // Load comments with mounted check
     ;(async () => {
       try {
-        console.log('[CommentSection] ⏳ Setting loading to TRUE')
-        if (isMounted) setLoading(true)
+        // Load user info
+        const { data: { user } } = await supabase.auth.getUser()
 
-        console.log('[CommentSection] 🔍 Fetching comments for postId:', postId)
+        if (!isMounted) return
+
+        if (user) {
+          setUser(user)
+        } else {
+          setUser(null)
+        }
+
+        // Load comments
+        if (isMounted) setLoading(true)
 
         const { data, error } = await supabase
           .from('comments')
@@ -226,75 +205,54 @@ export default function CommentSection({
           .eq('post_id', postId)
           .order('created_at', { ascending: false })
 
-        // Check if component is still mounted before updating state
-        if (!isMounted) {
-          console.log('[CommentSection] ⚠️ Component unmounted, skipping state update')
+        if (!isMounted) return
+
+        if (error) {
+          console.error('[CommentSection] Error fetching comments:', error)
+          setComments([])
+          setLoading(false)
           return
         }
 
-        console.log(`[CommentSection] 📊 Query result:`, {
-          dataLength: data?.length,
-          hasError: !!error
+        // Filter and build comment tree
+        const validComments = data?.filter(comment =>
+          comment.post_id && comment.post_id === postId
+        ) || []
+
+        const commentMap = new Map<string, Comment>()
+        const rootComments: Comment[] = []
+
+        validComments.forEach((comment) => {
+          commentMap.set(comment.id, { ...comment, replies: [] })
         })
 
-        if (error) {
-          console.error('❌ [CommentSection] Error fetching comments:', error)
-          setComments([])
-        } else {
-          console.log('✅ [CommentSection] Fetched', data?.length || 0, 'comments')
-
-          // Filter valid comments
-          const validComments = data?.filter(comment =>
-            comment.post_id && comment.post_id === postId
-          ) || []
-
-          console.log('📊 [CommentSection] Valid comments after filtering:', validComments.length)
-
-          // Build comment tree
-          const commentMap = new Map<string, Comment>()
-          const rootComments: Comment[] = []
-
-          validComments.forEach((comment) => {
-            commentMap.set(comment.id, { ...comment, replies: [] })
-          })
-
-          validComments.forEach((comment) => {
-            const commentObj = commentMap.get(comment.id)!
-            if (comment.parent_id) {
-              const parent = commentMap.get(comment.parent_id)
-              if (parent) {
-                parent.replies = parent.replies || []
-                parent.replies.push(commentObj)
-              }
-            } else {
-              rootComments.push(commentObj)
+        validComments.forEach((comment) => {
+          const commentObj = commentMap.get(comment.id)!
+          if (comment.parent_id) {
+            const parent = commentMap.get(comment.parent_id)
+            if (parent) {
+              parent.replies = parent.replies || []
+              parent.replies.push(commentObj)
             }
-          })
-
-          console.log('📊 [CommentSection] Root comments:', rootComments.length)
-
-          if (isMounted) {
-            setComments(rootComments)
-            console.log(`[CommentSection] ✅ Comments state updated with ${rootComments.length} root comments`)
+          } else {
+            rootComments.push(commentObj)
           }
-        }
-      } catch (error) {
-        if (!isMounted) return
+        })
 
-        console.error('❌ [CommentSection] Error in fetchComments:', error)
-        setComments([])
-      } finally {
+        setComments(rootComments)
+        setLoading(false)
+
+      } catch (error) {
+        console.error('[CommentSection] Unexpected error:', error)
         if (isMounted) {
+          setComments([])
           setLoading(false)
-          console.log('[CommentSection] ✅ Loading set to FALSE')
         }
       }
     })()
 
     return () => {
-      console.log('[CommentSection] 🧹 Component cleanup - setting isMounted to false')
       isMounted = false
-      abortController.abort()
     }
   }, [postId])
 
@@ -304,54 +262,31 @@ export default function CommentSection({
   }
 
   const fetchComments = async () => {
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log('[CommentSection] 🔄 fetchComments CALLED!')
-    console.log(`[CommentSection] 📝 postId in fetchComments:`, postId)
-    console.log(`[CommentSection] 📝 Current loading state: ${loading}`)
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
     try {
       setLoading(true)
-      console.log('[CommentSection] ⏳ Loading set to TRUE')
 
-      console.log('🔍 [CommentSection] Fetching comments for postId:', postId)
-
-      // Fetch all comments for this specific post
       const { data, error } = await supabase
         .from('comments')
         .select('*')
         .eq('post_id', postId)
         .order('created_at', { ascending: false })
 
-      console.log(`[CommentSection] 📊 Query result:`, {
-        dataLength: data?.length,
-        hasError: !!error
-      })
-
       if (error) {
-        console.error('❌ [CommentSection] Error fetching comments:', error)
+        console.error('[CommentSection] Error fetching comments:', error)
         throw error
       }
 
-      console.log('✅ [CommentSection] Fetched', data?.length || 0, 'comments for this post')
-
-      // Extra safety: Filter out any comments without valid post_id
       const validComments = data?.filter(comment =>
         comment.post_id && comment.post_id === postId
       ) || []
 
-      console.log('📊 [CommentSection] Valid comments after filtering:', validComments.length)
-
-      // Convert to comment tree structure
       const commentMap = new Map<string, Comment>()
       const rootComments: Comment[] = []
 
-      // First pass: Store all comments in Map
       validComments.forEach((comment) => {
         commentMap.set(comment.id, { ...comment, replies: [] })
       })
 
-      // Second pass: Set parent-child relationships
       validComments.forEach((comment) => {
         const commentObj = commentMap.get(comment.id)!
         if (comment.parent_id) {
@@ -365,117 +300,54 @@ export default function CommentSection({
         }
       })
 
-      console.log('📊 [CommentSection] Root comments:', rootComments.length)
       setComments(rootComments)
-      console.log(`[CommentSection] ✅ Comments state updated with ${rootComments.length} root comments`)
     } catch (error) {
-      console.error('❌ [CommentSection] Error in fetchComments:', error)
+      console.error('[CommentSection] Error in fetchComments:', error)
       setComments([])
-      console.log('[CommentSection] 🔄 Comments reset to empty array due to error')
     } finally {
       setLoading(false)
-      console.log('[CommentSection] ✅ Loading set to FALSE')
     }
   }
 
   const handleCommentSubmit = async (content: string, parentId: string | null) => {
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log('[CommentSection] 💬 handleCommentSubmit called')
-    console.log('[CommentSection] 📝 content:', content)
-    console.log('[CommentSection] 📝 parentId:', parentId)
-    console.log('[CommentSection] 📝 user:', user?.id)
-    console.log('[CommentSection] 📝 postId:', postId)
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
     if (!user) {
-      console.error('[CommentSection] ❌ No user - login required')
       alert('Please sign in to leave a response.')
       return
     }
 
     if (!postId) {
-      console.error('[CommentSection] ❌ No postId')
       alert('포스트 ID가 없습니다.')
       return
     }
 
     try {
-      console.log('[CommentSection] 📤 Preparing comment data...')
       const commentData = {
         post_id: postId,
         user_id: user.id,
         content,
         parent_id: parentId
       }
-      console.log('[CommentSection] 📝 Comment data:', commentData)
 
-      console.log('[CommentSection] 🔄 Calling Supabase INSERT...')
       const { data, error } = await supabase
         .from('comments')
         .insert(commentData)
         .select()
 
-      console.log('[CommentSection] 📊 Supabase response:', {
-        hasData: !!data,
-        hasError: !!error,
-        dataLength: data?.length,
-        errorDetails: error
-      })
-
       if (error) {
-        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-        console.error('[CommentSection] ❌ Supabase INSERT error:', error)
-        console.error('[CommentSection] ❌ Error code:', error.code)
-        console.error('[CommentSection] ❌ Error message:', error.message)
-        console.error('[CommentSection] ❌ Error details:', error.details)
-        console.error('[CommentSection] ❌ Error hint:', error.hint)
-        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+        console.error('[CommentSection] Error inserting comment:', error)
         throw error
       }
 
-      console.log('✅ [CommentSection] Comment created successfully!')
-      console.log('[CommentSection] 📝 New comment data:', data)
-
-      // Exit reply mode first
-      console.log('[CommentSection] 🔓 Exiting reply mode...')
       setReplyingTo(null)
-
-      // Refresh comment list immediately
-      console.log('[CommentSection] 🔄 Refreshing comments after submission...')
       await fetchComments()
-      console.log('[CommentSection] ✅ Comments refreshed')
-
-      // Refresh page data to update comment count
-      console.log('[CommentSection] 🔄 Calling router.refresh()...')
       router.refresh()
-      console.log('✅ [CommentSection] Page refresh triggered')
 
-      // Notify parent component to refresh comment count
       if (onCommentChange) {
-        console.log('[CommentSection] 📞 Calling onCommentChange callback')
         onCommentChange()
       }
-
-      console.log('[CommentSection] ✅ handleCommentSubmit completed successfully')
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
     } catch (error: any) {
-      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-      console.error('[CommentSection] ❌ Error in handleCommentSubmit:')
-      console.error('[CommentSection] ❌ Error object:', error)
-      console.error('[CommentSection] ❌ Error type:', typeof error)
-      console.error('[CommentSection] ❌ Error name:', error?.name)
-      console.error('[CommentSection] ❌ Error message:', error?.message)
-      console.error('[CommentSection] ❌ Error stack:', error?.stack)
+      console.error('[CommentSection] Error in handleCommentSubmit:', error)
 
-      // Try to stringify the full error
-      try {
-        console.error('[CommentSection] ❌ Error stringified:', JSON.stringify(error, null, 2))
-      } catch (e) {
-        console.error('[CommentSection] ❌ Could not stringify error')
-      }
-      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
-      // User-facing error message
       let errorMessage = '댓글 추가 중 오류가 발생했습니다.'
 
       if (error?.code === '42501') {
@@ -485,16 +357,11 @@ export default function CommentSection({
       }
 
       alert(errorMessage)
-
-      console.log('[CommentSection] ❌ handleCommentSubmit failed')
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
     }
   }
 
   const handleDelete = async (commentId: string) => {
     if (!confirm('Are you sure you want to delete this response?')) return
-
-    console.log('[CommentSection] 🗑️ Deleting comment:', commentId)
 
     try {
       const { error } = await supabase
@@ -503,43 +370,30 @@ export default function CommentSection({
         .eq('id', commentId)
 
       if (error) {
-        console.error('❌ [CommentSection] Error deleting comment:', error)
+        console.error('[CommentSection] Error deleting comment:', error)
         throw error
       }
 
-      console.log('✅ [CommentSection] Comment deleted successfully')
-
-      // Refresh comment list immediately
-      console.log('[CommentSection] 🔄 Refreshing comments after deletion...')
       await fetchComments()
-      console.log('[CommentSection] ✅ Comments refreshed')
-
-      // Refresh page data to update comment count
       router.refresh()
-      console.log('✅ [CommentSection] Page refresh triggered')
 
-      // Notify parent component to refresh comment count
       if (onCommentChange) {
-        console.log('[CommentSection] Calling onCommentChange callback after delete')
         onCommentChange()
       }
     } catch (error) {
-      console.error('❌ [CommentSection] Failed to delete comment:', error)
+      console.error('[CommentSection] Failed to delete comment:', error)
       alert('An error occurred while deleting the response.')
     }
   }
 
   const handleLike = async (commentId: string) => {
     // TODO: Implement like feature (requires separate likes table)
-    console.log('Like:', commentId)
     alert('Like feature coming soon!')
   }
 
   const handleReply = (parentId: string) => {
     setReplyingTo(replyingTo === parentId ? null : parentId)
   }
-
-  console.log(`[CommentSection] 🎨 About to render - loading: ${loading}, commentsCount: ${comments.length}`)
 
   return (
     <div className="comments-section">

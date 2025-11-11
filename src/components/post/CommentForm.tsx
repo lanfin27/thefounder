@@ -21,50 +21,22 @@ export default function CommentForm({
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log('[CommentForm] 🎯 Form submit triggered')
-    console.log('[CommentForm] 📝 content:', content)
-    console.log('[CommentForm] 📝 content.trim():', content.trim())
-    console.log('[CommentForm] 📝 parentId:', parentId)
-    console.log('[CommentForm] 📝 isSubmitting:', isSubmitting)
-    console.log('[CommentForm] 📝 user:', user?.id)
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
     e.preventDefault()
 
-    if (!content.trim()) {
-      console.warn('[CommentForm] ⚠️ Empty content, ignoring submit')
+    if (!content.trim() || isSubmitting) {
       return
     }
 
-    if (isSubmitting) {
-      console.warn('[CommentForm] ⚠️ Already submitting, ignoring duplicate submit')
-      return
-    }
-
-    console.log('[CommentForm] ⏳ Setting isSubmitting to TRUE')
     setIsSubmitting(true)
 
     try {
-      console.log('[CommentForm] 📤 Calling parent onSubmit handler...')
       await onSubmit(content.trim(), parentId || null)
-      console.log('[CommentForm] ✅ onSubmit completed successfully')
-
-      console.log('[CommentForm] 🧹 Clearing content field')
       setContent('')
-      console.log('[CommentForm] ✅ Content cleared')
     } catch (error) {
-      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-      console.error('[CommentForm] ❌ Error in handleSubmit:')
-      console.error('[CommentForm] ❌ Error object:', error)
-      console.error('[CommentForm] ❌ Error type:', typeof error)
-      console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      console.error('[CommentForm] Error submitting comment:', error)
       alert('An error occurred while submitting your response.')
     } finally {
-      console.log('[CommentForm] 🔓 Setting isSubmitting to FALSE')
       setIsSubmitting(false)
-      console.log('[CommentForm] ✅ Form submission cycle complete')
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
     }
   }
 
