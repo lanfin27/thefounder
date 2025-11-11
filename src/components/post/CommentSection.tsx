@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useUser } from '@/hooks/useUser'
 import CommentForm from './CommentForm'
+import CommentLikeButton from '@/components/comments/CommentLikeButton'
 
 interface Comment {
   id: string
@@ -15,6 +16,8 @@ interface Comment {
   updated_at?: string
   replies?: Comment[]
   likes?: number
+  likes_count?: number // Added: like count for the new system
+  user_has_liked?: boolean // Added: user like status
 }
 
 // 시간 표시 함수
@@ -53,19 +56,14 @@ function MediumCommentItem({
   currentUser,
   onReply,
   onDelete,
-  onLike,
-  isLiked = false
 }: {
   comment: Comment
   currentUser: any
   onReply: (parentId: string) => void
   onDelete: (commentId: string) => void
-  onLike: (commentId: string) => void
-  isLiked?: boolean
 }) {
   const authorInfo = getAuthorInfo(comment, currentUser)
   const isOwnComment = currentUser && comment.user_id === currentUser.id
-  const likesCount = comment.likes || 0
 
   return (
     <div>
@@ -96,28 +94,13 @@ function MediumCommentItem({
 
           {/* Action Buttons - Medium Style */}
           <div className="flex items-center gap-4">
-            {/* Like Button */}
-            <button
-              onClick={() => onLike(comment.id)}
-              className={`flex items-center gap-1 text-xs hover:text-gray-900 transition-colors ${
-                isLiked ? 'text-gray-900' : 'text-gray-500'
-              }`}
-            >
-              <svg
-                className="w-4 h-4"
-                fill={isLiked ? "currentColor" : "none"}
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                />
-              </svg>
-              {likesCount > 0 && <span>{likesCount}</span>}
-            </button>
+            {/* Like Button - Using CommentLikeButton */}
+            <CommentLikeButton
+              commentId={comment.id}
+              initialLikes={comment.likes_count || comment.likes || 0}
+              initialUserHasLiked={comment.user_has_liked || false}
+              size="sm"
+            />
 
             {/* 답글 버튼 */}
             <button
@@ -150,7 +133,6 @@ function MediumCommentItem({
               currentUser={currentUser}
               onReply={onReply}
               onDelete={onDelete}
-              onLike={onLike}
             />
           ))}
         </div>
@@ -207,7 +189,7 @@ export default function CommentSection({
         console.log('[CommentSection] 📡 Fetching comments from database...');
         const { data, error } = await supabase
           .from('comments')
-          .select('*')
+          .select('*, likes_count')
           .eq('post_id', postId)
           .order('created_at', { ascending: false })
 
@@ -227,14 +209,39 @@ export default function CommentSection({
           comment.post_id && comment.post_id === postId
         ) || []
 
+        // Check user_has_liked for each comment if user is logged in
+        let commentsWithLikes = validComments
+        if (user) {
+          console.log('[CommentSection] 🔍 Checking user likes for', validComments.length, 'comments...');
+          commentsWithLikes = await Promise.all(
+            validComments.map(async (comment) => {
+              const { data: like } = await supabase
+                .from('comment_likes')
+                .select('id')
+                .eq('comment_id', comment.id)
+                .eq('user_id', user.id)
+                .maybeSingle()
+
+              return {
+                ...comment,
+                user_has_liked: !!like,
+              }
+            })
+          )
+          console.log('[CommentSection] ✅ User likes checked');
+        } else {
+          console.log('[CommentSection] ⚠️ No user logged in, setting all user_has_liked to false');
+          commentsWithLikes = validComments.map(c => ({ ...c, user_has_liked: false }))
+        }
+
         const commentMap = new Map<string, Comment>()
         const rootComments: Comment[] = []
 
-        validComments.forEach((comment) => {
+        commentsWithLikes.forEach((comment) => {
           commentMap.set(comment.id, { ...comment, replies: [] })
         })
 
-        validComments.forEach((comment) => {
+        commentsWithLikes.forEach((comment) => {
           const commentObj = commentMap.get(comment.id)!
           if (comment.parent_id) {
             const parent = commentMap.get(comment.parent_id)
@@ -472,11 +479,6 @@ export default function CommentSection({
     }
   }
 
-  const handleLike = async (commentId: string) => {
-    // TODO: Implement like feature (requires separate likes table)
-    alert('Like feature coming soon!')
-  }
-
   const handleReply = (parentId: string) => {
     setReplyingTo(replyingTo === parentId ? null : parentId)
   }
@@ -529,7 +531,6 @@ export default function CommentSection({
                     currentUser={user}
                     onReply={handleReply}
                     onDelete={handleDelete}
-                    onLike={handleLike}
                   />
 
                   {/* Reply Form */}

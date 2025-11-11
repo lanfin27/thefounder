@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
+import CommentLikeButton from '@/components/comments/CommentLikeButton'
 
 interface CommentItemProps {
   comment: {
@@ -12,6 +13,8 @@ interface CommentItemProps {
     content: string
     created_at: string
     user_id: string
+    likes_count?: number // Added: like count
+    user_has_liked?: boolean // Added: user like status
   }
   currentUserId?: string
   onDelete: (commentId: string) => void
@@ -72,6 +75,14 @@ export default function CommentItem({
 
         {/* Actions */}
         <div className="flex items-center gap-4 mt-3">
+          {/* Like Button */}
+          <CommentLikeButton
+            commentId={comment.id}
+            initialLikes={comment.likes_count || 0}
+            initialUserHasLiked={comment.user_has_liked || false}
+            size="sm"
+          />
+
           {onReply && !isReply && (
             <button
               onClick={onReply}
