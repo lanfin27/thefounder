@@ -1,3 +1,7 @@
+// 🔥 Next.js 캐시 비활성화 - 항상 최신 데이터 표시
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -7,13 +11,14 @@ import NotionContentRenderer from '@/components/blog/NotionContentRenderer'
 import PaywallGate from '@/components/blog/PaywallGate'
 import PostAnalytics from '@/components/blog/PostAnalytics'
 import ReadingProgress from '@/components/ui/ReadingProgress'
-import CommentSection from '@/components/post/CommentSection'
+import CommentSectionWrapper from '@/components/post/CommentSectionWrapper'
 import RecommendedPosts from '@/components/post/RecommendedPosts'
 import BookmarkButton from '@/components/library/BookmarkButton'
 import ReadingTracker from '@/components/library/ReadingTracker'
 import TableOfContents from '@/components/blog/TableOfContents'
 import { generateTocFromHTML, injectIdsToHeadings } from '@/utils/toc'
 import ForceOpenCallouts from '@/components/blog/ForceOpenCallouts'
+import PostStats from '@/components/blog/PostStats'
 
 // Helper function to format category labels
 function getCategoryLabel(category: string): string {
@@ -27,9 +32,6 @@ function getCategoryLabel(category: string): string {
   }
   return labels[category] || category
 }
-
-// 5분마다 재검증 (ISR)
-export const revalidate = 300
 
 export async function generateStaticParams() {
   console.log('[generateStaticParams] 🔍 Fetching all posts from Supabase')
@@ -93,10 +95,39 @@ export default async function PostPage({
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
+  // 🔥 Always fetch fresh counts directly from DB to bypass Supabase query cache
+  console.log(`[PostPage] 📊 Fetching fresh counts from database for post.id: ${post.id}`)
+  const { data: freshCounts, error: countsError } = await supabase
+    .from('posts')
+    .select('claps_count, comments_count')
+    .eq('id', post.id)
+    .single()
+
+  if (freshCounts && !countsError) {
+    console.log(`[PostPage] 🔄 Updating counts from DB:`)
+    console.log(`   - Old: claps=${post.clapsCount || 0}, comments=${post.commentsCount || 0}`)
+    console.log(`   - New: claps=${freshCounts.claps_count || 0}, comments=${freshCounts.comments_count || 0}`)
+
+    post.clapsCount = freshCounts.claps_count || 0
+    post.commentsCount = freshCounts.comments_count || 0
+  } else if (countsError) {
+    console.error(`[PostPage] ❌ Error fetching fresh counts:`, countsError)
+  }
+
+  console.log(`[PostPage] 📊 Final counts: claps=${post.clapsCount || 0}, comments=${post.commentsCount || 0}`)
+
   const notionPageId = post.notionId || post.id
 
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+  console.log('[PostPage] 📝 Preparing notionPageId for comments')
+  console.log(`[PostPage] 📝 post.notionId:`, post.notionId)
+  console.log(`[PostPage] 📝 post.id:`, post.id)
+  console.log(`[PostPage] 📝 notionPageId (final):`, notionPageId)
+  console.log(`[PostPage] 📝 notionPageId type:`, typeof notionPageId)
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
   // Load recommended posts - prioritize same category
-  const allPosts = await getAllPosts(false)
+  const allPosts = await getAllPosts()
   const sameCategoryPosts = allPosts
     .filter(p => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3)
@@ -184,6 +215,16 @@ export default async function PostPage({
               {/* Bookmark Button */}
               <BookmarkButton postId={post.slug} postTitle={post.title} />
             </div>
+
+            {/* Post Stats (Claps & Comments) - First Location */}
+            <div className="mt-6 pb-6 border-b border-gray-200">
+              <PostStats
+                postSlug={post.slug}
+                initialClaps={post.clapsCount || 0}
+                initialComments={post.commentsCount || 0}
+                size="md"
+              />
+            </div>
           </header>
 
           {/* Header Image (inside article, after title) */}
@@ -228,6 +269,17 @@ export default async function PostPage({
               ))}
             </div>
           )}
+
+          {/* Post Stats (Claps & Comments) - Second Location */}
+          <div className="py-8 border-t border-gray-200">
+            <PostStats
+              postSlug={post.slug}
+              initialClaps={post.clapsCount || 0}
+              initialComments={post.commentsCount || 0}
+              size="md"
+              showLabels={true}
+            />
+          </div>
             </article>
           </div>
         </div>
@@ -235,7 +287,15 @@ export default async function PostPage({
         {/* Comments Section (Full width, outside TOC layout) */}
         <div id="comments" className="mt-12">
           <div className="mx-auto max-w-2xl px-6 md:px-8 py-12">
-            <CommentSection postId={notionPageId} />
+            {/* Debug logging for postId propagation */}
+            {console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}
+            {console.log('[PostPage] 🎬 Rendering CommentSectionWrapper')}
+            {console.log('[PostPage] 📝 Passing notionPageId:', notionPageId)}
+            {console.log('[PostPage] 📝 notionPageId type:', typeof notionPageId)}
+            {console.log('[PostPage] 📝 notionPageId truthy:', !!notionPageId)}
+            {console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}
+
+            <CommentSectionWrapper postId={notionPageId} />
           </div>
         </div>
 

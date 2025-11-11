@@ -35,6 +35,8 @@ export interface BlogPost {
   updatedAt: string
   readingTime: number
   featured?: boolean // For featured section
+  clapsCount?: number // Total claps count (from DB: claps_count)
+  commentsCount?: number // Total comments count (from DB: comments_count)
 }
 
 export interface MembershipPlan {

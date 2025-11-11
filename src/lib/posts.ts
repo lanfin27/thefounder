@@ -52,6 +52,8 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         publishedDate: post.published_date || new Date().toISOString(),
         readingTime: post.reading_time || 5,
         date: post.published_date || new Date().toISOString(),
+        clapsCount: post.claps_count || 0,
+        commentsCount: post.comments_count || 0,
       }));
 
       console.log(`📊 [getAllPosts] Categories in posts:`, [...new Set(blogPosts.map(p => p.category))]);
@@ -176,8 +178,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       }
 
       console.log(`✅ [getPostBySlug] Found post: "${post.title}"`);
+      console.log(`📊 [getPostBySlug] Claps: ${post.claps_count || 0}, Comments: ${post.comments_count || 0}`);
 
-      // Transform to BlogPost format
+      // Transform to BlogPost format (명시적으로 최신 데이터 설정)
       const blogPost: BlogPost = {
         id: post.id,
         title: post.title,
@@ -194,6 +197,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
         publishedDate: post.published_date || new Date().toISOString(),
         readingTime: post.reading_time || 5,
         date: post.published_date || new Date().toISOString(),
+        clapsCount: post.claps_count || 0,
+        commentsCount: post.comments_count || 0,
       };
 
       return blogPost;

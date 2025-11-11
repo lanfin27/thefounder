@@ -1,10 +1,11 @@
+// 🔥 Next.js 캐시 비활성화 - 항상 최신 데이터 표시
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import { FeaturedVisual } from '@/components/sections/FeaturedVisual';
 import { NewsletterInline } from '@/components/sections/NewsletterInline';
 import { LatestPosts } from '@/components/sections/LatestPosts';
 import { getFeaturedPosts, getLatestPosts } from '@/lib/posts';
-
-// 🔥 5분마다 재검증 (ISR)
-export const revalidate = 300;
 
 export default async function HomePage() {
   const startTime = Date.now();
