@@ -1,78 +1,165 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 
+export const dynamic = 'force-dynamic'
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// GET /api/search?q=검색어&category=카테고리
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 export async function GET(request: NextRequest) {
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+  console.log('[Search API] 🔍 Search request')
+
   try {
     const searchParams = request.nextUrl.searchParams
-    const query = searchParams.get('q')
-    
+    const query = searchParams.get('q') || ''
+    const category = searchParams.get('category') || 'all'
+
+    console.log('[Search API] 📝 Query:', query)
+    console.log('[Search API] 📂 Category:', category)
+
     if (!query || query.trim().length === 0) {
+      console.log('[Search API] ⚠️ Empty query')
       return NextResponse.json({
         success: true,
-        results: []
+        results: [],
+        count: 0,
+        message: 'Empty query'
       })
     }
 
     const supabase = await createClient()
 
-    // Search in posts table
-    const { data: posts, error } = await supabase
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 1: Build base query
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    let searchQuery = supabase
       .from('posts')
       .select(`
         id,
+        slug,
         title,
         excerpt,
-        slug,
-        published_at,
-        reading_time,
-        featured_image,
-        categories (
-          name
-        ),
-        profiles (
-          name
-        )
+        category,
+        thumbnail_url,
+        created_at,
+        claps_count,
+        comments_count
       `)
       .eq('status', 'published')
-      .or(`title.ilike.%${query}%,excerpt.ilike.%${query}%,content.ilike.%${query}%`)
-      .order('published_at', { ascending: false })
-      .limit(10)
-    
+      .is('deleted_at', null)
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 2: Apply category filter
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    if (category !== 'all') {
+      console.log('[Search API] 🏷️ Filtering by category:', category)
+      searchQuery = searchQuery.eq('category', category)
+    }
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 3: Apply Full-Text Search
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    const searchTerm = query.trim()
+    console.log('[Search API] 🔍 Searching for:', searchTerm)
+
+    // Try Full-Text Search first
+    searchQuery = searchQuery.textSearch('search_vector', searchTerm, {
+      type: 'websearch',
+      config: 'simple',
+    })
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 4: Sort and execute
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    const { data: results, error } = await searchQuery
+      .order('created_at', { ascending: false })
+      .limit(50)
+
     if (error) {
-      console.error('Search error:', error)
-      // Return mock data as fallback
+      console.error('[Search API] ❌ FTS Error:', error)
+
+      // Fallback to LIKE search
+      console.log('[Search API] 🔄 Falling back to LIKE search...')
+
+      let fallbackQuery = supabase
+        .from('posts')
+        .select(`
+          id,
+          slug,
+          title,
+          excerpt,
+          category,
+          thumbnail_url,
+          created_at,
+          claps_count,
+          comments_count
+        `)
+        .eq('status', 'published')
+        .is('deleted_at', null)
+
+      if (category !== 'all') {
+        fallbackQuery = fallbackQuery.eq('category', category)
+      }
+
+      // LIKE search (title, excerpt, content)
+      fallbackQuery = fallbackQuery.or(
+        `title.ilike.%${searchTerm}%,excerpt.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`
+      )
+
+      const { data: fallbackResults, error: fallbackError } = await fallbackQuery
+        .order('created_at', { ascending: false })
+        .limit(50)
+
+      if (fallbackError) {
+        console.error('[Search API] ❌ Fallback error:', fallbackError)
+        // Return mock data as final fallback
+        return NextResponse.json({
+          success: true,
+          results: getMockSearchResults(query),
+          count: getMockSearchResults(query).length,
+          method: 'mock'
+        })
+      }
+
+      console.log('[Search API] ✅ Fallback results:', fallbackResults?.length || 0)
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
       return NextResponse.json({
         success: true,
-        results: getMockSearchResults(query)
+        results: fallbackResults || [],
+        count: fallbackResults?.length || 0,
+        method: 'like'
       })
     }
 
-    // Transform results
-    const results = (posts || []).map(post => ({
-      id: post.id,
-      title: post.title,
-      excerpt: post.excerpt || '',
-      slug: post.slug,
-      category: post.categories?.[0]?.name || '기타',
-      author: post.profiles?.[0]?.name || 'The Founder',
-      publishedAt: post.published_at,
-      readingTime: post.reading_time || 5,
-      thumbnail: post.featured_image
-    }))
+    console.log('[Search API] ✅ Results found:', results?.length || 0)
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
     return NextResponse.json({
       success: true,
-      results
+      results: results || [],
+      count: results?.length || 0,
+      method: 'fts'
     })
-    
+
   } catch (error) {
-    console.error('Search API error:', error)
-    
-    // Return mock data as fallback
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.error('[Search API] ❌ Unexpected error:', error)
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+    // Return mock data as final fallback
     const query = request.nextUrl.searchParams.get('q') || ''
     return NextResponse.json({
       success: true,
-      results: getMockSearchResults(query)
+      results: getMockSearchResults(query),
+      count: getMockSearchResults(query).length,
+      method: 'mock'
     })
   }
 }

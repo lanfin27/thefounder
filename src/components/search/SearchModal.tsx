@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Search, X, TrendingUp, Lightbulb, BarChart3, Tag } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { searchPosts } from '@/lib/search';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface SearchResult {
   id: string;
@@ -12,8 +12,10 @@ interface SearchResult {
   slug: string;
   excerpt?: string;
   category?: string;
-  image_url?: string;
-  published_at?: string;
+  thumbnail_url?: string;
+  created_at?: string;
+  claps_count?: number;
+  comments_count?: number;
 }
 
 interface SearchModalProps {
@@ -21,38 +23,63 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
+const CATEGORIES = [
+  { id: 'all', label: '전체', icon: Tag },
+  { id: 'trends', label: '트렌드', icon: TrendingUp },
+  { id: 'insights', label: '인사이트', icon: Lightbulb },
+  { id: 'cases', label: '사례', icon: BarChart3 },
+  { id: 'blog', label: '블로그', icon: Tag },
+];
+
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('all');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+
+  // Debounce search query
+  const debouncedQuery = useDebounce(query, 500);
 
   // 검색 실행
-  const performSearch = useCallback(async (searchQuery: string) => {
+  const performSearch = useCallback(async (searchQuery: string, searchCategory: string) => {
     if (!searchQuery.trim()) {
       setResults([]);
+      setHasSearched(false);
       return;
     }
 
+    console.log('🔍 [SearchModal] Searching...', { query: searchQuery, category: searchCategory });
     setIsLoading(true);
+    setHasSearched(true);
+
     try {
-      const searchResults = await searchPosts(searchQuery);
-      setResults(searchResults);
+      const params = new URLSearchParams({
+        q: searchQuery,
+        category: searchCategory,
+      });
+
+      const response = await fetch(`/api/search?${params}`);
+
+      if (!response.ok) {
+        throw new Error('Search failed');
+      }
+
+      const data = await response.json();
+      console.log('✅ [SearchModal] Results:', data.count, 'Method:', data.method);
+      setResults(data.results || []);
     } catch (error) {
-      console.error('Search error:', error);
+      console.error('❌ [SearchModal] Error:', error);
       setResults([]);
     } finally {
       setIsLoading(false);
     }
   }, []);
 
-  // 디바운스 검색
+  // Debounced search effect
   useEffect(() => {
-    const timer = setTimeout(() => {
-      performSearch(query);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [query, performSearch]);
+    performSearch(debouncedQuery, category);
+  }, [debouncedQuery, category, performSearch]);
 
   // ESC 키로 닫기
   useEffect(() => {
@@ -110,7 +137,35 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
             )}
 
-            {/* No Query */}
+            {/* Category Filters - Show when there's a query */}
+            {query && (
+              <div className="px-4 py-3 border-b bg-gray-50">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-600">필터:</span>
+                  <div className="flex gap-2 flex-wrap">
+                    {CATEGORIES.map((cat) => {
+                      const Icon = cat.icon;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => setCategory(cat.id)}
+                          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5 ${
+                            category === cat.id
+                              ? 'bg-blue-500 text-white'
+                              : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                          }`}
+                        >
+                          <Icon className="w-4 h-4" />
+                          {cat.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* No Query - Show category navigation */}
             {!query && !isLoading && (
               <div className="p-8">
                 <h3 className="text-sm font-semibold text-gray-900 mb-4">
@@ -167,11 +222,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onClick={onClose}
                       className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
                     >
-                      {/* 이미지 */}
-                      {post.image_url && (
+                      {/* 썸네일 */}
+                      {post.thumbnail_url && (
                         <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
                           <Image
-                            src={post.image_url}
+                            src={post.thumbnail_url}
                             alt={post.title}
                             fill
                             className="object-cover"
@@ -183,8 +238,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       {/* 텍스트 */}
                       <div className="flex-1 min-w-0">
                         {post.category && (
-                          <span className="text-xs font-semibold text-gray-500 uppercase">
-                            {post.category}
+                          <span className="inline-block px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded mb-2">
+                            {CATEGORIES.find(c => c.id === post.category)?.label || post.category}
                           </span>
                         )}
                         <h3 className="text-sm font-bold text-gray-900 line-clamp-2 mt-1">
@@ -195,6 +250,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             {post.excerpt}
                           </p>
                         )}
+                        {/* 메타 정보 */}
+                        <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
+                          {post.created_at && (
+                            <span>{new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
+                          )}
+                          {post.claps_count !== undefined && <span>👏 {post.claps_count}</span>}
+                          {post.comments_count !== undefined && <span>💬 {post.comments_count}</span>}
+                        </div>
                       </div>
                     </Link>
                   ))}
