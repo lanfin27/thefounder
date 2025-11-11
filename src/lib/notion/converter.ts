@@ -131,17 +131,29 @@ async function getBlocks(blockId: string): Promise<any[]> {
     blocks.push(...results)
 
     // Fetch children for blocks that have them
+    // 🔥 IMPORTANT: Always fetch children for callout/toggle blocks, even if has_children is false
     for (const block of results) {
+      const blockType = (block as any).type
+
       // 이미지 블록 감지 로그만 추가
-      if ((block as any).type === 'image') {
+      if (blockType === 'image') {
         console.log('📸 Image block found in Notion response')
         console.log('Image block ID:', block.id)
         console.log('Image data structure:', JSON.stringify((block as any).image, null, 2))
       }
 
-      if ((block as any).has_children) {
+      // 🔥 Fetch children for blocks that have them OR are callout/toggle types
+      const shouldFetchChildren =
+        (block as any).has_children ||
+        blockType === 'callout' ||
+        blockType === 'toggle' ||
+        blockType === 'synced_block'
+
+      if (shouldFetchChildren) {
+        console.log(`🔍 [getBlocks] Fetching children for ${blockType} block (has_children: ${(block as any).has_children})`)
         const children = await getBlocks(block.id)
         ;(block as any).children = children
+        console.log(`✅ [getBlocks] Found ${children.length} children for ${blockType} block`)
       }
     }
 
@@ -191,6 +203,28 @@ export async function getPageContent(pageId: string): Promise<string> {
     }, {} as Record<string, number>)
 
     console.log('Block type summary:', blockTypes)
+
+    // 🔥 콜아웃 및 토글 블록 children 분석
+    const callouts = blocks.filter(b => (b as any).type === 'callout')
+    const toggles = blocks.filter(b => (b as any).type === 'toggle')
+
+    console.log(`\n🔍 [getPageContent] Callout Analysis:`)
+    console.log(`   Total callouts: ${callouts.length}`)
+    if (callouts.length > 0) {
+      callouts.forEach((callout, index) => {
+        const childrenCount = (callout as any).children?.length || 0
+        console.log(`   Callout ${index + 1}: ${childrenCount} children`)
+      })
+    }
+
+    console.log(`\n🔍 [getPageContent] Toggle Analysis:`)
+    console.log(`   Total toggles: ${toggles.length}`)
+    if (toggles.length > 0) {
+      toggles.forEach((toggle, index) => {
+        const childrenCount = (toggle as any).children?.length || 0
+        console.log(`   Toggle ${index + 1}: ${childrenCount} children`)
+      })
+    }
 
     // 이미지 블록 확인
     const imageBlocks = blocks.filter(b => (b as any).type === 'image')

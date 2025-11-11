@@ -331,19 +331,34 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
 
     case 'callout':
       const icon = value.icon?.emoji || '💡'
+
+      // 🔥 Render children blocks if they exist
+      const calloutChildren = block.children
+        ? block.children.map((child: any) => renderBlockToHtml(child, pageId)).join('')
+        : ''
+
+      console.log(`[renderBlockToHtml] Callout block with ${block.children?.length || 0} children`)
+
       return `
         <div class="bg-gray-50 border-l-4 border-blue-500 p-4 my-6 rounded-r-lg">
           <div class="flex">
             <span class="mr-2 text-xl">${icon}</span>
-            <div class="flex-1">${renderRichTextToHtml(value.rich_text)}</div>
+            <div class="flex-1">
+              <div>${renderRichTextToHtml(value.rich_text)}</div>
+              ${calloutChildren ? `<div class="mt-2">${calloutChildren}</div>` : ''}
+            </div>
           </div>
         </div>
       `
 
     case 'toggle':
-      const toggleContent = value.children
-        ? value.children.map((child: any) => renderBlockToHtml(child)).join('')
+      // 🔥 Use block.children instead of value.children
+      const toggleContent = block.children
+        ? block.children.map((child: any) => renderBlockToHtml(child, pageId)).join('')
         : ''
+
+      console.log(`[renderBlockToHtml] Toggle block with ${block.children?.length || 0} children`)
+
       return `
         <details class="my-4 p-4 border rounded-lg">
           <summary class="cursor-pointer font-semibold">${renderRichTextToHtml(value.rich_text)}</summary>
