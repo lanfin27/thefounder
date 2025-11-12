@@ -30,13 +30,15 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createClient()
 
-    const searchTerm = query.trim()
+    const searchTerm = query.trim().toLowerCase()
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 1: Build base query
+    // STEP 1: Fetch all posts
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    let searchQuery = supabase
+    console.log('[Search API] 🔍 Fetching all posts...')
+
+    let queryBuilder = supabase
       .from('posts')
       .select(`
         id,
@@ -58,105 +60,45 @@ export async function GET(request: NextRequest) {
 
     if (category !== 'all') {
       console.log('[Search API] 🏷️ Filtering by category:', category)
-      searchQuery = searchQuery.eq('category', category)
+      queryBuilder = queryBuilder.eq('category', category)
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 3: Try Full-Text Search first
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    const { data: posts, error } = await queryBuilder.order('created_at', { ascending: false })
 
-    console.log('[Search API] 🔍 Trying Full-Text Search...')
-
-    try {
-      // Try FTS first
-      const { data: ftsResults, error: ftsError } = await searchQuery
-        .textSearch('search_vector', searchTerm, {
-          type: 'websearch',
-          config: 'simple',
-        })
-        .order('created_at', { ascending: false })
-        .limit(50)
-
-      if (!ftsError && ftsResults && ftsResults.length > 0) {
-        console.log('[Search API] ✅ FTS Results:', ftsResults.length)
-        console.log('[Search API] Method: fts')
-        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
-        // Generate excerpt from content (first 200 chars)
-        const resultsWithExcerpt = ftsResults.map(post => ({
-          ...post,
-          excerpt: post.content ? post.content.substring(0, 200) + '...' : '',
-        }))
-
-        return NextResponse.json({
-          results: resultsWithExcerpt,
-          count: ftsResults.length,
-          method: 'fts',
-        })
-      }
-
-      console.log('[Search API] ⚠️ FTS failed or no results, trying LIKE...')
-    } catch (ftsError) {
-      console.log('[Search API] ⚠️ FTS error:', ftsError)
-    }
-
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 4: Fallback to LIKE search
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-    console.log('[Search API] 🔄 Falling back to LIKE search...')
-
-    let likeQuery = supabase
-      .from('posts')
-      .select(`
-        id,
-        slug,
-        title,
-        content,
-        category,
-        thumbnail_url,
-        created_at,
-        claps_count,
-        comments_count
-      `)
-      .eq('status', 'published')
-      .is('deleted_at', null)
-
-    if (category !== 'all') {
-      likeQuery = likeQuery.eq('category', category)
-    }
-
-    // LIKE search: title or content contains search term
-    likeQuery = likeQuery.or(
-      `title.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`
-    )
-
-    const { data: likeResults, error: likeError } = await likeQuery
-      .order('created_at', { ascending: false })
-      .limit(50)
-
-    if (likeError) {
-      console.error('[Search API] ❌ LIKE error:', likeError)
+    if (error) {
+      console.error('[Search API] ❌ Error:', error)
       return NextResponse.json(
         { error: 'Search failed' },
         { status: 500 }
       )
     }
 
-    console.log('[Search API] ✅ LIKE Results:', likeResults?.length || 0)
-    console.log('[Search API] Method: like')
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 3: JavaScript filter (title + content search)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    console.log('[Search API] 🔍 Searching in title and content...')
+
+    const results = (posts || []).filter(post => {
+      const titleMatch = post.title?.toLowerCase().includes(searchTerm)
+      const contentMatch = post.content?.toLowerCase().includes(searchTerm)
+      return titleMatch || contentMatch
+    })
+
+    console.log('[Search API] ✅ Results found:', results.length)
+    console.log('[Search API] Method: javascript-filter')
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
     // Generate excerpt from content
-    const resultsWithExcerpt = (likeResults || []).map(post => ({
+    const resultsWithExcerpt = results.map(post => ({
       ...post,
       excerpt: post.content ? post.content.substring(0, 200) + '...' : '',
     }))
 
     return NextResponse.json({
-      results: resultsWithExcerpt,
-      count: likeResults?.length || 0,
-      method: 'like',
+      results: resultsWithExcerpt.slice(0, 50), // Max 50 results
+      count: resultsWithExcerpt.length,
+      method: 'javascript-filter',
     })
 
   } catch (error) {
