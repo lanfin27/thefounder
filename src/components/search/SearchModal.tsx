@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebounce } from '@/hooks/useDebounce';
-import { Search, TrendingUp, Lightbulb, BarChart3, PenTool, X } from 'lucide-react';
+import { Search, TrendingUp, Lightbulb, BarChart3, PenTool, ThumbsUp, MessageCircle, X } from 'lucide-react';
 
 interface SearchResult {
   id: string;
@@ -378,8 +378,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                                   day: 'numeric'
                                 })}
                               </span>
-                              <span>👏 {result.claps_count || 0}</span>
-                              <span>💬 {result.comments_count || 0}</span>
+                              <span className="flex items-center gap-1">
+                                <ThumbsUp className="w-3.5 h-3.5" />
+                                {result.claps_count || 0}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <MessageCircle className="w-3.5 h-3.5" />
+                                {result.comments_count || 0}
+                              </span>
                             </div>
                           </div>
                         </div>
