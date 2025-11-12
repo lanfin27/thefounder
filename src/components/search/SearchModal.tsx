@@ -27,13 +27,13 @@ interface SearchModalProps {
 // 콘솔에서 "UNIQUE CATEGORIES IN DB" 확인 후 수정
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-// 현재 설정 (영문 복수형)
+// 한글 카테고리 (DB 값과 일치)
 const CATEGORIES = [
   { id: 'all', label: '전체', icon: Search },
-  { id: 'trends', label: '트렌드', icon: TrendingUp },
-  { id: 'insights', label: '인사이트', icon: Lightbulb },
-  { id: 'cases', label: '사례', icon: BarChart3 },
-  { id: 'blog', label: '블로그', icon: FileText },
+  { id: '트렌드', label: '트렌드', icon: TrendingUp },
+  { id: '인사이트', label: '인사이트', icon: Lightbulb },
+  { id: '성공사례', label: '사례', icon: BarChart3 },
+  { id: '블로그', label: '블로그', icon: FileText },
 ];
 
 // 옵션 1: DB에 영문 단수형으로 저장된 경우
