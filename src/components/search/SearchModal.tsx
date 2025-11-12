@@ -22,6 +22,12 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 🔧 CATEGORIES 배열 - DB 값에 맞춰 수정하세요!
+// 콘솔에서 "UNIQUE CATEGORIES IN DB" 확인 후 수정
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// 현재 설정 (영문 복수형)
 const CATEGORIES = [
   { id: 'all', label: '전체', icon: Search },
   { id: 'trends', label: '트렌드', icon: TrendingUp },
@@ -29,6 +35,33 @@ const CATEGORIES = [
   { id: 'cases', label: '사례', icon: BarChart3 },
   { id: 'blog', label: '블로그', icon: FileText },
 ];
+
+// 옵션 1: DB에 영문 단수형으로 저장된 경우
+// const CATEGORIES = [
+//   { id: 'all', label: '전체', icon: Search },
+//   { id: 'trend', label: '트렌드', icon: TrendingUp },
+//   { id: 'insight', label: '인사이트', icon: Lightbulb },
+//   { id: 'case', label: '사례', icon: BarChart3 },
+//   { id: 'blog', label: '블로그', icon: FileText },
+// ];
+
+// 옵션 2: DB에 한글로 저장된 경우
+// const CATEGORIES = [
+//   { id: 'all', label: '전체', icon: Search },
+//   { id: '트렌드', label: '트렌드', icon: TrendingUp },
+//   { id: '인사이트', label: '인사이트', icon: Lightbulb },
+//   { id: '사례', label: '사례', icon: BarChart3 },
+//   { id: '블로그', label: '블로그', icon: FileText },
+// ];
+
+// 옵션 3: DB에 다른 이름으로 저장된 경우 (예: '성공사례')
+// const CATEGORIES = [
+//   { id: 'all', label: '전체', icon: Search },
+//   { id: 'trends', label: '트렌드', icon: TrendingUp },
+//   { id: 'insights', label: '인사이트', icon: Lightbulb },
+//   { id: '성공사례', label: '사례', icon: BarChart3 },
+//   { id: 'blog', label: '블로그', icon: FileText },
+// ];
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const router = useRouter();
@@ -93,7 +126,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       const data = await response.json();
 
       console.log('[SearchModal] ✅ Results:', data.count);
-      console.log('[SearchModal] Debug:', data.debug);
+      console.log('[SearchModal] Category info:', data.categoryInfo);
+
+      // 카테고리 매칭 실패 시 경고
+      if (searchCategory !== 'all' && data.categoryInfo?.matched === 0) {
+        console.warn('[SearchModal] ⚠️⚠️⚠️ No posts matched category!');
+        console.warn('[SearchModal] Requested:', data.categoryInfo.requested);
+        console.warn('[SearchModal] Available in DB:', data.categoryInfo.available);
+        console.warn('[SearchModal] 💡 Update CATEGORIES array to match DB values!');
+      }
+
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
       setResults(data.results || []);

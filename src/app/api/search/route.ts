@@ -48,11 +48,21 @@ export async function GET(request: Request) {
     console.log('[Search API] 📊 Total posts fetched:', allPosts.length);
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // 카테고리 값 확인 (디버깅)
+    // 🔍 카테고리 값 상세 분석
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    const uniqueCategories = [...new Set(allPosts.map(p => p.category))];
-    console.log('[Search API] 📋 Unique categories in DB:', uniqueCategories);
+    console.log('[Search API] 📋 Analyzing categories...');
+
+    // 모든 포스트의 카테고리 출력
+    allPosts.forEach((post, idx) => {
+      console.log(`[Search API]   ${idx + 1}. "${post.title}"`);
+      console.log(`[Search API]      → category: "${post.category}" (type: ${typeof post.category})`);
+    });
+
+    // 고유 카테고리 값 추출
+    const uniqueCategories = [...new Set(allPosts.map(p => p.category).filter(Boolean))];
+    console.log('[Search API] 📌 UNIQUE CATEGORIES IN DB:', uniqueCategories);
+    console.log('[Search API] 📌 REQUESTED CATEGORY:', category);
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 2: deleted_at 필터링
@@ -62,31 +72,33 @@ export async function GET(request: Request) {
     console.log('[Search API] ✓ Active posts:', activePosts.length);
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 3: 카테고리 필터링 (강화된 로깅)
+    // STEP 3: 카테고리 필터링 (상세 로깅)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
     let categoryFiltered = activePosts;
 
     if (category !== 'all') {
       console.log(`[Search API] 🏷️ Filtering by category: "${category}"`);
+      console.log(`[Search API] 🏷️ Checking each post...`);
 
       categoryFiltered = activePosts.filter(post => {
         const postCategory = post.category;
         const matches = postCategory === category;
 
-        if (!matches && postCategory) {
-          console.log(`[Search API]   ✗ Post "${post.title}": category="${postCategory}" (expected="${category}")`);
-        }
+        console.log(`[Search API]   "${post.title}"`);
+        console.log(`[Search API]      Post category: "${postCategory}"`);
+        console.log(`[Search API]      Requested: "${category}"`);
+        console.log(`[Search API]      Match: ${matches ? '✓ YES' : '✗ NO'}`);
 
         return matches;
       });
 
-      console.log(`[Search API] ✓ Posts matching category "${category}":`, categoryFiltered.length);
+      console.log(`[Search API] ✓ After category filter: ${categoryFiltered.length} posts`);
 
-      // 카테고리 매칭 안 되면 경고
       if (categoryFiltered.length === 0) {
-        console.log(`[Search API] ⚠️ No posts found with category="${category}"`);
-        console.log(`[Search API] 💡 Available categories:`, uniqueCategories);
+        console.log(`[Search API] ⚠️⚠️⚠️ NO POSTS MATCH CATEGORY: "${category}"`);
+        console.log(`[Search API] 💡 Available categories in DB:`, uniqueCategories);
+        console.log(`[Search API] 💡 Please update CATEGORIES array in SearchModal.tsx to match these values!`);
       }
     }
 
@@ -104,7 +116,7 @@ export async function GET(request: Request) {
       const contentMatch = content.includes(searchTerm);
 
       if (titleMatch || contentMatch) {
-        console.log(`[Search API] ✓ Match: "${post.title}" (category: ${post.category})`);
+        console.log(`[Search API] ✓ Match: "${post.title}"`);
       }
 
       return titleMatch || contentMatch;
@@ -131,15 +143,10 @@ export async function GET(request: Request) {
     return NextResponse.json({
       results: resultsWithExcerpt.slice(0, 50),
       count: resultsWithExcerpt.length,
-      method: 'javascript-filter',
-      debug: {
-        searchTerm: searchTerm,
-        categoryFilter: category,
-        totalPosts: allPosts.length,
-        activePosts: activePosts.length,
-        categoryFiltered: categoryFiltered.length,
-        matchedPosts: results.length,
-        availableCategories: uniqueCategories,
+      categoryInfo: {
+        requested: category,
+        available: uniqueCategories,
+        matched: categoryFiltered.length,
       }
     });
 
