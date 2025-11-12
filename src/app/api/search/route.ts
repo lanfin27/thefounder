@@ -32,11 +32,11 @@ export async function GET(request: NextRequest) {
 
     const searchTerm = query.trim().toLowerCase()
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 1: Fetch all posts
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    console.log('[Search API] 🔍 Search term (lowercase):', searchTerm)
 
-    console.log('[Search API] 🔍 Fetching all posts...')
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 1: Fetch all posts (with category filter)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
     let queryBuilder = supabase
       .from('posts')
@@ -63,25 +63,38 @@ export async function GET(request: NextRequest) {
       queryBuilder = queryBuilder.eq('category', category)
     }
 
-    const { data: posts, error } = await queryBuilder.order('created_at', { ascending: false })
+    const { data: posts, error } = await queryBuilder
+      .order('created_at', { ascending: false })
+      .limit(100)
 
     if (error) {
-      console.error('[Search API] ❌ Error:', error)
+      console.error('[Search API] ❌ Database error:', error)
       return NextResponse.json(
         { error: 'Search failed' },
         { status: 500 }
       )
     }
 
+    console.log('[Search API] 📦 Total posts fetched:', posts?.length || 0)
+
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STEP 3: JavaScript filter (title + content search)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    console.log('[Search API] 🔍 Searching in title and content...')
-
     const results = (posts || []).filter(post => {
-      const titleMatch = post.title?.toLowerCase().includes(searchTerm)
-      const contentMatch = post.content?.toLowerCase().includes(searchTerm)
+      // Null check and empty string handling
+      const title = (post.title || '').toLowerCase()
+      const content = (post.content || '').toLowerCase()
+
+      const titleMatch = title.includes(searchTerm)
+      const contentMatch = content.includes(searchTerm)
+
+      if (titleMatch || contentMatch) {
+        console.log('[Search API] ✓ Match found:', post.title)
+        if (titleMatch) console.log('  → Title match')
+        if (contentMatch) console.log('  → Content match')
+      }
+
       return titleMatch || contentMatch
     })
 
@@ -89,16 +102,20 @@ export async function GET(request: NextRequest) {
     console.log('[Search API] Method: javascript-filter')
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
-    // Generate excerpt from content
+    // Generate excerpt from content (first 150 chars, remove markdown)
     const resultsWithExcerpt = results.map(post => ({
       ...post,
-      excerpt: post.content ? post.content.substring(0, 200) + '...' : '',
+      excerpt: post.content
+        ? post.content.substring(0, 150).replace(/[#*_`]/g, '') + '...'
+        : '',
     }))
 
     return NextResponse.json({
       results: resultsWithExcerpt.slice(0, 50), // Max 50 results
       count: resultsWithExcerpt.length,
       method: 'javascript-filter',
+      searchTerm: searchTerm,
+      totalPosts: posts?.length || 0,
     })
 
   } catch (error) {

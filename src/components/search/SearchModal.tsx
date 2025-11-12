@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Search, X } from 'lucide-react';
+import { Search, X, TrendingUp, Lightbulb, BarChart3, FileText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useDebounce } from '@/hooks/useDebounce';
 
@@ -22,12 +22,13 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
+// Sidebar-style black & white SVG icons
 const CATEGORIES = [
-  { id: 'all', label: '전체', icon: '🔍' },
-  { id: 'trends', label: '트렌드', icon: '📈' },
-  { id: 'insights', label: '인사이트', icon: '💡' },
-  { id: 'cases', label: '사례', icon: '📊' },
-  { id: 'blog', label: '블로그', icon: '📝' },
+  { id: 'all', label: '전체', icon: Search },
+  { id: 'trends', label: '트렌드', icon: TrendingUp },
+  { id: 'insights', label: '인사이트', icon: Lightbulb },
+  { id: 'cases', label: '사례', icon: BarChart3 },
+  { id: 'blog', label: '블로그', icon: FileText },
 ];
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
@@ -37,6 +38,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [debugInfo, setDebugInfo] = useState<any>(null);
 
   const debouncedQuery = useDebounce(query, 500);
 
@@ -48,6 +50,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (!searchQuery.trim()) {
       setResults([]);
       setHasSearched(false);
+      setDebugInfo(null);
       return;
     }
 
@@ -75,12 +78,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
       console.log('[SearchModal] ✅ Results:', data.count);
       console.log('[SearchModal] Method:', data.method);
+      console.log('[SearchModal] Search term:', data.searchTerm);
+      console.log('[SearchModal] Total posts:', data.totalPosts);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
       setResults(data.results || []);
+      setDebugInfo(data);
     } catch (error) {
       console.error('[SearchModal] ❌ Error:', error);
       setResults([]);
+      setDebugInfo({ error: String(error) });
     } finally {
       setIsLoading(false);
     }
@@ -175,20 +182,23 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           <div className="px-4 py-2 border-b bg-gray-50">
             <div className="flex items-center gap-2">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setCategory(cat.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
-                    category === cat.id
-                      ? 'bg-green-50 text-green-700 font-medium'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                >
-                  <span className="text-base">{cat.icon}</span>
-                  <span>{cat.label}</span>
-                </button>
-              ))}
+              {CATEGORIES.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setCategory(cat.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
+                      category === cat.id
+                        ? 'bg-green-50 text-green-700 font-medium'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{cat.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -254,12 +264,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         <div className="flex-1 min-w-0">
                           {/* 카테고리 */}
                           <div className="flex items-center gap-1.5 mb-1">
-                            <span className="text-sm">
-                              {CATEGORIES.find((c) => c.id === result.category)?.icon}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              {CATEGORIES.find((c) => c.id === result.category)?.label}
-                            </span>
+                            {(() => {
+                              const categoryInfo = CATEGORIES.find((c) => c.id === result.category);
+                              if (categoryInfo) {
+                                const Icon = categoryInfo.icon;
+                                return (
+                                  <>
+                                    <Icon className="w-3.5 h-3.5 text-gray-500" />
+                                    <span className="text-xs text-gray-500">
+                                      {categoryInfo.label}
+                                    </span>
+                                  </>
+                                );
+                              }
+                              return null;
+                            })()}
                           </div>
 
                           {/* 제목 */}
