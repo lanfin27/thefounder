@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebounce } from '@/hooks/useDebounce';
-import { Search, TrendingUp, Lightbulb, BarChart3, FileText, X } from 'lucide-react';
+import { Search, TrendingUp, Lightbulb, BarChart3, PenTool, X } from 'lucide-react';
 
 interface SearchResult {
   id: string;
@@ -33,7 +33,7 @@ const CATEGORIES = [
   { id: '트렌드', label: '트렌드', icon: TrendingUp },
   { id: '인사이트', label: '인사이트', icon: Lightbulb },
   { id: '성공사례', label: '사례', icon: BarChart3 },
-  { id: '블로그', label: '블로그', icon: FileText },
+  { id: '블로그', label: '블로그', icon: PenTool },
 ];
 
 // 옵션 1: DB에 영문 단수형으로 저장된 경우
@@ -42,7 +42,7 @@ const CATEGORIES = [
 //   { id: 'trend', label: '트렌드', icon: TrendingUp },
 //   { id: 'insight', label: '인사이트', icon: Lightbulb },
 //   { id: 'case', label: '사례', icon: BarChart3 },
-//   { id: 'blog', label: '블로그', icon: FileText },
+//   { id: 'blog', label: '블로그', icon: PenTool },
 // ];
 
 // 옵션 2: DB에 한글로 저장된 경우
@@ -51,7 +51,7 @@ const CATEGORIES = [
 //   { id: '트렌드', label: '트렌드', icon: TrendingUp },
 //   { id: '인사이트', label: '인사이트', icon: Lightbulb },
 //   { id: '사례', label: '사례', icon: BarChart3 },
-//   { id: '블로그', label: '블로그', icon: FileText },
+//   { id: '블로그', label: '블로그', icon: PenTool },
 // ];
 
 // 옵션 3: DB에 다른 이름으로 저장된 경우 (예: '성공사례')
@@ -60,7 +60,7 @@ const CATEGORIES = [
 //   { id: 'trends', label: '트렌드', icon: TrendingUp },
 //   { id: 'insights', label: '인사이트', icon: Lightbulb },
 //   { id: '성공사례', label: '사례', icon: BarChart3 },
-//   { id: 'blog', label: '블로그', icon: FileText },
+//   { id: 'blog', label: '블로그', icon: PenTool },
 // ];
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
@@ -339,7 +339,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <div className="divide-y">
                   {results.map((result) => {
                     const categoryData = CATEGORIES.find(c => c.id === result.category);
-                    const CategoryIcon = categoryData?.icon || FileText;
+                    const CategoryIcon = categoryData?.icon || PenTool;
 
                     return (
                       <button
