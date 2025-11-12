@@ -216,32 +216,42 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       />
 
       {/* 모달 */}
-      <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
-        <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden">
+      <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-20 px-4">
+        <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[95vh] sm:max-h-[80vh] overflow-hidden">
 
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          {/* 검색 입력 */}
+          {/* 헤더: 검색 입력 + 닫기 버튼 */}
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
-          <div className="p-4 border-b">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <div className="relative p-3 sm:p-4 border-b">
+            {/* 닫기 버튼 (오른쪽 상단) */}
+            <button
+              onClick={onClose}
+              className="absolute right-3 top-3 sm:top-4 z-10 p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              aria-label="검색 닫기"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* 검색 입력 */}
+            <div className="relative pr-8">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
 
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="검색..."
-                className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 text-base"
+                className="w-full pl-9 sm:pl-10 pr-10 py-2 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-600 text-sm sm:text-base"
                 autoFocus
               />
 
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               )}
             </div>
@@ -251,7 +261,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {/* 카테고리 필터 - 모바일 툴팁 */}
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
-          <div className="px-4 py-2 border-b bg-gray-50">
+          <div className="px-3 sm:px-4 py-2 border-b bg-gray-50">
             <div className="flex items-center gap-2 overflow-x-auto">
               {CATEGORIES.map((cat) => {
                 const Icon = cat.icon;
@@ -300,7 +310,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {/* 검색 결과 */}
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
-          <div className="overflow-y-auto max-h-[60vh]">
+          <div className="overflow-y-auto max-h-[calc(95vh-140px)] sm:max-h-[calc(80vh-140px)]">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
                 <div className="text-center">
@@ -330,7 +340,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
             ) : (
               <div>
-                <div className="px-4 py-2 bg-gray-50 border-b">
+                <div className="px-3 sm:px-4 py-2 bg-gray-50 border-b">
                   <p className="text-xs text-gray-500">
                     {results.length}개의 결과
                   </p>
@@ -345,7 +355,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <button
                         key={result.id}
                         onClick={() => handleResultClick(result.slug)}
-                        className="w-full px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+                        className="w-full px-3 sm:px-4 py-3 hover:bg-gray-50 transition-colors text-left"
                       >
                         <div className="flex gap-3">
                           {result.thumbnail_url && (
@@ -353,7 +363,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                               <img
                                 src={result.thumbnail_url}
                                 alt={result.title}
-                                className="w-16 h-16 object-cover rounded"
+                                className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded"
                               />
                             </div>
                           )}
@@ -370,8 +380,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                               {result.title}
                             </h3>
 
-                            <div className="flex items-center gap-3 text-xs text-gray-500">
-                              <span>
+                            <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                              <span className="hidden sm:inline">
                                 {new Date(result.created_at).toLocaleDateString('ko-KR', {
                                   year: 'numeric',
                                   month: 'long',
