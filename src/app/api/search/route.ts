@@ -1,131 +1,171 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server';
+import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// GET /api/search?q=검색어&category=카테고리
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-export async function GET(request: NextRequest) {
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-  console.log('[Search API] 🔍 Search request')
+export async function GET(request: Request) {
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('[Search API] 🔍 SEARCH REQUEST START');
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
   try {
-    const searchParams = request.nextUrl.searchParams
-    const query = searchParams.get('q') || ''
-    const category = searchParams.get('category') || 'all'
+    const { searchParams } = new URL(request.url);
+    const query = searchParams.get('q') || '';
+    const category = searchParams.get('category') || 'all';
 
-    console.log('[Search API] 📝 Query:', query)
-    console.log('[Search API] 📂 Category:', category)
+    console.log('[Search API] 📝 Raw Query:', query);
+    console.log('[Search API] 📂 Category:', category);
 
-    if (!query || query.trim().length === 0) {
-      console.log('[Search API] ⚠️ Empty query')
+    if (!query || query.trim() === '') {
+      console.log('[Search API] ⚠️ Empty query - returning empty results');
       return NextResponse.json({
         results: [],
         count: 0,
-        message: 'Empty query'
-      })
+        message: 'Empty query',
+      });
     }
 
-    const supabase = await createClient()
+    const supabase = await createClient();
+    const searchTerm = query.trim().toLowerCase();
 
-    const searchTerm = query.trim().toLowerCase()
-
-    console.log('[Search API] 🔍 Search term (lowercase):', searchTerm)
+    console.log('[Search API] 🔍 Search term (lowercase):', searchTerm);
+    console.log('[Search API] 🔍 Search term length:', searchTerm.length);
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 1: Fetch all posts (with category filter)
+    // STEP 1: 먼저 모든 포스트 가져오기 (필터 없이)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    let queryBuilder = supabase
+    console.log('[Search API] 📦 Fetching ALL posts from database...');
+
+    const { data: allPosts, error: allError } = await supabase
       .from('posts')
-      .select(`
-        id,
-        slug,
-        title,
-        content,
-        category,
-        thumbnail_url,
-        created_at,
-        claps_count,
-        comments_count
-      `)
-      .eq('status', 'published')
-      .is('deleted_at', null)
+      .select('*')
+      .limit(200);
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 2: Apply category filter
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-    if (category !== 'all') {
-      console.log('[Search API] 🏷️ Filtering by category:', category)
-      queryBuilder = queryBuilder.eq('category', category)
+    if (allError) {
+      console.error('[Search API] ❌ Database error:', allError);
+      return NextResponse.json({ error: 'Database error', details: allError }, { status: 500 });
     }
 
-    const { data: posts, error } = await queryBuilder
-      .order('created_at', { ascending: false })
-      .limit(100)
+    console.log('[Search API] 📊 Total posts in database:', allPosts?.length || 0);
 
-    if (error) {
-      console.error('[Search API] ❌ Database error:', error)
-      return NextResponse.json(
-        { error: 'Search failed' },
-        { status: 500 }
-      )
+    if (!allPosts || allPosts.length === 0) {
+      console.log('[Search API] ⚠️ No posts found in database!');
+      return NextResponse.json({
+        results: [],
+        count: 0,
+        message: 'No posts in database',
+        debug: {
+          totalPosts: 0,
+          searchTerm: searchTerm,
+        }
+      });
     }
 
-    console.log('[Search API] 📦 Total posts fetched:', posts?.length || 0)
+    // 첫 3개 포스트 샘플 출력
+    console.log('[Search API] 📋 Sample posts:');
+    allPosts.slice(0, 3).forEach((post, idx) => {
+      console.log(`  ${idx + 1}. Title: ${post.title}`);
+      console.log(`     Status: ${post.status}`);
+      console.log(`     Category: ${post.category}`);
+      console.log(`     Content length: ${post.content?.length || 0}`);
+      console.log(`     Content preview: ${post.content?.substring(0, 50)}...`);
+    });
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // STEP 3: JavaScript filter (title + content search)
+    // STEP 2: published 필터링
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    const results = (posts || []).filter(post => {
-      // Null check and empty string handling
-      const title = (post.title || '').toLowerCase()
-      const content = (post.content || '').toLowerCase()
+    const publishedPosts = allPosts.filter(post =>
+      post.status === 'published' && post.deleted_at === null
+    );
 
-      const titleMatch = title.includes(searchTerm)
-      const contentMatch = content.includes(searchTerm)
+    console.log('[Search API] ✓ Published posts:', publishedPosts.length);
 
-      if (titleMatch || contentMatch) {
-        console.log('[Search API] ✓ Match found:', post.title)
-        if (titleMatch) console.log('  → Title match')
-        if (contentMatch) console.log('  → Content match')
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 3: 카테고리 필터링
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    const categoryFiltered = category === 'all'
+      ? publishedPosts
+      : publishedPosts.filter(post => post.category === category);
+
+    console.log('[Search API] ✓ After category filter:', categoryFiltered.length);
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 4: 검색 필터링 (제목 + 내용)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    console.log('[Search API] 🔍 Starting search filtering...');
+
+    const results = categoryFiltered.filter((post, index) => {
+      const title = (post.title || '').toLowerCase();
+      const content = (post.content || '').toLowerCase();
+
+      const titleMatch = title.includes(searchTerm);
+      const contentMatch = content.includes(searchTerm);
+
+      const isMatch = titleMatch || contentMatch;
+
+      if (isMatch) {
+        console.log(`[Search API] ✓✓✓ MATCH #${index + 1}: "${post.title}"`);
+        if (titleMatch) {
+          console.log(`     → Title contains "${searchTerm}"`);
+          console.log(`     → Title: "${title}"`);
+        }
+        if (contentMatch) {
+          console.log(`     → Content contains "${searchTerm}"`);
+          const matchIndex = content.indexOf(searchTerm);
+          const snippet = content.substring(Math.max(0, matchIndex - 30), matchIndex + 50);
+          console.log(`     → Content snippet: "...${snippet}..."`);
+        }
       }
 
-      return titleMatch || contentMatch
-    })
+      return isMatch;
+    });
 
-    console.log('[Search API] ✅ Results found:', results.length)
-    console.log('[Search API] Method: javascript-filter')
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('[Search API] ✅ FINAL RESULTS:', results.length);
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
-    // Generate excerpt from content (first 150 chars, remove markdown)
+    // excerpt 생성
     const resultsWithExcerpt = results.map(post => ({
-      ...post,
+      id: post.id,
+      slug: post.slug,
+      title: post.title,
       excerpt: post.content
-        ? post.content.substring(0, 150).replace(/[#*_`]/g, '') + '...'
+        ? post.content.substring(0, 150).replace(/[#*_`\n]/g, ' ').trim() + '...'
         : '',
-    }))
+      category: post.category,
+      thumbnail_url: post.thumbnail_url,
+      created_at: post.created_at,
+      claps_count: post.claps_count || 0,
+      comments_count: post.comments_count || 0,
+    }));
 
     return NextResponse.json({
-      results: resultsWithExcerpt.slice(0, 50), // Max 50 results
+      results: resultsWithExcerpt.slice(0, 50),
       count: resultsWithExcerpt.length,
       method: 'javascript-filter',
-      searchTerm: searchTerm,
-      totalPosts: posts?.length || 0,
-    })
+      debug: {
+        searchTerm: searchTerm,
+        totalPosts: allPosts.length,
+        publishedPosts: publishedPosts.length,
+        categoryFiltered: categoryFiltered.length,
+        matchedPosts: results.length,
+      }
+    });
 
   } catch (error) {
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.error('[Search API] ❌ Unexpected error:', error)
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.error('[Search API] ❌❌❌ UNEXPECTED ERROR:', error);
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
     return NextResponse.json(
-      { error: 'Internal server error' },
+      {
+        error: 'Internal server error',
+        details: error instanceof Error ? error.message : String(error)
+      },
       { status: 500 }
-    )
+    );
   }
 }

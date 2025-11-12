@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Search, X, TrendingUp, Lightbulb, BarChart3, FileText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useDebounce } from '@/hooks/useDebounce';
+import { Search, TrendingUp, Lightbulb, BarChart3, FileText, X } from 'lucide-react';
 
 interface SearchResult {
   id: string;
@@ -22,7 +22,7 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
-// Sidebar-style black & white SVG icons
+// 사이드바 스타일 아이콘
 const CATEGORIES = [
   { id: 'all', label: '전체', icon: Search },
   { id: 'trends', label: '트렌드', icon: TrendingUp },
@@ -41,10 +41,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [debugInfo, setDebugInfo] = useState<any>(null);
 
   const debouncedQuery = useDebounce(query, 500);
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 검색 실행
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   const performSearch = useCallback(async (searchQuery: string, searchCategory: string) => {
     if (!searchQuery.trim()) {
@@ -76,14 +72,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
       const data = await response.json();
 
-      console.log('[SearchModal] ✅ Results:', data.count);
-      console.log('[SearchModal] Method:', data.method);
-      console.log('[SearchModal] Search term:', data.searchTerm);
-      console.log('[SearchModal] Total posts:', data.totalPosts);
+      console.log('[SearchModal] ✅ Response received');
+      console.log('[SearchModal] Results count:', data.count);
+      console.log('[SearchModal] Debug info:', data.debug);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
       setResults(data.results || []);
-      setDebugInfo(data);
+      setDebugInfo(data.debug);
     } catch (error) {
       console.error('[SearchModal] ❌ Error:', error);
       setResults([]);
@@ -106,6 +101,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       setCategory('all');
       setResults([]);
       setHasSearched(false);
+      setDebugInfo(null);
     }
 
     return () => {
@@ -115,9 +111,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
 
     if (isOpen) {
@@ -177,30 +171,46 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          {/* 카테고리 필터 - 사이드바 스타일 */}
+          {/* 카테고리 필터 - 반응형 (모바일: 아이콘만) */}
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
           <div className="px-4 py-2 border-b bg-gray-50">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 overflow-x-auto">
               {CATEGORIES.map((cat) => {
                 const Icon = cat.icon;
                 return (
                   <button
                     key={cat.id}
                     onClick={() => setCategory(cat.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors flex-shrink-0 ${
                       category === cat.id
                         ? 'bg-green-50 text-green-700 font-medium'
                         : 'text-gray-600 hover:bg-gray-100'
                     }`}
+                    title={cat.label}
                   >
                     <Icon className="w-4 h-4" />
-                    <span>{cat.label}</span>
+                    {/* 모바일: 아이콘만, PC: 아이콘 + 텍스트 */}
+                    <span className="hidden sm:inline">{cat.label}</span>
                   </button>
                 );
               })}
             </div>
           </div>
+
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* 디버그 정보 (개발 모드) */}
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+
+          {debugInfo && (
+            <div className="px-4 py-2 bg-yellow-50 border-b text-xs font-mono">
+              <div className="space-y-1 text-gray-700">
+                <div>🔍 Search: "{debugInfo.searchTerm}"</div>
+                <div>📊 Total: {debugInfo.totalPosts} | Published: {debugInfo.publishedPosts}</div>
+                <div>🏷️ Category filtered: {debugInfo.categoryFiltered} | ✅ Matched: {debugInfo.matchedPosts}</div>
+              </div>
+            </div>
+          )}
 
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* 검색 결과 */}
@@ -219,6 +229,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <div className="text-center">
                   <p className="text-lg text-gray-600">
                     '{query}'에 대한 검색 결과가 없습니다.
+                  </p>
+                  <p className="mt-2 text-sm text-gray-500">
+                    다른 검색어를 시도해보세요.
                   </p>
                 </div>
               </div>
@@ -242,66 +255,60 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
                 {/* 검색 결과 목록 */}
                 <div className="divide-y">
-                  {results.map((result) => (
-                    <button
-                      key={result.id}
-                      onClick={() => handleResultClick(result.slug)}
-                      className="w-full px-4 py-3 hover:bg-gray-50 transition-colors text-left"
-                    >
-                      <div className="flex gap-3">
-                        {/* 썸네일 */}
-                        {result.thumbnail_url && (
-                          <div className="flex-shrink-0">
-                            <img
-                              src={result.thumbnail_url}
-                              alt={result.title}
-                              className="w-16 h-16 object-cover rounded"
-                            />
-                          </div>
-                        )}
+                  {results.map((result) => {
+                    const categoryData = CATEGORIES.find(c => c.id === result.category);
+                    const CategoryIcon = categoryData?.icon || FileText;
 
-                        {/* 내용 */}
-                        <div className="flex-1 min-w-0">
-                          {/* 카테고리 */}
-                          <div className="flex items-center gap-1.5 mb-1">
-                            {(() => {
-                              const categoryInfo = CATEGORIES.find((c) => c.id === result.category);
-                              if (categoryInfo) {
-                                const Icon = categoryInfo.icon;
-                                return (
-                                  <>
-                                    <Icon className="w-3.5 h-3.5 text-gray-500" />
-                                    <span className="text-xs text-gray-500">
-                                      {categoryInfo.label}
-                                    </span>
-                                  </>
-                                );
-                              }
-                              return null;
-                            })()}
-                          </div>
+                    return (
+                      <button
+                        key={result.id}
+                        onClick={() => handleResultClick(result.slug)}
+                        className="w-full px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+                      >
+                        <div className="flex gap-3">
+                          {/* 썸네일 */}
+                          {result.thumbnail_url && (
+                            <div className="flex-shrink-0">
+                              <img
+                                src={result.thumbnail_url}
+                                alt={result.title}
+                                className="w-16 h-16 object-cover rounded"
+                              />
+                            </div>
+                          )}
 
-                          {/* 제목 */}
-                          <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
-                            {result.title}
-                          </h3>
+                          {/* 내용 */}
+                          <div className="flex-1 min-w-0">
+                            {/* 카테고리 */}
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <CategoryIcon className="w-3.5 h-3.5 text-gray-500" />
+                              <span className="text-xs text-gray-500">
+                                {categoryData?.label || result.category}
+                              </span>
+                            </div>
 
-                          {/* 메타 정보 */}
-                          <div className="flex items-center gap-3 text-xs text-gray-500">
-                            <span>
-                              {new Date(result.created_at).toLocaleDateString('ko-KR', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                              })}
-                            </span>
-                            <span>👏 {result.claps_count || 0}</span>
-                            <span>💬 {result.comments_count || 0}</span>
+                            {/* 제목 */}
+                            <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                              {result.title}
+                            </h3>
+
+                            {/* 메타 정보 */}
+                            <div className="flex items-center gap-3 text-xs text-gray-500">
+                              <span>
+                                {new Date(result.created_at).toLocaleDateString('ko-KR', {
+                                  year: 'numeric',
+                                  month: 'long',
+                                  day: 'numeric'
+                                })}
+                              </span>
+                              <span>👏 {result.claps_count || 0}</span>
+                              <span>💬 {result.comments_count || 0}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </button>
-                  ))}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
