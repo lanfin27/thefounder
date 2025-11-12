@@ -22,7 +22,6 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
-// 사이드바 스타일 아이콘
 const CATEGORIES = [
   { id: 'all', label: '전체', icon: Search },
   { id: 'trends', label: '트렌드', icon: TrendingUp },
@@ -39,6 +38,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [debugInfo, setDebugInfo] = useState<any>(null);
+
+  // ✅ 모바일 툴팁 상태
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
   const debouncedQuery = useDebounce(query, 500);
 
@@ -102,6 +104,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       setResults([]);
       setHasSearched(false);
       setDebugInfo(null);
+      setActiveTooltip(null);
     }
 
     return () => {
@@ -128,6 +131,19 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     onClose();
   };
 
+  // ✅ 카테고리 버튼 클릭 핸들러 (모바일 툴팁)
+  const handleCategoryClick = (categoryId: string) => {
+    setCategory(categoryId);
+
+    // 모바일에서만 툴팁 표시
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      setActiveTooltip(categoryId);
+      setTimeout(() => {
+        setActiveTooltip(null);
+      }, 1500); // 1.5초 후 사라짐
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -142,10 +158,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
         <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden">
 
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* 검색 입력 */}
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-
           <div className="p-4 border-b">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -171,51 +184,58 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          {/* 카테고리 필터 - 반응형 (모바일: 아이콘만) */}
+          {/* 카테고리 필터 - 모바일 툴팁 */}
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
           <div className="px-4 py-2 border-b bg-gray-50">
             <div className="flex items-center gap-2 overflow-x-auto">
               {CATEGORIES.map((cat) => {
                 const Icon = cat.icon;
+                const isActive = category === cat.id;
+                const showTooltip = activeTooltip === cat.id;
+
                 return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setCategory(cat.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors flex-shrink-0 ${
-                      category === cat.id
-                        ? 'bg-green-50 text-green-700 font-medium'
-                        : 'text-gray-600 hover:bg-gray-100'
-                    }`}
-                    title={cat.label}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {/* 모바일: 아이콘만, PC: 아이콘 + 텍스트 */}
-                    <span className="hidden sm:inline">{cat.label}</span>
-                  </button>
+                  <div key={cat.id} className="relative flex-shrink-0">
+                    <button
+                      onClick={() => handleCategoryClick(cat.id)}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
+                        isActive
+                          ? 'bg-green-50 text-green-700 font-medium'
+                          : 'text-gray-600 hover:bg-gray-100'
+                      }`}
+                      title={cat.label}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {/* PC: 텍스트 표시 */}
+                      <span className="hidden sm:inline">{cat.label}</span>
+                    </button>
+
+                    {/* ✅ 모바일 툴팁 */}
+                    {showTooltip && (
+                      <div className="sm:hidden absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap animate-fade-in-out z-10">
+                        {cat.label}
+                        {/* 작은 화살표 */}
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>
           </div>
 
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          {/* 디버그 정보 (개발 모드) */}
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-
+          {/* 디버그 정보 */}
           {debugInfo && (
             <div className="px-4 py-2 bg-yellow-50 border-b text-xs font-mono">
               <div className="space-y-1 text-gray-700">
                 <div>🔍 Search: "{debugInfo.searchTerm}"</div>
-                <div>📊 Total: {debugInfo.totalPosts} | Published: {debugInfo.publishedPosts}</div>
-                <div>🏷️ Category filtered: {debugInfo.categoryFiltered} | ✅ Matched: {debugInfo.matchedPosts}</div>
+                <div>📊 Total: {debugInfo.totalPosts} | Active: {debugInfo.activePosts}</div>
+                <div>🏷️ Category: {debugInfo.categoryFiltered} | ✅ Matched: {debugInfo.matchedPosts}</div>
               </div>
             </div>
           )}
 
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* 검색 결과 */}
-          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-
           <div className="overflow-y-auto max-h-[60vh]">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
@@ -246,14 +266,12 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
             ) : (
               <div>
-                {/* 결과 개수 */}
                 <div className="px-4 py-2 bg-gray-50 border-b">
                   <p className="text-xs text-gray-500">
                     {results.length}개의 결과
                   </p>
                 </div>
 
-                {/* 검색 결과 목록 */}
                 <div className="divide-y">
                   {results.map((result) => {
                     const categoryData = CATEGORIES.find(c => c.id === result.category);
@@ -266,7 +284,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         className="w-full px-4 py-3 hover:bg-gray-50 transition-colors text-left"
                       >
                         <div className="flex gap-3">
-                          {/* 썸네일 */}
                           {result.thumbnail_url && (
                             <div className="flex-shrink-0">
                               <img
@@ -277,9 +294,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             </div>
                           )}
 
-                          {/* 내용 */}
                           <div className="flex-1 min-w-0">
-                            {/* 카테고리 */}
                             <div className="flex items-center gap-1.5 mb-1">
                               <CategoryIcon className="w-3.5 h-3.5 text-gray-500" />
                               <span className="text-xs text-gray-500">
@@ -287,12 +302,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                               </span>
                             </div>
 
-                            {/* 제목 */}
                             <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
                               {result.title}
                             </h3>
 
-                            {/* 메타 정보 */}
                             <div className="flex items-center gap-3 text-xs text-gray-500">
                               <span>
                                 {new Date(result.created_at).toLocaleDateString('ko-KR', {

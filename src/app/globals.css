@@ -796,3 +796,26 @@ p {
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+/* ========================================
+   Mobile Tooltip Animation for Search
+   ======================================== */
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -5px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -5px);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fadeInOut 1.5s ease-in-out;
+}
