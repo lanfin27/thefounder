@@ -37,18 +37,36 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const [debugInfo, setDebugInfo] = useState<any>(null);
 
   // ✅ 모바일 툴팁 상태
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const debouncedQuery = useDebounce(query, 500);
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 모바일 감지
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // 검색 실행
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   const performSearch = useCallback(async (searchQuery: string, searchCategory: string) => {
     if (!searchQuery.trim()) {
       setResults([]);
       setHasSearched(false);
-      setDebugInfo(null);
       return;
     }
 
@@ -74,17 +92,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
       const data = await response.json();
 
-      console.log('[SearchModal] ✅ Response received');
-      console.log('[SearchModal] Results count:', data.count);
-      console.log('[SearchModal] Debug info:', data.debug);
+      console.log('[SearchModal] ✅ Results:', data.count);
+      console.log('[SearchModal] Debug:', data.debug);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
       setResults(data.results || []);
-      setDebugInfo(data.debug);
     } catch (error) {
       console.error('[SearchModal] ❌ Error:', error);
       setResults([]);
-      setDebugInfo({ error: String(error) });
     } finally {
       setIsLoading(false);
     }
@@ -103,7 +118,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       setCategory('all');
       setResults([]);
       setHasSearched(false);
-      setDebugInfo(null);
       setActiveTooltip(null);
     }
 
@@ -131,16 +145,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     onClose();
   };
 
-  // ✅ 카테고리 버튼 클릭 핸들러 (모바일 툴팁)
+  // ✅ 카테고리 클릭 핸들러 (모바일 툴팁)
   const handleCategoryClick = (categoryId: string) => {
+    console.log('[SearchModal] Category clicked:', categoryId, 'Mobile:', isMobile);
+
     setCategory(categoryId);
 
     // 모바일에서만 툴팁 표시
-    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+    if (isMobile) {
+      console.log('[SearchModal] Showing tooltip for:', categoryId);
       setActiveTooltip(categoryId);
+
       setTimeout(() => {
+        console.log('[SearchModal] Hiding tooltip');
         setActiveTooltip(null);
-      }, 1500); // 1.5초 후 사라짐
+      }, 1500);
     }
   };
 
@@ -158,7 +177,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
         <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden">
 
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* 검색 입력 */}
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+
           <div className="p-4 border-b">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -212,9 +234,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
                     {/* ✅ 모바일 툴팁 */}
                     {showTooltip && (
-                      <div className="sm:hidden absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap animate-fade-in-out z-10">
-                        {cat.label}
-                        {/* 작은 화살표 */}
+                      <div className="sm:hidden absolute -bottom-9 left-1/2 transform -translate-x-1/2 z-50">
+                        <div className="bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap animate-fade-in-out">
+                          {cat.label}
+                        </div>
+                        {/* 화살표 */}
                         <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
                       </div>
                     )}
@@ -224,18 +248,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             </div>
           </div>
 
-          {/* 디버그 정보 */}
-          {debugInfo && (
-            <div className="px-4 py-2 bg-yellow-50 border-b text-xs font-mono">
-              <div className="space-y-1 text-gray-700">
-                <div>🔍 Search: "{debugInfo.searchTerm}"</div>
-                <div>📊 Total: {debugInfo.totalPosts} | Active: {debugInfo.activePosts}</div>
-                <div>🏷️ Category: {debugInfo.categoryFiltered} | ✅ Matched: {debugInfo.matchedPosts}</div>
-              </div>
-            </div>
-          )}
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* ❌ 디버그 정보 제거 (또는 개발 모드에서만) */}
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
+          {/* 디버그 정보는 콘솔에서만 확인 가능 */}
+
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* 검색 결과 */}
+          {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+
           <div className="overflow-y-auto max-h-[60vh]">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
