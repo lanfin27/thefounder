@@ -11,11 +11,39 @@ export function NewsletterInline() {
     e.preventDefault();
     setStatus('loading');
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Check if duplicate subscription
+        if (response.status === 409 && data.alreadySubscribed) {
+          alert('이미 구독 중입니다.');
+          setStatus('idle');
+          return;
+        }
+
+        // Other errors
+        throw new Error(data.error || '구독 중 오류가 발생했습니다.');
+      }
+
+      // Success
       setStatus('success');
       setEmail('');
       setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      setStatus('error');
+      alert(error instanceof Error ? error.message : '구독 중 오류가 발생했습니다.');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -61,6 +89,12 @@ export function NewsletterInline() {
             {status === 'success' && (
               <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm font-medium inline-block">
                 ✓ 구독이 완료되었습니다!
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm font-medium inline-block">
+                ✗ 구독 중 오류가 발생했습니다. 다시 시도해주세요.
               </div>
             )}
 

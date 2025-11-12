@@ -8,9 +8,9 @@ export async function checkAdminStatus(): Promise<boolean> {
 
     if (!user) return false;
 
-    // profiles 테이블에서 role 확인
+    // user_profiles 테이블에서 role 확인 (유저 관리 패널과 통합)
     const { data: profile } = await supabase
-      .from('profiles')
+      .from('user_profiles')
       .select('role')
       .eq('id', user.id)
       .single();

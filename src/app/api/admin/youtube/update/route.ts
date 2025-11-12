@@ -1,11 +1,15 @@
 /**
  * YouTube Admin Update API
  * 수동 업데이트 트리거 - 실제 YouTube API 연동
+ *
+ * ✅ 통합 완료: user_profiles.role 기반 권한 체크
+ * ✅ 유저 관리 패널에서 역할 변경 시 즉시 반영
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { YouTubeService } from '@/lib/youtube/youtube-service'
+import { UserService } from '@/lib/services/userService'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_YT_SUPABASE_URL!,
@@ -14,7 +18,32 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    // 1. Validate YouTube API Key first
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 1: Admin Authorization Check
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    const isAdmin = await UserService.isAdmin();
+
+    if (!isAdmin) {
+      const currentUser = await UserService.getCurrentUser();
+      console.log('[YouTube Update API] ❌ Unauthorized access attempt');
+      console.log('[YouTube Update API]   User:', currentUser?.email || 'not authenticated');
+
+      return NextResponse.json(
+        {
+          error: '관리자 권한이 필요합니다.',
+          suggestion: '유저 관리 패널에서 역할을 admin으로 변경하세요.'
+        },
+        { status: currentUser ? 403 : 401 }
+      );
+    }
+
+    console.log('[YouTube Update API] ✅ Admin verified');
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STEP 2: Validate YouTube API Key
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
     if (!process.env.YOUTUBE_API_KEY) {
       console.error('[Update API] YouTube API key is not configured')
       return NextResponse.json(

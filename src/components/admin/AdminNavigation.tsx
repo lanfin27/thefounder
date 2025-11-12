@@ -8,6 +8,7 @@ import {
   Youtube,
   Home,
   Users,
+  Mail,
 } from 'lucide-react';
 
 interface MenuItem {
@@ -21,7 +22,7 @@ interface MenuItem {
 export function AdminNavigation() {
   const pathname = usePathname();
 
-  // 🚨 중요: 이 배열에 5개의 메뉴 항목이 있어야 합니다
+  // 🚨 중요: 이 배열에 6개의 메뉴 항목이 있어야 합니다
   const menuItems: MenuItem[] = [
     {
       title: "Monitoring Dashboard",
@@ -59,6 +60,14 @@ export function AdminNavigation() {
       description: "사용자 계정 및 권한 관리",
       icon: Users,
       href: "/admin/users",
+    },
+    // 🆕 6번째 메뉴: 구독 관리 (Newsletter Management)
+    {
+      title: "Newsletter Management",
+      koreanTitle: "구독 관리",
+      description: "뉴스레터 구독자 관리 및 통계",
+      icon: Mail,
+      href: "/admin/newsletter",
     },
   ];
 
