@@ -13,6 +13,7 @@ interface Topic {
 interface FounderPick {
   id: string;
   title: string;
+  slug: string;
   category: string;
   readingTime: number;
 }
@@ -22,18 +23,21 @@ const INITIAL_FOUNDER_PICKS: FounderPick[] = [
   {
     id: '1',
     title: '위대한 창업가를 만드는 30가지 조건',
+    slug: 'founder-qualities',
     category: '인사이트',
     readingTime: 8,
   },
   {
     id: '2',
     title: '코딩은 AI가 한다, 창업자는?',
+    slug: 'ai-coding-founder-role',
     category: '트렌드',
     readingTime: 6,
   },
   {
     id: '3',
     title: 'SaaS로 월 $10K MRR 달성하기',
+    slug: 'saas-10k-mrr',
     category: '사례',
     readingTime: 10,
   },
@@ -63,18 +67,22 @@ export function RightSidebar() {
   const loadHomepageConfig = async () => {
     try {
       // Fetch featured topics from API
-      const response = await fetch('/api/topics?featured=true');
-      if (response.ok) {
-        const data = await response.json();
-        if (data.topics && data.topics.length > 0) {
-          setTopics(data.topics);
+      const topicsResponse = await fetch('/api/topics?featured=true');
+      if (topicsResponse.ok) {
+        const topicsData = await topicsResponse.json();
+        if (topicsData.topics && topicsData.topics.length > 0) {
+          setTopics(topicsData.topics);
         }
       }
 
-      // TODO: Fetch founder picks when API is ready
-      // const picksResponse = await fetch('/api/homepage/founder-picks');
-      // const picksData = await picksResponse.json();
-      // if (picksData.picks) setFounderPicks(picksData.picks);
+      // Fetch founder picks from API
+      const picksResponse = await fetch('/api/founder-picks');
+      if (picksResponse.ok) {
+        const picksData = await picksResponse.json();
+        if (picksData.picks && picksData.picks.length > 0) {
+          setFounderPicks(picksData.picks);
+        }
+      }
     } catch (error) {
       console.error('Failed to load homepage config:', error);
     } finally {
@@ -98,7 +106,7 @@ export function RightSidebar() {
             {founderPicks.map((post, index) => (
               <Link
                 key={post.id}
-                href={`/post/${post.id}`}
+                href={`/posts/${post.slug}`}
                 className="block group"
               >
                 <div className="flex items-start gap-3">
@@ -122,7 +130,7 @@ export function RightSidebar() {
           </div>
 
           <Link
-            href="/featured"
+            href="/posts"
             className="inline-block text-[13px] text-green-primary hover:text-green-hover font-medium mt-4"
           >
             전체 보기 →
