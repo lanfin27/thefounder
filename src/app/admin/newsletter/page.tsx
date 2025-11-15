@@ -27,6 +27,13 @@ export default function NewsletterManagementPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncResult, setSyncResult] = useState<{
+    updated: number;
+    alreadyCorrect: number;
+    total: number;
+    updates?: Array<{email: string; from: string; to: string}>;
+  } | null>(null);
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // Fetch subscribers
@@ -79,6 +86,54 @@ export default function NewsletterManagementPage() {
   useEffect(() => {
     fetchSubscribers();
   }, []);
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Sync newsletter member status
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  const handleSync = async () => {
+    if (isSyncing) return;
+
+    if (!confirm('모든 뉴스레터 구독자의 회원 상태를 동기화하시겠습니까?')) {
+      return;
+    }
+
+    setIsSyncing(true);
+    setSyncResult(null);
+
+    try {
+      console.log('[Admin Page] 🔄 Starting newsletter sync...');
+
+      const response = await fetch('/api/admin/newsletter/sync', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('[Admin Page] ❌ Sync failed:', data);
+        alert(`동기화 실패: ${data.error || '알 수 없는 오류'}`);
+        return;
+      }
+
+      console.log('[Admin Page] ✅ Sync completed:', data);
+      setSyncResult(data);
+
+      // Refresh subscriber list
+      await fetchSubscribers();
+
+      alert(data.message || '동기화가 완료되었습니다.');
+    } catch (error) {
+      console.error('[Admin Page] ❌ Sync error:', error);
+      alert('동기화 중 오류가 발생했습니다.');
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // Search filtering
@@ -215,6 +270,17 @@ export default function NewsletterManagementPage() {
             />
           </div>
 
+          {/* Sync Button */}
+          <button
+            onClick={handleSync}
+            disabled={isSyncing || loading}
+            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            title="구독자의 회원 상태를 실제 가입 정보와 동기화합니다"
+          >
+            <Users className="w-4 h-4" />
+            {isSyncing ? '동기화 중...' : '🔄 회원 상태 동기화'}
+          </button>
+
           {/* Export Button */}
           <button
             onClick={handleExportCSV}
@@ -226,6 +292,59 @@ export default function NewsletterManagementPage() {
           </button>
         </div>
       </div>
+
+      {/* Sync Result */}
+      {syncResult && (
+        <div className="mb-6 bg-green-50 border border-green-200 rounded-xl p-6 shadow-sm">
+          <div className="flex items-start gap-3 mb-4">
+            <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-2xl">✅</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-green-900 mb-2">동기화 완료</h3>
+              <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="bg-white rounded-lg p-3 border border-green-200">
+                  <p className="text-sm text-green-700 mb-1">업데이트됨</p>
+                  <p className="text-2xl font-bold text-green-900">{syncResult.updated}</p>
+                </div>
+                <div className="bg-white rounded-lg p-3 border border-green-200">
+                  <p className="text-sm text-green-700 mb-1">이미 정확함</p>
+                  <p className="text-2xl font-bold text-green-900">{syncResult.alreadyCorrect}</p>
+                </div>
+                <div className="bg-white rounded-lg p-3 border border-green-200">
+                  <p className="text-sm text-green-700 mb-1">전체</p>
+                  <p className="text-2xl font-bold text-green-900">{syncResult.total}</p>
+                </div>
+              </div>
+
+              {/* Show updates if any */}
+              {syncResult.updates && syncResult.updates.length > 0 && (
+                <div className="mt-4 p-4 bg-white border border-green-200 rounded-lg">
+                  <p className="font-bold text-green-900 mb-3">📝 업데이트된 구독자:</p>
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {syncResult.updates.map((update, idx) => (
+                      <div key={idx} className="text-sm text-green-800 flex items-center gap-2">
+                        <span className="font-mono bg-green-100 px-2 py-1 rounded">{update.email}</span>
+                        <span>→</span>
+                        <span className="font-semibold">{update.from}</span>
+                        <span>→</span>
+                        <span className="font-semibold text-green-700">{update.to}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={() => setSyncResult(null)}
+                className="mt-4 px-4 py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 active:bg-green-800 transition-colors"
+              >
+                확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Error Message */}
       {error && (

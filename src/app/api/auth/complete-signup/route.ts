@@ -126,6 +126,52 @@ export async function POST(request: NextRequest) {
         console.log('[Complete Signup API] ✅ Profile created successfully!')
       }
 
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // Step 4: Newsletter 상태 자동 업데이트
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+      console.log('[Complete Signup API] 📧 Checking newsletter subscription...')
+
+      const { data: subscription, error: newsletterCheckError } = await supabase
+        .from('newsletter_subscribers')
+        .select('id, is_member, email')
+        .eq('email', email.toLowerCase())
+        .maybeSingle()
+
+      if (newsletterCheckError) {
+        console.error('[Complete Signup API] ⚠️  Newsletter check error:', newsletterCheckError)
+        // Continue anyway - newsletter sync is not critical
+      } else if (subscription) {
+        console.log('[Complete Signup API] ✉️  Found existing newsletter subscription')
+        console.log('[Complete Signup API]   Email:', subscription.email)
+        console.log('[Complete Signup API]   Current is_member:', subscription.is_member)
+
+        if (!subscription.is_member) {
+          console.log('[Complete Signup API] 🔄 Updating newsletter status to member...')
+
+          const { error: updateError } = await supabase
+            .from('newsletter_subscribers')
+            .update({
+              is_member: true,
+              user_id: data.user.id,
+              member_since: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            })
+            .eq('email', email.toLowerCase())
+
+          if (updateError) {
+            console.error('[Complete Signup API] ⚠️  Failed to update newsletter status:', updateError)
+            // Continue anyway - newsletter sync is not critical
+          } else {
+            console.log('[Complete Signup API] ✅ Newsletter status updated to member!')
+          }
+        } else {
+          console.log('[Complete Signup API] ℹ️  Already marked as member')
+        }
+      } else {
+        console.log('[Complete Signup API] ℹ️  No newsletter subscription found')
+      }
+
       return NextResponse.json({
         success: true,
         message: '회원가입이 완료되었습니다.',
@@ -207,6 +253,52 @@ export async function POST(request: NextRequest) {
 
     if (metadataError) {
       console.error('[Complete Signup API] ⚠️  Metadata update failed:', metadataError)
+    }
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Newsletter 상태 자동 업데이트 (Production Mode)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    console.log('[Complete Signup API] 📧 Checking newsletter subscription...')
+
+    const { data: subscription, error: newsletterCheckError } = await supabase
+      .from('newsletter_subscribers')
+      .select('id, is_member, email')
+      .eq('email', email.toLowerCase())
+      .maybeSingle()
+
+    if (newsletterCheckError) {
+      console.error('[Complete Signup API] ⚠️  Newsletter check error:', newsletterCheckError)
+      // Continue anyway - newsletter sync is not critical
+    } else if (subscription) {
+      console.log('[Complete Signup API] ✉️  Found existing newsletter subscription')
+      console.log('[Complete Signup API]   Email:', subscription.email)
+      console.log('[Complete Signup API]   Current is_member:', subscription.is_member)
+
+      if (!subscription.is_member) {
+        console.log('[Complete Signup API] 🔄 Updating newsletter status to member...')
+
+        const { error: updateError } = await supabase
+          .from('newsletter_subscribers')
+          .update({
+            is_member: true,
+            user_id: user.id,
+            member_since: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+          .eq('email', email.toLowerCase())
+
+        if (updateError) {
+          console.error('[Complete Signup API] ⚠️  Failed to update newsletter status:', updateError)
+          // Continue anyway - newsletter sync is not critical
+        } else {
+          console.log('[Complete Signup API] ✅ Newsletter status updated to member!')
+        }
+      } else {
+        console.log('[Complete Signup API] ℹ️  Already marked as member')
+      }
+    } else {
+      console.log('[Complete Signup API] ℹ️  No newsletter subscription found')
     }
 
     console.log('[Complete Signup API] ✅ Production signup completed for:', email)
