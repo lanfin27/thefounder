@@ -86,12 +86,12 @@ export default function AllTopicsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-6xl font-sans">
+    <div className="container mx-auto px-4 py-12 max-w-7xl font-sans">
       {/* Header */}
       <div className="mb-12">
         <h1 className="text-4xl font-bold text-ink-900 mb-4">Explore topics</h1>
         <p className="text-lg text-ink-600 mb-6">
-          다양한 주제의 {topics.length}개 토픽을 탐색해보세요
+          다양한 주제의 토픽을 탐색해보세요
         </p>
 
         {/* Search */}
@@ -107,63 +107,85 @@ export default function AllTopicsPage() {
         </div>
       </div>
 
-      {/* Topics Grid */}
-      {filteredTopics.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-ink-500">검색 결과가 없습니다.</p>
-        </div>
-      ) : (
-        <div className="space-y-12">
-          {sortedGroups.map(group => (
-            <div key={group} id={group}>
-              {/* Group Header */}
-              <div className="sticky top-0 bg-white py-4 mb-6 border-b border-divider z-10">
-                <h2 className="text-2xl font-bold text-ink-800">{group}</h2>
-              </div>
-
-              {/* Topic Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredGrouped[group].map(topic => (
-                  <Link
-                    key={topic.topic_name}
-                    href={`/topics/${encodeURIComponent(topic.topic_name)}`}
-                    className="group"
-                  >
-                    <div className="p-6 border border-divider rounded-lg hover:shadow-lg hover:border-green-primary transition-all bg-white">
-                      <h3 className="text-lg font-semibold text-ink-900 mb-2 group-hover:text-green-primary">
-                        {topic.topic_name}
-                      </h3>
-                      <p className="text-sm text-ink-600">
-                        {topic.post_count.toLocaleString()}개의 포스트
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Quick Navigation (Side Index) */}
-      {!searchQuery && sortedGroups.length > 5 && (
-        <div className="fixed right-8 top-1/3 hidden xl:block">
-          <div className="bg-white p-4 rounded-lg shadow-sm border border-divider">
-            <div className="text-xs font-semibold text-ink-700 mb-2">빠른 이동</div>
-            <div className="space-y-1 max-h-64 overflow-y-auto">
-              {sortedGroups.map(group => (
-                <a
-                  key={group}
-                  href={`#${group}`}
-                  className="block text-sm text-ink-600 hover:text-green-primary hover:font-medium transition-colors"
-                >
-                  {group}
-                </a>
-              ))}
-            </div>
+      {/* Quick Navigation - Mobile (Horizontal Scroll) */}
+      {!searchQuery && sortedGroups.length > 0 && (
+        <div className="xl:hidden mb-8 overflow-x-auto">
+          <div className="flex gap-2 pb-2">
+            {sortedGroups.map(group => (
+              <a
+                key={group}
+                href={`#${group}`}
+                className="px-4 py-2 bg-white border border-divider rounded-full text-sm font-medium text-ink-700 hover:bg-ink-50 whitespace-nowrap transition-colors"
+              >
+                {group}
+              </a>
+            ))}
           </div>
         </div>
       )}
+
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_240px] gap-8">
+        {/* Left: Topics Grid */}
+        <div>
+          {filteredTopics.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-ink-500">검색 결과가 없습니다.</p>
+            </div>
+          ) : (
+            <div className="space-y-12">
+              {sortedGroups.map(group => (
+                <div key={group} id={group}>
+                  {/* Group Header */}
+                  <div className="sticky top-0 bg-white py-4 mb-6 border-b border-divider z-10">
+                    <h2 className="text-2xl font-bold text-ink-800">{group}</h2>
+                  </div>
+
+                  {/* Topic Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredGrouped[group].map(topic => (
+                      <Link
+                        key={topic.topic_name}
+                        href={`/topics/${encodeURIComponent(topic.topic_name)}`}
+                        className="group"
+                      >
+                        <div className="p-6 border border-divider rounded-lg hover:shadow-lg hover:border-green-primary transition-all bg-white">
+                          <h3 className="text-lg font-semibold text-ink-900 mb-2 group-hover:text-green-primary">
+                            {topic.topic_name}
+                          </h3>
+                          <p className="text-sm text-ink-600">
+                            {topic.post_count.toLocaleString()}개의 포스트
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Right: Quick Navigation - Desktop */}
+        {!searchQuery && sortedGroups.length > 0 && (
+          <aside className="hidden xl:block">
+            <div className="sticky top-24 bg-white p-6 rounded-lg shadow-sm border border-divider">
+              <h3 className="text-sm font-semibold mb-4 text-ink-900">빠른 이동</h3>
+              <nav className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
+                {sortedGroups.map(group => (
+                  <a
+                    key={group}
+                    href={`#${group}`}
+                    className="block text-sm text-ink-600 hover:text-green-primary transition-colors py-1"
+                  >
+                    {group}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
     </div>
   )
 }
