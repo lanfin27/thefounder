@@ -132,43 +132,41 @@ export async function POST(request: NextRequest) {
     console.log(`[Admin Featured Founder Picks API] 💾 Updating ${picks.length} featured picks...`)
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // Step 1: Deactivate all current featured picks
+    // Step 1: Delete all current active featured picks
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    const { error: deactivateError } = await supabase
+    const { error: deleteError } = await supabase
       .from('featured_founder_picks')
-      .update({ is_active: false, updated_at: new Date().toISOString() })
+      .delete()
       .eq('is_active', true)
 
-    if (deactivateError) {
-      console.error('[Admin Featured Founder Picks API] ❌ Deactivate error:', deactivateError)
-      throw deactivateError
+    if (deleteError) {
+      console.error('[Admin Featured Founder Picks API] ❌ Delete error:', deleteError)
+      throw deleteError
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // Step 2: Upsert new featured picks
+    // Step 2: Insert new featured picks
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    const upsertData = picks.map((pick: { post_id: string; order?: number }, index: number) => ({
+    const insertData = picks.map((pick: { post_id: string; order?: number }, index: number) => ({
       post_id: pick.post_id,
       display_order: pick.order || index + 1,
       is_active: true,
+      created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     }))
 
-    const { error: upsertError } = await supabase
+    const { error: insertError } = await supabase
       .from('featured_founder_picks')
-      .upsert(upsertData, {
-        onConflict: 'post_id',
-        ignoreDuplicates: false
-      })
+      .insert(insertData)
 
-    if (upsertError) {
-      console.error('[Admin Featured Founder Picks API] ❌ Upsert error:', upsertError)
+    if (insertError) {
+      console.error('[Admin Featured Founder Picks API] ❌ Insert error:', insertError)
       return NextResponse.json(
         {
-          error: 'Failed to update featured picks',
-          details: upsertError.message
+          error: 'Failed to insert featured picks',
+          details: insertError.message
         },
         { status: 500 }
       )
