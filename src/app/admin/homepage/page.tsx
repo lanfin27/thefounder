@@ -882,7 +882,10 @@ function FounderPicksManager() {
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.category?.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    : allPosts;
+    : allPosts
+
+  // 표시 개수 제한: 검색 중이면 전체, 아니면 최근 10개만
+  const displayPosts = searchQuery ? filteredAllPosts : filteredAllPosts.slice(0, 10);
 
   if (loading) {
     return (
@@ -999,44 +1002,58 @@ function FounderPicksManager() {
           </div>
 
           <div className="max-h-[300px] overflow-y-auto space-y-2 p-3 border rounded-lg bg-white">
-            {filteredAllPosts.length === 0 ? (
+            {displayPosts.length === 0 ? (
               <div className="text-center py-8 text-gray-400 text-sm">
-                검색 결과가 없습니다
+                {searchQuery ? '검색 결과가 없습니다' : '포스트가 없습니다'}
               </div>
             ) : (
-              filteredAllPosts.map(post => {
-                const isFeatured = featuredPicks.some(f => f.post_id === post.id);
-                return (
-                  <div
-                    key={post.id}
-                    className={`flex items-center justify-between p-2 border rounded-lg text-sm transition-colors ${
-                      isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
-                    }`}
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className={`font-medium truncate ${isFeatured ? 'text-green-800' : 'text-gray-900'}`}>
-                        {post.title}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        {post.category && <span className="px-1.5 py-0.5 bg-gray-100 rounded">{post.category}</span>}
-                        {post.reading_time && <span>{post.reading_time}분</span>}
+              <>
+                {displayPosts.map(post => {
+                  const isFeatured = featuredPicks.some(f => f.post_id === post.id);
+                  return (
+                    <div
+                      key={post.id}
+                      className={`flex items-center justify-between p-2 border rounded-lg transition-colors ${
+                        isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
+                      }`}
+                    >
+                      <div className="flex-1 min-w-0">
+                        <p className={`text-xs font-medium truncate ${isFeatured ? 'text-green-800' : 'text-gray-900'}`}>
+                          {post.title}
+                        </p>
+                        <div className="flex items-center gap-2 text-[10px] text-gray-500">
+                          {post.category && <span className="px-1.5 py-0.5 bg-gray-100 rounded">{post.category}</span>}
+                          {post.reading_time && <span>{post.reading_time}분</span>}
+                        </div>
                       </div>
+                      {!isFeatured ? (
+                        <button
+                          onClick={() => addPick(post.id)}
+                          disabled={featuredPicks.length >= 3}
+                          className="flex items-center gap-1 px-2 py-1 text-xs bg-green-primary text-white rounded hover:bg-green-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-2"
+                        >
+                          <Plus className="w-3 h-3" />
+                          추가
+                        </button>
+                      ) : (
+                        <span className="text-xs text-green-600 font-medium ml-2">✓</span>
+                      )}
                     </div>
-                    {!isFeatured ? (
-                      <button
-                        onClick={() => addPick(post.id)}
-                        disabled={featuredPicks.length >= 3}
-                        className="flex items-center gap-1 px-2 py-1 text-xs bg-green-primary text-white rounded hover:bg-green-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-2"
-                      >
-                        <Plus className="w-3 h-3" />
-                        추가
-                      </button>
-                    ) : (
-                      <span className="text-xs text-green-600 font-medium ml-2">✓</span>
-                    )}
+                  );
+                })}
+
+                {/* 더보기 안내 */}
+                {!searchQuery && filteredAllPosts.length > 10 && (
+                  <div className="text-center py-3 border-t">
+                    <p className="text-xs text-gray-500">
+                      + {filteredAllPosts.length - 10}개 더 있습니다
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-1">
+                      검색을 사용하여 찾아보세요
+                    </p>
                   </div>
-                );
-              })
+                )}
+              </>
             )}
           </div>
         </div>
