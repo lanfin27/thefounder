@@ -1,14 +1,15 @@
 -- Migration: Founder Picks System
 -- Description: Create table for managing featured founder picks (3 posts on main page)
 -- Created: 2025-11-15
+-- Posts.id type: TEXT
 
 -- =====================================================
 -- 1. Create featured_founder_picks table
 -- =====================================================
 
 CREATE TABLE IF NOT EXISTS featured_founder_picks (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  post_id UUID NOT NULL,
+  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  post_id TEXT NOT NULL,
   display_order INTEGER NOT NULL,
   is_active BOOLEAN DEFAULT true,
   created_at TIMESTAMPTZ DEFAULT NOW(),
