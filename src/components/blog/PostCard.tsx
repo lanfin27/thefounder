@@ -25,57 +25,47 @@ interface PostCardProps {
 export default function PostCard({ post, variant = 'default' }: PostCardProps) {
   if (variant === 'list') {
     return (
-      <article className="article-card group py-6 border-b border-medium-gray-border last:border-0">
-        <Link href={`/posts/${post.slug}`} className="block">
-          <div className="flex items-start gap-4">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-caption font-medium text-medium-green">
-                  {post.category}
-                </span>
-                {post.isPremium && (
-                  <span className="text-caption font-medium text-medium-green">
-                    Premium
-                  </span>
-                )}
-              </div>
-              
-              <h3 className="text-heading-4 font-serif text-medium-black mb-2 line-clamp-2 group-hover:text-medium-green transition-colors text-korean">
-                {post.title}
-              </h3>
-              
-              <p className="text-body-small text-medium-black-secondary line-clamp-2 mb-3 text-korean">
-                {post.summary}
-              </p>
-              
-              <div className="flex items-center gap-3 text-caption text-medium-black-tertiary">
-                <span className="font-medium text-medium-black">{post.author}</span>
-                <span>·</span>
-                <span>{post.readingTime}분 읽기</span>
-                <span>·</span>
-                <span>
-                  {formatDistanceToNow(new Date(post.publishedDate), {
-                    addSuffix: true,
-                    locale: ko,
-                  })}
-                </span>
-              </div>
+      <article className="group">
+        <Link href={`/posts/${post.slug}`} className="flex gap-6 items-start">
+          {/* 왼쪽: 텍스트 영역 */}
+          <div className="flex-1 min-w-0">
+            {/* 제목 */}
+            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors line-clamp-2">
+              {post.title}
+            </h3>
+
+            {/* 요약 */}
+            <p className="text-base text-gray-600 mb-4 line-clamp-2 hidden sm:block">
+              {post.summary}
+            </p>
+
+            {/* 메타 정보 */}
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <span className="font-medium">{post.categoryLabel || post.category}</span>
+              <span>·</span>
+              <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}</span>
+              <span className="hidden sm:inline">·</span>
+              <span className="hidden sm:inline">{post.readingTime}분 읽기</span>
             </div>
-            
+          </div>
+
+          {/* 오른쪽: 썸네일 이미지 */}
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
             {post.cover && (
-              <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
-                <Image
-                  src={getProxiedImageUrl(post.cover)}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="128px"
-                  loading="lazy"
-                />
-              </div>
+              <Image
+                src={getProxiedImageUrl(post.cover)}
+                alt={post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 96px, 128px"
+                loading="lazy"
+              />
             )}
           </div>
         </Link>
+
+        {/* 구분선 */}
+        <div className="mt-8 border-b border-gray-200" />
       </article>
     )
   }
