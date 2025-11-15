@@ -177,7 +177,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: `Successfully updated ${picks.length} featured picks`,
-      picks: upsertData
+      picks: insertData
     })
 
   } catch (error) {
