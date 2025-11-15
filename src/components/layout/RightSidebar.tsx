@@ -53,6 +53,7 @@ const INITIAL_TOPICS: Topic[] = [
 export function RightSidebar() {
   const [topics, setTopics] = useState<Topic[]>(INITIAL_TOPICS);
   const [founderPicks, setFounderPicks] = useState<FounderPick[]>(INITIAL_FOUNDER_PICKS);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Load from API
@@ -61,13 +62,23 @@ export function RightSidebar() {
 
   const loadHomepageConfig = async () => {
     try {
-      // TODO: Uncomment when API is ready
-      // const response = await fetch('/api/homepage/config');
-      // const data = await response.json();
-      // if (data.founder_picks) setFounderPicks(data.founder_picks);
-      // if (data.topics) setTopics(data.topics);
+      // Fetch featured topics from API
+      const response = await fetch('/api/topics?featured=true');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.topics && data.topics.length > 0) {
+          setTopics(data.topics);
+        }
+      }
+
+      // TODO: Fetch founder picks when API is ready
+      // const picksResponse = await fetch('/api/homepage/founder-picks');
+      // const picksData = await picksResponse.json();
+      // if (picksData.picks) setFounderPicks(picksData.picks);
     } catch (error) {
       console.error('Failed to load homepage config:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -127,7 +138,7 @@ export function RightSidebar() {
             {topics.map((topic) => (
               <Link
                 key={topic.id}
-                href={`/topic/${topic.id}`}
+                href={`/topics/${encodeURIComponent(topic.label)}`}
                 className="group inline-flex items-center gap-2 px-3 py-1.5 bg-ink-100 hover:bg-ink-200 rounded-full transition-colors"
               >
                 <span className="text-[13px] text-ink-900 font-medium">
