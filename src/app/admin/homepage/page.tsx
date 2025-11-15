@@ -21,6 +21,25 @@ interface FeaturedTopic {
   display_order: number;
 }
 
+// Types for Founder Picks
+interface FounderPickPost {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  reading_time: number;
+  cover?: string;
+  summary?: string;
+  is_featured?: boolean;
+  display_order?: number;
+}
+
+interface FeaturedPick {
+  post_id: string;
+  display_order: number;
+  post?: FounderPickPost;
+}
+
 interface Post {
   id: string;
   title: string;
@@ -665,6 +684,367 @@ function SortableTopicItem({
   );
 }
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Founder Picks Manager Component
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function SortablePickItem({
+  pick,
+  post,
+  index,
+  onRemove
+}: {
+  pick: FeaturedPick;
+  post: FounderPickPost;
+  index: number;
+  onRemove: () => void;
+}) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging
+  } = useSortable({ id: pick.post_id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="flex items-center justify-between p-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+    >
+      <div className="flex items-center gap-2 flex-1">
+        <button
+          {...attributes}
+          {...listeners}
+          className="cursor-grab active:cursor-grabbing p-1 hover:bg-gray-100 rounded"
+          type="button"
+        >
+          <GripVertical className="w-4 h-4 text-gray-400" />
+        </button>
+        <span className="text-xs font-medium text-gray-600 min-w-[20px]">
+          {index + 1}.
+        </span>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm text-gray-900 truncate">{post.title}</p>
+          {post.category && (
+            <p className="text-xs text-gray-500">{post.category}</p>
+          )}
+        </div>
+      </div>
+      <button
+        onClick={onRemove}
+        className="p-1 text-red-500 hover:bg-red-50 rounded transition-colors"
+        type="button"
+      >
+        <X className="w-4 h-4" />
+      </button>
+    </div>
+  );
+}
+
+function FounderPicksManager() {
+  const [allPosts, setAllPosts] = useState<FounderPickPost[]>([]);
+  const [featuredPicks, setFeaturedPicks] = useState<FeaturedPick[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  useEffect(() => {
+    fetchPicks();
+  }, []);
+
+  const fetchPicks = async () => {
+    try {
+      const response = await fetch('/api/admin/featured-founder-picks');
+      if (response.ok) {
+        const data = await response.json();
+        setAllPosts(data.all_posts || []);
+
+        // Map featured picks with post data
+        const picksWithPosts = (data.featured_picks || []).map((f: any) => {
+          const post = (data.all_posts || []).find((p: FounderPickPost) => p.id === f.post_id);
+          return {
+            post_id: f.post_id,
+            display_order: f.display_order,
+            post: post
+          };
+        });
+        setFeaturedPicks(picksWithPosts);
+      } else if (response.status === 403) {
+        setMessage({ type: 'error', text: 'Admin 권한이 필요합니다.' });
+      }
+    } catch (error) {
+      console.error('Failed to fetch founder picks:', error);
+      setMessage({ type: 'error', text: '데이터를 불러오는데 실패했습니다.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      const oldIndex = featuredPicks.findIndex(p => p.post_id === active.id);
+      const newIndex = featuredPicks.findIndex(p => p.post_id === over.id);
+
+      const reordered = arrayMove(featuredPicks, oldIndex, newIndex);
+      const updated = reordered.map((pick, index) => ({
+        ...pick,
+        display_order: index + 1
+      }));
+
+      setFeaturedPicks(updated);
+    }
+  };
+
+  const addPick = (postId: string) => {
+    if (featuredPicks.length >= 3) {
+      setMessage({ type: 'error', text: '최대 3개까지만 선택할 수 있습니다.' });
+      setTimeout(() => setMessage(null), 3000);
+      return;
+    }
+
+    if (featuredPicks.some(p => p.post_id === postId)) {
+      setMessage({ type: 'error', text: '이미 추가된 포스트입니다.' });
+      setTimeout(() => setMessage(null), 3000);
+      return;
+    }
+
+    const post = allPosts.find(p => p.id === postId);
+    if (!post) return;
+
+    setFeaturedPicks([
+      ...featuredPicks,
+      { post_id: postId, display_order: featuredPicks.length + 1, post: post }
+    ]);
+    setMessage(null);
+  };
+
+  const removePick = (postId: string) => {
+    const updated = featuredPicks
+      .filter(p => p.post_id !== postId)
+      .map((pick, index) => ({
+        ...pick,
+        display_order: index + 1
+      }));
+    setFeaturedPicks(updated);
+  };
+
+  const saveFeaturedPicks = async () => {
+    if (featuredPicks.length === 0) {
+      setMessage({ type: 'error', text: '최소 1개 이상의 포스트를 선택해주세요.' });
+      return;
+    }
+
+    setSaving(true);
+    setMessage(null);
+
+    try {
+      const picks = featuredPicks.map(pick => ({
+        post_id: pick.post_id,
+        order: pick.display_order
+      }));
+
+      const response = await fetch('/api/admin/featured-founder-picks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ picks }),
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        setMessage({ type: 'success', text: '✅ Founder Picks가 저장되었습니다!' });
+        await fetchPicks();
+      } else {
+        const data = await response.json();
+        setMessage({ type: 'error', text: `❌ 저장 실패: ${data.error}` });
+      }
+    } catch (error) {
+      console.error('Save error:', error);
+      setMessage({ type: 'error', text: '❌ 저장 중 오류가 발생했습니다.' });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const filteredAllPosts = searchQuery
+    ? allPosts.filter(post =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.category?.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : allPosts;
+
+  if (loading) {
+    return (
+      <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <div className="flex items-center justify-center py-12">
+          <Loader2 className="w-6 h-6 animate-spin text-green-primary" />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900">Founder Picks</h2>
+          <p className="text-sm text-gray-500 mt-1">
+            오른쪽 사이드바의 'Founder Picks' 섹션 (최대 3개)
+          </p>
+          <p className="text-xs text-gray-400 mt-1">
+            {featuredPicks.length}/3 선택됨
+          </p>
+        </div>
+        <button
+          onClick={saveFeaturedPicks}
+          disabled={saving || featuredPicks.length === 0}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+            saving || featuredPicks.length === 0
+              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              : 'bg-green-primary text-white hover:bg-green-hover'
+          }`}
+        >
+          {saving ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              저장 중...
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              저장
+            </>
+          )}
+        </button>
+      </div>
+
+      {message && (
+        <div
+          className={`mb-4 p-3 rounded-lg text-sm ${
+            message.type === 'success'
+              ? 'bg-green-50 text-green-800 border border-green-200'
+              : 'bg-red-50 text-red-800 border border-red-200'
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Left: Featured Picks */}
+        <div>
+          <h3 className="text-sm font-medium text-gray-700 mb-3">
+            Featured Picks ({featuredPicks.length}/3)
+          </h3>
+
+          <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext
+              items={featuredPicks.map(p => p.post_id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <div className="min-h-[300px] p-3 border-2 border-dashed border-gray-300 rounded-lg bg-white">
+                {featuredPicks.length === 0 ? (
+                  <div className="text-center py-12 text-gray-400">
+                    <Plus className="w-6 h-6 mx-auto mb-2 opacity-50" />
+                    <p className="text-sm">오른쪽에서 포스트를 선택하세요</p>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {featuredPicks.map((pick, index) => (
+                      pick.post && (
+                        <SortablePickItem
+                          key={pick.post_id}
+                          pick={pick}
+                          post={pick.post}
+                          index={index}
+                          onRemove={() => removePick(pick.post_id)}
+                        />
+                      )
+                    ))}
+                  </div>
+                )}
+              </div>
+            </SortableContext>
+          </DndContext>
+        </div>
+
+        {/* Right: All Posts */}
+        <div>
+          <h3 className="text-sm font-medium text-gray-700 mb-3">
+            모든 Posts ({allPosts.length})
+          </h3>
+
+          <div className="mb-3">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="포스트 검색..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-primary"
+              />
+            </div>
+          </div>
+
+          <div className="max-h-[300px] overflow-y-auto space-y-2 p-3 border rounded-lg bg-white">
+            {filteredAllPosts.length === 0 ? (
+              <div className="text-center py-8 text-gray-400 text-sm">
+                검색 결과가 없습니다
+              </div>
+            ) : (
+              filteredAllPosts.map(post => {
+                const isFeatured = featuredPicks.some(f => f.post_id === post.id);
+                return (
+                  <div
+                    key={post.id}
+                    className={`flex items-center justify-between p-2 border rounded-lg text-sm transition-colors ${
+                      isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className={`font-medium truncate ${isFeatured ? 'text-green-800' : 'text-gray-900'}`}>
+                        {post.title}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        {post.category && <span className="px-1.5 py-0.5 bg-gray-100 rounded">{post.category}</span>}
+                        {post.reading_time && <span>{post.reading_time}분</span>}
+                      </div>
+                    </div>
+                    {!isFeatured ? (
+                      <button
+                        onClick={() => addPick(post.id)}
+                        disabled={featuredPicks.length >= 3}
+                        className="flex items-center gap-1 px-2 py-1 text-xs bg-green-primary text-white rounded hover:bg-green-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-2"
+                      >
+                        <Plus className="w-3 h-3" />
+                        추가
+                      </button>
+                    ) : (
+                      <span className="text-xs text-green-600 font-medium ml-2">✓</span>
+                    )}
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Main Page Component
 export default function HomepageManagement() {
   const [configs, setConfigs] = useState<Record<string, Post[]>>({
@@ -803,14 +1183,8 @@ export default function HomepageManagement() {
             onUpdate={(posts) => setConfigs({ ...configs, featured: posts })}
           />
 
-          <SectionManager
-            title="Founder Picks"
-            description="오른쪽 사이드바의 'Founder Picks' 섹션"
-            configType="founder_picks"
-            maxPosts={3}
-            posts={configs.founder_picks}
-            onUpdate={(posts) => setConfigs({ ...configs, founder_picks: posts })}
-          />
+          {/* Founder Picks 섹션 - Founder Picks 관리 UI */}
+          <FounderPicksManager />
 
           {/* Topics 섹션 - 토픽 관리 UI */}
           <TopicsManager />
