@@ -357,18 +357,22 @@ export async function getPageContent(pageId: string): Promise<string> {
 }
 
 export async function convertPageToPost(page: any, loadContent: boolean = false): Promise<BlogPost | null> {
+  const pageId = page.id.replace(/-/g, '').substring(0, 8)
+  console.log(`\n🔄 [convertPageToPost] ========== CONVERTING PAGE ${pageId} ==========`)
+
   try {
     // Log available properties for debugging
-    console.log('Converting page with properties:', Object.keys(page.properties || {}))
-    
+    console.log(`[convertPageToPost ${pageId}] Available properties:`, Object.keys(page.properties || {}))
+
     // Map available properties
     const props = mapAvailableProperties(page)
-    
+
     // Extract values using exact property names
     const title = extractPropertyValue(props.title) || ''
-    
+    console.log(`[convertPageToPost ${pageId}] Title: "${title}"`)
+
     if (!title) {
-      console.error('Page has no title, skipping:', page.id)
+      console.error(`❌ [convertPageToPost ${pageId}] NO TITLE - Skipping (page ID: ${page.id})`)
       return null
     }
     
@@ -387,22 +391,23 @@ export async function convertPageToPost(page: any, loadContent: boolean = false)
     // Map status from Korean to English
     const originalStatus = extractPropertyValue(props.status) || '발행'
     const status = STATUS_MAPPING[originalStatus] || 'published'
+    console.log(`[convertPageToPost ${pageId}] Status: "${originalStatus}" → "${status}"`)
 
     // Log mapping for debugging
-    console.log(`✅ [Converter] Category mapping: "${originalCategory}" → "${category}" (label: "${categoryLabel}")`)
-    console.log(`✅ [Converter] Status mapping: "${originalStatus}" → "${status}"`)
+    console.log(`✅ [convertPageToPost ${pageId}] Category: "${originalCategory}" → "${category}" (label: "${categoryLabel}")`)
 
     // Verify the category is valid (Korean categories)
     const validCategories = ['트렌드', '인사이트', '블로그', '성공사례']
     if (!validCategories.includes(category)) {
-      console.warn(`⚠️  [Converter] Invalid category "${category}" for post "${title}". Should be one of: ${validCategories.join(', ')}`)
+      console.warn(`⚠️  [convertPageToPost ${pageId}] Invalid category "${category}" for post "${title}". Should be one of: ${validCategories.join(', ')}`)
     }
 
     // Skip if not published
     if (status !== 'published') {
-      console.log(`Skipping draft/review post: ${title}`)
+      console.warn(`❌ [convertPageToPost ${pageId}] NOT PUBLISHED - Skipping "${title}" (status: "${originalStatus}" → "${status}")`)
       return null
     }
+    console.log(`✅ [convertPageToPost ${pageId}] Status check PASSED - "${title}" is published`)
     
     // Generate consistent slug from title + page ID for uniqueness
     // Use the first 8 chars of page ID (without dashes) as a unique suffix
@@ -495,10 +500,16 @@ export async function convertPageToPost(page: any, loadContent: boolean = false)
       readingTime: Math.ceil(minutes),
       featured: extractPropertyValue(props.featured) || false,
     }
-    
+
+    console.log(`✅ [convertPageToPost ${pageId}] SUCCESS - Converted "${title}"`)
+    console.log(`   Slug: ${slug}`)
+    console.log(`   Category: ${categoryLabel}`)
+    console.log(`   ID: ${page.id}`)
+    console.log(`====================================================================\n`)
+
     return post
   } catch (error) {
-    console.error('Error converting page:', error)
+    console.error(`❌ [convertPageToPost ${pageId}] EXCEPTION:`, error)
     console.error('Page properties:', Object.keys(page.properties || {}))
     return null
   }
@@ -728,21 +739,46 @@ export async function getPostsFromSource(
       ]
     })
 
-    console.log(`✅ [getPostsFromSource] Query returned ${pages.results.length} pages`)
+    console.log(`✅ [getPostsFromSource] Query returned ${pages.results.length} pages from Notion`)
+
+    // Log all page titles from Notion BEFORE conversion
+    console.log(`\n📋 [getPostsFromSource] Pages from Notion (before conversion):`)
+    pages.results.forEach((page: any, idx: number) => {
+      const rawTitle = page.properties?.제목?.title?.[0]?.plain_text ||
+                       page.properties?.Title?.title?.[0]?.plain_text ||
+                       page.properties?.이름?.title?.[0]?.plain_text ||
+                       'No title'
+      console.log(`  ${idx + 1}. "${rawTitle}" (ID: ${page.id.substring(0, 8)})`)
+    })
 
     // Use the EXACT SAME conversion logic as getAllPosts()
+    console.log(`\n🔄 [getPostsFromSource] Converting ${pages.results.length} pages to posts...`)
     const posts = await Promise.all(
       pages.results.map(page => convertPageToPost(page, loadContent))
     )
 
     const filteredPosts = posts.filter(Boolean) as BlogPost[]
+    const nullCount = posts.length - filteredPosts.length
 
     const elapsed = Date.now() - startTime
-    console.log(`✅ [getPostsFromSource] Fetched ${filteredPosts.length} posts from custom source in ${elapsed}ms`)
-    console.log(`📄 [getPostsFromSource] Post titles:`)
-    filteredPosts.forEach((post, idx) => {
-      console.log(`  ${idx + 1}. "${post.title}"`)
-    })
+    console.log(`\n📊 [getPostsFromSource] CONVERSION SUMMARY:`)
+    console.log(`   Total pages from Notion: ${pages.results.length}`)
+    console.log(`   Successfully converted: ${filteredPosts.length}`)
+    console.log(`   Filtered out (null): ${nullCount}`)
+    console.log(`   Time elapsed: ${elapsed}ms`)
+
+    if (filteredPosts.length > 0) {
+      console.log(`\n✅ [getPostsFromSource] Successfully converted posts:`)
+      filteredPosts.forEach((post, idx) => {
+        console.log(`  ${idx + 1}. "${post.title}" (slug: ${post.slug})`)
+      })
+    }
+
+    if (nullCount > 0) {
+      console.warn(`\n⚠️  [getPostsFromSource] WARNING: ${nullCount} pages were filtered out!`)
+      console.warn(`   Check logs above for reasons (no title, not published, etc.)`)
+    }
+
     console.log(`\n====================================================================\n`)
 
     return filteredPosts
