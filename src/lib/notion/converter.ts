@@ -253,9 +253,10 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       return `
         <ol style="
           margin: 8px 0;
-          margin-left: 2.5rem;
-          padding-left: 0;
+          margin-left: 2.5rem !important;
+          padding-left: 0 !important;
           list-style-type: decimal;
+          list-style-position: outside;
         ">${listItems}</ol>
       `
     } else if (item.type === 'bulleted_list_group') {
@@ -268,9 +269,10 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       return `
         <ul style="
           margin: 8px 0;
-          margin-left: 2.5rem;
-          padding-left: 0;
+          margin-left: 2.5rem !important;
+          padding-left: 0 !important;
           list-style-type: disc;
+          list-style-position: outside;
         ">${listItems}</ul>
       `
     } else {
