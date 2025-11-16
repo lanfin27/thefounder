@@ -124,7 +124,7 @@ function getCalloutBorderColor(notionColor: string): string {
 function renderRichTextToHtml(richTexts: any[]): string {
   if (!richTexts || richTexts.length === 0) return ''
 
-  return richTexts.map(text => {
+  const htmlSegments = richTexts.map(text => {
     const annotations = text.annotations
     let html = escapeHtml(text.plain_text || '')
 
@@ -184,6 +184,9 @@ function renderRichTextToHtml(richTexts: any[]): string {
 
     return html
   }).join('')
+
+  // ✅ 핵심: 줄바꿈(\n)을 HTML <br> 태그로 변환!
+  return htmlSegments.replace(/\n/g, '<br>')
 }
 
 // Notion 블록을 HTML 문자열로 변환
@@ -424,8 +427,8 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
       return `
         <div class="${backgroundColor} border-l-4 ${borderColor} p-4 my-6 rounded-r-lg">
           <div class="flex">
-            <span class="mr-2 text-xl">${icon}</span>
-            <div class="flex-1">
+            <span class="mr-2 text-xl leading-none">${icon}</span>
+            <div class="flex-1 leading-relaxed">
               <div>${renderRichTextToHtml(value.rich_text)}</div>
               ${calloutChildren ? `<div class="mt-2">${calloutChildren}</div>` : ''}
             </div>
