@@ -10,6 +10,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { MultiSyncService } from '@/lib/services/multiSyncService'
+import { revalidateAllPosts } from '@/lib/cache/revalidation'
 
 const syncService = new MultiSyncService()
 
@@ -97,6 +98,26 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // ========================================
+    // STEP: 캐시 무효화 (핵심!)
+    // ========================================
+    console.log('\n[API] 🔄 Starting cache revalidation...\n')
+
+    let revalidationResult
+    try {
+      revalidationResult = await revalidateAllPosts()
+      console.log('[API] ✅ Cache revalidation completed')
+      console.log(`[API] 📊 Revalidated ${revalidationResult.revalidated.length} targets`)
+    } catch (revalidationError) {
+      console.error('[API] ⚠️  Cache revalidation failed (but sync was successful):', revalidationError)
+      // 캐시 무효화 실패는 치명적이지 않으므로 계속 진행
+      revalidationResult = {
+        success: false,
+        error: revalidationError instanceof Error ? revalidationError.message : 'Unknown error',
+        revalidated: []
+      }
+    }
+
     const requestDuration = Date.now() - requestStartTime
 
     console.log(`\n╔════════════════════════════════════════════════════════╗`)
@@ -105,11 +126,13 @@ export async function POST(request: NextRequest) {
     console.log(`[API] ✅ Total posts synced: ${result.totalPosts}`)
     console.log(`[API] ✅ Successful sources: ${result.successCount}`)
     console.log(`[API] ${result.failureCount > 0 ? '⚠️ ' : '✅'} Failed sources: ${result.failureCount}`)
+    console.log(`[API] 🔄 Cache revalidation: ${revalidationResult.success ? 'SUCCESS ✅' : 'FAILED ⚠️'}`)
     console.log(`[API] ⏱️  Total duration: ${(requestDuration / 1000).toFixed(2)}s\n\n`)
 
     return NextResponse.json({
       success: result.successCount > 0,
-      ...result
+      ...result,
+      revalidation: revalidationResult
     })
 
   } catch (error: any) {
