@@ -28,7 +28,7 @@ export default function BookmarkButton({ postId }: BookmarkButtonProps) {
       <Bookmark
         className={`w-5 h-5 transition-colors ${
           bookmarked
-            ? 'fill-gray-900 text-gray-900'
+            ? 'fill-green-600 text-green-600'
             : 'text-gray-400 hover:text-gray-600'
         }`}
       />
