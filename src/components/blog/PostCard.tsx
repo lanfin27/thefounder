@@ -89,7 +89,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
 
         {/* 북마크 버튼 */}
         <div className="flex justify-end mt-4">
-          <BookmarkButton postId={post.id} />
+          <BookmarkButton postId={post.slug} />
         </div>
 
         {/* 구분선 */}

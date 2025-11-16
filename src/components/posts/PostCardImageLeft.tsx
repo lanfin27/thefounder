@@ -80,7 +80,7 @@ export default function PostCardImageLeft({ post }: PostCardImageLeftProps) {
 
       {/* 북마크 */}
       <div className="flex justify-end mt-4">
-        <BookmarkButton postId={post.id} />
+        <BookmarkButton postId={post.slug} />
       </div>
     </article>
   );

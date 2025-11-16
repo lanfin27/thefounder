@@ -46,7 +46,7 @@ export default function ListPostCard({ item, listId, onRemoved }: ListPostCardPr
 
     setRemoving(true)
     try {
-      await removeFromList(listId, post.id!)
+      await removeFromList(listId, item.post_id)
       console.log('✅ [ListPostCard] Removed from list')
       onRemoved()
     } catch (error) {
