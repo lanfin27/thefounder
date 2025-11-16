@@ -60,7 +60,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                     {post.clapsCount !== undefined && post.clapsCount > 0 && (
                       <>
                         <span className="hidden sm:inline">·</span>
-                        <span className="hidden sm:inline flex items-center gap-1">
+                        <span className="hidden sm:inline-flex items-center gap-1">
                           <ThumbsUp className="w-3 h-3" />
                           {post.clapsCount}
                         </span>
@@ -71,7 +71,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                     {post.commentsCount !== undefined && post.commentsCount > 0 && (
                       <>
                         <span className="hidden sm:inline">·</span>
-                        <span className="hidden sm:inline flex items-center gap-1">
+                        <span className="hidden sm:inline-flex items-center gap-1">
                           <MessageCircle className="w-3 h-3" />
                           {post.commentsCount}
                         </span>

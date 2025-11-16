@@ -53,7 +53,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
               {post.clapsCount !== undefined && post.clapsCount > 0 && (
                 <>
                   <span className="hidden sm:inline">·</span>
-                  <span className="hidden sm:inline flex items-center gap-1">
+                  <span className="hidden sm:inline-flex items-center gap-1">
                     <ThumbsUp className="w-3 h-3" />
                     {post.clapsCount}
                   </span>
@@ -64,7 +64,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
               {post.commentsCount !== undefined && post.commentsCount > 0 && (
                 <>
                   <span className="hidden sm:inline">·</span>
-                  <span className="hidden sm:inline flex items-center gap-1">
+                  <span className="hidden sm:inline-flex items-center gap-1">
                     <MessageCircle className="w-3 h-3" />
                     {post.commentsCount}
                   </span>
