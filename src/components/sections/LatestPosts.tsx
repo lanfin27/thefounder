@@ -61,7 +61,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                       <>
                         <span className="hidden sm:inline">·</span>
                         <span className="hidden sm:inline flex items-center gap-1">
-                          <ThumbsUp className="w-4 h-4" />
+                          <ThumbsUp className="w-3 h-3" />
                           {post.clapsCount}
                         </span>
                       </>
@@ -72,7 +72,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                       <>
                         <span className="hidden sm:inline">·</span>
                         <span className="hidden sm:inline flex items-center gap-1">
-                          <MessageCircle className="w-4 h-4" />
+                          <MessageCircle className="w-3 h-3" />
                           {post.commentsCount}
                         </span>
                       </>
