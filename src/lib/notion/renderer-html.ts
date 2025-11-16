@@ -13,9 +13,12 @@ function escapeHtml(text: string): string {
 
 // YouTube ID 추출 (개선된 버전)
 function extractYouTubeId(url: string): string | null {
+  console.log(`[YouTube] Processing URL: ${url}`)
+
   // 다양한 YouTube URL 형식 처리
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+    /youtube\.com\/shorts\/([^&\n?#]+)/,  // YouTube Shorts 지원 추가!
     /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
     /youtu\.be\/([^&\n?#]+)/,
     /youtube\.com\/embed\/([^&\n?#]+)/,
@@ -25,12 +28,12 @@ function extractYouTubeId(url: string): string | null {
   for (const pattern of patterns) {
     const match = url.match(pattern)
     if (match && match[1]) {
-      console.log(`Extracted YouTube ID: ${match[1]} from URL: ${url}`)
+      console.log(`[YouTube] ✅ Extracted YouTube ID: ${match[1]} from URL: ${url}`)
       return match[1]
     }
   }
 
-  console.warn(`Could not extract YouTube ID from URL: ${url}`)
+  console.warn(`[YouTube] ❌ Could not extract YouTube ID from URL: ${url}`)
   return null
 }
 
