@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { getAllPosts } from '@/lib/notion/converter'
+import { getAllPosts } from '@/lib/posts'
 import PostCard from '@/components/blog/PostCard'
 import CategoryFilter from '@/components/blog/CategoryFilter'
 import { CATEGORY_MAPPING } from '@/constants/categories'
