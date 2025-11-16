@@ -32,7 +32,7 @@ export default async function PostsPage({
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-heading-1 font-serif text-medium-black mb-4 text-korean">
-              더파운더
+              전체글
             </h1>
             <p className="text-body-large text-medium-black-secondary text-korean">
               1인 창업가를 위한 공간

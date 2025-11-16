@@ -5,6 +5,7 @@ import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import PremiumBadge from '@/components/ui/PremiumBadge'
 import BookmarkButton from '@/components/posts/BookmarkButton'
+import { ThumbsUp, MessageCircle } from 'lucide-react'
 
 // 🔥 이미지 프록시 URL 생성
 function getProxiedImageUrl(originalUrl: string): string {
@@ -47,6 +48,28 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
               <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}</span>
               <span className="hidden sm:inline">·</span>
               <span className="hidden sm:inline">{post.readingTime}분 읽기</span>
+
+              {/* 👍 좋아요 개수 */}
+              {post.clapsCount !== undefined && post.clapsCount > 0 && (
+                <>
+                  <span className="hidden sm:inline">·</span>
+                  <span className="hidden sm:inline flex items-center gap-1">
+                    <ThumbsUp className="w-4 h-4" />
+                    {post.clapsCount}
+                  </span>
+                </>
+              )}
+
+              {/* 💬 댓글 개수 */}
+              {post.commentsCount !== undefined && post.commentsCount > 0 && (
+                <>
+                  <span className="hidden sm:inline">·</span>
+                  <span className="hidden sm:inline flex items-center gap-1">
+                    <MessageCircle className="w-4 h-4" />
+                    {post.commentsCount}
+                  </span>
+                </>
+              )}
             </div>
           </div>
 

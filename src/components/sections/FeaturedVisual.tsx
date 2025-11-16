@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types';
+import { ThumbsUp, MessageCircle } from 'lucide-react';
 
 interface FeaturedVisualProps {
   posts: BlogPost[];
@@ -71,9 +72,30 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                 <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                   {leftPost.title}
                 </h3>
-                {leftPost.publishedDate && (
-                  <p className="text-xs text-gray-400">{new Date(leftPost.publishedDate).toLocaleDateString('ko-KR')}</p>
-                )}
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                  {leftPost.publishedDate && (
+                    <span>{new Date(leftPost.publishedDate).toLocaleDateString('ko-KR')}</span>
+                  )}
+                  {/* 좋아요/댓글 카운트 */}
+                  {leftPost.clapsCount !== undefined && leftPost.clapsCount > 0 && (
+                    <>
+                      <span>·</span>
+                      <span className="flex items-center gap-1">
+                        <ThumbsUp className="w-3 h-3" />
+                        {leftPost.clapsCount}
+                      </span>
+                    </>
+                  )}
+                  {leftPost.commentsCount !== undefined && leftPost.commentsCount > 0 && (
+                    <>
+                      <span>·</span>
+                      <span className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        {leftPost.commentsCount}
+                      </span>
+                    </>
+                  )}
+                </div>
               </div>
             </Link>
 
@@ -103,9 +125,30 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                     {extraPost.title}
                   </h3>
-                  {extraPost.publishedDate && (
-                    <p className="text-xs text-gray-400">{new Date(extraPost.publishedDate).toLocaleDateString('ko-KR')}</p>
-                  )}
+                  <div className="flex items-center gap-2 text-xs text-gray-400">
+                    {extraPost.publishedDate && (
+                      <span>{new Date(extraPost.publishedDate).toLocaleDateString('ko-KR')}</span>
+                    )}
+                    {/* 좋아요/댓글 카운트 */}
+                    {extraPost.clapsCount !== undefined && extraPost.clapsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <ThumbsUp className="w-3 h-3" />
+                          {extraPost.clapsCount}
+                        </span>
+                      </>
+                    )}
+                    {extraPost.commentsCount !== undefined && extraPost.commentsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          {extraPost.commentsCount}
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </Link>
             )}
@@ -182,9 +225,30 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
                     {post.title}
                   </h3>
-                  {post.publishedDate && (
-                    <p className="text-xs text-gray-400">{new Date(post.publishedDate).toLocaleDateString('ko-KR')}</p>
-                  )}
+                  <div className="flex items-center gap-2 text-xs text-gray-400">
+                    {post.publishedDate && (
+                      <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR')}</span>
+                    )}
+                    {/* 좋아요/댓글 카운트 */}
+                    {post.clapsCount !== undefined && post.clapsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <ThumbsUp className="w-3 h-3" />
+                          {post.clapsCount}
+                        </span>
+                      </>
+                    )}
+                    {post.commentsCount !== undefined && post.commentsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          {post.commentsCount}
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}

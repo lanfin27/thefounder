@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types';
 import BookmarkButton from '@/components/posts/BookmarkButton';
+import { ThumbsUp, MessageCircle } from 'lucide-react';
 
 interface LatestPostsProps {
   posts: BlogPost[];
@@ -54,6 +55,28 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                     <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}</span>
                     <span className="hidden sm:inline">·</span>
                     <span className="hidden sm:inline">{post.readingTime}분 읽기</span>
+
+                    {/* 👍 좋아요 개수 */}
+                    {post.clapsCount !== undefined && post.clapsCount > 0 && (
+                      <>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="hidden sm:inline flex items-center gap-1">
+                          <ThumbsUp className="w-4 h-4" />
+                          {post.clapsCount}
+                        </span>
+                      </>
+                    )}
+
+                    {/* 💬 댓글 개수 */}
+                    {post.commentsCount !== undefined && post.commentsCount > 0 && (
+                      <>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="hidden sm:inline flex items-center gap-1">
+                          <MessageCircle className="w-4 h-4" />
+                          {post.commentsCount}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
 
