@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types';
 import BookmarkButton from './BookmarkButton';
+import { ThumbsUp, MessageCircle } from 'lucide-react';
 
 interface PostCardImageRightProps {
   post: BlogPost;
@@ -27,12 +28,34 @@ export default function PostCardImageRight({ post }: PostCardImageRightProps) {
           </p>
 
           {/* 메타 정보 */}
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-gray-500">
             <span className="font-medium">{post.categoryLabel || post.category}</span>
             <span>·</span>
             <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR')}</span>
             <span>·</span>
             <span>{post.readingTime}분 읽기</span>
+
+            {/* 👍 좋아요 개수 */}
+            {post.clapsCount !== undefined && post.clapsCount > 0 && (
+              <>
+                <span>·</span>
+                <span className="inline-flex items-center gap-1">
+                  <ThumbsUp className="w-3 h-3" />
+                  {post.clapsCount}
+                </span>
+              </>
+            )}
+
+            {/* 💬 댓글 개수 */}
+            {post.commentsCount !== undefined && post.commentsCount > 0 && (
+              <>
+                <span>·</span>
+                <span className="inline-flex items-center gap-1">
+                  <MessageCircle className="w-3 h-3" />
+                  {post.commentsCount}
+                </span>
+              </>
+            )}
           </div>
         </div>
 
