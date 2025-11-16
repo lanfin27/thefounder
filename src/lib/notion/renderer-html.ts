@@ -56,6 +56,70 @@ function extractVimeoId(url: string): string | null {
   return null
 }
 
+// Notion Callout 배경색 매핑
+function getCalloutBackgroundColor(notionColor: string): string {
+  console.log(`[Callout] Converting Notion color to CSS: ${notionColor}`)
+
+  const colorMap: Record<string, string> = {
+    // 기본
+    'default': 'bg-gray-50',
+
+    // 배경색 시리즈
+    'gray_background': 'bg-gray-50',
+    'brown_background': 'bg-amber-50',
+    'orange_background': 'bg-orange-50',
+    'yellow_background': 'bg-yellow-50',
+    'green_background': 'bg-green-50',
+    'blue_background': 'bg-blue-50',
+    'purple_background': 'bg-purple-50',
+    'pink_background': 'bg-pink-50',
+    'red_background': 'bg-red-50',
+
+    // 텍스트 색상 (같은 배경색 적용)
+    'gray': 'bg-gray-50',
+    'brown': 'bg-amber-50',
+    'orange': 'bg-orange-50',
+    'yellow': 'bg-yellow-50',
+    'green': 'bg-green-50',
+    'blue': 'bg-blue-50',
+    'purple': 'bg-purple-50',
+    'pink': 'bg-pink-50',
+    'red': 'bg-red-50',
+  }
+
+  const bgClass = colorMap[notionColor] || colorMap['default']
+  console.log(`[Callout] → Tailwind class: ${bgClass}`)
+
+  return bgClass
+}
+
+// Notion Callout 테두리색 매핑
+function getCalloutBorderColor(notionColor: string): string {
+  const borderMap: Record<string, string> = {
+    'default': 'border-gray-300',
+    'gray_background': 'border-gray-300',
+    'gray': 'border-gray-300',
+    'brown_background': 'border-amber-300',
+    'brown': 'border-amber-300',
+    'orange_background': 'border-orange-300',
+    'orange': 'border-orange-300',
+    'yellow_background': 'border-yellow-300',
+    'yellow': 'border-yellow-300',
+    'green_background': 'border-green-300',
+    'green': 'border-green-300',
+    'blue_background': 'border-blue-300',
+    'blue': 'border-blue-300',
+    'purple_background': 'border-purple-300',
+    'purple': 'border-purple-300',
+    'pink_background': 'border-pink-300',
+    'pink': 'border-pink-300',
+    'red_background': 'border-red-300',
+    'red': 'border-red-300',
+  }
+
+  return borderMap[notionColor] || borderMap['default']
+}
+
 // 텍스트 스타일을 HTML 문자열로 변환
 function renderRichTextToHtml(richTexts: any[]): string {
   if (!richTexts || richTexts.length === 0) return ''
@@ -333,17 +397,32 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
       return `<blockquote class="border-l-4 border-gray-300 pl-4 my-6 italic">${renderRichTextToHtml(value.rich_text)}</blockquote>`
 
     case 'callout':
+      console.log(`\n========== RENDERING CALLOUT BLOCK ==========`)
+      console.log(`[Callout] Block ID: ${id}`)
+
       const icon = value.icon?.emoji || '💡'
+      console.log(`[Callout] Icon: ${icon}`)
+
+      // ✅ Extract color from Notion
+      const calloutColor = value.color || 'default'
+      console.log(`[Callout] Notion color: ${calloutColor}`)
+
+      // ✅ Map to CSS classes
+      const backgroundColor = getCalloutBackgroundColor(calloutColor)
+      const borderColor = getCalloutBorderColor(calloutColor)
+      console.log(`[Callout] Background class: ${backgroundColor}`)
+      console.log(`[Callout] Border class: ${borderColor}`)
 
       // 🔥 Render children blocks if they exist
       const calloutChildren = block.children
         ? block.children.map((child: any) => renderBlockToHtml(child, pageId)).join('')
         : ''
 
-      console.log(`[renderBlockToHtml] Callout block with ${block.children?.length || 0} children`)
+      console.log(`[Callout] Has ${block.children?.length || 0} children`)
+      console.log(`==============================================\n`)
 
       return `
-        <div class="bg-gray-50 border-l-4 border-blue-500 p-4 my-6 rounded-r-lg">
+        <div class="${backgroundColor} border-l-4 ${borderColor} p-4 my-6 rounded-r-lg">
           <div class="flex">
             <span class="mr-2 text-xl">${icon}</span>
             <div class="flex-1">
