@@ -253,6 +253,7 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       return `
         <ol style="
           margin: 8px 0;
+          margin-left: 24px;
           padding-left: 0;
           list-style-type: decimal;
           list-style-position: inside;
@@ -268,6 +269,7 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       return `
         <ul style="
           margin: 8px 0;
+          margin-left: 24px;
           padding-left: 0;
           list-style-type: disc;
           list-style-position: inside;
