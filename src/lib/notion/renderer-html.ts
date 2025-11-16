@@ -124,69 +124,81 @@ function getCalloutBorderColor(notionColor: string): string {
 function renderRichTextToHtml(richTexts: any[]): string {
   if (!richTexts || richTexts.length === 0) return ''
 
-  const htmlSegments = richTexts.map(text => {
-    const annotations = text.annotations
-    let html = escapeHtml(text.plain_text || '')
+  console.log('\n[RichText] Processing', richTexts.length, 'segments')
 
-    // 링크
-    if (text.href) {
-      html = `<a href="${text.href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">${html}</a>`
+  const htmlSegments = richTexts.map((rt, index) => {
+    let content = rt.plain_text || rt.text?.content || ''
+
+    if (!content) return ''
+
+    // ✅ 먼저 줄바꿈을 특수 토큰으로 변환 (escape 전에!)
+    content = content.replace(/\n/g, '__LINEBREAK__')
+
+    // HTML escape (보안을 위해)
+    content = escapeHtml(content)
+
+    // ✅ 특수 토큰을 <br> 태그로 변환
+    content = content.replace(/__LINEBREAK__/g, '<br>\n')
+
+    // Annotations
+    if (rt.annotations?.bold) {
+      content = `<strong>${content}</strong>`
+    }
+    if (rt.annotations?.italic) {
+      content = `<em>${content}</em>`
+    }
+    if (rt.annotations?.code) {
+      content = `<code style="background: #f1f5f9; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.9em;">${content}</code>`
+    }
+    if (rt.annotations?.strikethrough) {
+      content = `<s>${content}</s>`
+    }
+    if (rt.annotations?.underline) {
+      content = `<u>${content}</u>`
     }
 
-    // 텍스트 스타일
-    if (annotations.bold) {
-      html = `<strong>${html}</strong>`
-    }
-    if (annotations.italic) {
-      html = `<em>${html}</em>`
-    }
-    if (annotations.strikethrough) {
-      html = `<del>${html}</del>`
-    }
-    if (annotations.underline) {
-      html = `<u>${html}</u>`
-    }
-    if (annotations.code) {
-      html = `<code class="px-1.5 py-0.5 bg-gray-100 rounded text-sm font-mono">${html}</code>`
+    // Link
+    if (rt.href) {
+      content = `<a href="${rt.href}" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">${content}</a>`
     }
 
-    // 배경색 처리
-    const bgColor = annotations.color
-    if (bgColor && bgColor !== 'default') {
+    // Color (inline style로 변경)
+    const color = rt.annotations?.color
+    if (color && color !== 'default') {
       const colorMap: Record<string, string> = {
-        'gray_background': 'bg-gray-100',
-        'brown_background': 'bg-amber-100',
-        'orange_background': 'bg-orange-100',
-        'yellow_background': 'bg-yellow-100',
-        'green_background': 'bg-green-100',
-        'blue_background': 'bg-blue-100',
-        'purple_background': 'bg-purple-100',
-        'pink_background': 'bg-pink-100',
-        'red_background': 'bg-red-100',
-        // Text colors
-        'gray': 'text-gray-600',
-        'brown': 'text-amber-600',
-        'orange': 'text-orange-600',
-        'yellow': 'text-yellow-600',
-        'green': 'text-green-600',
-        'blue': 'text-blue-600',
-        'purple': 'text-purple-600',
-        'pink': 'text-pink-600',
-        'red': 'text-red-600',
+        'gray_background': 'background-color: #f3f4f6;',
+        'brown_background': 'background-color: #fef3c7;',
+        'orange_background': 'background-color: #fed7aa;',
+        'yellow_background': 'background-color: #fef9c3;',
+        'green_background': 'background-color: #d1fae5;',
+        'blue_background': 'background-color: #dbeafe;',
+        'purple_background': 'background-color: #e9d5ff;',
+        'pink_background': 'background-color: #fce7f3;',
+        'red_background': 'background-color: #fee2e2;',
+        'gray': 'color: #4b5563;',
+        'brown': 'color: #d97706;',
+        'orange': 'color: #ea580c;',
+        'yellow': 'color: #ca8a04;',
+        'green': 'color: #059669;',
+        'blue': 'color: #2563eb;',
+        'purple': 'color: #9333ea;',
+        'pink': 'color: #db2777;',
+        'red': 'color: #dc2626;',
       }
 
-      const colorClass = colorMap[bgColor] || ''
-      if (colorClass) {
-        const isBackground = bgColor.includes('background')
-        html = `<span class="${colorClass} ${isBackground ? 'px-1 rounded' : ''}">${html}</span>`
+      const colorStyle = colorMap[color] || ''
+      if (colorStyle) {
+        const padding = color.includes('background') ? ' padding: 2px 4px; border-radius: 3px;' : ''
+        content = `<span style="${colorStyle}${padding}">${content}</span>`
       }
     }
 
-    return html
+    return content
   }).join('')
 
-  // ✅ 핵심: 줄바꿈(\n)을 HTML <br> 태그로 변환!
-  return htmlSegments.replace(/\n/g, '<br>')
+  console.log('[RichText] Has line breaks:', htmlSegments.includes('<br>'))
+
+  return htmlSegments
 }
 
 // Notion 블록을 HTML 문자열로 변환
@@ -197,17 +209,62 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
   if (!value) return ''
 
   switch (type) {
-    case 'paragraph':
-      return `<p class="mb-4 text-gray-700 leading-relaxed">${renderRichTextToHtml(value.rich_text)}</p>`
+    case 'paragraph': {
+      const text = renderRichTextToHtml(value.rich_text || [])
 
-    case 'heading_1':
-      return `<h1 class="text-3xl font-bold mt-8 mb-4">${renderRichTextToHtml(value.rich_text)}</h1>`
+      // 빈 문단
+      if (!text.trim()) {
+        return '<div style="height: 4px;"></div>'
+      }
 
-    case 'heading_2':
-      return `<h2 class="text-2xl font-bold mt-6 mb-3">${renderRichTextToHtml(value.rich_text)}</h2>`
+      return `
+        <p style="
+          margin: 4px 0;
+          line-height: 1.5;
+          font-size: 15px;
+          color: #1f2937;
+        ">${text}</p>
+      `
+    }
 
-    case 'heading_3':
-      return `<h3 class="text-xl font-semibold mt-4 mb-2">${renderRichTextToHtml(value.rich_text)}</h3>`
+    case 'heading_1': {
+      const text = renderRichTextToHtml(value.rich_text || [])
+      return `
+        <h1 style="
+          font-size: 1.875rem;
+          font-weight: 700;
+          margin: 16px 0 8px 0;
+          line-height: 1.3;
+          color: #111827;
+        ">${text}</h1>
+      `
+    }
+
+    case 'heading_2': {
+      const text = renderRichTextToHtml(value.rich_text || [])
+      return `
+        <h2 style="
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin: 12px 0 6px 0;
+          line-height: 1.3;
+          color: #111827;
+        ">${text}</h2>
+      `
+    }
+
+    case 'heading_3': {
+      const text = renderRichTextToHtml(value.rich_text || [])
+      return `
+        <h3 style="
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin: 10px 0 4px 0;
+          line-height: 1.4;
+          color: #111827;
+        ">${text}</h3>
+      `
+    }
 
     case 'bulleted_list_item':
       return `<li class="text-base font-normal leading-relaxed mb-2">${renderRichTextToHtml(value.rich_text)}</li>`
@@ -399,42 +456,84 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
     case 'quote':
       return `<blockquote class="border-l-4 border-gray-300 pl-4 my-6 italic">${renderRichTextToHtml(value.rich_text)}</blockquote>`
 
-    case 'callout':
-      console.log(`\n========== RENDERING CALLOUT BLOCK ==========`)
-      console.log(`[Callout] Block ID: ${id}`)
+    case 'callout': {
+      console.log('\n[Callout] Rendering callout:', id)
 
-      const icon = value.icon?.emoji || '💡'
-      console.log(`[Callout] Icon: ${icon}`)
+      const calloutData = value
+      if (!calloutData) {
+        console.warn('[Callout] No data')
+        return ''
+      }
 
-      // ✅ Extract color from Notion
-      const calloutColor = value.color || 'default'
-      console.log(`[Callout] Notion color: ${calloutColor}`)
+      const text = renderRichTextToHtml(calloutData.rich_text || [])
+      const icon = calloutData.icon?.emoji || '💡'
+      const color = calloutData.color || 'default'
 
-      // ✅ Map to CSS classes
-      const backgroundColor = getCalloutBackgroundColor(calloutColor)
-      const borderColor = getCalloutBorderColor(calloutColor)
-      console.log(`[Callout] Background class: ${backgroundColor}`)
-      console.log(`[Callout] Border class: ${borderColor}`)
+      // Get background and border colors (inline styles)
+      const bgColorMap: Record<string, string> = {
+        'default': '#f3f4f6',
+        'gray': '#f3f4f6',
+        'gray_background': '#f3f4f6',
+        'brown_background': '#fef3c7',
+        'orange_background': '#fed7aa',
+        'yellow_background': '#fef9c3',
+        'green_background': '#d1fae5',
+        'blue_background': '#dbeafe',
+        'purple_background': '#e9d5ff',
+        'pink_background': '#fce7f3',
+        'red_background': '#fee2e2',
+      }
 
-      // 🔥 Render children blocks if they exist
-      const calloutChildren = block.children
-        ? block.children.map((child: any) => renderBlockToHtml(child, pageId)).join('')
-        : ''
+      const borderColorMap: Record<string, string> = {
+        'default': '#9ca3af',
+        'gray': '#9ca3af',
+        'gray_background': '#9ca3af',
+        'brown_background': '#d97706',
+        'orange_background': '#ea580c',
+        'yellow_background': '#ca8a04',
+        'green_background': '#059669',
+        'blue_background': '#2563eb',
+        'purple_background': '#9333ea',
+        'pink_background': '#db2777',
+        'red_background': '#dc2626',
+      }
 
-      console.log(`[Callout] Has ${block.children?.length || 0} children`)
-      console.log(`==============================================\n`)
+      const bgColor = bgColorMap[color] || bgColorMap['default']
+      const borderColor = borderColorMap[color] || borderColorMap['default']
+
+      console.log('[Callout] Text length:', text.length)
+      console.log('[Callout] Has <br>:', text.includes('<br>'))
+
+      let childrenHtml = ''
+      if (block.children && block.children.length > 0) {
+        childrenHtml = block.children.map((child: any) => renderBlockToHtml(child, pageId)).join('\n')
+      }
 
       return `
-        <div class="${backgroundColor} border-l-4 ${borderColor} p-4 my-6 rounded-r-lg">
-          <div class="flex">
-            <span class="mr-2 text-xl leading-none">${icon}</span>
-            <div class="flex-1 leading-relaxed">
-              <div>${renderRichTextToHtml(value.rich_text)}</div>
-              ${calloutChildren ? `<div class="mt-2">${calloutChildren}</div>` : ''}
-            </div>
-          </div>
+        <div style="
+          background-color: ${bgColor};
+          border-left: 4px solid ${borderColor};
+          border-radius: 6px;
+          padding: 12px 16px;
+          margin: 8px 0;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        ">
+          <div style="
+            font-size: 22px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 1px;
+          ">${icon}</div>
+          <div style="
+            flex: 1;
+            line-height: 1.5;
+            font-size: 15px;
+          ">${text}${childrenHtml ? `<div style="margin-top: 4px;">${childrenHtml}</div>` : ''}</div>
         </div>
       `
+    }
 
     case 'toggle':
       // 🔥 Use block.children instead of value.children
