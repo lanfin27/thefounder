@@ -5,6 +5,12 @@
  * 실행: npx tsx scripts/check-env.ts
  */
 
+// Load .env.local file
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+config({ path: resolve(process.cwd(), '.env.local') });
+
 console.log('🔍 Checking environment variables...\n');
 
 const requiredEnvVars = [

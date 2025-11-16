@@ -5,6 +5,12 @@
  * 실행: npx tsx scripts/check-db-schema.ts
  */
 
+// Load .env.local file
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+config({ path: resolve(process.cwd(), '.env.local') });
+
 import { createClient } from '@supabase/supabase-js';
 
 async function checkSchema() {
