@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/lib/supabase/client';
 
 interface BookmarkContextType {
   bookmarks: Set<string>;
@@ -17,7 +17,7 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
   const [bookmarks, setBookmarks] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const supabase = createClientComponentClient();
+  const supabase = createClient();
 
   // 북마크 로드
   useEffect(() => {
@@ -25,14 +25,37 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const loadBookmarks = async () => {
+    console.log('📚 [BookmarkContext] Loading bookmarks...');
+
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      // Try getSession first
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+      let user = session?.user;
+
+      // Fallback to getUser if session fails
+      if (!user || sessionError) {
+        console.log('⚠️ [BookmarkContext] Session not found, trying getUser()...');
+        const { data: { user: userFromGetUser }, error: userError } = await supabase.auth.getUser();
+
+        if (userError) {
+          console.error('❌ [BookmarkContext] getUser error:', userError);
+        } else if (userFromGetUser) {
+          console.log('✅ [BookmarkContext] User found via getUser():', userFromGetUser.email);
+          user = userFromGetUser;
+        }
+      } else {
+        console.log('✅ [BookmarkContext] Session found:', user.email);
+      }
 
       if (!user) {
+        console.log('⚠️ [BookmarkContext] No user, clearing bookmarks');
         setBookmarks(new Set());
         setIsLoading(false);
         return;
       }
+
+      console.log('📊 [BookmarkContext] Fetching bookmarks for user:', user.id);
 
       // Supabase에서 북마크 가져오기
       const { data, error } = await supabase
@@ -41,14 +64,15 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
         .eq('user_id', user.id);
 
       if (error) {
-        console.error('Error loading bookmarks:', error);
+        console.error('❌ [BookmarkContext] Error loading bookmarks:', error);
         setBookmarks(new Set());
       } else {
         const bookmarkIds = new Set(data?.map(b => b.post_id) || []);
+        console.log(`✅ [BookmarkContext] Loaded ${bookmarkIds.size} bookmarks`);
         setBookmarks(bookmarkIds);
       }
     } catch (error) {
-      console.error('Error loading bookmarks:', error);
+      console.error('❌ [BookmarkContext] Error loading bookmarks:', error);
       setBookmarks(new Set());
     } finally {
       setIsLoading(false);
@@ -59,7 +83,23 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
     console.log('🔖 [BookmarkContext] toggleBookmark called for:', postId);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      // Try getSession first
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+      let user = session?.user;
+
+      // Fallback to getUser if session fails
+      if (!user || sessionError) {
+        console.log('⚠️ [BookmarkContext] Session not found, trying getUser()...');
+        const { data: { user: userFromGetUser }, error: userError } = await supabase.auth.getUser();
+
+        if (userError) {
+          console.error('❌ [BookmarkContext] getUser error:', userError);
+        } else if (userFromGetUser) {
+          console.log('✅ [BookmarkContext] User found via getUser():', userFromGetUser.email);
+          user = userFromGetUser;
+        }
+      }
 
       // 미로그인 시 로그인 페이지로 리다이렉트
       if (!user) {
