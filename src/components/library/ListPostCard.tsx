@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { MoreVertical, Trash2 } from 'lucide-react'
 import { removeFromList } from '@/lib/supabase/queries/lists'
+import { useBookmark } from '@/contexts/BookmarkContext'
 import type { ListItem } from '@/types/library'
 
 interface ListPostCardProps {
@@ -28,6 +29,7 @@ function formatTimeAgo(dateString: string): string {
 export default function ListPostCard({ item, listId, onRemoved }: ListPostCardProps) {
   const [showMenu, setShowMenu] = useState(false)
   const [removing, setRemoving] = useState(false)
+  const { reloadLists } = useBookmark()
 
   // Handle missing post data
   if (!item.post) {
@@ -46,12 +48,27 @@ export default function ListPostCard({ item, listId, onRemoved }: ListPostCardPr
 
     setRemoving(true)
     try {
+      console.log('🗑️ [ListPostCard] Removing from list...')
+      console.log('   list_id:', listId)
+      console.log('   post_id:', item.post_id)
+
+      // 1. DB에서 제거
       await removeFromList(listId, item.post_id)
-      console.log('✅ [ListPostCard] Removed from list')
+      console.log('✅ [ListPostCard] Removed from DB')
+
+      // 2. BookmarkContext 업데이트 (핵심!)
+      console.log('🔄 [ListPostCard] Reloading lists to sync bookmark state...')
+      await reloadLists()
+      console.log('✅ [ListPostCard] Bookmark context updated')
+
+      // 3. 부모에게 알림 (UI 업데이트)
       onRemoved()
+      console.log('✅ [ListPostCard] UI updated')
+
+      console.log('🎉 [ListPostCard] Complete! All pages now synced')
     } catch (error) {
       console.error('❌ [ListPostCard] Remove failed:', error)
-      alert('제거에 실패했습니다')
+      alert('제거하는 중 오류가 발생했습니다.')
     } finally {
       setRemoving(false)
     }
