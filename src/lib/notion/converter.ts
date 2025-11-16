@@ -245,16 +245,34 @@ function blocksToHtml(blocks: any[], pageId: string): string {
   const htmlParts = groupedBlocks.map(item => {
     if (item.type === 'numbered_list_group') {
       // Render numbered list group with <ol> wrapper
+      console.log('\n[NumberedListGroup] Rendering', item.items.length, 'items')
       const listItems = item.items
         .map((block: any) => renderBlockToHtml(block, pageId))
         .join('')
-      return `<ol class="list-decimal pl-6 space-y-2 mb-4">${listItems}</ol>`
+      console.log('[NumberedListGroup] ✅ Wrapped in <ol>')
+      return `
+        <ol style="
+          margin: 8px 0;
+          padding-left: 24px;
+          list-style-type: decimal;
+          list-style-position: outside;
+        ">${listItems}</ol>
+      `
     } else if (item.type === 'bulleted_list_group') {
       // Render bulleted list group with <ul> wrapper
+      console.log('\n[BulletedListGroup] Rendering', item.items.length, 'items')
       const listItems = item.items
         .map((block: any) => renderBlockToHtml(block, pageId))
         .join('')
-      return `<ul class="list-disc pl-6 space-y-2 mb-4">${listItems}</ul>`
+      console.log('[BulletedListGroup] ✅ Wrapped in <ul>')
+      return `
+        <ul style="
+          margin: 8px 0;
+          padding-left: 24px;
+          list-style-type: disc;
+          list-style-position: outside;
+        ">${listItems}</ul>
+      `
     } else {
       // Render regular block
       return renderBlockToHtml(item, pageId)

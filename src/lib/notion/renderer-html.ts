@@ -266,11 +266,49 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
       `
     }
 
-    case 'bulleted_list_item':
-      return `<li class="text-base font-normal leading-relaxed mb-2">${renderRichTextToHtml(value.rich_text)}</li>`
+    case 'bulleted_list_item': {
+      console.log('\n========== BULLETED LIST ITEM ==========')
+      console.log('[BulletedList] Block ID:', block.id)
 
-    case 'numbered_list_item':
-      return `<li class="text-base font-normal leading-relaxed mb-2">${renderRichTextToHtml(value.rich_text)}</li>`
+      const text = renderRichTextToHtml(value.rich_text || [])
+      console.log('[BulletedList] Text length:', text.length)
+      console.log('[BulletedList] Text preview:', text.substring(0, 50))
+
+      console.log('[BulletedList] ✅ Rendered')
+      console.log('==========================================\n')
+
+      return `
+        <li style="
+          margin: 2px 0;
+          padding-left: 0;
+          line-height: 1.5;
+          font-size: 15px;
+          color: #1f2937;
+        ">${text}</li>
+      `
+    }
+
+    case 'numbered_list_item': {
+      console.log('\n========== NUMBERED LIST ITEM ==========')
+      console.log('[NumberedList] Block ID:', block.id)
+
+      const text = renderRichTextToHtml(value.rich_text || [])
+      console.log('[NumberedList] Text length:', text.length)
+      console.log('[NumberedList] Text preview:', text.substring(0, 50))
+
+      console.log('[NumberedList] ✅ Rendered')
+      console.log('==========================================\n')
+
+      return `
+        <li style="
+          margin: 2px 0;
+          padding-left: 0;
+          line-height: 1.5;
+          font-size: 15px;
+          color: #1f2937;
+        ">${text}</li>
+      `
+    }
 
     case 'image':
       // 이미지 블록 디버깅
