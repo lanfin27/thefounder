@@ -163,6 +163,73 @@ async function getBlocks(blockId: string): Promise<any[]> {
   return blocks
 }
 
+// Group consecutive numbered_list_item and bulleted_list_item blocks
+function groupBlocks(blocks: any[]): any[] {
+  const grouped: any[] = []
+  let currentNumberedList: any[] = []
+  let currentBulletedList: any[] = []
+
+  for (const block of blocks) {
+    if (block.type === 'numbered_list_item') {
+      // Close any open bulleted list
+      if (currentBulletedList.length > 0) {
+        grouped.push({
+          type: 'bulleted_list_group',
+          items: currentBulletedList
+        })
+        currentBulletedList = []
+      }
+      // Add to numbered list
+      currentNumberedList.push(block)
+    } else if (block.type === 'bulleted_list_item') {
+      // Close any open numbered list
+      if (currentNumberedList.length > 0) {
+        grouped.push({
+          type: 'numbered_list_group',
+          items: currentNumberedList
+        })
+        currentNumberedList = []
+      }
+      // Add to bulleted list
+      currentBulletedList.push(block)
+    } else {
+      // Close any open lists
+      if (currentNumberedList.length > 0) {
+        grouped.push({
+          type: 'numbered_list_group',
+          items: currentNumberedList
+        })
+        currentNumberedList = []
+      }
+      if (currentBulletedList.length > 0) {
+        grouped.push({
+          type: 'bulleted_list_group',
+          items: currentBulletedList
+        })
+        currentBulletedList = []
+      }
+      // Add regular block
+      grouped.push(block)
+    }
+  }
+
+  // Close any remaining lists
+  if (currentNumberedList.length > 0) {
+    grouped.push({
+      type: 'numbered_list_group',
+      items: currentNumberedList
+    })
+  }
+  if (currentBulletedList.length > 0) {
+    grouped.push({
+      type: 'bulleted_list_group',
+      items: currentBulletedList
+    })
+  }
+
+  return grouped
+}
+
 // Convert blocks to HTML string
 function blocksToHtml(blocks: any[], pageId: string): string {
   // 모든 블록 타입 확인 (디버깅용)
@@ -172,7 +239,28 @@ function blocksToHtml(blocks: any[], pageId: string): string {
     }
   })
 
-  const htmlParts = blocks.map(block => renderBlockToHtml(block, pageId))
+  // Group consecutive list items
+  const groupedBlocks = groupBlocks(blocks)
+
+  const htmlParts = groupedBlocks.map(item => {
+    if (item.type === 'numbered_list_group') {
+      // Render numbered list group with <ol> wrapper
+      const listItems = item.items
+        .map((block: any) => renderBlockToHtml(block, pageId))
+        .join('')
+      return `<ol class="list-decimal pl-6 space-y-2 mb-4">${listItems}</ol>`
+    } else if (item.type === 'bulleted_list_group') {
+      // Render bulleted list group with <ul> wrapper
+      const listItems = item.items
+        .map((block: any) => renderBlockToHtml(block, pageId))
+        .join('')
+      return `<ul class="list-disc pl-6 space-y-2 mb-4">${listItems}</ul>`
+    } else {
+      // Render regular block
+      return renderBlockToHtml(item, pageId)
+    }
+  })
+
   return htmlParts.join('')
 }
 

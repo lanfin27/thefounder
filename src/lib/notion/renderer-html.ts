@@ -140,10 +140,10 @@ export function renderBlockToHtml(block: any, pageId?: string): string {
       return `<h3 class="text-xl font-semibold mt-4 mb-2">${renderRichTextToHtml(value.rich_text)}</h3>`
 
     case 'bulleted_list_item':
-      return `<li class="ml-6 mb-2 list-disc">${renderRichTextToHtml(value.rich_text)}</li>`
+      return `<li class="text-base font-normal leading-relaxed mb-2">${renderRichTextToHtml(value.rich_text)}</li>`
 
     case 'numbered_list_item':
-      return `<li class="ml-6 mb-2 list-decimal">${renderRichTextToHtml(value.rich_text)}</li>`
+      return `<li class="text-base font-normal leading-relaxed mb-2">${renderRichTextToHtml(value.rich_text)}</li>`
 
     case 'image':
       // 이미지 블록 디버깅
