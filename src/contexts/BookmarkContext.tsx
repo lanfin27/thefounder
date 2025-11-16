@@ -71,42 +71,98 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
 
   // Check if a post is saved in any list
   const isPostSaved = useCallback((postId: string): boolean => {
-    return savedPostIds.has(postId);
-  }, [savedPostIds]);
+    if (!postId) {
+      console.warn('⚠️ [BookmarkContext] isPostSaved called with empty postId');
+      return false;
+    }
+
+    const saved = lists.some(list =>
+      list.list_items?.some((item: any) => {
+        const itemPostId = String(item.post_id || '').trim();
+        const checkPostId = String(postId).trim();
+        return itemPostId === checkPostId;
+      })
+    );
+
+    console.log(`🔍 [BookmarkContext] isPostSaved("${postId}"):`, saved);
+    return saved;
+  }, [lists]);
 
   // Get list IDs that contain this post
   const getSavedListIds = useCallback((postId: string): string[] => {
-    return lists
+    if (!postId) {
+      console.warn('⚠️ [BookmarkContext] getSavedListIds called with empty postId');
+      return [];
+    }
+
+    const savedLists = lists
       .filter(list =>
-        list.list_items?.some(item => item.post_id === postId)
+        list.list_items?.some((item: any) => {
+          const itemPostId = String(item.post_id || '').trim();
+          const checkPostId = String(postId).trim();
+          return itemPostId === checkPostId;
+        })
       )
       .map(list => list.id);
+
+    console.log(`📊 [BookmarkContext] getSavedListIds("${postId}"):`, savedLists);
+    return savedLists;
   }, [lists]);
 
   // Toggle a post in a specific list
   const toggleList = useCallback(async (listId: string, postId: string) => {
-    try {
-      const isInList = lists
-        .find(list => list.id === listId)
-        ?.list_items?.some(item => item.post_id === postId);
+    if (!listId || !postId) {
+      console.error('❌ [BookmarkContext] Invalid listId or postId');
+      return;
+    }
 
-      if (isInList) {
-        console.log('➖ [BookmarkContext] Removing from list:', listId);
+    try {
+      console.log('🔄 [BookmarkContext] toggleList called');
+      console.log('   listId:', listId);
+      console.log('   postId:', postId);
+
+      // Find the target list
+      const targetList = lists.find(list => list.id === listId);
+      if (!targetList) {
+        console.error('❌ [BookmarkContext] List not found:', listId);
+        return;
+      }
+
+      // Check current state with string comparison
+      const isCurrentlyInList = targetList.list_items?.some((item: any) => {
+        const itemPostId = String(item.post_id || '').trim();
+        const checkPostId = String(postId).trim();
+        return itemPostId === checkPostId;
+      });
+
+      console.log('📊 [BookmarkContext] Current state - In list:', isCurrentlyInList);
+
+      if (isCurrentlyInList) {
+        console.log('➖ [BookmarkContext] Removing from list...');
         await removeFromList(listId, postId);
+        console.log('✅ [BookmarkContext] Removed successfully');
       } else {
-        console.log('➕ [BookmarkContext] Adding to list:', listId);
+        console.log('➕ [BookmarkContext] Adding to list...');
         await addToList({
           list_id: listId,
           post_id: postId
         });
+        console.log('✅ [BookmarkContext] Added successfully');
       }
 
       // Reload all lists to sync state across all components
+      console.log('🔄 [BookmarkContext] Reloading lists to sync state...');
       await reloadLists();
-
       console.log('✅ [BookmarkContext] Toggle complete, all lists reloaded');
     } catch (error: any) {
       console.error('❌ [BookmarkContext] Toggle error:', error);
+
+      // Reload lists even on error to ensure consistency
+      try {
+        await reloadLists();
+      } catch (reloadError) {
+        console.error('❌ [BookmarkContext] Reload after error failed:', reloadError);
+      }
 
       // If auth error, redirect to login
       if (error.message?.includes('Not authenticated')) {

@@ -29,7 +29,7 @@ export async function getUserLists(): Promise<List[]> {
     .from('lists')
     .select(`
       *,
-      items:list_items(count)
+      list_items(*)
     `)
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
@@ -45,10 +45,18 @@ export async function getUserLists(): Promise<List[]> {
 
   console.log('✅ [getUserLists] Success! Found', data?.length || 0, 'lists')
 
+  // Debug: Log each list's items
+  data?.forEach(list => {
+    console.log(`  📋 ${list.name}: ${list.list_items?.length || 0} items`)
+    if (list.list_items && list.list_items.length > 0) {
+      console.log(`     Post IDs:`, list.list_items.slice(0, 3).map((item: any) => item.post_id))
+    }
+  })
+
   // Format data to include post_count
   return (data || []).map(list => ({
     ...list,
-    post_count: list.items?.[0]?.count || 0
+    post_count: list.list_items?.length || 0
   }))
 }
 
@@ -234,7 +242,26 @@ export async function getListItems(
 }
 
 export async function addToList(input: AddToListInput): Promise<ListItem> {
+  console.log('➕ [addToList] Starting...')
+  console.log('   list_id:', input.list_id)
+  console.log('   post_id:', input.post_id)
+
   const supabase = createClient()
+
+  // Check if already exists first
+  const { data: existing } = await supabase
+    .from('list_items')
+    .select('*')
+    .eq('list_id', input.list_id)
+    .eq('post_id', input.post_id)
+    .maybeSingle()
+
+  if (existing) {
+    console.log('⚠️ [addToList] Already exists, returning existing item')
+    return existing
+  }
+
+  console.log('➕ [addToList] Not exists, inserting new item...')
 
   const { data, error } = await supabase
     .from('list_items')
@@ -247,18 +274,33 @@ export async function addToList(input: AddToListInput): Promise<ListItem> {
     .single()
 
   if (error) {
-    // Handle duplicate entry
+    // Handle duplicate entry (race condition)
     if (error.code === '23505') {
-      throw new Error('이 글은 이미 리스트에 있습니다')
+      console.log('⚠️ [addToList] Duplicate error (race condition), fetching existing...')
+      const { data: raceExisting } = await supabase
+        .from('list_items')
+        .select('*')
+        .eq('list_id', input.list_id)
+        .eq('post_id', input.post_id)
+        .single()
+
+      if (raceExisting) {
+        return raceExisting
+      }
     }
-    console.error('Error adding to list:', error)
+    console.error('❌ [addToList] Error:', error)
     throw error
   }
 
+  console.log('✅ [addToList] Successfully added')
   return data
 }
 
 export async function removeFromList(listId: string, postId: string): Promise<void> {
+  console.log('➖ [removeFromList] Starting...')
+  console.log('   list_id:', listId)
+  console.log('   post_id:', postId)
+
   const supabase = createClient()
 
   const { error } = await supabase
@@ -268,9 +310,11 @@ export async function removeFromList(listId: string, postId: string): Promise<vo
     .eq('post_id', postId)
 
   if (error) {
-    console.error('Error removing from list:', error)
+    console.error('❌ [removeFromList] Error:', error)
     throw error
   }
+
+  console.log('✅ [removeFromList] Successfully removed')
 }
 
 export async function getPostLists(postId: string): Promise<List[]> {
