@@ -56,20 +56,25 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleBookmark = async (postId: string) => {
+    console.log('🔖 [BookmarkContext] toggleBookmark called for:', postId);
+
     try {
       const { data: { user } } = await supabase.auth.getUser();
 
       // 미로그인 시 로그인 페이지로 리다이렉트
       if (!user) {
         const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+        console.log('⚠️ [BookmarkContext] No user, redirecting to login from:', currentPath);
         router.push(`/auth/login?redirect=${encodeURIComponent(currentPath)}`);
         return;
       }
 
       const isCurrentlyBookmarked = bookmarks.has(postId);
+      console.log(`📊 [BookmarkContext] Current bookmark status: ${isCurrentlyBookmarked ? 'BOOKMARKED' : 'NOT BOOKMARKED'}`);
 
       if (isCurrentlyBookmarked) {
         // 북마크 해제
+        console.log('➖ [BookmarkContext] Removing bookmark...');
         const { error } = await supabase
           .from('bookmarks')
           .delete()
@@ -83,8 +88,10 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
           next.delete(postId);
           return next;
         });
+        console.log('✅ [BookmarkContext] Bookmark removed successfully');
       } else {
         // 북마크 추가
+        console.log('➕ [BookmarkContext] Adding bookmark...');
         const { error } = await supabase
           .from('bookmarks')
           .insert({
@@ -95,9 +102,12 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
         if (error) throw error;
 
         setBookmarks(prev => new Set([...prev, postId]));
+        console.log('✅ [BookmarkContext] Bookmark added successfully');
       }
+
+      console.log('✅ [BookmarkContext] toggleBookmark completed, staying on current page');
     } catch (error) {
-      console.error('Error toggling bookmark:', error);
+      console.error('❌ [BookmarkContext] Error toggling bookmark:', error);
       alert('북마크 처리 중 오류가 발생했습니다.');
     }
   };
