@@ -4,6 +4,7 @@ import { BlogPost } from '@/types'
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import PremiumBadge from '@/components/ui/PremiumBadge'
+import BookmarkButton from '@/components/posts/BookmarkButton'
 
 // 🔥 이미지 프록시 URL 생성
 function getProxiedImageUrl(originalUrl: string): string {
@@ -63,6 +64,11 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
             )}
           </div>
         </Link>
+
+        {/* 북마크 버튼 */}
+        <div className="flex justify-end mt-4">
+          <BookmarkButton postId={post.id} />
+        </div>
 
         {/* 구분선 */}
         <div className="mt-8 border-b border-gray-200" />
