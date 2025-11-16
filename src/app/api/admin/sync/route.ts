@@ -18,9 +18,15 @@ export const maxDuration = 300 // 5 minutes max for long sync operations
 
 // POST /api/admin/sync
 export async function POST(request: NextRequest) {
+  const requestStartTime = Date.now()
+
   try {
+    console.log(`\n\n╔════════════════════════════════════════════════════════╗`)
+    console.log(`║           NOTION SYNC API REQUEST RECEIVED            ║`)
+    console.log(`╚════════════════════════════════════════════════════════╝\n`)
+
     const body = await request.json()
-    console.log(`\n[API] 📡 Received sync request:`, body)
+    console.log(`[API] 📡 Request body:`, JSON.stringify(body, null, 2))
 
     let result
 
@@ -30,21 +36,48 @@ export async function POST(request: NextRequest) {
       console.log('[API] ✅ Mode: BULK (syncing ALL active sources)')
       console.log('[API] 🌐 Syncing ALL active sources...')
       console.log(`════════════════════════════════════════════════════\n`)
+
       result = await syncService.syncAll()
+
+      console.log(`\n[API] 📊 BULK SYNC RESULTS:`)
+      console.log(`  - Total sources: ${result.results?.length || 0}`)
+      console.log(`  - Successful: ${result.successCount}`)
+      console.log(`  - Failed: ${result.failureCount}`)
+      console.log(`  - Total posts: ${result.totalPosts}`)
+
     } else if (body.sourceIds && Array.isArray(body.sourceIds)) {
       // Sync multiple selected sources
       console.log(`\n🔄 [API] ═══════════ MULTIPLE SYNC MODE ═══════════`)
       console.log(`[API] ✅ Mode: MULTIPLE (syncing ${body.sourceIds.length} sources)`)
       console.log(`[API] 📋 Source IDs:`, body.sourceIds)
       console.log(`════════════════════════════════════════════════════\n`)
+
       result = await syncService.syncMultiple(body.sourceIds)
+
+      console.log(`\n[API] 📊 MULTIPLE SYNC RESULTS:`)
+      console.log(`  - Sources synced: ${body.sourceIds.length}`)
+      console.log(`  - Successful: ${result.successCount}`)
+      console.log(`  - Failed: ${result.failureCount}`)
+      console.log(`  - Total posts: ${result.totalPosts}`)
+
     } else if (body.sourceId) {
       // Sync single source
       console.log(`\n🎯 [API] ═══════════ INDIVIDUAL SYNC MODE ═══════════`)
       console.log(`[API] ✅ Mode: INDIVIDUAL (syncing ONLY this source)`)
       console.log(`[API] 📡 Source ID: ${body.sourceId}`)
       console.log(`════════════════════════════════════════════════════\n`)
+
       const singleResult = await syncService.syncSource(body.sourceId)
+
+      console.log(`\n[API] 📊 SINGLE SYNC RESULT:`)
+      console.log(`  - Source: ${singleResult.sourceName}`)
+      console.log(`  - Success: ${singleResult.success ? 'YES ✅' : 'NO ❌'}`)
+      console.log(`  - Posts: ${singleResult.postsCount}`)
+      console.log(`  - Duration: ${(singleResult.duration / 1000).toFixed(2)}s`)
+      if (singleResult.error) {
+        console.log(`  - Error: ${singleResult.error}`)
+      }
+
       result = {
         results: [singleResult],
         totalPosts: singleResult.postsCount,
@@ -52,20 +85,57 @@ export async function POST(request: NextRequest) {
         failureCount: singleResult.success ? 0 : 1
       }
     } else {
-      console.log('[API] ❌ Invalid request body:', body)
+      console.error('[API] ❌ Invalid request body:', body)
+      console.error('[API] ❌ Missing required fields: sourceId, sourceIds, or syncAll')
+
       return NextResponse.json(
-        { error: 'Invalid request body. Provide sourceId, sourceIds, or syncAll' },
+        {
+          success: false,
+          error: 'Invalid request body. Provide sourceId, sourceIds, or syncAll'
+        },
         { status: 400 }
       )
     }
 
-    console.log(`[API /admin/sync] ✅ Sync complete: ${result.totalPosts} total posts, ${result.successCount} succeeded, ${result.failureCount} failed`)
+    const requestDuration = Date.now() - requestStartTime
 
-    return NextResponse.json(result)
+    console.log(`\n╔════════════════════════════════════════════════════════╗`)
+    console.log(`║             SYNC COMPLETED SUCCESSFULLY               ║`)
+    console.log(`╚════════════════════════════════════════════════════════╝`)
+    console.log(`[API] ✅ Total posts synced: ${result.totalPosts}`)
+    console.log(`[API] ✅ Successful sources: ${result.successCount}`)
+    console.log(`[API] ${result.failureCount > 0 ? '⚠️ ' : '✅'} Failed sources: ${result.failureCount}`)
+    console.log(`[API] ⏱️  Total duration: ${(requestDuration / 1000).toFixed(2)}s\n\n`)
+
+    return NextResponse.json({
+      success: result.successCount > 0,
+      ...result
+    })
+
   } catch (error: any) {
-    console.error('[API /admin/sync] ❌ POST Error:', error.message)
+    const requestDuration = Date.now() - requestStartTime
+
+    console.error(`\n╔════════════════════════════════════════════════════════╗`)
+    console.error(`║              SYNC FAILED WITH ERROR                   ║`)
+    console.error(`╚════════════════════════════════════════════════════════╝`)
+    console.error('[API] ❌ Error type:', error.constructor.name)
+    console.error('[API] ❌ Error message:', error.message)
+    console.error('[API] ❌ Error code:', error.code)
+    console.error('[API] ❌ Error details:', error.details)
+    console.error('[API] ❌ Error stack:', error.stack)
+    console.error(`[API] ⏱️  Duration before error: ${(requestDuration / 1000).toFixed(2)}s\n\n`)
+
     return NextResponse.json(
-      { error: error.message },
+      {
+        success: false,
+        error: error.message || 'Unknown error occurred',
+        errorType: error.constructor.name,
+        details: {
+          code: error.code,
+          message: error.message,
+          stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+        }
+      },
       { status: 500 }
     )
   }

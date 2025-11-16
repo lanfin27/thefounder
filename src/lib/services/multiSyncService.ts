@@ -18,38 +18,78 @@ export class MultiSyncService {
     const startTime = Date.now()
 
     try {
+      console.log(`\n[MultiSync] 🎯 Starting sync for source: ${sourceId}`)
+
       const source = await this.sourceService.getById(sourceId)
 
       if (!source) {
+        console.error(`[MultiSync] ❌ Source not found: ${sourceId}`)
         throw new Error('Source not found')
       }
 
-      console.log(`[MultiSync] 🚀 Syncing source: ${source.name}`)
+      console.log(`[MultiSync] ✅ Found source: ${source.name}`)
+      console.log(`[MultiSync] 📊 Source details:`, {
+        id: source.id,
+        name: source.name,
+        database_id: source.notion_database_id,
+        last_synced: source.last_synced_at
+      })
+
+      console.log(`\n[MultiSync] 🚀 Fetching posts from Notion...`)
 
       const { count, posts } = await this.syncWithCredentials(
         source.notion_token,
         source.notion_database_id
       )
 
+      console.log(`[MultiSync] ✅ Fetched ${count} posts from Notion`)
+      console.log(`[MultiSync] 📋 Post titles:`)
+      posts.forEach((post, idx) => {
+        console.log(`  ${idx + 1}. "${post.title}" (${post.slug})`)
+      })
+
       // Save posts to Supabase
-      console.log(`[MultiSync] 💾 Saving ${posts.length} posts to Supabase...`)
+      console.log(`\n[MultiSync] 💾 Saving ${posts.length} posts to Supabase...`)
+
       const { savePostsToSupabase } = await import('@/lib/supabase/admin')
       const saveResult = await savePostsToSupabase(posts)
-      console.log(`[MultiSync] ✅ Saved ${saveResult.count} posts to database`)
 
+      if (!saveResult.success) {
+        console.error(`[MultiSync] ⚠️  Save partially failed:`, {
+          attempted: posts.length,
+          saved: saveResult.count,
+          error: saveResult.error
+        })
+      }
+
+      console.log(`[MultiSync] ✅ Saved ${saveResult.count}/${posts.length} posts to database`)
+
+      // Update sync time
+      console.log(`[MultiSync] 🔄 Updating last sync time...`)
       await this.sourceService.updateSyncTime(sourceId)
+      console.log(`[MultiSync] ✅ Updated sync time`)
 
-      console.log(`[MultiSync] ✅ Synced ${count} posts from ${source.name}`)
+      const duration = Date.now() - startTime
+      console.log(`\n[MultiSync] 🎉 Sync complete for ${source.name}:`)
+      console.log(`  - Posts fetched: ${count}`)
+      console.log(`  - Posts saved: ${saveResult.count}`)
+      console.log(`  - Duration: ${(duration / 1000).toFixed(2)}s`)
 
       return {
         sourceId: source.id,
         sourceName: source.name,
-        success: true,
-        postsCount: count,
-        duration: Date.now() - startTime
+        success: saveResult.count > 0,
+        postsCount: saveResult.count,
+        duration
       }
     } catch (error: any) {
-      console.error(`[MultiSync] ❌ Error syncing source ${sourceId}:`, error.message)
+      const duration = Date.now() - startTime
+      console.error(`\n❌ [MultiSync] CRITICAL ERROR syncing source ${sourceId}:`, {
+        error: error.message,
+        code: error.code,
+        stack: error.stack,
+        duration: `${(duration / 1000).toFixed(2)}s`
+      })
 
       return {
         sourceId,
@@ -57,7 +97,7 @@ export class MultiSyncService {
         success: false,
         postsCount: 0,
         error: error.message,
-        duration: Date.now() - startTime
+        duration
       }
     }
   }
