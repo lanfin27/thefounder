@@ -54,12 +54,11 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
           <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
             {post.cover && (
               <Image
-                src={getProxiedImageUrl(post.cover)}
+                src={post.cover}
                 alt={post.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 96px, 128px"
-                loading="lazy"
               />
             )}
           </div>
