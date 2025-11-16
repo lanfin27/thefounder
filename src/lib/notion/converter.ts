@@ -249,13 +249,13 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       const listItems = item.items
         .map((block: any) => renderBlockToHtml(block, pageId))
         .join('')
-      console.log('[NumberedListGroup] ✅ Wrapped in <ol>')
+      console.log('[NumberedListGroup] ✅ Using padding-left: 0, position: inside')
       return `
         <ol style="
           margin: 8px 0;
-          padding-left: 24px;
+          padding-left: 0;
           list-style-type: decimal;
-          list-style-position: outside;
+          list-style-position: inside;
         ">${listItems}</ol>
       `
     } else if (item.type === 'bulleted_list_group') {
@@ -264,13 +264,13 @@ function blocksToHtml(blocks: any[], pageId: string): string {
       const listItems = item.items
         .map((block: any) => renderBlockToHtml(block, pageId))
         .join('')
-      console.log('[BulletedListGroup] ✅ Wrapped in <ul>')
+      console.log('[BulletedListGroup] ✅ Using padding-left: 0, position: inside')
       return `
         <ul style="
           margin: 8px 0;
-          padding-left: 24px;
+          padding-left: 0;
           list-style-type: disc;
-          list-style-position: outside;
+          list-style-position: inside;
         ">${listItems}</ul>
       `
     } else {
