@@ -24,88 +24,105 @@ export function LatestPosts({ posts }: LatestPostsProps) {
   return (
     <section className="py-12 bg-white border-t border-gray-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
-          Latest
-        </h2>
 
-        {/* Posts List (Medium 스타일) */}
-        <div className="space-y-8">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Latest
+          </h2>
+          <Link
+            href="/posts"
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            View all
+          </Link>
+        </div>
+
+        {/* Posts List - Medium 스타일 */}
+        <div className="space-y-6">
           {posts.map((post) => (
             <article key={post.id} className="group">
-              <Link href={`/posts/${post.slug}`} className="flex gap-6 items-start">
+              <Link href={`/posts/${post.slug}`} className="block">
+                <div className="flex gap-4">
+                  {/* 텍스트 콘텐츠 영역 */}
+                  <div className="flex-1 min-w-0 space-y-2">
+                    {/* 제목 - Medium 스타일: 2줄, font-semibold, text-base */}
+                    <h3 className="text-base font-semibold leading-snug text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h3>
 
-                {/* 왼쪽: 텍스트 영역 */}
-                <div className="flex-1 min-w-0">
-                  {/* 제목 - 모바일/데스크톱 모두 2줄 */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
+                    {/* 발췌문 - Medium 핵심: 2줄 제한, ... 표시 */}
+                    {post.summary && (
+                      <p className="text-sm leading-relaxed text-gray-600 line-clamp-2">
+                        {post.summary}
+                      </p>
+                    )}
 
-                  {/* 요약 - 모바일 숨김 */}
-                  <p className="text-base text-gray-600 mb-3 line-clamp-2 hidden sm:block">
-                    {post.summary}
-                  </p>
+                    {/* 메타 정보 영역 - 2줄 구조 */}
+                    <div className="flex flex-col gap-1 pt-1">
+                      {/* 첫 번째 줄: 카테고리 + 날짜 */}
+                      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                        {/* 카테고리 - 최대 너비 제한 */}
+                        <span className="inline-block max-w-[100px] sm:max-w-[140px] font-medium truncate">
+                          {post.categoryLabel || post.category}
+                        </span>
 
-                  {/* 메타 정보 - 2줄 구조로 완전 재작성 */}
-                  <div className="space-y-1">
-                    {/* 첫 번째 줄: 카테고리 + 날짜 */}
-                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
-                      {/* 카테고리 - 최대 너비 강제 제한 */}
-                      <span className="inline-block max-w-[100px] sm:max-w-[150px] font-medium truncate">
-                        {post.categoryLabel || post.category}
-                      </span>
+                        {/* 구분자 */}
+                        <span className="text-gray-400">·</span>
 
-                      {/* 구분자 */}
-                      <span className="flex-shrink-0 text-gray-400">·</span>
+                        {/* 날짜 - 절대 줄바꿈 방지 */}
+                        <time className="whitespace-nowrap flex-shrink-0">
+                          {new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}
+                        </time>
+                      </div>
 
-                      {/* 날짜 - 절대 줄바꿈 방지 */}
-                      <time className="whitespace-nowrap flex-shrink-0">
-                        {new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}
-                      </time>
-                    </div>
+                      {/* 두 번째 줄: 읽기시간 + 인게이지먼트 */}
+                      {(post.readingTime || (post.clapsCount && post.clapsCount > 0) || (post.commentsCount && post.commentsCount > 0)) && (
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          {/* 읽기 시간 */}
+                          {post.readingTime && (
+                            <>
+                              <span className="whitespace-nowrap flex-shrink-0">{post.readingTime}분 읽기</span>
+                              {((post.clapsCount && post.clapsCount > 0) || (post.commentsCount && post.commentsCount > 0)) && (
+                                <span className="text-gray-400 flex-shrink-0">·</span>
+                              )}
+                            </>
+                          )}
 
-                    {/* 두 번째 줄: 읽기 시간 + 인게이지먼트 지표 */}
-                    <div className="flex items-center gap-3 text-xs sm:text-sm text-gray-500">
-                      {/* 읽기 시간 - 모바일에서도 표시 */}
-                      <span className="flex-shrink-0">{post.readingTime}분 읽기</span>
+                          {/* 좋아요 */}
+                          {post.clapsCount !== undefined && post.clapsCount > 0 && (
+                            <span className="flex items-center gap-1 whitespace-nowrap flex-shrink-0">
+                              <ThumbsUp className="w-3 h-3" />
+                              <span>{post.clapsCount}</span>
+                            </span>
+                          )}
 
-                      {/* 좋아요 개수 */}
-                      {post.clapsCount !== undefined && post.clapsCount > 0 && (
-                        <>
-                          <span className="flex-shrink-0 text-gray-400">·</span>
-                          <span className="flex items-center gap-1 flex-shrink-0">
-                            <ThumbsUp className="w-3 h-3" />
-                            <span>{post.clapsCount}</span>
-                          </span>
-                        </>
-                      )}
-
-                      {/* 댓글 개수 */}
-                      {post.commentsCount !== undefined && post.commentsCount > 0 && (
-                        <>
-                          <span className="flex-shrink-0 text-gray-400">·</span>
-                          <span className="flex items-center gap-1 flex-shrink-0">
-                            <MessageCircle className="w-3 h-3" />
-                            <span>{post.commentsCount}</span>
-                          </span>
-                        </>
+                          {/* 댓글 */}
+                          {post.commentsCount !== undefined && post.commentsCount > 0 && (
+                            <span className="flex items-center gap-1 whitespace-nowrap flex-shrink-0">
+                              <MessageCircle className="w-3 h-3" />
+                              <span>{post.commentsCount}</span>
+                            </span>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
-                </div>
 
-                {/* 오른쪽: 썸네일 이미지 */}
-                <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                  {/* 썸네일 이미지 - Medium 스타일: 80x80 (모바일), 96x96 (데스크톱) */}
                   {post.cover && (
-                    <Image
-                      src={post.cover}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 640px) 96px, 128px"
-                    />
+                    <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24">
+                      <div className="relative w-full h-full rounded-md overflow-hidden bg-gray-100">
+                        <Image
+                          src={post.cover}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 640px) 80px, 96px"
+                          priority={false}
+                        />
+                      </div>
+                    </div>
                   )}
                 </div>
               </Link>
@@ -116,7 +133,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
               </div>
 
               {/* 구분선 */}
-              <div className="mt-8 border-b border-gray-200" />
+              <div className="mt-6 border-b border-gray-200" />
             </article>
           ))}
         </div>
