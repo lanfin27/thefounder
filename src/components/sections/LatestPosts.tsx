@@ -163,24 +163,24 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                   <Link href={`/posts/${post.slug}`} className="block">
                     <div className="flex gap-3">
                       {/* 텍스트 영역 */}
-                      <div className="flex-1 min-w-0 space-y-1.5">
-                        {/* 제목 - 2줄 */}
-                        <h3 className="text-base font-semibold leading-tight text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      <div className="flex-1 min-w-0">
+                        {/* 제목 - 1줄만 */}
+                        <h3 className="text-base font-semibold leading-tight text-gray-900 line-clamp-1 group-hover:text-blue-600 transition-colors mb-2">
                           {title}
                         </h3>
 
                         {/* 발췌문 - 2줄 */}
                         {excerpt && excerpt.trim() && (
-                          <p className="text-sm leading-relaxed text-gray-600 line-clamp-2">
+                          <p className="text-sm leading-relaxed text-gray-600 line-clamp-2 mb-2">
                             {excerpt}
                           </p>
                         )}
 
                         {/* 메타 정보 - 2줄 구조 */}
-                        <div className="flex flex-col gap-0.5 pt-0.5">
+                        <div className="flex flex-col gap-0.5 mt-3">
                           {/* 줄 1: 카테고리 + 날짜 */}
                           <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                            <span className="inline-block max-w-[90px] font-medium truncate">
+                            <span className="inline-block max-w-[80px] font-medium truncate">
                               {post.categoryLabel || post.category}
                             </span>
                             <span className="text-gray-400">·</span>
