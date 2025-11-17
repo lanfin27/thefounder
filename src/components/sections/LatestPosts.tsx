@@ -11,30 +11,79 @@ interface LatestPostsProps {
 }
 
 /**
- * 발췌문 자동 생성 함수
- * summary가 없으면 content에서 추출
+ * 제목과 발췌문을 자동으로 분리하는 함수
+ * title 필드에 제목과 발췌문이 함께 있는 경우를 처리
  */
-function getExcerpt(post: BlogPost): string {
-  // 1순위: summary 필드
+function parsePostContent(post: BlogPost): {
+  title: string;
+  excerpt: string;
+} {
+  // Case 1: summary 필드가 이미 있는 경우
   if (post.summary && post.summary.trim()) {
-    return post.summary.trim();
+    return {
+      title: post.title,
+      excerpt: post.summary.trim()
+    };
   }
 
-  // 2순위: content에서 추출 (HTML 태그 제거)
+  const titleText = post.title;
+
+  // Case 2: 줄바꿈으로 분리 시도
+  // 예: "제목\n발췌문" 형식
+  const lines = titleText.split('\n').filter(line => line.trim());
+  if (lines.length > 1) {
+    return {
+      title: lines[0].trim(),
+      excerpt: lines.slice(1).join(' ').trim()
+    };
+  }
+
+  // Case 3: 특수문자로 구분 시도
+  // 「」, 。, . 등으로 제목과 발췌문 분리
+  const separators = ['」', '。', '. '];
+
+  for (const sep of separators) {
+    if (titleText.includes(sep)) {
+      const firstIndex = titleText.indexOf(sep);
+      const beforeSep = titleText.substring(0, firstIndex + (sep === '」' ? 1 : 0)).trim();
+      const afterSep = titleText.substring(firstIndex + sep.length).trim();
+
+      // 앞부분이 너무 길지 않고, 뒷부분이 있으면 분리
+      if (beforeSep.length < 100 && afterSep.length > 0) {
+        return {
+          title: beforeSep,
+          excerpt: afterSep
+        };
+      }
+    }
+  }
+
+  // Case 4: content에서 추출
   if (post.content) {
-    const plainText = post.content
-      .replace(/<[^>]*>/g, '') // HTML 태그 제거
-      .replace(/\s+/g, ' ')    // 여러 공백을 하나로
+    const cleanContent = post.content
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
       .trim();
 
-    // 첫 150자 추출
-    if (plainText.length > 150) {
-      return plainText.substring(0, 150) + '...';
+    // 제목이 너무 길면 잘라서 사용
+    if (titleText.length > 80) {
+      return {
+        title: titleText.substring(0, 80) + '...',
+        excerpt: cleanContent.substring(0, 150) + '...'
+      };
     }
-    return plainText;
+
+    return {
+      title: titleText,
+      excerpt: cleanContent.substring(0, 150) + '...'
+    };
   }
 
-  return '';
+  // Case 5: 제목만 사용 (발췌문 없음)
+  return {
+    title: titleText,
+    excerpt: ''
+  };
 }
 
 /**
@@ -80,7 +129,8 @@ export function LatestPosts({ posts }: LatestPostsProps) {
         {/* Posts List */}
         <div className="space-y-6">
           {posts.map((post) => {
-            const excerpt = getExcerpt(post);
+            // 제목과 발췌문 분리
+            const { title, excerpt } = parsePostContent(post);
 
             return (
               <article key={post.id} className="group">
@@ -92,7 +142,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                       <div className="flex-1 min-w-0 space-y-1.5">
                         {/* 제목 - 2줄 */}
                         <h3 className="text-base font-semibold leading-tight text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                          {post.title}
+                          {title}
                         </h3>
 
                         {/* 발췌문 - 2줄 */}
@@ -180,7 +230,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                       <div className="flex-1 min-w-0 space-y-2">
                         {/* 제목 */}
                         <h3 className="text-base font-semibold leading-snug text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                          {post.title}
+                          {title}
                         </h3>
 
                         {/* 발췌문 */}
