@@ -38,45 +38,61 @@ export function LatestPosts({ posts }: LatestPostsProps) {
 
                 {/* 왼쪽: 텍스트 영역 */}
                 <div className="flex-1 min-w-0">
-                  {/* 제목 - 모바일 1줄, 데스크톱 2줄 */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors line-clamp-1 md:line-clamp-2">
+                  {/* 제목 - 모바일/데스크톱 모두 2줄 */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
                   {/* 요약 - 모바일 숨김 */}
-                  <p className="text-base text-gray-600 mb-4 line-clamp-2 hidden sm:block">
+                  <p className="text-base text-gray-600 mb-3 line-clamp-2 hidden sm:block">
                     {post.summary}
                   </p>
 
-                  {/* 메타 정보 - 오버플로우 방지 */}
-                  <div className="flex items-center gap-2 text-sm text-gray-500 overflow-hidden">
-                    <span className="font-medium truncate">{post.categoryLabel || post.category}</span>
-                    <span className="flex-shrink-0">·</span>
-                    <span className="flex-shrink-0">{new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}</span>
-                    <span className="hidden sm:inline flex-shrink-0">·</span>
-                    <span className="hidden sm:inline flex-shrink-0">{post.readingTime}분 읽기</span>
+                  {/* 메타 정보 - 2줄 구조로 완전 재작성 */}
+                  <div className="space-y-1">
+                    {/* 첫 번째 줄: 카테고리 + 날짜 */}
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+                      {/* 카테고리 - 최대 너비 강제 제한 */}
+                      <span className="inline-block max-w-[100px] sm:max-w-[150px] font-medium truncate">
+                        {post.categoryLabel || post.category}
+                      </span>
 
-                    {/* 👍 좋아요 개수 */}
-                    {post.clapsCount !== undefined && post.clapsCount > 0 && (
-                      <>
-                        <span className="hidden sm:inline flex-shrink-0">·</span>
-                        <span className="hidden sm:inline-flex items-center gap-1 flex-shrink-0">
-                          <ThumbsUp className="w-3 h-3" />
-                          {post.clapsCount}
-                        </span>
-                      </>
-                    )}
+                      {/* 구분자 */}
+                      <span className="flex-shrink-0 text-gray-400">·</span>
 
-                    {/* 💬 댓글 개수 */}
-                    {post.commentsCount !== undefined && post.commentsCount > 0 && (
-                      <>
-                        <span className="hidden sm:inline flex-shrink-0">·</span>
-                        <span className="hidden sm:inline-flex items-center gap-1 flex-shrink-0">
-                          <MessageCircle className="w-3 h-3" />
-                          {post.commentsCount}
-                        </span>
-                      </>
-                    )}
+                      {/* 날짜 - 절대 줄바꿈 방지 */}
+                      <time className="whitespace-nowrap flex-shrink-0">
+                        {new Date(post.publishedDate).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}
+                      </time>
+                    </div>
+
+                    {/* 두 번째 줄: 읽기 시간 + 인게이지먼트 지표 */}
+                    <div className="flex items-center gap-3 text-xs sm:text-sm text-gray-500">
+                      {/* 읽기 시간 - 모바일에서도 표시 */}
+                      <span className="flex-shrink-0">{post.readingTime}분 읽기</span>
+
+                      {/* 좋아요 개수 */}
+                      {post.clapsCount !== undefined && post.clapsCount > 0 && (
+                        <>
+                          <span className="flex-shrink-0 text-gray-400">·</span>
+                          <span className="flex items-center gap-1 flex-shrink-0">
+                            <ThumbsUp className="w-3 h-3" />
+                            <span>{post.clapsCount}</span>
+                          </span>
+                        </>
+                      )}
+
+                      {/* 댓글 개수 */}
+                      {post.commentsCount !== undefined && post.commentsCount > 0 && (
+                        <>
+                          <span className="flex-shrink-0 text-gray-400">·</span>
+                          <span className="flex items-center gap-1 flex-shrink-0">
+                            <MessageCircle className="w-3 h-3" />
+                            <span>{post.commentsCount}</span>
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
 
