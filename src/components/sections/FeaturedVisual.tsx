@@ -156,9 +156,10 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
 
           {/* 🔥 중앙: 큰 카드 1개 (col-span-6) - 높이 자동 조정 */}
           <div className="lg:col-span-6">
+            {/* 🖥️ PC 버전: 그라데이션 오버레이 (768px 이상) */}
             <Link
               href={`/posts/${centerPost.slug}`}
-              className="group block h-full"
+              className="group hidden lg:block h-full"
             >
               <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-lg mb-4">
                 {centerPost.cover && (
@@ -191,6 +192,59 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                   )}
                   {centerPost.publishedDate && (
                     <p className="text-xs text-gray-300">{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</p>
+                  )}
+                </div>
+              </div>
+            </Link>
+
+            {/* 📱 모바일 버전: 일반 카드 (768px 미만) */}
+            <Link
+              href={`/posts/${centerPost.slug}`}
+              className="group block lg:hidden"
+            >
+              <div className="relative w-full overflow-hidden rounded-lg mb-3" style={{ aspectRatio: '4/3' }}>
+                {centerPost.cover && (
+                  <Image
+                    src={centerPost.cover}
+                    alt={centerPost.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                )}
+              </div>
+              <div className="space-y-1">
+                {centerPost.categoryLabel && (
+                  <span className="text-xs font-semibold text-gray-500 uppercase">
+                    {centerPost.categoryLabel}
+                  </span>
+                )}
+                <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                  {centerPost.title}
+                </h3>
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                  {centerPost.publishedDate && (
+                    <span>{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</span>
+                  )}
+                  {/* 좋아요/댓글 카운트 */}
+                  {centerPost.clapsCount !== undefined && centerPost.clapsCount > 0 && (
+                    <>
+                      <span>·</span>
+                      <span className="flex items-center gap-1">
+                        <ThumbsUp className="w-3 h-3" />
+                        {centerPost.clapsCount}
+                      </span>
+                    </>
+                  )}
+                  {centerPost.commentsCount !== undefined && centerPost.commentsCount > 0 && (
+                    <>
+                      <span>·</span>
+                      <span className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        {centerPost.commentsCount}
+                      </span>
+                    </>
                   )}
                 </div>
               </div>
