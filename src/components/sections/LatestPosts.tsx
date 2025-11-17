@@ -85,7 +85,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
             return (
               <article key={post.id} className="group">
                 {/* 모바일 전용 레이아웃 (< 768px) */}
-                <div className="md:hidden">
+                <div className="block md:hidden">
                   <Link href={`/posts/${post.slug}`} className="block">
                     <div className="flex gap-3">
                       {/* 텍스트 영역 */}
