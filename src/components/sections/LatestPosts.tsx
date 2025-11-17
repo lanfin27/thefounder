@@ -18,8 +18,11 @@ function parsePostContent(post: BlogPost): {
   title: string;
   excerpt: string;
 } {
+  const postId = post.id.substring(0, 8);
+
   // Case 1: summary 필드가 이미 있는 경우
   if (post.summary && post.summary.trim()) {
+    console.log(`✅ [${postId}] Case 1: Using summary field`);
     return {
       title: post.title,
       excerpt: post.summary.trim()
@@ -32,10 +35,15 @@ function parsePostContent(post: BlogPost): {
   // 예: "제목\n발췌문" 형식
   const lines = titleText.split('\n').filter(line => line.trim());
   if (lines.length > 1) {
-    return {
+    const result = {
       title: lines[0].trim(),
       excerpt: lines.slice(1).join(' ').trim()
     };
+    console.log(`✅ [${postId}] Case 2: Split by newline`, {
+      title: result.title.substring(0, 30),
+      excerpt: result.excerpt.substring(0, 30)
+    });
+    return result;
   }
 
   // Case 3: 특수문자로 구분 시도
@@ -50,6 +58,7 @@ function parsePostContent(post: BlogPost): {
 
       // 앞부분이 너무 길지 않고, 뒷부분이 있으면 분리
       if (beforeSep.length < 100 && afterSep.length > 0) {
+        console.log(`✅ [${postId}] Case 3: Split by separator "${sep}"`);
         return {
           title: beforeSep,
           excerpt: afterSep
@@ -59,27 +68,32 @@ function parsePostContent(post: BlogPost): {
   }
 
   // Case 4: content에서 추출
-  if (post.content) {
+  if (post.content && post.content.trim()) {
     const cleanContent = post.content
       .replace(/<[^>]*>/g, '')
       .replace(/\s+/g, ' ')
       .trim();
 
-    // 제목이 너무 길면 잘라서 사용
-    if (titleText.length > 80) {
+    if (cleanContent.length > 0) {
+      console.log(`✅ [${postId}] Case 4: Extract from content`);
+
+      // 제목이 너무 길면 잘라서 사용
+      if (titleText.length > 80) {
+        return {
+          title: titleText.substring(0, 80) + '...',
+          excerpt: cleanContent.substring(0, 150) + '...'
+        };
+      }
+
       return {
-        title: titleText.substring(0, 80) + '...',
+        title: titleText,
         excerpt: cleanContent.substring(0, 150) + '...'
       };
     }
-
-    return {
-      title: titleText,
-      excerpt: cleanContent.substring(0, 150) + '...'
-    };
   }
 
   // Case 5: 제목만 사용 (발췌문 없음)
+  console.warn(`⚠️ [${postId}] Case 5: No excerpt available, title only`);
   return {
     title: titleText,
     excerpt: ''
@@ -132,6 +146,16 @@ export function LatestPosts({ posts }: LatestPostsProps) {
             // 제목과 발췌문 분리
             const { title, excerpt } = parsePostContent(post);
 
+            // 🔍 디버깅 로그
+            console.log('📊 PostCard render:', {
+              id: post.id.substring(0, 8),
+              originalTitle: post.title.substring(0, 50),
+              parsedTitle: title.substring(0, 50),
+              parsedExcerpt: excerpt.substring(0, 50),
+              excerptLength: excerpt.length,
+              hasSummary: !!post.summary
+            });
+
             return (
               <article key={post.id} className="group">
                 {/* 모바일 전용 레이아웃 (< 768px) */}
@@ -146,7 +170,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                         </h3>
 
                         {/* 발췌문 - 2줄 */}
-                        {excerpt && (
+                        {excerpt && excerpt.trim() && (
                           <p className="text-sm leading-relaxed text-gray-600 line-clamp-2">
                             {excerpt}
                           </p>
@@ -234,7 +258,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                         </h3>
 
                         {/* 발췌문 */}
-                        {excerpt && (
+                        {excerpt && excerpt.trim() && (
                           <p className="text-sm leading-relaxed text-gray-600 line-clamp-2">
                             {excerpt}
                           </p>
