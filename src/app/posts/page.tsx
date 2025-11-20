@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/posts'
-import PostCard from '@/components/blog/PostCard'
 import CategoryFilter from '@/components/blog/CategoryFilter'
 import { CATEGORY_MAPPING } from '@/constants/categories'
+import PostList from '@/components/sections/PostList'
 
 export const metadata: Metadata = {
   title: '블로그 | The Founder',
@@ -19,13 +19,13 @@ export default async function PostsPage({
   // Filter by category if provided
   const filteredPosts = searchParams.category
     ? posts.filter(post => {
-        // Check if the post's category matches the new category slug
-        const mappedCategory = CATEGORY_MAPPING[post.category || '']
-        return mappedCategory === searchParams.category ||
-               post.category === searchParams.category
-      })
+      // Check if the post's category matches the new category slug
+      const mappedCategory = CATEGORY_MAPPING[post.category || '']
+      return mappedCategory === searchParams.category ||
+        post.category === searchParams.category
+    })
     : posts
-  
+
   return (
     <div className="min-h-screen bg-white pt-20 md:pt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,22 +38,10 @@ export default async function PostsPage({
               1인 창업가를 위한 공간
             </p>
           </div>
-          
+
           <CategoryFilter currentCategory={searchParams.category} />
-          
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-body-large text-medium-black-secondary">
-                아직 등록된 글이 없습니다.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-8">
-              {filteredPosts.map((post) => (
-                <PostCard key={post.id} post={post} variant="list" />
-              ))}
-            </div>
-          )}
+
+          <PostList posts={filteredPosts} />
         </div>
       </div>
     </div>

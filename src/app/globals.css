@@ -19,7 +19,12 @@
   }
 
   /* 모든 헤딩을 Sans로 강제 */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-ink-900;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
     font-weight: 700;
@@ -71,6 +76,19 @@
     @apply inline-flex items-center px-2 py-0.5 rounded;
     @apply text-xs font-medium bg-ink-100 text-ink-700;
   }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border transition-all duration-200;
+    border-color: rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    background-color: #ffffff;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #1a8917;
+    box-shadow: 0 0 0 3px rgba(26, 137, 23, 0.1);
+  }
 }
 
 @layer utilities {
@@ -109,14 +127,14 @@
 }
 
 /* CRITICAL: Remove ALL spacing above Featured section */
-main > div:first-child,
-main > section:first-child {
+main>div:first-child,
+main>section:first-child {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
 /* CRITICAL: Remove spacing after header */
-header + * {
+header+* {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
@@ -127,6 +145,7 @@ header + * {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -142,9 +161,11 @@ header + * {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
@@ -155,6 +176,7 @@ header + * {
     opacity: 1;
     transform: translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-20px);
@@ -458,9 +480,9 @@ details[class*="callout"] {
 }
 
 /* Disable summary click */
-details.notion-callout > summary,
-details.notion-toggle > summary,
-details[class*="callout"] > summary {
+details.notion-callout>summary,
+details.notion-toggle>summary,
+details[class*="callout"]>summary {
   /* Prevent toggle interaction */
   pointer-events: none !important;
   cursor: default !important;
@@ -473,19 +495,19 @@ details[class*="callout"] > summary {
 }
 
 /* Remove details marker/arrow */
-details.notion-callout > summary::-webkit-details-marker,
-details.notion-toggle > summary::-webkit-details-marker,
-details[class*="callout"] > summary::-webkit-details-marker,
-details.notion-callout > summary::marker,
-details.notion-toggle > summary::marker,
-details[class*="callout"] > summary::marker {
+details.notion-callout>summary::-webkit-details-marker,
+details.notion-toggle>summary::-webkit-details-marker,
+details[class*="callout"]>summary::-webkit-details-marker,
+details.notion-callout>summary::marker,
+details.notion-toggle>summary::marker,
+details[class*="callout"]>summary::marker {
   display: none !important;
 }
 
 /* Force content visibility inside details */
-details.notion-callout > *:not(summary),
-details.notion-toggle > *:not(summary),
-details[class*="callout"] > *:not(summary) {
+details.notion-callout>*:not(summary),
+details.notion-toggle>*:not(summary),
+details[class*="callout"]>*:not(summary) {
   display: block !important;
   overflow: visible !important;
   max-height: none !important;
@@ -670,16 +692,16 @@ details.notion-toggle,
 }
 
 /* Callout title */
-.medium-content .bg-gray-50.border-l-4 > .flex > .flex-1 > div:first-child,
-.medium-content div[class*="border-l-4"] > .flex > .flex-1 > div:first-child {
+.medium-content .bg-gray-50.border-l-4>.flex>.flex-1>div:first-child,
+.medium-content div[class*="border-l-4"]>.flex>.flex-1>div:first-child {
   font-size: 17px !important;
   font-weight: 500;
   line-height: 1.6;
 }
 
 /* Callout children (content) */
-.medium-content .bg-gray-50.border-l-4 > .flex > .flex-1 > .mt-2,
-.medium-content div[class*="border-l-4"] > .flex > .flex-1 > .mt-2 {
+.medium-content .bg-gray-50.border-l-4>.flex>.flex-1>.mt-2,
+.medium-content div[class*="border-l-4"]>.flex>.flex-1>.mt-2 {
   font-size: 17px !important;
 }
 
@@ -705,6 +727,7 @@ details.notion-toggle,
 
 /* 10. Responsive adjustments */
 @media (max-width: 768px) {
+
   .notion-callout,
   .callout,
   [class*="callout"] {
@@ -757,18 +780,18 @@ section[class*="callout"] {
 }
 
 /* Force display block on likely hidden elements */
-details > div,
-details > p,
-details > ul,
-details > ol,
-summary + div,
-summary + p,
-summary + ul,
-summary + ol,
-[class*="callout"] > div,
-[class*="callout"] > p,
-[class*="callout"] > ul,
-[class*="callout"] > ol {
+details>div,
+details>p,
+details>ul,
+details>ol,
+summary+div,
+summary+p,
+summary+ul,
+summary+ol,
+[class*="callout"]>div,
+[class*="callout"]>p,
+[class*="callout"]>ul,
+[class*="callout"]>ol {
   display: block !important;
   overflow: visible !important;
   max-height: none !important;
@@ -777,25 +800,19 @@ summary + ol,
 }
 
 /* Force lists visible */
-ul, ol, li {
+ul,
+ol,
+li {
   overflow: visible !important;
   max-height: none !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* Remove any height restrictions on children */
-* > * {
-  max-height: none !important;
-}
-
-/* Ensure paragraphs are visible */
-p {
-  overflow: visible !important;
-  max-height: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
+/* REMOVED GLOBAL WILDCARD OVERRIDES THAT BREAK UI */
+/* The following rules were causing text overlap in LatestPosts by disabling line-clamp */
+/* * > * { max-height: none !important; } */
+/* p { overflow: visible !important; ... } */
 
 /* ========================================
    Mobile Tooltip Animation for Search
@@ -806,10 +823,13 @@ p {
     opacity: 0;
     transform: translate(-50%, -5px);
   }
-  10%, 90% {
+
+  10%,
+  90% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, -5px);

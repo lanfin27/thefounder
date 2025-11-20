@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types';
 import { ThumbsUp, MessageCircle } from 'lucide-react';
+import { parsePostContent } from '@/utils/content';
 
 interface FeaturedVisualProps {
   posts: BlogPost[];
@@ -34,11 +35,8 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
 
         {/* Header */}
         <div className="mb-8">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            FEATURED
-          </p>
-          <h2 className="text-2xl font-bold text-gray-900">
-            주목할 만한 이야기
+          <h2 className="text-lg font-bold text-gray-900">
+            Featured
           </h2>
         </div>
 
@@ -70,8 +68,12 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                   </span>
                 )}
                 <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                  {leftPost.title}
+                  {parsePostContent(leftPost).title}
                 </h3>
+                {/* 모바일에서 발췌문 표시 */}
+                <p className="text-sm text-gray-600 line-clamp-2 mt-1 lg:hidden">
+                  {parsePostContent(leftPost).excerpt}
+                </p>
                 <div className="flex items-center gap-2 text-xs text-gray-400">
                   {leftPost.publishedDate && (
                     <span>{new Date(leftPost.publishedDate).toLocaleDateString('ko-KR')}</span>
@@ -123,8 +125,12 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     </span>
                   )}
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                    {extraPost.title}
+                    {parsePostContent(extraPost).title}
                   </h3>
+                  {/* 모바일에서 발췌문 표시 */}
+                  <p className="text-sm text-gray-600 line-clamp-2 mt-1 lg:hidden">
+                    {parsePostContent(extraPost).excerpt}
+                  </p>
                   <div className="flex items-center gap-2 text-xs text-gray-400">
                     {extraPost.publishedDate && (
                       <span>{new Date(extraPost.publishedDate).toLocaleDateString('ko-KR')}</span>
@@ -183,16 +189,35 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     </span>
                   )}
                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors line-clamp-2">
-                    {centerPost.title}
+                    {parsePostContent(centerPost).title}
                   </h3>
-                  {centerPost.summary && (
-                    <p className="text-gray-200 text-sm line-clamp-2 mb-2">
-                      {centerPost.summary}
-                    </p>
-                  )}
-                  {centerPost.publishedDate && (
-                    <p className="text-xs text-gray-300">{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</p>
-                  )}
+                  <p className="text-gray-200 text-sm line-clamp-2 mb-2">
+                    {parsePostContent(centerPost).excerpt}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-white/70">
+                    {centerPost.publishedDate && (
+                      <span>{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</span>
+                    )}
+                    {/* 좋아요/댓글 카운트 */}
+                    {centerPost.clapsCount !== undefined && centerPost.clapsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <ThumbsUp className="w-3 h-3" />
+                          {centerPost.clapsCount}
+                        </span>
+                      </>
+                    )}
+                    {centerPost.commentsCount !== undefined && centerPost.commentsCount > 0 && (
+                      <>
+                        <span>·</span>
+                        <span className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          {centerPost.commentsCount}
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </Link>
@@ -221,8 +246,12 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                   </span>
                 )}
                 <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                  {centerPost.title}
+                  {parsePostContent(centerPost).title}
                 </h3>
+                {/* 모바일에서 발췌문 표시 */}
+                <p className="text-sm text-gray-600 line-clamp-2 mt-1 lg:hidden">
+                  {parsePostContent(centerPost).excerpt}
+                </p>
                 <div className="flex items-center gap-2 text-xs text-gray-400">
                   {centerPost.publishedDate && (
                     <span>{new Date(centerPost.publishedDate).toLocaleDateString('ko-KR')}</span>
@@ -251,7 +280,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
             </Link>
           </div>
 
-          {/* 오른쪽: 작은 카드 2개 (세로 배치) */}
+          {/* 오른쪽 열: 포스트3 + 포스트4 */}
           <div className="lg:col-span-3 space-y-6">
             {rightPosts.map((post) => (
               <Link
@@ -277,8 +306,12 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     </span>
                   )}
                   <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
-                    {post.title}
+                    {parsePostContent(post).title}
                   </h3>
+                  {/* 모바일에서 발췌문 표시 */}
+                  <p className="text-sm text-gray-600 line-clamp-2 mt-1 lg:hidden">
+                    {parsePostContent(post).excerpt}
+                  </p>
                   <div className="flex items-center gap-2 text-xs text-gray-400">
                     {post.publishedDate && (
                       <span>{new Date(post.publishedDate).toLocaleDateString('ko-KR')}</span>
@@ -307,6 +340,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
               </Link>
             ))}
           </div>
+
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPostsByCategory } from '@/lib/posts';
 import { CATEGORIES, CategorySlug } from '@/types/post';
-import CategoryPosts from '@/components/sections/CategoryPosts';
+import PostList from '@/components/sections/PostList';
 import { Metadata } from 'next';
 import { TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
 
@@ -85,9 +85,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
 
         {/* 카테고리별 포스트 목록 */}
-        <CategoryPosts
+        <PostList
           posts={posts}
-          layoutType={categoryInfo.layoutType}
           categorySlug={slug as CategorySlug}
         />
       </div>
