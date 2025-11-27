@@ -1,3 +1,4 @@
+
 import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import CategoryFilter from '@/components/blog/CategoryFilter'
@@ -15,6 +16,23 @@ export default async function PostsPage({
   searchParams: { category?: string }
 }) {
   const posts = await getAllPosts()
+
+  // Check for admin status
+  const { createClient } = await import('@/lib/supabase/server')
+  const supabase = await createClient()
+
+  let isAdmin = false
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (user) {
+    const { data: profile } = await supabase
+      .from('user_profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    isAdmin = profile?.role === 'admin'
+  }
 
   // Filter by category if provided
   const filteredPosts = searchParams.category
@@ -41,7 +59,7 @@ export default async function PostsPage({
 
           <CategoryFilter currentCategory={searchParams.category} />
 
-          <PostList posts={filteredPosts} />
+          <PostList posts={filteredPosts} isAdmin={isAdmin} />
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ export default function PostCardImageRight({ post }: PostCardImageRightProps) {
         {/* 왼쪽: 텍스트 */}
         <div className="flex-1 min-w-0">
           {/* 제목 (보통 - text-xl) */}
-          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors line-clamp-2">
+          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-primary transition-colors line-clamp-2">
             {post.title}
           </h3>
 

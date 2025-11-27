@@ -1,0 +1,9 @@
+=== The Founder 카카오 앱 정보 ===
+
+REST API 키 (Client ID):
+6be2f2283a2d6afde4d8743c1890ec9e
+
+Client Secret (다음 단계에서 생성):
+[여기에 복사할 예정]
+
+l8sYQpS0tnptycu19XZl1Ri4jkLEHmjI

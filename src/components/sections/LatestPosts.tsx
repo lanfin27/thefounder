@@ -31,7 +31,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
   return (
     <section className="space-y-6">
       <div className="mb-8">
-        <h2 className="text-lg font-bold text-gray-900">Latest</h2>
+        <h2 className="text-base md:text-lg font-bold text-gray-900">Latest</h2>
       </div>
 
       <div className="flex flex-col">
@@ -86,10 +86,10 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                         <time className="whitespace-nowrap">
                           {formatDate(post.publishedDate)}
                         </time>
-                        {post.readTime && (
+                        {post.readingTime && (
                           <>
                             <span className="text-gray-300">·</span>
-                            <span>{post.readTime}분</span>
+                            <span>{post.readingTime}분</span>
                           </>
                         )}
                         {((post.clapsCount || 0) > 0 || (post.commentsCount || 0) > 0) && (
@@ -119,7 +119,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                     {/* 텍스트 영역 */}
                     <div className="flex-1 min-w-0 space-y-3">
                       {/* 제목 - 2줄까지 */}
-                      <h3 className="text-xl lg:text-2xl font-bold leading-tight text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl lg:text-2xl font-bold leading-tight text-gray-900 line-clamp-2 group-hover:text-green-primary transition-colors">
                         {title}
                       </h3>
 
@@ -155,10 +155,10 @@ export function LatestPosts({ posts }: LatestPostsProps) {
                         </time>
 
                         {/* 읽기 시간 (있을 경우) */}
-                        {post.readTime && (
+                        {post.readingTime && (
                           <>
                             <span className="text-gray-300">·</span>
-                            <span>{post.readTime}분 읽기</span>
+                            <span>{post.readingTime}분 읽기</span>
                           </>
                         )}
 

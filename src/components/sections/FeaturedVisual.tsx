@@ -35,7 +35,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
 
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-lg font-bold text-gray-900">
+          <h2 className="text-base md:text-lg font-bold text-gray-900">
             Featured
           </h2>
         </div>
@@ -67,7 +67,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     {leftPost.categoryLabel}
                   </span>
                 )}
-                <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-primary line-clamp-2">
                   {parsePostContent(leftPost).title}
                 </h3>
                 {/* 모바일에서 발췌문 표시 */}
@@ -124,7 +124,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                       {extraPost.categoryLabel}
                     </span>
                   )}
-                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-primary line-clamp-2">
                     {parsePostContent(extraPost).title}
                   </h3>
                   {/* 모바일에서 발췌문 표시 */}
@@ -167,7 +167,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
               href={`/posts/${centerPost.slug}`}
               className="group hidden lg:block h-full"
             >
-              <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-lg mb-4">
+              <div className="relative w-full h-full overflow-hidden rounded-lg mb-4">
                 {centerPost.cover && (
                   <Image
                     src={centerPost.cover}
@@ -188,7 +188,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                       {centerPost.categoryLabel}
                     </span>
                   )}
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors line-clamp-2">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-primary transition-colors line-clamp-2">
                     {parsePostContent(centerPost).title}
                   </h3>
                   <p className="text-gray-200 text-sm line-clamp-2 mb-2">
@@ -245,7 +245,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     {centerPost.categoryLabel}
                   </span>
                 )}
-                <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-primary line-clamp-2">
                   {parsePostContent(centerPost).title}
                 </h3>
                 {/* 모바일에서 발췌문 표시 */}
@@ -305,7 +305,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                       {post.categoryLabel}
                     </span>
                   )}
-                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-gray-600 line-clamp-2">
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-primary line-clamp-2">
                     {parsePostContent(post).title}
                   </h3>
                   {/* 모바일에서 발췌문 표시 */}

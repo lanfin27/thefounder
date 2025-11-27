@@ -64,7 +64,7 @@ export default function FeaturedCard({ category, emoji, post, bgColor }: Feature
           </div>
         )}
 
-        <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-green-600 transition-colors flex-grow">
+        <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-green-primary transition-colors flex-grow">
           {post.title}
         </h3>
 

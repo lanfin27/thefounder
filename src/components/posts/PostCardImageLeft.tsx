@@ -36,7 +36,7 @@ export default function PostCardImageLeft({ post }: PostCardImageLeftProps) {
           </span>
 
           {/* 제목 (크게 - text-2xl) */}
-          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-600 transition-colors line-clamp-2">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-primary transition-colors line-clamp-2">
             {post.title}
           </h3>
 

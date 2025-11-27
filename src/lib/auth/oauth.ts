@@ -15,6 +15,11 @@ export async function signInWithOAuth({
   scopes,
   queryParams = {}
 }: OAuthConfig) {
+  console.log(`[OAuth] Initiating ${provider} sign in...`, {
+    redirectTo,
+    origin: typeof window !== 'undefined' ? window.location.origin : 'unknown'
+  })
+
   const supabase = createClient()
 
   // Google-specific query params for refresh token
@@ -26,14 +31,28 @@ export async function signInWithOAuth({
       }
     : queryParams
 
+  const callbackUrl = `${window.location.origin}/api/auth/callback?next=${encodeURIComponent(redirectTo)}`
+
+  console.log(`[OAuth] Callback URL:`, callbackUrl)
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: `${window.location.origin}/api/auth/callback?next=${encodeURIComponent(redirectTo)}`,
+      redirectTo: callbackUrl,
       scopes: scopes?.join(' '),
       queryParams: providerQueryParams
     }
   })
+
+  if (error) {
+    console.error(`[OAuth] ${provider} sign in error:`, {
+      message: error.message,
+      status: error.status,
+      name: error.name
+    })
+  } else {
+    console.log(`[OAuth] ✅ ${provider} OAuth redirect initiated`)
+  }
 
   return { data, error }
 }
