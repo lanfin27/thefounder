@@ -1,0 +1,23 @@
+
+> the-founder@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.31
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+
+./src/lib/cloudflare-bypass/commercial-services/cost-optimizer.ts:97:13
+Type error: Object literal may only specify known properties, and 'maxAge' does not exist in type 'LRUCache<string, any, unknown> | Options<string, any, unknown>'.
+
+[0m [90m  95 |[39m             max[33m:[39m config[33m.[39mcache[33m.[39mmaxSize[33m,[39m[0m
+[0m [90m  96 |[39m             ttl[33m:[39m config[33m.[39mcache[33m.[39mttl[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m  97 |[39m             maxAge[33m:[39m config[33m.[39mcache[33m.[39mmaxAge[33m,[39m[0m
+[0m [90m     |[39m             [31m[1m^[22m[39m[0m
+[0m [90m  98 |[39m             updateAgeOnGet[33m:[39m config[33m.[39mcache[33m.[39mupdateAgeOnGet[33m,[39m[0m
+[0m [90m  99 |[39m             allowStale[33m:[39m config[33m.[39mcache[33m.[39mallowStale[33m,[39m[0m
+[0m [90m 100 |[39m             staleWhileRevalidate[33m:[39m config[33m.[39mcache[33m.[39mstaleWhileRevalidate[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null

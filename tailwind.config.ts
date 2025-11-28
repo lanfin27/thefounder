@@ -12,6 +12,8 @@ const config: Config = {
       fontFamily: {
         // 모든 폰트를 시스템 폰트로 통일
         sans: [
+          'var(--font-pretendard)',
+          'Pretendard',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',

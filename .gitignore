@@ -34,6 +34,12 @@ yarn-error.log*
 .env*.local
 .env
 
+# Deployment secrets and configuration (do not commit!)
+generated-secrets.txt
+vercel-env-setup.txt
+.env.production
+deployment-checklist.txt
+
 # vercel
 .vercel
 

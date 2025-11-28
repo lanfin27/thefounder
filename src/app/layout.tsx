@@ -121,6 +121,24 @@ export const metadata: Metadata = {
   classification: 'Business, Entrepreneurship, Startup',
 }
 
+import localFont from 'next/font/local'
+
+const pretendard = localFont({
+  src: [
+    { path: '../../font/Pretendard-Thin.ttf', weight: '100', style: 'normal' },
+    { path: '../../font/Pretendard-ExtraLight.ttf', weight: '200', style: 'normal' },
+    { path: '../../font/Pretendard-Light.ttf', weight: '300', style: 'normal' },
+    { path: '../../font/Pretendard-Regular.ttf', weight: '400', style: 'normal' },
+    { path: '../../font/Pretendard-Medium.ttf', weight: '500', style: 'normal' },
+    { path: '../../font/Pretendard-SemiBold.ttf', weight: '600', style: 'normal' },
+    { path: '../../font/Pretendard-Bold.ttf', weight: '700', style: 'normal' },
+    { path: '../../font/Pretendard-ExtraBold.ttf', weight: '800', style: 'normal' },
+    { path: '../../font/Pretendard-Black.ttf', weight: '900', style: 'normal' },
+  ],
+  variable: '--font-pretendard',
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -132,7 +150,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="font-sans">
+      <body className={`${pretendard.variable} font-sans`}>
         <SmartScale />
         <AuthProvider>
           <UserProvider>

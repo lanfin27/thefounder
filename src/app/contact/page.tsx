@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { Mail, MessageSquare, Clock, MapPin } from 'lucide-react'
+import { Mail, Instagram, Youtube } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: '문의하기 | The Founder',
@@ -27,46 +27,44 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                 연락처 정보
               </h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-green-600 mt-1 mr-4" />
+                  <Mail className="w-6 h-6 text-gray-900 mt-1 mr-4" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">이메일</h3>
-                    <p className="text-gray-600">support@thefounder.kr</p>
+                    <p className="text-gray-600">thefndrbiz@gmail.com</p>
                     <p className="text-sm text-gray-500 mt-1">24시간 이내 답변</p>
                   </div>
                 </div>
-                
-                <div className="flex items-start">
-                  <MessageSquare className="w-6 h-6 text-blue-600 mt-1 mr-4" />
+
+                <a
+                  href="https://www.instagram.com/thefounder.co.kr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start group"
+                >
+                  <Instagram className="w-6 h-6 text-gray-900 mt-1 mr-4 group-hover:text-gray-700 transition-colors" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">카카오톡 채널</h3>
-                    <p className="text-gray-600">@thefounder</p>
-                    <p className="text-sm text-gray-500 mt-1">평일 10:00-18:00</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">인스타그램</h3>
+                    <p className="text-gray-600">@thefounder.co.kr</p>
+                    <p className="text-sm text-gray-500 mt-1">최신 소식과 인사이트</p>
                   </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <Clock className="w-6 h-6 text-purple-600 mt-1 mr-4" />
+                </a>
+
+                <a
+                  href="https://www.youtube.com/@TheFndr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start group"
+                >
+                  <Youtube className="w-6 h-6 text-gray-900 mt-1 mr-4 group-hover:text-gray-700 transition-colors" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">운영시간</h3>
-                    <p className="text-gray-600">평일 10:00 - 18:00</p>
-                    <p className="text-sm text-gray-500 mt-1">주말/공휴일 휴무</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">유튜브</h3>
+                    <p className="text-gray-600">@TheFndr</p>
+                    <p className="text-sm text-gray-500 mt-1">창업가 인터뷰 및 영상</p>
                   </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-orange-600 mt-1 mr-4" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">주소</h3>
-                    <p className="text-gray-600">
-                      서울특별시 강남구<br />
-                      테헤란로 123<br />
-                      스타트업 빌딩 5층
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -77,7 +75,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                 문의 내용
               </h2>
-              
+
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -93,7 +91,7 @@ export default function ContactPage() {
                       placeholder="홍길동"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       이메일 *
@@ -108,7 +106,7 @@ export default function ContactPage() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                     문의 유형 *
@@ -128,7 +126,7 @@ export default function ContactPage() {
                     <option value="other">기타</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     문의 내용 *
@@ -142,7 +140,7 @@ export default function ContactPage() {
                     placeholder="문의하실 내용을 자세히 적어주세요."
                   />
                 </div>
-                
+
                 <div className="flex items-start">
                   <input
                     id="privacy"
@@ -155,7 +153,7 @@ export default function ContactPage() {
                     <a href="/privacy" className="text-green-600 hover:underline">개인정보처리방침</a>에 동의합니다. *
                   </label>
                 </div>
-                
+
                 <div className="pt-4">
                   <button
                     type="submit"
@@ -174,49 +172,29 @@ export default function ContactPage() {
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             자주 묻는 질문
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="bg-white rounded-lg border border-gray-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 회원가입은 무료인가요?
               </h3>
               <p className="text-gray-600">
-                네, The Founder의 기본 회원가입은 완전히 무료입니다. 
-                프리미엄 멤버십은 추가 기능을 원하시는 분들을 위한 선택사항입니다.
+                네, The Founder의 기본 회원가입은 완전히 무료입니다.
+                다양한 창업 정보와 인사이트를 자유롭게 이용하실 수 있습니다.
               </p>
             </div>
-            
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                프리미엄 멤버십은 어떻게 해지하나요?
-              </h3>
-              <p className="text-gray-600">
-                마이페이지의 멤버십 관리에서 언제든지 해지할 수 있습니다. 
-                해지 후에도 남은 기간 동안은 프리미엄 기능을 이용할 수 있습니다.
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                기업가치 평가는 어떻게 이용하나요?
-              </h3>
-              <p className="text-gray-600">
-                로그인 후 대시보드에서 '밸류에이션' 메뉴를 통해 이용할 수 있습니다. 
-                무료 회원은 월 3회, 프리미엄 회원은 무제한 이용 가능합니다.
-              </p>
-            </div>
-            
+
             <div className="bg-white rounded-lg border border-gray-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 콘텐츠 기고는 어떻게 하나요?
               </h3>
               <p className="text-gray-600">
-                창업 경험이나 전문 지식을 공유하고 싶으신 분들은 
-                editor@thefounder.kr로 기고 문의를 주시면 검토 후 연락드립니다.
+                창업 경험이나 전문 지식을 공유하고 싶으신 분들은
+                thefndrbiz@gmail.com으로 기고 문의를 주시면 검토 후 연락드립니다.
               </p>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
             <p className="text-gray-600">
               더 많은 도움이 필요하신가요?{' '}

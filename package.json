@@ -76,7 +76,8 @@
     "yt:generate-metrics": "tsx scripts/generate-initial-metrics.ts",
     "yt:collect-history": "tsx scripts/collect-channel-history.ts",
     "yt:generate-historical": "tsx scripts/generate-historical-data.ts",
-    "yt:verify-setup": "tsx scripts/verify-setup.ts"
+    "yt:verify-setup": "tsx scripts/verify-setup.ts",
+    "seo:check": "node scripts/seo-check.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

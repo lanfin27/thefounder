@@ -10,16 +10,16 @@ export default function TermsPage() {
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto prose prose-gray max-w-none">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">서비스 이용약관</h1>
-        
+
         <div className="text-sm text-gray-600 mb-8">
-          <p>시행일: 2024년 1월 1일</p>
-          <p>최종 수정일: 2024년 1월 1일</p>
+          <p>시행일: 2025년 11월 25일</p>
+          <p>최종 수정일: 2025년 11월 28일</p>
         </div>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">제1조 (목적)</h2>
           <p className="mb-4">
-            이 약관은 The Founder(이하 "회사")가 제공하는 웹사이트 및 관련 서비스(이하 "서비스")의 
+            이 약관은 로브(이하 "회사")가 제공하는 웹사이트 및 관련 서비스(이하 "서비스")의
             이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
           </p>
         </section>
@@ -60,8 +60,8 @@ export default function TermsPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">제5조 (회원정보의 변경)</h2>
           <p className="mb-4">
-            회원은 개인정보관리화면을 통하여 언제든지 본인의 개인정보를 열람하고 수정할 수 있습니다. 
-            회원은 회원가입신청 시 기재한 사항이 변경되었을 경우 온라인으로 수정을 하거나 이메일 기타 방법으로 
+            회원은 개인정보관리화면을 통하여 언제든지 본인의 개인정보를 열람하고 수정할 수 있습니다.
+            회원은 회원가입신청 시 기재한 사항이 변경되었을 경우 온라인으로 수정을 하거나 이메일 기타 방법으로
             회사에 대하여 그 변경사항을 알려야 합니다.
           </p>
         </section>
@@ -124,7 +124,7 @@ export default function TermsPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">제11조 (개인정보보호)</h2>
           <p className="mb-4">
-            회사는 회원의 개인정보 수집 시 서비스제공을 위하여 필요한 범위에서 최소한의 개인정보를 수집합니다. 
+            회사는 회원의 개인정보 수집 시 서비스제공을 위하여 필요한 범위에서 최소한의 개인정보를 수집합니다.
             회사의 개인정보 처리에 관한 자세한 사항은 개인정보처리방침에 따릅니다.
           </p>
         </section>
@@ -156,7 +156,7 @@ export default function TermsPage() {
 
         <div className="mt-12 p-6 bg-gray-50 rounded-lg">
           <p className="text-sm text-gray-600">
-            본 약관은 2024년 1월 1일부터 시행됩니다.<br />
+            본 약관은 2025년 11월 25일부터 시행됩니다.<br />
             문의사항이 있으시면 <a href="/contact" className="text-green-600 hover:underline">고객센터</a>로 연락해 주시기 바랍니다.
           </p>
         </div>
