@@ -10,7 +10,7 @@ function SearchModalWrapper() {
   return <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
 }
 
-export default function ClientLayout({ children }: { children: ReactNode }) {
+export function ClientLayout({ children }: { children: ReactNode }) {
   return (
     <SearchProvider>
       {children}

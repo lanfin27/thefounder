@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export default function SmartScale() {
+export function SmartScale() {
     useEffect(() => {
         const adjustScale = () => {
             const width = window.innerWidth;

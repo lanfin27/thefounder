@@ -121,15 +121,30 @@ export async function GET(request: NextRequest) {
           overallRank: ch.overall_rank || 0
         })),
         metrics: {
+          categoryCode: code,
           totalChannels: totalChannels || 0,
           totalViews: totalViews || 0,
           totalVideos: totalVideos || 0,
           averageViewsPerVideo: cat.avg_views_per_video || 0,           // 🔥 Use actual column name
+          averageSubscribers: categoryChannels.length > 0
+            ? categoryChannels.reduce((sum: number, ch: any) => sum + (ch.subscribers || 0), 0) / categoryChannels.length
+            : 0,
+          averageEngagementRate: categoryChannels.length > 0
+            ? categoryChannels.reduce((sum: number, ch: any) => sum + (ch.engagement_rate || 0), 0) / categoryChannels.length
+            : 0,
+          averageShortsRatio: categoryChannels.length > 0
+            ? categoryChannels.reduce((sum: number, ch: any) => sum + (ch.shorts_ratio || 0), 0) / categoryChannels.length
+            : 0,
           dailyChange: cat.daily_change_rate || 0,                      // 🔥 Use actual column name
           weeklyChange: cat.weekly_change_rate || 0,                    // 🔥 Use actual column name
           monthlyChange: 0,  // Not in current schema
           marketShare: 0,    // Not in current schema
-          volatility: 0      // Not in current schema
+          volatility: 0,     // Not in current schema
+          volatilityLevel: 'low' as const, // Default to low
+          topChannelsByViews: categoryChannels.slice(0, 10).map((ch: any) => ch.channel_id),
+          topChannelsByGrowth: [], // Not calculated yet
+          historicalData: [], // Not calculated yet
+          lastUpdated: new Date(cat.updated_at)
         },
         lastUpdated: new Date(cat.updated_at)
       })

@@ -9,7 +9,7 @@
 
 import { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Progress } from '@/components/ui/progress'
+import { Progress } from '@/components/ui/Progress'
 import { AlertCircle, CheckCircle, XCircle, RefreshCw, ExternalLink, Cloud } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -342,17 +342,11 @@ export function QuotaUsageWidget() {
           <Button
             variant="outline"
             size="sm"
-            asChild
+            onClick={() => window.open(usage.googleCloudConsoleUrl, '_blank', 'noopener,noreferrer')}
+            className="flex items-center gap-2"
           >
-            <a
-              href={usage.googleCloudConsoleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              확인하기
-              <ExternalLink className="h-4 w-4" />
-            </a>
+            확인하기
+            <ExternalLink className="h-4 w-4" />
           </Button>
         </div>
 

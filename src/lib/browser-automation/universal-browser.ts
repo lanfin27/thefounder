@@ -128,6 +128,7 @@ export class UniversalBrowserManager extends EventEmitter {
   }
 
   private createPlaywrightWrapper(browser: any, config: UniversalBrowserConfig): UniversalBrowser {
+    const manager = this;
     return {
       async newPage(): Promise<UniversalPage> {
         const context = await browser.newContext({
@@ -135,12 +136,12 @@ export class UniversalBrowserManager extends EventEmitter {
           viewport: config.viewport
         });
         const page = await context.newPage();
-        
+
         if (config.timeout) {
           page.setDefaultTimeout(config.timeout);
         }
-        
-        return this.createPlaywrightPageWrapper(page, context);
+
+        return manager.createPlaywrightPageWrapper(page, context);
       },
 
       async newContext(options: any = {}): Promise<UniversalContext> {
@@ -149,9 +150,9 @@ export class UniversalBrowserManager extends EventEmitter {
           viewport: config.viewport,
           ...options
         };
-        
+
         const context = await browser.newContext(contextOptions);
-        return this.createPlaywrightContextWrapper(context);
+        return manager.createPlaywrightContextWrapper(context);
       },
 
       async close(): Promise<void> {
@@ -161,42 +162,43 @@ export class UniversalBrowserManager extends EventEmitter {
       async pages(): Promise<UniversalPage[]> {
         const contexts = browser.contexts();
         const allPages: UniversalPage[] = [];
-        
+
         for (const context of contexts) {
           const pages = context.pages();
           for (const page of pages) {
-            allPages.push(this.createPlaywrightPageWrapper(page, context));
+            allPages.push(manager.createPlaywrightPageWrapper(page, context));
           }
         }
-        
+
         return allPages;
       }
     };
   }
 
   private createPuppeteerWrapper(browser: any, config: UniversalBrowserConfig): UniversalBrowser {
+    const manager = this;
     return {
       async newPage(): Promise<UniversalPage> {
         const page = await browser.newPage();
-        
+
         if (config.userAgent) {
           await page.setUserAgent(config.userAgent);
         }
-        
+
         if (config.viewport) {
           await page.setViewport(config.viewport);
         }
-        
+
         if (config.timeout) {
           page.setDefaultTimeout(config.timeout);
         }
-        
-        return this.createPuppeteerPageWrapper(page);
+
+        return manager.createPuppeteerPageWrapper(page);
       },
 
       async newContext(options: any = {}): Promise<UniversalContext> {
         const context = await browser.createIncognitoBrowserContext();
-        return this.createPuppeteerContextWrapper(context, options);
+        return manager.createPuppeteerContextWrapper(context, options);
       },
 
       async close(): Promise<void> {
@@ -205,7 +207,7 @@ export class UniversalBrowserManager extends EventEmitter {
 
       async pages(): Promise<UniversalPage[]> {
         const pages = await browser.pages();
-        return pages.map((page: any) => this.createPuppeteerPageWrapper(page));
+        return pages.map((page: any) => manager.createPuppeteerPageWrapper(page));
       }
     };
   }
@@ -351,10 +353,11 @@ export class UniversalBrowserManager extends EventEmitter {
   }
 
   private createPlaywrightContextWrapper(context: any): UniversalContext {
+    const manager = this;
     return {
       async newPage(): Promise<UniversalPage> {
         const page = await context.newPage();
-        return this.createPlaywrightPageWrapper(page, context);
+        return manager.createPlaywrightPageWrapper(page, context);
       },
 
       async close(): Promise<void> {
@@ -363,7 +366,7 @@ export class UniversalBrowserManager extends EventEmitter {
 
       async pages(): Promise<UniversalPage[]> {
         const pages = context.pages();
-        return pages.map((page: any) => this.createPlaywrightPageWrapper(page, context));
+        return pages.map((page: any) => manager.createPlaywrightPageWrapper(page, context));
       },
 
       async addInitScript(script: Function | string): Promise<void> {
@@ -377,19 +380,20 @@ export class UniversalBrowserManager extends EventEmitter {
   }
 
   private createPuppeteerContextWrapper(context: any, options: any): UniversalContext {
+    const manager = this;
     return {
       async newPage(): Promise<UniversalPage> {
         const page = await context.newPage();
-        
+
         if (options.userAgent) {
           await page.setUserAgent(options.userAgent);
         }
-        
+
         if (options.viewport) {
           await page.setViewport(options.viewport);
         }
-        
-        return this.createPuppeteerPageWrapper(page);
+
+        return manager.createPuppeteerPageWrapper(page);
       },
 
       async close(): Promise<void> {
@@ -398,7 +402,7 @@ export class UniversalBrowserManager extends EventEmitter {
 
       async pages(): Promise<UniversalPage[]> {
         const pages = await context.pages();
-        return pages.map((page: any) => this.createPuppeteerPageWrapper(page));
+        return pages.map((page: any) => manager.createPuppeteerPageWrapper(page));
       }
     };
   }
@@ -425,7 +429,8 @@ export class UniversalBrowserManager extends EventEmitter {
         }
         
       } catch (error) {
-        console.log(`❌ Method ${method} failed:`, error.message);
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.log(`❌ Method ${method} failed:`, errorMessage);
         continue;
       }
     }

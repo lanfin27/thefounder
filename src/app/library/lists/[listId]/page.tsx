@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getListItems } from '@/lib/supabase/queries/lists'
 import ListDetailClient from '@/components/library/ListDetailClient'
-import type { List } from '@/types/library'
+import type { List, ListItem } from '@/types/library'
 
 // ✅ This is a SERVER COMPONENT (no 'use client')
 export default async function ListDetailPage({
@@ -64,7 +64,7 @@ export default async function ListDetailPage({
   })
 
   // Get list items (posts will be fetched server-side)
-  let items = []
+  let items: ListItem[] = []
   try {
     console.log('🔍 [ListDetailPage] Calling getListItems with authenticated client...')
     items = await getListItems(listId, supabase)

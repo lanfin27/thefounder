@@ -97,11 +97,11 @@ export class SimpleBrowserScraper extends EventEmitter {
 
         // Override permissions
         const originalQuery = window.navigator.permissions.query;
-        window.navigator.permissions.query = (parameters) => (
+        window.navigator.permissions.query = ((parameters: any) => (
           parameters.name === 'notifications' ?
             Promise.resolve({ state: Notification.permission }) :
             originalQuery(parameters)
-        );
+        )) as any;
       });
 
       this.page = await this.context.newPage();
@@ -271,7 +271,7 @@ export class SimpleBrowserScraper extends EventEmitter {
         
         for (const selector of selectors) {
           const elements = document.querySelectorAll(selector);
-          for (const element of elements) {
+          for (const element of Array.from(elements)) {
             const href = (element as HTMLAnchorElement).href;
             if (href && href.includes('/listings/') && !links.includes(href)) {
               links.push(href);

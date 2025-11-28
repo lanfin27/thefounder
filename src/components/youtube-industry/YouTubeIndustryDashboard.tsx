@@ -116,6 +116,7 @@ export default function YouTubeIndustryDashboard({
     return {
       code: category.code,
       name: category.name,
+      nameEn: category.name_en || category.code,
       emoji: category.emoji || category.icon || '📊',
       color: '#3b82f6',
       description: category.description || '',
@@ -123,15 +124,30 @@ export default function YouTubeIndustryDashboard({
         .sort((a, b) => (b.views_per_video || 0) - (a.views_per_video || 0))
         .slice(0, 10),
       metrics: {
+        categoryCode: category.code,
         totalChannels: categoryChannels.length,
         totalViews: catTotalViews,
         totalVideos: totalVideos,
         averageViewsPerVideo: avgViewsPerVideo,
+        averageSubscribers: categoryChannels.length > 0
+          ? categoryChannels.reduce((sum, ch) => sum + (ch.subscribers || 0), 0) / categoryChannels.length
+          : 0,
+        averageEngagementRate: categoryChannels.length > 0
+          ? categoryChannels.reduce((sum, ch) => sum + (ch.engagement_rate || 0), 0) / categoryChannels.length
+          : 0,
+        averageShortsRatio: categoryChannels.length > 0
+          ? categoryChannels.reduce((sum, ch) => sum + (ch.shorts_ratio || 0), 0) / categoryChannels.length
+          : 0,
         dailyChange: category.daily_change_rate || 0,
         weeklyChange: category.weekly_change_rate || 0,
         monthlyChange: category.monthly_change_rate || 0,
         marketShare: totalViews > 0 ? (catTotalViews / totalViews) * 100 : 0,
-        volatility: 0
+        volatility: 0,
+        volatilityLevel: 'low' as const,
+        topChannelsByViews: categoryChannels.slice(0, 10).map(ch => ch.channel_id),
+        topChannelsByGrowth: [],
+        historicalData: [],
+        lastUpdated: new Date(category.updated_at || Date.now())
       },
       lastUpdated: new Date(category.updated_at || Date.now())
     }

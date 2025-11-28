@@ -18,7 +18,7 @@ interface Channel {
   channel_id: string
   name: string
   total_views: number
-  video_count: number
+  video_count?: number
   subscribers: number
   thumbnail_url?: string
 }
@@ -369,8 +369,8 @@ export default function ChannelComparisonChart({ categoryCode, channels, period 
       <div className="mb-6 max-h-60 overflow-y-auto border dark:border-gray-700 rounded-lg">
         {channels.map((channel) => {
           const isSelected = selectedChannels.includes(channel.channel_id)
-          const viewsPerVideo = channel.video_count > 0
-            ? channel.total_views / channel.video_count
+          const viewsPerVideo = (channel.video_count ?? 0) > 0
+            ? channel.total_views / (channel.video_count ?? 1)
             : 0
 
           return (
@@ -415,7 +415,7 @@ export default function ChannelComparisonChart({ categoryCode, channels, period 
                   {channel.name}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  구독자 {formatValue(channel.subscribers)} • {formatValue(channel.video_count)}개 영상
+                  구독자 {formatValue(channel.subscribers)} • {formatValue(channel.video_count ?? 0)}개 영상
                 </div>
               </div>
 

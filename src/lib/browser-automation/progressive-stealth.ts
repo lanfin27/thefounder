@@ -119,7 +119,8 @@ export class ProgressiveStealth extends EventEmitter {
           }
         } catch (error) {
           result.failedFeatures.push(feature);
-          result.warnings.push(`Error applying ${feature}: ${error.message}`);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          result.warnings.push(`Error applying ${feature}: ${errorMessage}`);
         }
       }
 
@@ -136,7 +137,8 @@ export class ProgressiveStealth extends EventEmitter {
 
     } catch (error) {
       console.error('❌ Stealth application failed:', error);
-      result.warnings.push(`Critical error: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      result.warnings.push(`Critical error: ${errorMessage}`);
       return result;
     }
   }
@@ -193,7 +195,8 @@ export class ProgressiveStealth extends EventEmitter {
           return { success: false, fallbacksUsed, error: `Unknown feature: ${feature}` };
       }
     } catch (error) {
-      return { success: false, fallbacksUsed, error: error.message };
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      return { success: false, fallbacksUsed, error: errorMessage };
     }
   }
 
@@ -240,7 +243,8 @@ export class ProgressiveStealth extends EventEmitter {
 
       return { success: false, fallbacksUsed, error: 'No compatible method found' };
     } catch (error) {
-      return { success: false, fallbacksUsed, error: error.message };
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      return { success: false, fallbacksUsed, error: errorMessage };
     }
   }
 
@@ -273,7 +277,7 @@ export class ProgressiveStealth extends EventEmitter {
       };
 
       if ('addInitScript' in pageOrContext && pageOrContext.addInitScript) {
-        await pageOrContext.addInitScript(script, selectedUA);
+        await pageOrContext.addInitScript(() => script(selectedUA));
         fallbacksUsed.push('addInitScript-override');
         if (testMode) console.log('⚠️ spoofUserAgent: addInitScript fallback used');
         return { success: true, fallbacksUsed };
@@ -288,7 +292,8 @@ export class ProgressiveStealth extends EventEmitter {
 
       return { success: false, fallbacksUsed, error: 'No compatible method found' };
     } catch (error) {
-      return { success: false, fallbacksUsed, error: error.message };
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      return { success: false, fallbacksUsed, error: errorMessage };
     }
   }
 
@@ -481,7 +486,8 @@ export class ProgressiveStealth extends EventEmitter {
 
       return { success: false, fallbacksUsed, error: 'No compatible method found' };
     } catch (error) {
-      return { success: false, fallbacksUsed, error: error.message };
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      return { success: false, fallbacksUsed, error: errorMessage };
     }
   }
 

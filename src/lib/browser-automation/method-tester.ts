@@ -172,9 +172,10 @@ export class BrowserMethodTester extends EventEmitter {
       }
 
     } catch (error) {
-      result.error = error.message;
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      result.error = errorMessage;
       result.success = false;
-      console.log(`  ❌ ${config.name}: ERROR - ${error.message}`);
+      console.log(`  ❌ ${config.name}: ERROR - ${errorMessage}`);
 
       // Try fallbacks if available
       if (config.fallbacks && config.fallbacks.length > 0 && page) {
@@ -191,7 +192,8 @@ export class BrowserMethodTester extends EventEmitter {
         try {
           await page.close();
         } catch (error) {
-          console.warn('Error closing test page:', error.message);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.warn('Error closing test page:', errorMessage);
         }
       }
     }
@@ -214,7 +216,8 @@ export class BrowserMethodTester extends EventEmitter {
         }
         
       } catch (error) {
-        console.log(`    ❌ Fallback ${fallbackMethod} failed:`, error.message);
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.log(`    ❌ Fallback ${fallbackMethod} failed:`, errorMessage);
         continue;
       }
     }

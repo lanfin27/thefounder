@@ -35,7 +35,7 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
       // Extract all saved post IDs from all lists
       const postIds = new Set<string>();
       userLists.forEach(list => {
-        list.list_items?.forEach(item => {
+        (list as any).list_items?.forEach((item: any) => {
           if (item.post_id) {
             postIds.add(item.post_id);
           }
@@ -77,7 +77,7 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
     }
 
     const saved = lists.some(list =>
-      list.list_items?.some((item: any) => {
+      (list as any).list_items?.some((item: any) => {
         const itemPostId = String(item.post_id || '').trim();
         const checkPostId = String(postId).trim();
         return itemPostId === checkPostId;
@@ -97,7 +97,7 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
 
     const savedLists = lists
       .filter(list =>
-        list.list_items?.some((item: any) => {
+        (list as any).list_items?.some((item: any) => {
           const itemPostId = String(item.post_id || '').trim();
           const checkPostId = String(postId).trim();
           return itemPostId === checkPostId;
@@ -129,7 +129,7 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
       }
 
       // Check current state with string comparison
-      const isCurrentlyInList = targetList.list_items?.some((item: any) => {
+      const isCurrentlyInList = (targetList as any).list_items?.some((item: any) => {
         const itemPostId = String(item.post_id || '').trim();
         const checkPostId = String(postId).trim();
         return itemPostId === checkPostId;

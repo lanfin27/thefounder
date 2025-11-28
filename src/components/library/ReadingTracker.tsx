@@ -62,13 +62,10 @@ export default function ReadingTracker({ postId }: ReadingTrackerProps) {
     // Track when user leaves the page
     function handleBeforeUnload() {
       const finalProgress = calculateProgress()
-      // Use sendBeacon for reliable tracking even when page is closing
-      if (navigator.sendBeacon) {
-        // This would require an API endpoint, so we'll just use regular tracking
-        trackReading({ post_id: postId, progress: finalProgress }).catch(() => {
-          // Silently fail on page unload
-        })
-      }
+      // Track reading progress on page unload
+      trackReading({ post_id: postId, progress: finalProgress }).catch(() => {
+        // Silently fail on page unload
+      })
     }
 
     window.addEventListener('beforeunload', handleBeforeUnload)

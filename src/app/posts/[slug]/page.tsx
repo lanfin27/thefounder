@@ -50,26 +50,74 @@ export async function generateMetadata({
   if (!post) {
     return {
       title: 'Post Not Found',
+      robots: {
+        index: false,
+        follow: false
+      }
     }
   }
 
+  // Extract tags from post (if available)
+  const tags = post.tags || []
+  const category = post.category || 'insight'
+  const categoryLabel = getCategoryLabel(category)
+
+  // Format dates
+  const publishedTime = post.publishedDate ? new Date(post.publishedDate).toISOString() : undefined
+  const modifiedTime = post.updatedAt ? new Date(post.updatedAt).toISOString() : publishedTime
+
   return {
-    title: `${post.title} | The Founder`,
-    description: post.summary,
+    title: post.title,
+    description: post.summary || post.title,
+    keywords: [
+      ...tags,
+      categoryLabel,
+      '창업',
+      '스타트업',
+      '창업자',
+      'The Founder',
+      post.author || ''
+    ].filter(Boolean),
+    authors: [{ name: post.author || 'The Founder' }],
     openGraph: {
       title: post.title,
-      description: post.summary,
+      description: post.summary || post.title,
       type: 'article',
-      publishedTime: post.publishedDate,
-      authors: [post.author],
-      images: post.cover ? [post.cover] : [],
+      publishedTime,
+      modifiedTime,
+      authors: [post.author || 'The Founder'],
+      section: categoryLabel,
+      tags,
+      locale: 'ko_KR',
+      siteName: 'The Founder',
+      url: `https://thefounder.co.kr/posts/${params.slug}`,
+      images: post.cover ? [
+        {
+          url: post.cover,
+          width: 1200,
+          height: 630,
+          alt: post.title
+        }
+      ] : [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'The Founder'
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.summary,
-      images: post.cover ? [post.cover] : [],
+      description: post.summary || post.title,
+      creator: '@thefounder_kr',
+      images: post.cover ? [post.cover] : ['/og-image.png'],
     },
+    alternates: {
+      canonical: `https://thefounder.co.kr/posts/${params.slug}`
+    },
+    category: categoryLabel
   }
 }
 
@@ -118,8 +166,35 @@ export default async function PostPage({
   const tocItems = generateTocFromHTML(post.content)
   const contentWithIds = injectIdsToHeadings(post.content, tocItems)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    image: post.cover ? [post.cover] : [],
+    datePublished: post.publishedDate,
+    dateModified: post.publishedDate, // If you have modified date, use it
+    author: [{
+      '@type': 'Person',
+      name: post.author,
+      url: 'https://thefounder.co.kr' // Optional: Author profile URL
+    }],
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Founder',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://thefounder.co.kr/logo.png' // Replace with actual logo URL
+      }
+    },
+    description: post.summary
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ReadingProgress />
       <ReadingTracker postId={post.slug} />
       <ForceOpenCallouts />
@@ -138,118 +213,118 @@ export default async function PostPage({
 
             {/* Main Content (centered, 680px max-width) */}
             <article className="flex-1 max-w-2xl mx-auto px-0 md:px-0">
-          {/* Title Section */}
-          <header className="pt-12 pb-8 border-b border-gray-200">
-            {/* Category Badge - Like Medium's "ILLUMINATION" */}
-            {post.category && (
-              <Link
-                href={`/category/${post.category}`}
-                className="inline-block mb-4"
-              >
-                <span className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                  {getCategoryLabel(post.category)}
-                </span>
-              </Link>
-            )}
-
-            {/* Title */}
-            <h1 className="text-[42px] leading-[1.1] font-bold text-gray-900 mb-4">
-              {post.title}
-            </h1>
-
-            {/* Summary */}
-            {post.summary && (
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                {post.summary}
-              </p>
-            )}
-
-            {/* Meta Info (without author) */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <time dateTime={post.publishedDate}>
-                  {new Date(post.publishedDate).toLocaleDateString('ko-KR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-                {post.readingTime && (
-                  <>
-                    <span>·</span>
-                    <span>{post.readingTime}분 읽기</span>
-                  </>
+              {/* Title Section */}
+              <header className="pt-12 pb-8 border-b border-gray-200">
+                {/* Category Badge - Like Medium's "ILLUMINATION" */}
+                {post.category && (
+                  <Link
+                    href={`/category/${post.category}`}
+                    className="inline-block mb-4"
+                  >
+                    <span className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                      {getCategoryLabel(post.category)}
+                    </span>
+                  </Link>
                 )}
+
+                {/* Title */}
+                <h1 className="text-[42px] leading-[1.1] font-bold text-gray-900 mb-4">
+                  {post.title}
+                </h1>
+
+                {/* Summary */}
+                {post.summary && (
+                  <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                    {post.summary}
+                  </p>
+                )}
+
+                {/* Meta Info (without author) */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <time dateTime={post.publishedDate}>
+                      {new Date(post.publishedDate).toLocaleDateString('ko-KR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                    {post.readingTime && (
+                      <>
+                        <span>·</span>
+                        <span>{post.readingTime}분 읽기</span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Bookmark Button */}
+                  <BookmarkButton postId={post.slug} postTitle={post.title} />
+                </div>
+
+                {/* Post Stats (Claps & Comments) - First Location */}
+                <div className="mt-6 pb-6 border-b border-gray-200">
+                  <PostStats
+                    postSlug={post.slug}
+                    initialClaps={post.clapsCount || 0}
+                    initialComments={post.commentsCount || 0}
+                    size="md"
+                  />
+                </div>
+              </header>
+
+              {/* Header Image (inside article, after title) */}
+              {post.cover && (
+                <div className="w-full my-8">
+                  <img
+                    src={post.cover}
+                    alt={post.title}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              )}
+
+              {/* Content */}
+              <PaywallGate
+                isUserLoggedIn={!!user}
+                postTitle={post.title}
+                postId={post.id}
+              >
+                <div className="prose prose-lg max-w-none py-12 medium-content">
+                  <NotionContentRenderer content={contentWithIds} isRichContent={true} />
+                </div>
+              </PaywallGate>
+
+              {/* Analytics */}
+              <PostAnalytics
+                postId={post.id}
+                userId={user?.id}
+                enabled={true}
+              />
+
+              {/* Tags */}
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 py-8 border-t border-gray-200">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Post Stats (Claps & Comments) - Second Location */}
+              <div className="py-8 border-t border-gray-200">
+                <PostStats
+                  postSlug={post.slug}
+                  initialClaps={post.clapsCount || 0}
+                  initialComments={post.commentsCount || 0}
+                  size="md"
+                  showLabels={true}
+                />
               </div>
-
-              {/* Bookmark Button */}
-              <BookmarkButton postId={post.slug} postTitle={post.title} />
-            </div>
-
-            {/* Post Stats (Claps & Comments) - First Location */}
-            <div className="mt-6 pb-6 border-b border-gray-200">
-              <PostStats
-                postSlug={post.slug}
-                initialClaps={post.clapsCount || 0}
-                initialComments={post.commentsCount || 0}
-                size="md"
-              />
-            </div>
-          </header>
-
-          {/* Header Image (inside article, after title) */}
-          {post.cover && (
-            <div className="w-full my-8">
-              <img
-                src={post.cover}
-                alt={post.title}
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-          )}
-
-          {/* Content */}
-          <PaywallGate
-            isUserLoggedIn={!!user}
-            postTitle={post.title}
-            postId={post.id}
-          >
-            <div className="prose prose-lg max-w-none py-12 medium-content">
-              <NotionContentRenderer content={contentWithIds} isRichContent={true} />
-            </div>
-          </PaywallGate>
-
-          {/* Analytics */}
-          <PostAnalytics
-            postId={post.id}
-            userId={user?.id}
-            enabled={true}
-          />
-
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 py-8 border-t border-gray-200">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Post Stats (Claps & Comments) - Second Location */}
-          <div className="py-8 border-t border-gray-200">
-            <PostStats
-              postSlug={post.slug}
-              initialClaps={post.clapsCount || 0}
-              initialComments={post.commentsCount || 0}
-              size="md"
-              showLabels={true}
-            />
-          </div>
             </article>
           </div>
         </div>

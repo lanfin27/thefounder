@@ -518,14 +518,14 @@ export class AntiDetectionEngine {
         solved = await page.evaluate(() => {
           const response = document.querySelector('[name="g-recaptcha-response"]') as HTMLTextAreaElement;
           return response && response.value && response.value.length > 0;
-        });
+        }) as boolean;
         
         if (!solved) {
           // Alternative check for completion
           solved = await page.evaluate(() => {
-            const checkmark = document.querySelector('.recaptcha-checkbox-checkmark');
+            const checkmark = document.querySelector('.recaptcha-checkbox-checkmark') as HTMLElement;
             return checkmark && checkmark.style.opacity !== '0';
-          });
+          }) as boolean;
         }
       } catch (evalError) {
         console.error('Error evaluating reCAPTCHA completion:', evalError);
@@ -652,8 +652,8 @@ export class AntiDetectionEngine {
           () => {
             const challengeRunning = document.querySelector('.cf-challenge-running');
             const browserCheck = document.querySelector('.cf-checking-browser');
-            const wrapper = document.querySelector('#cf-wrapper');
-            
+            const wrapper = document.querySelector('#cf-wrapper') as HTMLElement;
+
             return !challengeRunning && !browserCheck && (!wrapper || wrapper.style.display === 'none');
           },
           { timeout: 10000 }
@@ -791,7 +791,7 @@ export class AntiDetectionEngine {
 
           // Add realistic window properties
           try {
-            if (!window.chrome) {
+            if (!(window as any).chrome) {
               Object.defineProperty(window, 'chrome', {
                 get: () => ({
                   runtime: {},
@@ -848,7 +848,7 @@ export class AntiDetectionEngine {
 
           // Add battery API safely
           try {
-            if (!navigator.getBattery) {
+            if (!(navigator as any).getBattery) {
               Object.defineProperty(navigator, 'getBattery', {
                 get: () => () => Promise.resolve({
                   charging: true,

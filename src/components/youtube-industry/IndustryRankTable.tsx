@@ -194,7 +194,7 @@ export default function IndustryRankTable({
                 <td className="px-4 py-3 whitespace-nowrap">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl" role="img" aria-label={category.name}>
-                      {category.emoji || category.icon || '📊'}  {/* ✅ DB 아이콘 사용 */}
+                      {category.emoji || '📊'}  {/* ✅ DB 아이콘 사용 */}
                     </span>
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">

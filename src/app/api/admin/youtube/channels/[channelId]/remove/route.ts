@@ -51,17 +51,24 @@ export async function DELETE(
     })
 
     // 1. 채널 정보 조회 (카테고리 코드 확인용)
-    const service = new YouTubeService()
     let oldCategoryCode: string | null = null
 
     try {
-      const channelInfo = await service.getChannelInfo(channelId)
+      const { data: channelInfo } = await ytSupabaseAdmin
+        .from('youtube_channels')
+        .select('category_code')
+        .eq('channel_id', channelId)
+        .single()
+
       oldCategoryCode = channelInfo?.category_code || null
       console.log('[Remove API] Channel category:', oldCategoryCode)
     } catch (error) {
       console.warn('[Remove API] Could not fetch channel category:', error)
       // 계속 진행 (카테고리 정보 없이도 삭제는 가능)
     }
+
+    // 2. Initialize service for removal
+    const service = new YouTubeService()
 
     // 2. ✅ NEW: 히스토리 데이터 삭제 (Hard Delete 시에만)
     if (hardDelete) {

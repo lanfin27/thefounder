@@ -68,7 +68,7 @@ async function checkSchema() {
 
     columns.forEach((col, idx) => {
       const value = samplePost[col];
-      let type = typeof value;
+      let type: string = typeof value;
 
       if (value === null) {
         type = 'null';

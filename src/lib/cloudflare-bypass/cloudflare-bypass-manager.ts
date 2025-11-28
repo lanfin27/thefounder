@@ -184,7 +184,8 @@ export class CloudflareBypassManager {
         // Wait for container to be ready
         await this.waitForFlareSolverr();
       } catch (error) {
-        console.warn('⚠️ Failed to start FlareSolverr container:', error.message);
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.warn('⚠️ Failed to start FlareSolverr container:', errorMessage);
         console.log('📋 Please start FlareSolverr manually:');
         console.log('docker run -d --name flaresolverr -p 8191:8191 ghcr.io/flaresolverr/flaresolverr:latest');
       }
@@ -265,8 +266,9 @@ export class CloudflareBypassManager {
           }
 
         } catch (error) {
-          console.log(`❌ Method ${method} failed:`, error.message);
-          lastError = error;
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.log(`❌ Method ${method} failed:`, errorMessage);
+          lastError = error as Error;
         }
       }
 
@@ -351,7 +353,7 @@ export class CloudflareBypassManager {
         content,
         cookies,
         responseTime: Date.now() - startTime,
-        proxyUsed: this.proxyManager?.getNextProxy(),
+        proxyUsed: this.proxyManager?.getNextProxy() ?? undefined,
         cloudflareDetected: isChallengePage
       };
 
@@ -385,7 +387,7 @@ export class CloudflareBypassManager {
       content: result.html,
       cookies: result.cookies,
       responseTime: Date.now() - startTime,
-      proxyUsed: proxy,
+      proxyUsed: proxy ?? undefined,
       cloudflareDetected: result.html.includes('Cloudflare')
     };
   }
@@ -410,7 +412,7 @@ export class CloudflareBypassManager {
       content: result.body,
       cookies: result.cookies.map((cookie, index) => ({ name: `cookie_${index}`, value: cookie })),
       responseTime: result.responseTime,
-      proxyUsed: this.proxyManager?.getNextProxy(),
+      proxyUsed: this.proxyManager?.getNextProxy() ?? undefined,
       cloudflareDetected: !result.cloudflareBypass
     };
   }

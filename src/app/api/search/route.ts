@@ -60,7 +60,7 @@ export async function GET(request: Request) {
     });
 
     // 고유 카테고리 값 추출
-    const uniqueCategories = [...new Set(allPosts.map(p => p.category).filter(Boolean))];
+    const uniqueCategories = Array.from(new Set(allPosts.map(p => p.category).filter(Boolean)));
     console.log('[Search API] 📌 UNIQUE CATEGORIES IN DB:', uniqueCategories);
     console.log('[Search API] 📌 REQUESTED CATEGORY:', category);
 

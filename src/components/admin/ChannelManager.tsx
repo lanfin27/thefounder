@@ -902,7 +902,7 @@ export function ChannelManager({
           {/* Update Type Selector */}
           <div className="flex items-center gap-2">
             <span className="text-sm text-gray-600">업데이트 유형:</span>
-            <Select value={updateType} onValueChange={(value) => setUpdateType(value as 'bulk_full' | 'bulk_incremental')}>
+            <Select value={updateType} onChange={(e) => setUpdateType(e.target.value as 'bulk_full' | 'bulk_incremental')}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue />
               </SelectTrigger>
@@ -917,7 +917,7 @@ export function ChannelManager({
             </Select>
           </div>
 
-          <Button onClick={() => setIsAddModalOpen(true)} variant="default">
+          <Button onClick={() => setIsAddModalOpen(true)} variant="primary">
             <Plus className="h-4 w-4 mr-2" />
             채널 추가
           </Button>
@@ -925,7 +925,7 @@ export function ChannelManager({
           <BulkUploadButton />
 
           <Button
-            onClick={handleSimulation}
+            onClick={() => handleSimulation()}
             disabled={loading || bulkUpdating || simulating}
             variant="outline"
             className="border-blue-500 text-blue-600 hover:bg-blue-50"
@@ -943,9 +943,9 @@ export function ChannelManager({
           </Button>
 
           <Button
-            onClick={handleBulkUpdate}
+            onClick={() => handleBulkUpdate()}
             disabled={loading || bulkUpdating}
-            variant="default"
+            variant="success"
             className="bg-green-600 hover:bg-green-700"
           >
             {bulkUpdating ? (
@@ -1004,7 +1004,7 @@ export function ChannelManager({
               <div className="mt-3 flex gap-2">
                 <Button
                   size="sm"
-                  variant="destructive"
+                  variant="danger"
                   onClick={() => setStatusFilter('error')}
                 >
                   에러 채널 보기
@@ -1116,7 +1116,7 @@ export function ChannelManager({
               {/* 카테고리 필터 */}
               <div>
                 <label className="text-sm font-medium mb-2 block">카테고리</label>
-                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <Select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="전체" />
                   </SelectTrigger>
@@ -1124,7 +1124,7 @@ export function ChannelManager({
                     <SelectItem value="all">전체</SelectItem>
                     {categories.map((cat) => (
                       <SelectItem key={cat.code} value={cat.code}>
-                        {cat.icon} {cat.name}
+                        {cat.name}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -1134,7 +1134,7 @@ export function ChannelManager({
               {/* 구독자 범위 */}
               <div>
                 <label className="text-sm font-medium mb-2 block">구독자</label>
-                <Select value={subscriberRange} onValueChange={setSubscriberRange}>
+                <Select value={subscriberRange} onChange={(e) => setSubscriberRange(e.target.value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="전체" />
                   </SelectTrigger>
@@ -1152,7 +1152,7 @@ export function ChannelManager({
               {/* 영상 수 범위 */}
               <div>
                 <label className="text-sm font-medium mb-2 block">영상 수</label>
-                <Select value={videoCountRange} onValueChange={setVideoCountRange}>
+                <Select value={videoCountRange} onChange={(e) => setVideoCountRange(e.target.value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="전체" />
                   </SelectTrigger>
@@ -1169,7 +1169,7 @@ export function ChannelManager({
               {/* 영상당 조회수 범위 */}
               <div>
                 <label className="text-sm font-medium mb-2 block">영상당 조회수</label>
-                <Select value={viewsRange} onValueChange={setViewsRange}>
+                <Select value={viewsRange} onChange={(e) => setViewsRange(e.target.value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="전체" />
                   </SelectTrigger>
@@ -1186,7 +1186,7 @@ export function ChannelManager({
               {/* 업데이트 시간 범위 */}
               <div>
                 <label className="text-sm font-medium mb-2 block">마지막 업데이트</label>
-                <Select value={updateTimeRange} onValueChange={setUpdateTimeRange}>
+                <Select value={updateTimeRange} onChange={(e) => setUpdateTimeRange(e.target.value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="전체" />
                   </SelectTrigger>
@@ -1222,7 +1222,7 @@ export function ChannelManager({
           {/* 상태 필터 버튼 */}
           <div className="flex gap-2 flex-wrap">
             <Button
-              variant={statusFilter === 'all' ? 'default' : 'outline'}
+              variant={statusFilter === 'all' ? 'primary' : 'outline'}
               onClick={() => setStatusFilter('all')}
               className="gap-2"
             >
@@ -1230,7 +1230,7 @@ export function ChannelManager({
               <span className="text-xs opacity-70">({filterCounts.all})</span>
             </Button>
             <Button
-              variant={statusFilter === 'active' ? 'default' : 'outline'}
+              variant={statusFilter === 'active' ? 'primary' : 'outline'}
               onClick={() => setStatusFilter('active')}
               className="gap-2"
             >
@@ -1238,7 +1238,7 @@ export function ChannelManager({
               <span className="text-xs opacity-70">({filterCounts.active})</span>
             </Button>
             <Button
-              variant={statusFilter === 'inactive' ? 'default' : 'outline'}
+              variant={statusFilter === 'inactive' ? 'primary' : 'outline'}
               onClick={() => setStatusFilter('inactive')}
               className="gap-2"
             >
@@ -1246,7 +1246,7 @@ export function ChannelManager({
               <span className="text-xs opacity-70">({filterCounts.inactive})</span>
             </Button>
             <Button
-              variant={statusFilter === 'error' ? 'destructive' : 'outline'}
+              variant={statusFilter === 'error' ? 'danger' : 'outline'}
               onClick={() => setStatusFilter('error')}
               className="gap-2"
             >
@@ -1254,7 +1254,7 @@ export function ChannelManager({
               <span className="text-xs opacity-70">({filterCounts.error})</span>
             </Button>
             <Button
-              variant={statusFilter === 'deleted' ? 'default' : 'outline'}
+              variant={statusFilter === 'deleted' ? 'primary' : 'outline'}
               onClick={() => setStatusFilter('deleted')}
               className="gap-2"
             >
@@ -1329,7 +1329,7 @@ export function ChannelManager({
                         🎯 선택 항목 시뮬레이션
                       </Button>
                       <Button
-                        variant="default"
+                        variant="primary"
                         size="sm"
                         onClick={() => {
                           // Update only selected channels
@@ -1346,7 +1346,7 @@ export function ChannelManager({
                       </Button>
                       {statusFilter === 'error' && (
                         <Button
-                          variant="destructive"
+                          variant="danger"
                           size="sm"
                           onClick={() => setShowBulkDeleteDialog(true)}
                           disabled={isDeleting}
@@ -1549,7 +1549,7 @@ export function ChannelManager({
                             {channel.is_active !== false && channel.status !== 'deleted' && (
                               <Button
                                 size="sm"
-                                variant="destructive"
+                                variant="danger"
                                 onClick={() => setChannelToRemove(channel)}
                                 title="채널 제거"
                               >

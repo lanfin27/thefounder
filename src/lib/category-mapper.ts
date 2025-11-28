@@ -138,7 +138,7 @@ export function getCategoryIdByCode(
   categoryMap: Map<string, { id: string; code?: string }>
 ): string | null {
   // 1. 코드로 직접 매칭
-  for (const [, value] of categoryMap.entries()) {
+  for (const value of Array.from(categoryMap.values())) {
     if (value.code === code) {
       return value.id
     }

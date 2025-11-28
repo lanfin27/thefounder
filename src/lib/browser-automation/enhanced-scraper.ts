@@ -145,7 +145,8 @@ export class EnhancedBrowserScraper extends EventEmitter {
 
     } catch (error) {
       console.error('❌ Failed to initialize Enhanced Browser Scraper:', error);
-      this.emitProgress('error', 0, `Initialization failed: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.emitProgress('error', 0, `Initialization failed: ${errorMessage}`);
       throw error;
     }
   }
@@ -255,8 +256,9 @@ export class EnhancedBrowserScraper extends EventEmitter {
 
     } catch (error) {
       console.error('❌ Scraping failed:', error);
-      result.metadata.errors.push(error.message);
-      this.emitProgress('error', 0, `Scraping failed: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      result.metadata.errors.push(errorMessage);
+      this.emitProgress('error', 0, `Scraping failed: ${errorMessage}`);
     } finally {
       result.metadata.duration = Date.now() - startTime;
     }
@@ -280,13 +282,13 @@ export class EnhancedBrowserScraper extends EventEmitter {
       
       if (stealthResult.success) {
         console.log(`✅ Stealth applied: ${stealthResult.appliedFeatures.length} features`);
-        this.metadata?.fallbacksUsed.push(...stealthResult.fallbacksUsed);
       } else {
         console.warn('⚠️ Stealth application had issues:', stealthResult.warnings);
       }
 
     } catch (error) {
-      console.warn('⚠️ Stealth application failed:', error.message);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.warn('⚠️ Stealth application failed:', errorMessage);
     }
   }
 
@@ -310,8 +312,9 @@ export class EnhancedBrowserScraper extends EventEmitter {
         return;
 
       } catch (error) {
-        lastError = error;
-        console.warn(`⚠️ Navigation attempt ${attempt + 1} failed:`, error.message);
+        lastError = error as Error;
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.warn(`⚠️ Navigation attempt ${attempt + 1} failed:`, errorMessage);
 
         if (attempt < retries.maxRetries) {
           const delay = retries.baseDelay * Math.pow(retries.backoffMultiplier, attempt);
@@ -343,8 +346,9 @@ export class EnhancedBrowserScraper extends EventEmitter {
         return data;
 
       } catch (error) {
-        lastError = error;
-        console.warn(`⚠️ Extraction attempt ${attempt + 1} failed:`, error.message);
+        lastError = error as Error;
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.warn(`⚠️ Extraction attempt ${attempt + 1} failed:`, errorMessage);
 
         if (attempt < retries.maxRetries) {
           const delay = retries.baseDelay * Math.pow(retries.backoffMultiplier, attempt);
@@ -399,14 +403,16 @@ export class EnhancedBrowserScraper extends EventEmitter {
           await this.humanDelay(this.config.delays!.navigation);
 
         } catch (error) {
-          console.warn(`⚠️ Failed to process link ${link}:`, error.message);
-          result.metadata.errors.push(`Link ${link}: ${error.message}`);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.warn(`⚠️ Failed to process link ${link}:`, errorMessage);
+          result.metadata.errors.push(`Link ${link}: ${errorMessage}`);
         }
       }
 
     } catch (error) {
       console.error('❌ Link following failed:', error);
-      result.metadata.errors.push(`Link following: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      result.metadata.errors.push(`Link following: ${errorMessage}`);
     }
   }
 
@@ -438,10 +444,11 @@ export class EnhancedBrowserScraper extends EventEmitter {
         try {
           const element = await page.$(selector);
           if (element) {
-            data[key] = await page.evaluate(el => el.textContent?.trim(), element);
+            data[key] = await page.evaluate((el: any) => el.textContent?.trim(), element);
           }
         } catch (error) {
-          console.warn(`Failed to extract ${key}:`, error.message);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.warn(`Failed to extract ${key}:`, errorMessage);
           data[key] = null;
         }
       }

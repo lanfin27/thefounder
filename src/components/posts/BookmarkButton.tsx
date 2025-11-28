@@ -31,7 +31,7 @@ export default function BookmarkButton({ postId }: BookmarkButtonProps) {
       console.log('   total lists:', lists.length);
 
       lists.forEach(list => {
-        const hasPost = list.list_items?.some((item: any) => item.post_id === postId);
+        const hasPost = (list as any).list_items?.some((item: any) => item.post_id === postId);
         console.log(`   ${list.name}: ${hasPost ? 'HAS' : 'NO'} post`);
       });
     }

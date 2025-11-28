@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
             let categoryId: string | null = null
 
             // 먼저 코드로 찾기
-            for (const [, data] of categoryMap.entries()) {
+            for (const data of Array.from(categoryMap.values())) {
               if (data.code === categoryInfo.code) {
                 categoryId = data.id
                 break

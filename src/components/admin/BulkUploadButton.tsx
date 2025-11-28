@@ -80,21 +80,20 @@ export function BulkUploadButton() {
           variant="outline"
           disabled={isProcessing}
           className="relative"
-          asChild
+          onClick={() => document.getElementById('bulk-upload-input')?.click()}
+          type="button"
         >
-          <label htmlFor="bulk-upload-input" className="cursor-pointer">
-            {isProcessing ? (
-              <>
-                <FileSpreadsheet className="mr-2 h-4 w-4 animate-pulse" />
-                처리 중...
-              </>
-            ) : (
-              <>
-                <Upload className="mr-2 h-4 w-4" />
-                Excel 일괄 업로드
-              </>
-            )}
-          </label>
+          {isProcessing ? (
+            <>
+              <FileSpreadsheet className="mr-2 h-4 w-4 animate-pulse" />
+              처리 중...
+            </>
+          ) : (
+            <>
+              <Upload className="mr-2 h-4 w-4" />
+              Excel 일괄 업로드
+            </>
+          )}
         </Button>
       </div>
 

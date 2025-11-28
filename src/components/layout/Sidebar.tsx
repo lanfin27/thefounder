@@ -58,7 +58,7 @@ const categories = [
 // Sidebar 내부 콘텐츠 컴포넌트
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const pathname = usePathname();
-  const { profile, loading } = useUser();
+  const { profile, isLoading: loading } = useUser();
   const [showAdmin, setShowAdmin] = useState(false);
 
   // Load cached admin status on mount

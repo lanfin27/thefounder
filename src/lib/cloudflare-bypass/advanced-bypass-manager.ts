@@ -2,7 +2,7 @@
 // Enhanced Cloudflare bypass manager with FlareSolverr integration and intelligent routing
 
 import axios, { AxiosInstance } from 'axios';
-import * as cloudscraper from 'cloudscraper';
+// import * as cloudscraper from 'cloudscraper'; // Optional dependency
 import { chromium, Browser, Page, BrowserContext } from 'playwright';
 import { SocksProxyAgent } from 'socks-proxy-agent';
 import { HttpsProxyAgent } from 'https-proxy-agent';
@@ -76,7 +76,7 @@ export class AdvancedBypassManager {
     private methodStats: Map<string, MethodStats> = new Map();
     private proxyIndex: number = 0;
     private browserPool: Browser[] = [];
-    private flareSolverrClient: AxiosInstance;
+    private flareSolverrClient!: AxiosInstance;
     private cloudscraperInstance: any;
 
     constructor(config: Partial<AdvancedBypassConfig> = {}) {
@@ -113,16 +113,22 @@ export class AdvancedBypassManager {
             }
         });
 
-        // Initialize CloudScraper
-        this.cloudscraperInstance = cloudscraper.defaults({
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            },
+        // Initialize CloudScraper (if available)
+        try {
+            const cloudscraper = require('cloudscraper');
+            this.cloudscraperInstance = cloudscraper.defaults({
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                },
             timeout: 30000,
             followAllRedirects: true,
             gzip: true,
             jar: true
-        });
+            });
+        } catch (error) {
+            console.warn('CloudScraper module not available, cloudscraper bypass method will be disabled');
+            this.cloudscraperInstance = null;
+        }
     }
 
     private initializeMethodStats(): void {
@@ -163,7 +169,8 @@ export class AdvancedBypassManager {
                 console.log('✅ FlareSolverr connection successful');
             }
         } catch (error) {
-            console.warn('⚠️ FlareSolverr connection failed:', error.message);
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            console.warn('⚠️ FlareSolverr connection failed:', errorMessage);
             console.log('🔧 Starting FlareSolverr Alternative...');
             
             // Start our alternative FlareSolverr service
@@ -173,7 +180,8 @@ export class AdvancedBypassManager {
                 await service.start();
                 console.log('✅ FlareSolverr Alternative started');
             } catch (altError) {
-                console.warn('⚠️ Could not start FlareSolverr Alternative:', altError.message);
+                const altErrorMessage = altError instanceof Error ? altError.message : String(altError);
+                console.warn('⚠️ Could not start FlareSolverr Alternative:', altErrorMessage);
                 this.config.flareSolverrEnabled = false;
             }
         }
@@ -196,7 +204,8 @@ export class AdvancedBypassManager {
                 });
                 this.browserPool.push(browser);
             } catch (error) {
-                console.warn(`⚠️ Failed to initialize browser ${i + 1}:`, error.message);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                console.warn(`⚠️ Failed to initialize browser ${i + 1}:`, errorMessage);
             }
         }
 
@@ -236,7 +245,8 @@ export class AdvancedBypassManager {
             } catch (error) {
                 proxy.successRate = 0.0;
                 proxy.failures = 1;
-                console.log(`❌ Proxy ${index + 1}: ${proxy.host}:${proxy.port} - ${error.message}`);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                console.log(`❌ Proxy ${index + 1}: ${proxy.host}:${proxy.port} - ${errorMessage}`);
                 return false;
             }
         });
@@ -350,9 +360,10 @@ export class AdvancedBypassManager {
                     }
 
                 } catch (error) {
-                    console.log(`❌ Method ${method} failed:`, error.message);
+                    const errorMessage = error instanceof Error ? error.message : String(error);
+                    console.log(`❌ Method ${method} failed:`, errorMessage);
                     this.updateMethodStats(method, false, 0);
-                    lastError = error;
+                    lastError = error as Error;
                 }
             }
 
@@ -441,7 +452,7 @@ export class AdvancedBypassManager {
                 content: solution.response,
                 cookies: solution.cookies,
                 responseTime: Date.now() - startTime,
-                proxyUsed: proxy,
+                proxyUsed: proxy ?? undefined,
                 cloudflareDetected: !this.isValidBypassResult(solution.response),
                 retryCount: 0
             };
@@ -454,17 +465,22 @@ export class AdvancedBypassManager {
                     session: sessionId
                 });
             } catch (error) {
-                console.warn('Failed to cleanup FlareSolverr session:', error.message);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                console.warn('Failed to cleanup FlareSolverr session:', errorMessage);
             }
         }
     }
 
     private async cloudscraperBypass(
-        url: string, 
-        options: any, 
-        proxy: ProxyConfig | null, 
+        url: string,
+        options: any,
+        proxy: ProxyConfig | null,
         startTime: number
     ): Promise<BypassResult> {
+        if (!this.cloudscraperInstance) {
+            throw new Error('CloudScraper module not available');
+        }
+
         const requestOptions = {
             uri: url,
             method: options.method || 'GET',
@@ -492,7 +508,7 @@ export class AdvancedBypassManager {
                     content: body,
                     cookies: this.extractCookies(response.headers),
                     responseTime: Date.now() - startTime,
-                    proxyUsed: proxy,
+                    proxyUsed: proxy ?? undefined,
                     cloudflareDetected: !this.isValidBypassResult(body),
                     retryCount: 0
                 });
@@ -550,7 +566,7 @@ export class AdvancedBypassManager {
                 content,
                 cookies: cookies.map(c => ({ name: c.name, value: c.value, domain: c.domain })),
                 responseTime: Date.now() - startTime,
-                proxyUsed: proxy,
+                proxyUsed: proxy ?? undefined,
                 cloudflareDetected: !this.isValidBypassResult(content),
                 retryCount: 0
             };
@@ -593,11 +609,11 @@ export class AdvancedBypassManager {
             method: 'direct',
             url: response.config.url || url,
             statusCode: response.status,
-            headers: response.headers,
+            headers: response.headers as Record<string, string>,
             content: response.data,
             cookies: this.extractCookies(response.headers),
             responseTime: Date.now() - startTime,
-            proxyUsed: proxy,
+            proxyUsed: proxy ?? undefined,
             cloudflareDetected: !this.isValidBypassResult(response.data),
             retryCount: 0
         };
@@ -647,7 +663,8 @@ export class AdvancedBypassManager {
                 await page.waitForTimeout(3000);
 
             } catch (error) {
-                console.warn('⚠️ Error during challenge handling:', error.message);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                console.warn('⚠️ Error during challenge handling:', errorMessage);
                 break;
             }
         }
@@ -713,7 +730,8 @@ export class AdvancedBypassManager {
             try {
                 await browser.close();
             } catch (error) {
-                console.warn('Error closing browser:', error.message);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                console.warn('Error closing browser:', errorMessage);
             }
         }
         this.browserPool = [];

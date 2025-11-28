@@ -94,11 +94,9 @@ export class CostOptimizer extends EventEmitter {
         this.cache = new LRUCache({
             max: config.cache.maxSize,
             ttl: config.cache.ttl,
-            maxAge: config.cache.maxAge,
             updateAgeOnGet: config.cache.updateAgeOnGet,
             allowStale: config.cache.allowStale,
-            staleWhileRevalidate: config.cache.staleWhileRevalidate,
-            
+
             // Size calculation based on content length
             sizeCalculation: (value) => {
                 if (value.content) {
@@ -245,7 +243,8 @@ export class CostOptimizer extends EventEmitter {
             
         } catch (error) {
             // Don't charge for failed requests
-            this.emit('requestFailed', { error: error.message, cost: 0 });
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            this.emit('requestFailed', { error: errorMessage, cost: 0 });
             throw error;
         }
     }

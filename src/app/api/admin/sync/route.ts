@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       console.log(`  - Source: ${singleResult.sourceName}`)
       console.log(`  - Success: ${singleResult.success ? 'YES ✅' : 'NO ❌'}`)
       console.log(`  - Posts: ${singleResult.postsCount}`)
-      console.log(`  - Duration: ${(singleResult.duration / 1000).toFixed(2)}s`)
+      console.log(`  - Duration: ${((singleResult.duration ?? 0) / 1000).toFixed(2)}s`)
       if (singleResult.error) {
         console.log(`  - Error: ${singleResult.error}`)
       }

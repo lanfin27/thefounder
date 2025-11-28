@@ -1,5 +1,3 @@
-import { Post } from '@/types/post'
-
 // 메모리 캐시 (간단한 구현)
 class NotionCache {
   private cache: Map<string, { data: any; timestamp: number }> = new Map()
@@ -38,7 +36,7 @@ class NotionCache {
 
   // 특정 키 패턴 삭제
   clearPattern(pattern: string) {
-    for (const key of this.cache.keys()) {
+    for (const key of Array.from(this.cache.keys())) {
       if (key.includes(pattern)) {
         this.cache.delete(key)
       }
