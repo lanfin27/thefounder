@@ -64,10 +64,21 @@ const nextConfig = {
 
   // Webpack configuration for Vercel deployment
   webpack: (config, { isServer }) => {
-    // Disable cache in Vercel environment to prevent size bloat
-    if (process.env.VERCEL) {
-      config.cache = false;
+    // Webpack 캐시 완전 비활성화 (Vercel 배포용)
+    config.cache = false;
+
+    // 불필요한 source map 제거 (프로덕션)
+    if (!isServer) {
+      config.devtool = false;
     }
+
+    // 번들 크기 최적화
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+      minimize: true,
+    };
+
     return config;
   },
 

@@ -1,0 +1,34 @@
+# Next.js build cache - Vercel에 배포할 필요 없음
+.next/cache
+
+# Webpack cache - 766MB+ 크기의 주범
+.next/cache/webpack
+
+# 기타 불필요한 캐시
+.next/*.cache
+
+# Development files
+.env.local
+.env*.local
+
+# Testing
+coverage
+.nyc_output
+
+# Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local development
+.DS_Store
+*.pem
+*.log
+
+# IDE
+.vscode
+.idea
+
+# Temporary files
+*.tmp
+*.temp
