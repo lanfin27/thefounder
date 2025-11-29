@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { BookOpen, Users, TrendingUp, Clock, Bookmark, History } from 'lucide-react'

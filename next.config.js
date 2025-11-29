@@ -74,7 +74,7 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', '@heroicons/react', '@supabase/supabase-js'],
-    optimizeCss: true,
+    // optimizeCss: true,  // Removed to fix Critters module error in Vercel
   },
 
   // TypeScript build configuration for production deployment

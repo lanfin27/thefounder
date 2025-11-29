@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import { createClient } from '@supabase/supabase-js'
 import { Metadata } from 'next'
 import PostCard from '@/components/cards/PostCard'

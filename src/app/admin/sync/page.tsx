@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Server Component - handles auth and environment setup
 import AdminSyncClient from './AdminSyncClient'
 
