@@ -11,6 +11,9 @@ import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { getGoogleCloudService, GoogleCloudQuotaUsage } from '@/lib/google-cloud/service-usage-client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // ✅ Google Cloud 캐시 (5분 유지)
 let googleCloudCache: GoogleCloudQuotaUsage | null = null
 let lastGoogleCloudFetch: number = 0

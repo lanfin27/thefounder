@@ -6,6 +6,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { YouTubeAPIQuotaTracker } from '@/lib/youtube/api-quota-tracker'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   try {
     console.log('[Simulate API] === REQUEST START ===')

@@ -2,6 +2,9 @@ import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 import { UserService } from '@/lib/services/userService';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 /**
  * GET /api/admin/newsletter/subscribers
  * 뉴스레터 구독자 목록 조회 (Admin 전용)

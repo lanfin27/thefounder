@@ -6,6 +6,9 @@ import { logger } from '@/lib/scraping/utils/logger'
 import { isAdminAuthenticated } from '@/lib/auth/admin'
 import type { ScrapingApiResponse } from '@/lib/scraping/flippa/types'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // GET /api/scraping/queue - Get queue statistics
 export async function GET(request: NextRequest) {
   try {

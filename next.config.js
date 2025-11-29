@@ -59,9 +59,22 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
 
+  // Output standalone for smaller bundle size
+  output: 'standalone',
+
+  // Webpack configuration for Vercel deployment
+  webpack: (config, { isServer }) => {
+    // Disable cache in Vercel environment to prevent size bloat
+    if (process.env.VERCEL) {
+      config.cache = false;
+    }
+    return config;
+  },
+
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['lucide-react', '@heroicons/react'],
+    optimizePackageImports: ['lucide-react', '@heroicons/react', '@supabase/supabase-js'],
+    optimizeCss: true,
   },
 
   // TypeScript build configuration for production deployment

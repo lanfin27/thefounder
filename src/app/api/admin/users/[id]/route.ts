@@ -7,6 +7,9 @@ import { NextResponse } from 'next/server'
 import { UserService } from '@/lib/services/userService'
 import { validateAdminPassword } from '@/lib/constants/admin'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 /**
  * DELETE /api/admin/users/[id]
  * Delete user (requires admin password for admin users)

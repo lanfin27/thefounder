@@ -5,6 +5,9 @@ import { getYouTubeChannelInfo } from '@/lib/youtube/channel-info-helper'
 import { identifyCategory } from '@/lib/category-mapper'
 import type { BulkInsertRequest } from '@/types/bulk-upload'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_YT_SUPABASE_URL!,
   process.env.YT_SUPABASE_SERVICE_KEY || process.env.NEXT_PUBLIC_YT_SUPABASE_ANON_KEY!

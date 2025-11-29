@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import { Client } from '@notionhq/client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const notion = new Client({
   auth: process.env.NOTION_TOKEN || process.env.NOTION_API_KEY,
 })

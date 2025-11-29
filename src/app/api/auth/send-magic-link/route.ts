@@ -10,6 +10,9 @@ import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 import devOTPStore from '@/lib/dev-otp-store'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Development mode flag
 const DEV_MODE = process.env.NODE_ENV === 'development'
 

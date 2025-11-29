@@ -4,6 +4,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import BrowserSimulationSystem from '@/lib/browser-simulation';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Global instance management
 let simulationSystem: BrowserSimulationSystem | null = null;
 

@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { SmartFlippaScanner } from '@/lib/scraping/smart-flippa-scanner';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const runtime = 'nodejs';
 export const maxDuration = 300; // 5 minutes
 

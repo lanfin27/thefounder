@@ -3,6 +3,9 @@ import { getAllPosts, getPostsByCategory } from '@/lib/posts'
 import { BlogPost } from '@/types'
 import { CategorySlug } from '@/types/post'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   console.log('[API /posts] 🔍 Fetching posts from Supabase')
 

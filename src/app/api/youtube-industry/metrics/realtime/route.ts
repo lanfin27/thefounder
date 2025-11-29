@@ -8,6 +8,9 @@
 import { NextResponse } from 'next/server'
 import { generateMockRealtimeMetricsResponse } from '@/lib/youtube-industry/mock-data'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const response = generateMockRealtimeMetricsResponse()

@@ -15,6 +15,12 @@ class RedisConnection {
   }
 
   async connect() {
+    // Disable Redis in Vercel environment
+    if (process.env.VERCEL || process.env.REDIS_ENABLED === 'false') {
+      console.log('⚠️  Redis disabled in Vercel environment');
+      return null;
+    }
+
     if (this.client && this.client.status === 'ready') {
       return this.client;
     }

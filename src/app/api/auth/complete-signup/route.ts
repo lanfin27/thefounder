@@ -9,6 +9,9 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const DEV_MODE = process.env.NODE_ENV === 'development'
 
 export async function POST(request: NextRequest) {

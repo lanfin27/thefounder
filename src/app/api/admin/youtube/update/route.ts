@@ -11,6 +11,9 @@ import { createClient } from '@supabase/supabase-js'
 import { YouTubeService } from '@/lib/youtube/youtube-service'
 import { UserService } from '@/lib/services/userService'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_YT_SUPABASE_URL!,
   process.env.YT_SUPABASE_SERVICE_KEY || process.env.NEXT_PUBLIC_YT_SUPABASE_ANON_KEY!

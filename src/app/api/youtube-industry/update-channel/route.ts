@@ -8,6 +8,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { google } from 'googleapis'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const youtube = google.youtube('v3')
 
 export async function POST(request: NextRequest) {

@@ -5,51 +5,81 @@ import { SCRAPING_CONFIG } from '../config'
 import { logger } from '../utils/logger'
 import type { QueueJobData } from '../flippa/types'
 
-// Create queue instance
-export const scrapingQueue = new Bull<QueueJobData>('flippa-scraping', {
-  redis: SCRAPING_CONFIG.queue.redis,
-  defaultJobOptions: SCRAPING_CONFIG.queue.defaultJobOptions
-})
+// Create queue instance (lazy initialization for Vercel compatibility)
+let _scrapingQueue: Bull.Queue<QueueJobData> | null = null
 
-// Queue event handlers
-scrapingQueue.on('error', (error) => {
-  logger.error('Queue error', error)
-})
+export const getScrapingQueue = (): Bull.Queue<QueueJobData> | null => {
+  // Disable queue in Vercel environment
+  if (process.env.VERCEL || process.env.REDIS_ENABLED === 'false') {
+    logger.warn('Queue disabled in Vercel environment')
+    return null
+  }
 
-scrapingQueue.on('waiting', (jobId) => {
-  logger.debug(`Job ${jobId} is waiting`)
-})
+  if (!_scrapingQueue) {
+    _scrapingQueue = new Bull<QueueJobData>('flippa-scraping', {
+      redis: SCRAPING_CONFIG.queue.redis,
+      defaultJobOptions: SCRAPING_CONFIG.queue.defaultJobOptions
+    })
 
-scrapingQueue.on('active', (job) => {
-  logger.info(`Job ${job.id} has started`, {
-    jobType: job.data.jobType,
-    jobId: job.data.jobId
+    // Setup event handlers
+    setupQueueEventHandlers(_scrapingQueue)
+  }
+
+  return _scrapingQueue
+}
+
+// For backwards compatibility
+export const scrapingQueue = {
+  get instance() {
+    return getScrapingQueue()
+  },
+  on: (event: string, handler: Function) => {
+    const queue = getScrapingQueue()
+    if (queue) queue.on(event as any, handler as any)
+  }
+}
+
+function setupQueueEventHandlers(queue: Bull.Queue<QueueJobData>) {
+  // Queue event handlers
+  queue.on('error', (error) => {
+    logger.error('Queue error', error)
   })
-})
 
-scrapingQueue.on('completed', (job, result) => {
-  logger.info(`Job ${job.id} completed`, {
-    jobType: job.data.jobType,
-    jobId: job.data.jobId,
-    result
+  queue.on('waiting', (jobId) => {
+    logger.debug(`Job ${jobId} is waiting`)
   })
-})
 
-scrapingQueue.on('failed', (job, err) => {
-  logger.error(`Job ${job?.id} failed`, {
-    jobType: job?.data.jobType,
-    jobId: job?.data.jobId,
-    error: err.message,
-    stack: err.stack
+  queue.on('active', (job) => {
+    logger.info(`Job ${job.id} has started`, {
+      jobType: job.data.jobType,
+      jobId: job.data.jobId
+    })
   })
-})
 
-scrapingQueue.on('stalled', (job) => {
-  logger.warn(`Job ${job.id} stalled and will be retried`, {
-    jobType: job.data.jobType,
-    jobId: job.data.jobId
+  queue.on('completed', (job, result) => {
+    logger.info(`Job ${job.id} completed`, {
+      jobType: job.data.jobType,
+      jobId: job.data.jobId,
+      result
+    })
   })
-})
+
+  queue.on('failed', (job, err) => {
+    logger.error(`Job ${job?.id} failed`, {
+      jobType: job?.data.jobType,
+      jobId: job?.data.jobId,
+      error: err.message,
+      stack: err.stack
+    })
+  })
+
+  queue.on('stalled', (job) => {
+    logger.warn(`Job ${job.id} stalled and will be retried`, {
+      jobType: job.data.jobType,
+      jobId: job.data.jobId
+    })
+  })
+}
 
 // Queue management functions
 export const queueManager = {
@@ -60,7 +90,13 @@ export const queueManager = {
     jobType: QueueJobData['jobType'],
     config: QueueJobData['config'],
     options?: Bull.JobOptions
-  ): Promise<Bull.Job<QueueJobData>> {
+  ): Promise<Bull.Job<QueueJobData> | null> {
+    const queue = getScrapingQueue()
+    if (!queue) {
+      logger.warn('Queue not available, job skipped')
+      return null
+    }
+
     const jobData: QueueJobData = {
       jobId: `${jobType}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       jobType,
@@ -75,8 +111,8 @@ export const queueManager = {
       ...options
     }
 
-    const job = await scrapingQueue.add(jobData, jobOptions)
-    
+    const job = await queue.add(jobData, jobOptions)
+
     logger.info('Job added to queue', {
       jobId: job.id,
       jobType: jobData.jobType,

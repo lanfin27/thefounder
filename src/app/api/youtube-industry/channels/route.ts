@@ -10,6 +10,9 @@ import { generateMockChannelsResponse, getCachedCategories } from '@/lib/youtube
 import { filterChannels, sortChannels } from '@/lib/youtube-industry/utils'
 import { YCategoryCode, SortBy } from '@/types/youtube-industry'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams

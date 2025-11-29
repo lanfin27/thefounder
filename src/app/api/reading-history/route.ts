@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getReadingHistory } from '@/lib/supabase/queries/reading-history'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
     console.log('[API /reading-history] 🔍 Fetching reading history')
 

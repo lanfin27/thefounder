@@ -7,6 +7,9 @@ import { NextResponse } from 'next/server'
 import { UserService } from '@/lib/services/userService'
 import { validateAdminPassword } from '@/lib/constants/admin'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 /**
  * GET /api/admin/users
  * Get all users with optional statistics

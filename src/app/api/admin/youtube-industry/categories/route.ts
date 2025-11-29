@@ -7,6 +7,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ytSupabase, ytSupabaseAdmin } from '@/lib/youtube-supabase/client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // GET: 모든 카테고리 조회 (채널 수 포함)
 export async function GET(request: NextRequest) {
   try {

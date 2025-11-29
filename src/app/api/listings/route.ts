@@ -6,6 +6,9 @@ import { createClient } from '@/lib/supabase/server'
 import { isAdminAuthenticated } from '@/lib/auth/admin'
 import type { ScrapingApiResponse } from '@/lib/scraping/flippa/types'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Simple console logger as fallback
 const logger = {
   error: (message: string, error: any) => {

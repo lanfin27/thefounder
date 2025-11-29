@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Bull from 'bull';
 import { extractAdminToken } from '@/lib/auth/admin';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Initialize queue
 const schedulerQueue = new Bull('flippa-scheduler', process.env.REDIS_URL!);
 

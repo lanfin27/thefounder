@@ -3,6 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 import Bull from 'bull';
 import Redis from 'ioredis';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Lazy initialization to avoid build-time environment variable issues
 let supabaseInstance: any = null;
 let scrapingQueueInstance: any = null;

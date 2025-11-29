@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getAllPosts } from '@/lib/notion/converter'
 import { generateKoreanSlug } from '@/lib/utils/korean-slug'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     // Only allow in development

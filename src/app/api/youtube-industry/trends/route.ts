@@ -9,6 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { generateMockTrendsResponse } from '@/lib/youtube-industry/mock-data'
 import { YCategoryCode, Y_CATEGORIES, TimePeriod, TIME_PERIODS } from '@/types/youtube-industry'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams

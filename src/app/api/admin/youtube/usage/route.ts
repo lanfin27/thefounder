@@ -20,6 +20,9 @@ import { YouTubeAPIQuotaTracker } from '@/lib/youtube/api-quota-tracker';
 import { ytSupabase } from '@/lib/youtube-supabase/client';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     console.log('[Usage API] === REQUEST START ===');

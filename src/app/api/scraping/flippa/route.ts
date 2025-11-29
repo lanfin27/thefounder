@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 // import FlippaScraperEngine from '@/scripts/flippa-scraper-engine';
 // import FlippaDataProcessor from '@/scripts/flippa-data-processor';
 // import FlippaDatabaseManager from '@/lib/database/flippa-db-manager';

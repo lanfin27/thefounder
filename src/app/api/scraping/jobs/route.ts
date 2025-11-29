@@ -8,6 +8,9 @@ import { logger } from '@/lib/scraping/utils/logger'
 import { isAdminAuthenticated, getAuthDebugInfo } from '@/lib/auth/admin'
 import type { ScrapingApiResponse } from '@/lib/scraping/flippa/types'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // GET /api/scraping/jobs - List scraping jobs
 export async function GET(request: NextRequest) {
   try {

@@ -7,6 +7,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ytSupabaseAdmin } from '@/lib/youtube-supabase/client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface RouteContext {
   params: {
     code: string

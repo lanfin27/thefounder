@@ -7,6 +7,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { YouTubeService } from '@/lib/youtube/youtube-service'
 import { extractChannelId } from '@/lib/youtube/youtube-url-parser'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()

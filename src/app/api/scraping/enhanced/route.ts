@@ -5,6 +5,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Note: These imports will need to be adjusted based on actual build setup
 // For now, using dynamic imports with error handling
 

@@ -8,6 +8,9 @@ import { UserService } from '@/lib/services/userService'
 import { validateAdminPassword } from '@/lib/constants/admin'
 import type { UserRole } from '@/types/user'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 /**
  * PATCH /api/admin/users/[id]/role
  * Update user role (requires admin password)

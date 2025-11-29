@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { SmartFlippaScanner } from '@/lib/scraping/smart-flippa-scanner';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const runtime = 'nodejs';
 
 // GET - Test baseline loading

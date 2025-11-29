@@ -7,6 +7,9 @@
 import { NextResponse } from 'next/server'
 import { ytSupabase } from '@/lib/youtube-supabase/client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const USABLE_QUOTA = 9000 // 10,000 - 1,000 safety buffer
 
 interface QuotaRecommendation {

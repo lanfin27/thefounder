@@ -9,6 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { ytSupabase } from '@/lib/youtube-supabase/client'
 import { YCategoryCode, Y_CATEGORIES } from '@/types/youtube-industry'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { code: string } }

@@ -9,6 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { ytSupabase } from '@/lib/youtube-supabase/client'
 import { Y_CATEGORIES, YCategory, YCategoryCode } from '@/types/youtube-industry'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   const startTime = Date.now()
 

@@ -10,6 +10,9 @@ import { getQuotaManager } from '@/lib/youtube-api/quota-manager'
 import { PriorityUpdater } from '@/lib/youtube-api/priority-updater'
 import { BatchProcessor } from '@/lib/youtube-api/batch-processor'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   console.log('='.repeat(60))
   console.log('YouTube Smart Update - Starting')

@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getAllPosts } from '@/lib/notion/converter'
 import { createAdminClient } from '@/lib/supabase/admin'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   try {
     // Verify admin token

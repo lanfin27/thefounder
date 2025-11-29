@@ -9,6 +9,9 @@ import { getQuotaManager } from '@/lib/youtube-api/quota-manager'
 import { BatchProcessor } from '@/lib/youtube-api/batch-processor'
 import { ytSupabaseAdmin } from '@/lib/youtube-supabase/client'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
   console.log('🔄 [Manual History Update] Starting')

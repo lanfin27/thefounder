@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:clean": "rm -rf .next && next build",
+    "build:vercel": "rm -rf .next/cache && next build",
     "start": "next start",
     "lint": "next lint",
+    "clean": "rm -rf .next node_modules/.cache",
     "db:migrate": "node scripts/run-migrations.js",
     "test:redis": "node scripts/test-redis.js",
     "test:playwright": "node scripts/test-playwright-api.js",
