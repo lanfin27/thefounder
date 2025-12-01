@@ -76,14 +76,13 @@ export default function BookmarkDropdown({
             setIsOpen(!isOpen);
           }}
           type="button"
-          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
-            isSaved
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isSaved
               ? 'bg-green-50 border-green-600 text-green-600 hover:bg-green-100'
               : 'bg-white border-gray-300 text-gray-600 hover:bg-gray-50'
-          }`}
+            }`}
           aria-label="북마크"
         >
-          <Bookmark className={`w-5 h-5 ${isSaved ? 'fill-current' : ''}`} />
+          <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
           <span className="text-sm font-medium">
             {isSaved ? '저장됨' : '저장'}
           </span>
@@ -101,11 +100,10 @@ export default function BookmarkDropdown({
           aria-label={isSaved ? 'Remove bookmark' : 'Add bookmark'}
         >
           <Bookmark
-            className={`w-5 h-5 transition-colors ${
-              isSaved
+            className={`w-5 h-5 transition-colors ${isSaved
                 ? 'fill-green-600 text-green-600'
                 : 'text-gray-400 hover:text-gray-600'
-            }`}
+              }`}
           />
         </button>
       )}

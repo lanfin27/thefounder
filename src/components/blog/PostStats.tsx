@@ -100,7 +100,7 @@ export default function PostStats({
   }
 
   return (
-    <div className="flex items-center gap-4 py-3 border-t border-b border-gray-100">
+    <div className="flex items-center gap-4">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* Clap Button (Medium 스타일) */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -129,7 +129,7 @@ export default function PostStats({
       >
         {/* 댓글 아이콘 - 얇은 선 스타일 */}
         <svg
-          className="w-6 h-6 text-gray-500 group-hover:text-gray-700 transition-colors duration-200"
+          className="w-4 h-4 text-gray-500 group-hover:text-gray-700 transition-colors duration-200"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"

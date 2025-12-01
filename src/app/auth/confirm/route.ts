@@ -80,6 +80,50 @@ export async function GET(request: NextRequest) {
     console.log('User ID:', data?.user?.id);
     console.log('Email:', data?.user?.email);
 
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Check if user needs profile setup (new user detection)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    if (data?.user) {
+      console.log('👤 [Auth Confirm] Checking user profile...');
+
+      // Check user_profiles table for existing profile
+      const { data: profile, error: profileError } = await supabase
+        .from('user_profiles')
+        .select('id, name, full_name')
+        .eq('id', data.user.id)
+        .single();
+
+      if (profileError && profileError.code !== 'PGRST116') {
+        console.error('⚠️ [Auth Confirm] Profile check error:', profileError);
+      }
+
+      console.log('📊 [Auth Confirm] Profile data:', profile);
+
+      // Check if user metadata has required fields
+      const userMetadata = data.user.user_metadata || {};
+      const hasNickname = userMetadata.nickname || profile?.name;
+      const hasFullName = userMetadata.full_name || profile?.full_name;
+
+      console.log('📊 [Auth Confirm] User metadata:', {
+        hasNickname: !!hasNickname,
+        hasFullName: !!hasFullName,
+        metaNickname: userMetadata.nickname,
+        metaFullName: userMetadata.full_name,
+        profileName: profile?.name,
+        profileFullName: profile?.full_name,
+      });
+
+      // Determine if this is a new user who needs profile setup
+      const isNewUser = !profile || (!hasNickname && !hasFullName);
+
+      if (isNewUser) {
+        console.log('🆕 [Auth Confirm] New user detected, redirecting to profile setup');
+        return NextResponse.redirect(`${origin}/auth/setup-profile`);
+      }
+
+      console.log('👋 [Auth Confirm] Existing user with profile, redirecting to:', next);
+    }
+
     // Redirect to the specified page or home
     console.log('🔄 [Auth Confirm] Redirecting to:', next);
     return NextResponse.redirect(`${origin}${next}`);

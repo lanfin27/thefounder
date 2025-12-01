@@ -290,20 +290,18 @@ export default async function PostPage({
                         <span>{post.readingTime}분 읽기</span>
                       </>
                     )}
+                    {/* Post Stats (Claps & Comments) - Inline */}
+                    <span>·</span>
+                    <PostStats
+                      postSlug={post.slug}
+                      initialClaps={post.clapsCount || 0}
+                      initialComments={post.commentsCount || 0}
+                      size="md"
+                    />
                   </div>
 
                   {/* Bookmark Button */}
                   <BookmarkButton postId={post.slug} postTitle={post.title} />
-                </div>
-
-                {/* Post Stats (Claps & Comments) - First Location */}
-                <div className="mt-6 pb-6 border-b border-gray-200">
-                  <PostStats
-                    postSlug={post.slug}
-                    initialClaps={post.clapsCount || 0}
-                    initialComments={post.commentsCount || 0}
-                    size="md"
-                  />
                 </div>
               </header>
 

@@ -401,11 +401,10 @@ export default function ClapButton({
       {/* 박수 아이콘 - Medium 스타일 (얇은 선) */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <svg
-        className={`w-6 h-6 transition-colors duration-200 ${
-          userHasClapped
+        className={`w-4 h-4 transition-colors duration-200 ${userHasClapped
             ? 'text-green-600' // 클릭 시: 녹색
             : 'text-gray-500 group-hover:text-gray-700' // 기본: 회색, 호버: 진한 회색
-        }`}
+          }`}
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -422,11 +421,10 @@ export default function ClapButton({
       {/* 박수 수 */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {showCount && (
-        <span className={`text-sm font-medium transition-colors duration-200 ${
-          userHasClapped
+        <span className={`text-sm font-medium transition-colors duration-200 ${userHasClapped
             ? 'text-gray-900' // 클릭 시: 진한 회색
             : 'text-gray-600 group-hover:text-gray-900' // 기본: 회색, 호버: 진한 회색
-        }`}>
+          }`}>
           {formatCount(totalClaps)}
         </span>
       )}
