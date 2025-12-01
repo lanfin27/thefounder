@@ -100,23 +100,34 @@ export async function GET(request: NextRequest) {
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         // IMPORTANT: Create with EMPTY full_name
         // This ensures user goes to setup-profile page
+        // Failsafe: Database Trigger may have already created it
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        const { error: insertError } = await supabase
-          .from('user_profiles')
-          .insert({
-            id: data.user.id,
-            email: data.user.email,
-            full_name: '',  // ✅ Empty - will trigger setup-profile redirect
-            role: 'user',
-            subscription_tier: 'free',
-            subscription_status: 'active',
-          });
+        try {
+          const { error: insertError } = await supabase
+            .from('user_profiles')
+            .insert({
+              id: data.user.id,
+              email: data.user.email,
+              full_name: '',  // ✅ Empty - will trigger setup-profile redirect
+              role: 'user',
+              subscription_tier: 'free',
+              subscription_status: 'active',
+            });
 
-        if (insertError) {
-          console.error('❌ [Auth Confirm] Failed to create profile:', insertError);
-          console.error('Insert error details:', insertError.code, insertError.details);
-        } else {
-          console.log('✅ [Auth Confirm] Minimal profile created successfully');
+          if (insertError) {
+            // 23505 = unique_violation (Trigger already created profile)
+            if (insertError.code === '23505') {
+              console.log('✅ [Auth Confirm] Profile already exists (created by database trigger)');
+            } else {
+              console.error('❌ [Auth Confirm] Failed to create profile:', insertError);
+              console.error('Insert error details:', insertError.code, insertError.details);
+            }
+          } else {
+            console.log('✅ [Auth Confirm] Minimal profile created successfully');
+          }
+        } catch (insertErr: any) {
+          console.error('❌ [Auth Confirm] Unexpected insert error:', insertErr);
+          // Continue even if insert fails - trigger may have created profile
         }
 
         // NEW USER - Always redirect to profile setup

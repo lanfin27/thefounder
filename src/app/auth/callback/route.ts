@@ -102,23 +102,34 @@ export async function GET(request: NextRequest) {
           // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           // For OAuth: Use OAuth-provided name if available
           // Otherwise empty (will trigger setup-profile)
+          // Failsafe: Database Trigger may have already created it
           // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          const { error: insertError } = await supabase
-            .from('user_profiles')
-            .insert({
-              id: data.user.id,
-              email: data.user.email,
-              full_name: oauthFullName,  // OAuth name or empty
-              role: 'user',
-              subscription_tier: 'free',
-              subscription_status: 'active',
-            });
+          try {
+            const { error: insertError } = await supabase
+              .from('user_profiles')
+              .insert({
+                id: data.user.id,
+                email: data.user.email,
+                full_name: oauthFullName,  // OAuth name or empty
+                role: 'user',
+                subscription_tier: 'free',
+                subscription_status: 'active',
+              });
 
-          if (insertError) {
-            console.error('❌ [Auth Callback] Failed to create profile:', insertError);
-            console.error('Insert error details:', insertError.code, insertError.details);
-          } else {
-            console.log('✅ [Auth Callback] Profile created for OAuth user');
+            if (insertError) {
+              // 23505 = unique_violation (Trigger already created profile)
+              if (insertError.code === '23505') {
+                console.log('✅ [Auth Callback] Profile already exists (created by database trigger)');
+              } else {
+                console.error('❌ [Auth Callback] Failed to create profile:', insertError);
+                console.error('Insert error details:', insertError.code, insertError.details);
+              }
+            } else {
+              console.log('✅ [Auth Callback] Profile created for OAuth user');
+            }
+          } catch (insertErr: any) {
+            console.error('❌ [Auth Callback] Unexpected insert error:', insertErr);
+            // Continue even if insert fails - trigger may have created profile
           }
 
           // Check if profile setup needed (no OAuth name provided)
