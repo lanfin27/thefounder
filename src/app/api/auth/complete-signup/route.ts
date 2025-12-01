@@ -16,17 +16,24 @@ const DEV_MODE = process.env.NODE_ENV === 'development'
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, fullName, password } = await request.json()
+    const { email, nickname, name, gender, password } = await request.json()
 
     // Validation
-    if (!email || !fullName || !password) {
+    if (!email || !nickname || !name || !gender || !password) {
       return NextResponse.json(
         { error: '모든 필드를 입력해주세요.' },
         { status: 400 }
       )
     }
 
-    if (fullName.trim().length < 2) {
+    if (nickname.trim().length < 2) {
+      return NextResponse.json(
+        { error: '닉네임은 최소 2자 이상이어야 합니다.' },
+        { status: 400 }
+      )
+    }
+
+    if (name.trim().length < 2) {
       return NextResponse.json(
         { error: '이름은 최소 2자 이상이어야 합니다.' },
         { status: 400 }
@@ -62,7 +69,9 @@ export async function POST(request: NextRequest) {
         password: password,
         options: {
           data: {
-            full_name: fullName.trim()
+            nickname: nickname.trim(),
+            full_name: name.trim(), // Real Name
+            gender: gender,
           }
         }
       })
@@ -110,7 +119,7 @@ export async function POST(request: NextRequest) {
         .insert({
           id: data.user.id,
           email: email,
-          full_name: fullName.trim(),
+          name: nickname.trim(), // Display Name
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         })
@@ -211,9 +220,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Update user password
+    // Update user password and metadata
     const { error: passwordError } = await supabase.auth.updateUser({
       password,
+      data: {
+        nickname: nickname.trim(),
+        full_name: name.trim(), // Real Name
+        gender: gender,
+      }
     })
 
     if (passwordError) {
@@ -227,14 +241,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    console.log('[Complete Signup API] ✅ Password set successfully')
+    console.log('[Complete Signup API] ✅ Password and metadata set successfully')
 
-    // Update user profile with full name
+    // Update user profile with nickname
     const { error: profileError } = await supabase
       .from('user_profiles')
       .update({
-        full_name: fullName.trim(),
-        name: fullName.trim(),
+        name: nickname.trim(), // Display Name
         updated_at: new Date().toISOString(),
       })
       .eq('id', user.id)
@@ -244,18 +257,6 @@ export async function POST(request: NextRequest) {
       console.warn('[Complete Signup API] ⚠️  Password set but profile update failed')
     } else {
       console.log('[Complete Signup API] ✅ Profile updated successfully')
-    }
-
-    // Update user metadata
-    const { error: metadataError } = await supabase.auth.updateUser({
-      data: {
-        full_name: fullName.trim(),
-        name: fullName.trim(),
-      },
-    })
-
-    if (metadataError) {
-      console.error('[Complete Signup API] ⚠️  Metadata update failed:', metadataError)
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -312,7 +313,8 @@ export async function POST(request: NextRequest) {
       user: {
         id: user.id,
         email: user.email,
-        fullName: fullName.trim(),
+        nickname: nickname.trim(),
+        name: name.trim(),
       },
     })
 

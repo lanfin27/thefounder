@@ -60,7 +60,12 @@ export default function PrivacyPage() {
           <h3 className="text-xl font-semibold text-gray-800 mb-2">나. 소셜 로그인 시</h3>
           <ul className="list-disc pl-6 mb-4 space-y-1">
             <li>구글: 이메일, 이름, 프로필 사진</li>
-            <li>카카오: 카카오계정(이메일), 프로필 정보(닉네임, 프로필 사진)</li>
+            <li>카카오:
+              <ul className="list-disc pl-6 mt-1">
+                <li>필수항목: 이름, 성별, 연령대, 출생연도, 카카오계정(전화번호)</li>
+                <li>선택항목: 생일, CI(연계정보), 배송지정보(수령인명, 배송지 주소, 전화번호)</li>
+              </ul>
+            </li>
           </ul>
 
           <h3 className="text-xl font-semibold text-gray-800 mb-2">다. 유료 서비스 이용 시</h3>

@@ -20,8 +20,11 @@ export default function SignupPage() {
   const [step, setStep] = useState<Step>('email')
   const [email, setEmail] = useState('')
   const [code, setCode] = useState(['', '', '', '', '', ''])
-  const [fullName, setFullName] = useState('')
+  const [nickname, setNickname] = useState('')
+  const [name, setName] = useState('')
+  const [gender, setGender] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [resendTimer, setResendTimer] = useState(0)
@@ -204,13 +207,21 @@ export default function SignupPage() {
     setError(null)
     setLoading(true)
 
+    if (password !== confirmPassword) {
+      setError('비밀번호가 일치하지 않습니다.')
+      setLoading(false)
+      return
+    }
+
     try {
       const response = await fetch('/api/auth/complete-signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
-          fullName,
+          nickname,
+          name,
+          gender,
           password,
         }),
       })
@@ -440,24 +451,99 @@ export default function SignupPage() {
         {/* Step 3: Name & Password Setup */}
         {step === 'details' && (
           <form onSubmit={handleCompleteSignup} className="space-y-6">
+            {/* Email (Read-only) */}
             <div>
-              <label htmlFor="fullName" className="block text-body-small font-medium text-medium-black mb-2">
-                이름
+              <label className="block text-body-small font-medium text-medium-black mb-2">
+                이메일
               </label>
               <input
-                id="fullName"
-                name="fullName"
+                type="email"
+                value={email}
+                disabled
+                className="input-field bg-gray-100 text-gray-500 cursor-not-allowed"
+              />
+            </div>
+
+            {/* Nickname */}
+            <div>
+              <label htmlFor="nickname" className="block text-body-small font-medium text-medium-black mb-2">
+                닉네임
+              </label>
+              <input
+                id="nickname"
+                name="nickname"
                 type="text"
                 required
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                value={nickname}
+                onChange={(e) => setNickname(e.target.value)}
                 className="input-field"
-                placeholder="홍길동"
+                placeholder="닉네임을 입력해주세요"
                 autoFocus
                 minLength={2}
               />
             </div>
 
+            {/* Real Name */}
+            <div>
+              <label htmlFor="name" className="block text-body-small font-medium text-medium-black mb-2">
+                이름
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="input-field"
+                placeholder="실명을 입력해주세요"
+                minLength={2}
+              />
+            </div>
+
+            {/* Gender */}
+            <div>
+              <label className="block text-body-small font-medium text-medium-black mb-2">
+                성별
+              </label>
+              <div className="flex gap-4">
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked={gender === 'male'}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="w-4 h-4 text-medium-black border-gray-300 focus:ring-medium-black"
+                  />
+                  <span className="text-body-small text-medium-black">남성</span>
+                </label>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    checked={gender === 'female'}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="w-4 h-4 text-medium-black border-gray-300 focus:ring-medium-black"
+                  />
+                  <span className="text-body-small text-medium-black">여성</span>
+                </label>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="none"
+                    checked={gender === 'none'}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="w-4 h-4 text-medium-black border-gray-300 focus:ring-medium-black"
+                  />
+                  <span className="text-body-small text-medium-black">선택 안함</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Password */}
             <div>
               <label htmlFor="password" className="block text-body-small font-medium text-medium-black mb-2">
                 비밀번호
@@ -478,9 +564,32 @@ export default function SignupPage() {
               </p>
             </div>
 
+            {/* Confirm Password */}
+            <div>
+              <label htmlFor="confirmPassword" className="block text-body-small font-medium text-medium-black mb-2">
+                비밀번호 확인
+              </label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="input-field"
+                placeholder="비밀번호를 다시 입력해주세요"
+                minLength={8}
+              />
+              {password && confirmPassword && password !== confirmPassword && (
+                <p className="mt-2 text-xs text-red-600">
+                  비밀번호가 일치하지 않습니다
+                </p>
+              )}
+            </div>
+
             <button
               type="submit"
-              disabled={loading || !fullName.trim() || password.length < 8}
+              disabled={loading || !nickname.trim() || !name.trim() || !gender || password.length < 8 || password !== confirmPassword}
               className="w-full btn-primary text-body-small flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
