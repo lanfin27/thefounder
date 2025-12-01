@@ -83,23 +83,32 @@ export async function GET(request: NextRequest) {
         // Check if profile exists
         const { data: profile, error: profileError } = await supabase
           .from('user_profiles')
-          .select('id')
+          .select('id, full_name')
           .eq('id', data.user.id)
           .single();
 
-        // Profile not found (PGRST116 = no rows) - create it
+        const userMetadata = data.user.user_metadata || {};
+        const oauthFullName = userMetadata.full_name || userMetadata.name || '';
+
+        console.log('📊 [Auth Callback] OAuth metadata:', {
+          provider: data.user.app_metadata?.provider,
+          oauthFullName: oauthFullName || '(empty)',
+        });
+
+        // Profile not found (PGRST116 = no rows) - NEW USER!
         if (profileError && profileError.code === 'PGRST116') {
-          console.log('📝 [Auth Callback] Profile not found, creating new profile...');
+          console.log('📝 [Auth Callback] Profile not found, creating profile for OAuth user...');
 
-          const userMetadata = data.user.user_metadata || {};
-
-          // Create profile with actual schema (no name, nickname, avatar_url columns)
+          // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          // For OAuth: Use OAuth-provided name if available
+          // Otherwise empty (will trigger setup-profile)
+          // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           const { error: insertError } = await supabase
             .from('user_profiles')
             .insert({
               id: data.user.id,
               email: data.user.email,
-              full_name: userMetadata.full_name || userMetadata.name || data.user.email,
+              full_name: oauthFullName,  // OAuth name or empty
               role: 'user',
               subscription_tier: 'free',
               subscription_status: 'active',
@@ -109,15 +118,33 @@ export async function GET(request: NextRequest) {
             console.error('❌ [Auth Callback] Failed to create profile:', insertError);
             console.error('Insert error details:', insertError.code, insertError.details);
           } else {
-            console.log('✅ [Auth Callback] Profile created successfully for OAuth user');
+            console.log('✅ [Auth Callback] Profile created for OAuth user');
+          }
+
+          // Check if profile setup needed (no OAuth name provided)
+          if (!oauthFullName || oauthFullName.trim() === '') {
+            console.log('🆕 [Auth Callback] No OAuth name, redirecting to profile setup');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            return NextResponse.redirect(`${origin}/auth/setup-profile`);
           }
         } else if (profileError) {
           console.error('⚠️ [Auth Callback] Profile check error:', profileError);
         } else {
           console.log('👋 [Auth Callback] Existing profile found');
+
+          // Check if existing profile needs setup
+          const needsProfileSetup = !profile?.full_name || profile.full_name.trim() === '';
+
+          if (needsProfileSetup) {
+            console.log('🆕 [Auth Callback] Profile incomplete, redirecting to profile setup');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            return NextResponse.redirect(`${origin}/auth/setup-profile`);
+          }
         }
       }
 
+      console.log('🔀 [Auth Callback] Redirecting to:', next);
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       return NextResponse.redirect(`${origin}${next}`);
     } catch (err: any) {
       console.error('❌ [Auth Callback] Unexpected error:', err);

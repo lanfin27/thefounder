@@ -49,14 +49,20 @@ export default function SetupProfilePage() {
       // Check if profile already exists and is complete
       const { data: profile } = await supabase
         .from('user_profiles')
-        .select('*')
+        .select('full_name, name')
         .eq('id', user.id)
         .single();
 
-      const userMetadata = user.user_metadata || {};
+      console.log('[SetupProfile] Profile check:', {
+        fullName: profile?.full_name || '(empty)',
+        name: profile?.name || '(empty)',
+      });
 
-      // If profile is already complete, redirect to home
-      if (profile?.name && (profile?.full_name || userMetadata.full_name)) {
+      // If profile is already complete (has full_name), redirect to home
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // Profile is complete if full_name is set and not empty
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      if (profile?.full_name && profile.full_name.trim() !== '') {
         console.log('[SetupProfile] Profile already complete, redirecting');
         router.push('/');
         return;

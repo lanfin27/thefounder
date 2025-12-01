@@ -198,13 +198,12 @@ function PostSelectionModal({
                     }
                   }}
                   disabled={isSelected(post.id) || !canAddMore}
-                  className={`w-full text-left p-4 rounded-lg border transition-colors ${
-                    isSelected(post.id)
-                      ? 'bg-green-50 border-green-500'
-                      : canAddMore
+                  className={`w-full text-left p-4 rounded-lg border transition-colors ${isSelected(post.id)
+                    ? 'bg-green-50 border-green-500'
+                    : canAddMore
                       ? 'hover:bg-gray-50 border-gray-200'
                       : 'opacity-50 cursor-not-allowed border-gray-200'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     {post.image_url && (
@@ -296,11 +295,10 @@ function SectionManager({
         <button
           onClick={() => setIsModalOpen(true)}
           disabled={posts.length >= maxPosts}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-            posts.length >= maxPosts
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-green-primary text-white hover:bg-green-hover'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${posts.length >= maxPosts
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-green-primary text-white hover:bg-green-hover'
+            }`}
         >
           <Plus className="w-4 h-4" />
           포스트 추가
@@ -467,8 +465,8 @@ function TopicsManager() {
 
   const filteredAllTopics = searchQuery
     ? allTopics.filter(topic =>
-        topic.topic_name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      topic.topic_name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : allTopics;
 
   if (loading) {
@@ -496,11 +494,10 @@ function TopicsManager() {
         <button
           onClick={saveFeaturedTopics}
           disabled={saving || featuredTopics.length === 0}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-            saving || featuredTopics.length === 0
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-green-primary text-white hover:bg-green-hover'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${saving || featuredTopics.length === 0
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-green-primary text-white hover:bg-green-hover'
+            }`}
         >
           {saving ? (
             <>
@@ -518,11 +515,10 @@ function TopicsManager() {
 
       {message && (
         <div
-          className={`mb-4 p-3 rounded-lg text-sm ${
-            message.type === 'success'
-              ? 'bg-green-50 text-green-800 border border-green-200'
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}
+          className={`mb-4 p-3 rounded-lg text-sm ${message.type === 'success'
+            ? 'bg-green-50 text-green-800 border border-green-200'
+            : 'bg-red-50 text-red-800 border border-red-200'
+            }`}
         >
           {message.text}
         </div>
@@ -593,9 +589,8 @@ function TopicsManager() {
                 return (
                   <div
                     key={topic.topic_name}
-                    className={`flex items-center justify-between p-2 border rounded-lg text-sm transition-colors ${
-                      isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
-                    }`}
+                    className={`flex items-center justify-between p-2 border rounded-lg text-sm transition-colors ${isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
+                      }`}
                   >
                     <div className="flex-1">
                       <span className={`font-medium ${isFeatured ? 'text-green-800' : 'text-gray-900'}`}>
@@ -879,9 +874,9 @@ function FounderPicksManager() {
 
   const filteredAllPosts = searchQuery
     ? allPosts.filter(post =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category?.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category?.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : allPosts
 
   // 표시 개수 제한: 검색 중이면 전체, 아니면 최근 10개만
@@ -912,11 +907,10 @@ function FounderPicksManager() {
         <button
           onClick={saveFeaturedPicks}
           disabled={saving || featuredPicks.length === 0}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-            saving || featuredPicks.length === 0
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-green-primary text-white hover:bg-green-hover'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${saving || featuredPicks.length === 0
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-green-primary text-white hover:bg-green-hover'
+            }`}
         >
           {saving ? (
             <>
@@ -934,11 +928,10 @@ function FounderPicksManager() {
 
       {message && (
         <div
-          className={`mb-4 p-3 rounded-lg text-sm ${
-            message.type === 'success'
-              ? 'bg-green-50 text-green-800 border border-green-200'
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}
+          className={`mb-4 p-3 rounded-lg text-sm ${message.type === 'success'
+            ? 'bg-green-50 text-green-800 border border-green-200'
+            : 'bg-red-50 text-red-800 border border-red-200'
+            }`}
         >
           {message.text}
         </div>
@@ -1013,9 +1006,8 @@ function FounderPicksManager() {
                   return (
                     <div
                       key={post.id}
-                      className={`flex items-center justify-between p-2 border rounded-lg transition-colors ${
-                        isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
-                      }`}
+                      className={`flex items-center justify-between p-2 border rounded-lg transition-colors ${isFeatured ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200 hover:bg-gray-50'
+                        }`}
                     >
                       <div className="flex-1 min-w-0">
                         <p className={`text-xs font-medium truncate ${isFeatured ? 'text-green-800' : 'text-gray-900'}`}>
@@ -1168,11 +1160,10 @@ export default function HomepageManagement() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className={`flex items-center gap-2 px-6 py-2 rounded-lg transition-colors ${
-                saving
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-green-primary text-white hover:bg-green-hover'
-              }`}
+              className={`flex items-center gap-2 px-6 py-2 rounded-lg transition-colors ${saving
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-green-primary text-white hover:bg-green-hover'
+                }`}
             >
               {saving ? (
                 <>
@@ -1191,31 +1182,21 @@ export default function HomepageManagement() {
 
         {/* Sections */}
         <div className="space-y-8">
-          <SectionManager
-            title="Featured Posts"
-            description="메인 페이지 상단의 '주목할 만한 이야기' 섹션"
-            configType="featured"
-            maxPosts={4}
-            posts={configs.featured}
-            onUpdate={(posts) => setConfigs({ ...configs, featured: posts })}
-          />
-
           {/* Founder Picks 섹션 - Founder Picks 관리 UI */}
           <FounderPicksManager />
 
           {/* Topics 섹션 - 토픽 관리 UI */}
           <TopicsManager />
-        </div>
 
-        {/* Help Text */}
-        <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h3 className="font-semibold text-blue-900 mb-2">💡 사용 방법</h3>
-          <ul className="text-sm text-blue-800 space-y-1">
-            <li>• 각 섹션의 "포스트 추가" 버튼을 클릭하여 포스트를 선택하세요</li>
-            <li>• 드래그 아이콘(⋮⋮)을 잡고 움직여서 순서를 변경할 수 있습니다</li>
-            <li>• X 버튼을 클릭하여 포스트를 제거할 수 있습니다</li>
-            <li>• 변경사항을 저장하려면 우측 상단의 "저장" 버튼을 클릭하세요</li>
-          </ul>
+          {/* Help Text */}
+          <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 className="font-semibold text-blue-900 mb-2">💡 사용 방법</h3>
+            <ul className="text-sm text-blue-800 space-y-1">
+              <li>• 드래그 앤 드롭으로 순서를 변경할 수 있습니다</li>
+              <li>• 변경 후 저장 버튼을 클릭하여 적용하세요</li>
+              <li>• 미리보기로 실제 표시를 확인할 수 있습니다</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

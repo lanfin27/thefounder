@@ -89,23 +89,24 @@ export async function GET(request: NextRequest) {
       // Check user_profiles table for existing profile
       const { data: profile, error: profileError } = await supabase
         .from('user_profiles')
-        .select('id, name, full_name')
+        .select('id, full_name, name')
         .eq('id', data.user.id)
         .single();
 
-      // Profile not found (PGRST116 = no rows)
+      // Profile not found (PGRST116 = no rows) - NEW USER!
       if (profileError && profileError.code === 'PGRST116') {
-        console.log('📝 [Auth Confirm] Profile not found, creating new profile...');
+        console.log('📝 [Auth Confirm] Profile not found, creating MINIMAL profile...');
 
-        const userMetadata = data.user.user_metadata || {};
-
-        // Create profile with actual schema (no nickname, avatar_url columns)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // IMPORTANT: Create with EMPTY full_name
+        // This ensures user goes to setup-profile page
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         const { error: insertError } = await supabase
           .from('user_profiles')
           .insert({
             id: data.user.id,
             email: data.user.email,
-            full_name: userMetadata.full_name || userMetadata.name || data.user.email,
+            full_name: '',  // ✅ Empty - will trigger setup-profile redirect
             role: 'user',
             subscription_tier: 'free',
             subscription_status: 'active',
@@ -115,33 +116,38 @@ export async function GET(request: NextRequest) {
           console.error('❌ [Auth Confirm] Failed to create profile:', insertError);
           console.error('Insert error details:', insertError.code, insertError.details);
         } else {
-          console.log('✅ [Auth Confirm] Profile created successfully');
-          // New user - redirect to profile setup for additional info
-          return NextResponse.redirect(`${origin}/auth/setup-profile`);
+          console.log('✅ [Auth Confirm] Minimal profile created successfully');
         }
+
+        // NEW USER - Always redirect to profile setup
+        console.log('🆕 [Auth Confirm] New user, redirecting to profile setup');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        return NextResponse.redirect(`${origin}/auth/setup-profile`);
       } else if (profileError) {
         console.error('⚠️ [Auth Confirm] Profile check error:', profileError);
       }
 
       console.log('📊 [Auth Confirm] Profile data:', profile);
 
-      // Check if user has full_name set
-      const userMetadata = data.user.user_metadata || {};
-      const hasFullName = userMetadata.full_name || profile?.full_name;
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // Check if profile setup is needed
+      // Needs setup if full_name is empty or missing
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      const needsProfileSetup = !profile?.full_name || profile.full_name.trim() === '';
 
-      console.log('📊 [Auth Confirm] User metadata:', {
-        hasFullName: !!hasFullName,
-        metaFullName: userMetadata.full_name,
-        profileFullName: profile?.full_name,
+      console.log('📊 [Auth Confirm] Profile status:', {
+        needsSetup: needsProfileSetup,
+        fullName: profile?.full_name || '(empty)',
       });
 
-      // Existing profile without name info - redirect to setup
-      if (profile && !hasFullName) {
-        console.log('🆕 [Auth Confirm] Profile exists but incomplete, redirecting to profile setup');
+      // Profile exists but incomplete - redirect to setup
+      if (needsProfileSetup) {
+        console.log('🆕 [Auth Confirm] Profile incomplete, redirecting to profile setup');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
         return NextResponse.redirect(`${origin}/auth/setup-profile`);
       }
 
-      console.log('👋 [Auth Confirm] Existing user with profile, redirecting to:', next);
+      console.log('👋 [Auth Confirm] Existing user with complete profile, redirecting to:', next);
     }
 
     // Redirect to the specified page or home
