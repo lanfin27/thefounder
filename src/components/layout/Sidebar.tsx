@@ -14,16 +14,20 @@ const SidebarContext = createContext<{
   close: () => void;
 }>({
   isOpen: false,
-  toggle: () => {},
-  close: () => {},
+  toggle: () => { },
+  close: () => { },
 });
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true); // 🔥 기본값: 열림
+  const [isOpen, setIsOpen] = useState(false); // 🔥 기본값: 닫힘 (모바일 대응)
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    // PC에서는 기본적으로 열어둠
+    if (window.innerWidth >= 1024) {
+      setIsOpen(true);
+    }
   }, []);
 
   return (
@@ -63,22 +67,26 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
 
   // Load cached admin status on mount
   useEffect(() => {
-    const cached = localStorage.getItem('user_is_admin');
-    if (cached === 'true') {
-      setShowAdmin(true);
+    if (typeof window !== 'undefined') {
+      const cached = localStorage.getItem('user_is_admin');
+      if (cached === 'true') {
+        setShowAdmin(true);
+      }
     }
   }, []);
 
   // Update cache when profile loads
   useEffect(() => {
-    if (!loading && profile) {
-      const isAdmin = profile.role === 'admin';
-      setShowAdmin(isAdmin);
-      localStorage.setItem('user_is_admin', isAdmin.toString());
-    } else if (!loading && !profile) {
-      // Clear cache if no profile (logged out)
-      setShowAdmin(false);
-      localStorage.setItem('user_is_admin', 'false');
+    if (typeof window !== 'undefined') {
+      if (!loading && profile) {
+        const isAdmin = profile.role === 'admin';
+        setShowAdmin(isAdmin);
+        localStorage.setItem('user_is_admin', isAdmin.toString());
+      } else if (!loading && !profile) {
+        // Clear cache if no profile (logged out)
+        setShowAdmin(false);
+        localStorage.setItem('user_is_admin', 'false');
+      }
     }
   }, [loading, profile]);
 
@@ -112,11 +120,10 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
               key={item.name}
               href={item.href}
               onClick={onLinkClick}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${
-                isActive
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${isActive
                   ? 'bg-green-light text-green-primary font-medium'
                   : 'text-ink-700 hover:bg-ink-50'
-              }`}
+                }`}
             >
               <Icon className="h-5 w-5" />
               <span>{item.name}</span>
@@ -129,11 +136,10 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
           <Link
             href="/admin"
             onClick={onLinkClick}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${
-              pathname.startsWith('/admin')
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${pathname.startsWith('/admin')
                 ? 'bg-purple-50 text-purple-700 font-medium'
                 : 'text-purple-600 hover:bg-purple-50'
-            }`}
+              }`}
           >
             <Shield className="h-5 w-5" />
             <span>Admin</span>
@@ -160,11 +166,10 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
                 key={item.name}
                 href={item.href}
                 onClick={onLinkClick}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${
-                  isActive
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${isActive
                     ? 'bg-green-light text-green-primary font-medium'
                     : 'text-ink-700 hover:bg-ink-50'
-                }`}
+                  }`}
               >
                 <Icon className="h-5 w-5" />
                 <span>{item.name}</span>
@@ -231,7 +236,7 @@ export function Sidebar() {
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="lg:hidden fixed left-0 top-0 bottom-0 w-80 bg-white border-r border-divider z-50 overflow-y-auto"
+            className="lg:hidden fixed left-0 top-0 bottom-0 w-64 bg-white border-r border-divider z-50 overflow-y-auto"
           >
             <SidebarContent onLinkClick={close} />
           </motion.aside>

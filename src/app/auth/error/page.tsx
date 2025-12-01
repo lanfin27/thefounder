@@ -5,24 +5,32 @@ import Link from 'next/link'
 import { AlertCircle } from 'lucide-react'
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     error?: string
     error_description?: string
     error_code?: string
-  }
+  }>
 }
 
-export default function AuthErrorPage({ searchParams }: Props) {
-  const { error, error_description, error_code } = searchParams
+export default async function AuthErrorPage({ searchParams }: Props) {
+  const { error, error_description, error_code } = await searchParams
 
-  // Common OAuth error messages in Korean
+  // Common error messages in Korean
   const errorMessages: Record<string, string> = {
+    // OAuth errors
     'access_denied': '로그인이 취소되었습니다.',
     'server_error': '서버 오류가 발생했습니다.',
     'temporarily_unavailable': '일시적으로 서비스를 사용할 수 없습니다.',
     'invalid_request': '잘못된 요청입니다.',
     'unauthorized_client': '인증되지 않은 클라이언트입니다.',
     'unsupported_response_type': '지원하지 않는 응답 형식입니다.',
+    // Magic Link errors
+    'otp_expired': '인증 링크가 만료되었습니다. 새로운 링크를 요청해주세요.',
+    'invalid_link': '유효하지 않은 인증 링크입니다. 이미 사용되었거나 잘못된 링크일 수 있습니다.',
+    'already_confirmed': '이미 인증이 완료된 계정입니다.',
+    'verification_failed': '이메일 인증에 실패했습니다. 다시 시도해주세요.',
+    'missing_parameters': '인증 정보가 누락되었습니다. 이메일의 링크를 다시 클릭해주세요.',
+    'exchange_failed': '인증 처리 중 오류가 발생했습니다.',
   }
 
   const errorMessage = error

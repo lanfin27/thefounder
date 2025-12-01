@@ -29,7 +29,12 @@ export default function LoginForm() {
     })
 
     if (error) {
-      setError(error.message)
+      // Translate specific error messages
+      if (error.message === 'Invalid login credentials') {
+        setError('이메일 또는 비밀번호가 올바르지 않습니다.')
+      } else {
+        setError(error.message)
+      }
       setLoading(false)
     } else {
       console.log('[LoginForm] Login successful, redirecting to:', redirectTo)

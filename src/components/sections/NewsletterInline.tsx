@@ -47,7 +47,7 @@ export function NewsletterInline() {
   };
 
   return (
-    <section className="w-full py-8 md:py-16">
+    <section className="w-full py-6 md:py-16">
       {/* 🚨 max-w-7xl로 Featured와 동일한 폭 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 🚨 배경은 이 안에만 적용 + rounded-2xl */}

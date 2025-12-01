@@ -31,10 +31,10 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
   return (
     <section className="w-full bg-white border-b border-gray-100">
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
 
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-4 lg:mb-8">
           <h2 className="text-base md:text-lg font-bold text-gray-900">
             Featured
           </h2>
