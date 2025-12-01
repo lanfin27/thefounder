@@ -56,6 +56,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     src={leftPost.cover}
                     alt={leftPost.title}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 25vw"
                   />
@@ -113,6 +114,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                       src={extraPost.cover}
                       alt={extraPost.title}
                       fill
+                      unoptimized
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 25vw"
                     />
@@ -173,6 +175,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     src={centerPost.cover}
                     alt={centerPost.title}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
@@ -233,6 +236,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                     src={centerPost.cover}
                     alt={centerPost.title}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
@@ -294,6 +298,7 @@ export function FeaturedVisual({ posts }: FeaturedVisualProps) {
                       src={post.cover}
                       alt={post.title}
                       fill
+                      unoptimized
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 25vw"
                     />
