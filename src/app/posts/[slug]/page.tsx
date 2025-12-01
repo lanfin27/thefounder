@@ -76,9 +76,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug)
+  const { slug } = await params;
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -123,7 +124,7 @@ export async function generateMetadata({
       tags,
       locale: 'ko_KR',
       siteName: 'The Founder',
-      url: `https://thefounder.co.kr/posts/${params.slug}`,
+      url: `https://thefounder.co.kr/posts/${slug}`,
       images: post.cover ? [
         {
           url: post.cover,
@@ -148,7 +149,7 @@ export async function generateMetadata({
       images: post.cover ? [post.cover] : ['/og-image.png'],
     },
     alternates: {
-      canonical: `https://thefounder.co.kr/posts/${params.slug}`
+      canonical: `https://thefounder.co.kr/posts/${slug}`
     },
     category: categoryLabel
   }
@@ -157,9 +158,10 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const decodedSlug = decodeURIComponent(params.slug)
+  const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug)
   const post = await getPostBySlug(decodedSlug)
 
   if (!post) {

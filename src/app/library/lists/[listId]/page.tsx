@@ -8,9 +8,9 @@ import type { List, ListItem } from '@/types/library'
 export default async function ListDetailPage({
   params
 }: {
-  params: { listId: string }
+  params: Promise<{ listId: string }>
 }) {
-  const listId = params.listId
+  const { listId } = await params;
 
   console.log('🔍 [ListDetailPage] Loading list:', listId)
 
