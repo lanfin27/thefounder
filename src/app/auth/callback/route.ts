@@ -73,6 +73,50 @@ export async function GET(request: NextRequest) {
       console.log('✅ [Auth Callback] OAuth code exchange successful');
       console.log('User ID:', data?.user?.id);
       console.log('Email:', data?.user?.email);
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // Ensure user profile exists (auto-create for OAuth users)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      if (data?.user) {
+        console.log('👤 [Auth Callback] Checking user profile...');
+
+        // Check if profile exists
+        const { data: profile, error: profileError } = await supabase
+          .from('user_profiles')
+          .select('id')
+          .eq('id', data.user.id)
+          .single();
+
+        // Profile not found (PGRST116 = no rows) - create it
+        if (profileError && profileError.code === 'PGRST116') {
+          console.log('📝 [Auth Callback] Profile not found, creating new profile...');
+
+          const userMetadata = data.user.user_metadata || {};
+
+          // Create profile automatically
+          const { error: insertError } = await supabase
+            .from('user_profiles')
+            .insert({
+              id: data.user.id,
+              email: data.user.email,
+              name: userMetadata.full_name || userMetadata.name || userMetadata.nickname || data.user.email,
+              full_name: userMetadata.full_name || userMetadata.name || '',
+              avatar_url: userMetadata.avatar_url || userMetadata.picture || '',
+              role: 'user',
+            });
+
+          if (insertError) {
+            console.error('❌ [Auth Callback] Failed to create profile:', insertError);
+          } else {
+            console.log('✅ [Auth Callback] Profile created successfully for OAuth user');
+          }
+        } else if (profileError) {
+          console.error('⚠️ [Auth Callback] Profile check error:', profileError);
+        } else {
+          console.log('👋 [Auth Callback] Existing profile found');
+        }
+      }
+
       return NextResponse.redirect(`${origin}${next}`);
     } catch (err: any) {
       console.error('❌ [Auth Callback] Unexpected error:', err);

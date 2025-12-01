@@ -8,6 +8,8 @@ export class UserService {
   static async getAllUsers(): Promise<UserProfile[]> {
     const supabase = await createClient()
 
+    console.log('[UserService] Executing query: SELECT * FROM user_profiles ORDER BY created_at DESC')
+
     const { data, error } = await supabase
       .from('user_profiles')
       .select('*')
@@ -15,8 +17,12 @@ export class UserService {
 
     if (error) {
       console.error('[UserService] Error fetching users:', error)
+      console.error('[UserService] Error code:', error.code)
+      console.error('[UserService] Error details:', error.details)
       throw new Error(`Failed to fetch users: ${error.message}`)
     }
+
+    console.log('[UserService] Query successful, rows returned:', data?.length || 0)
 
     return data || []
   }

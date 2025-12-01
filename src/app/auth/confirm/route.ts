@@ -81,7 +81,7 @@ export async function GET(request: NextRequest) {
     console.log('Email:', data?.user?.email);
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // Check if user needs profile setup (new user detection)
+    // Ensure user profile exists (auto-create if missing)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     if (data?.user) {
       console.log('👤 [Auth Confirm] Checking user profile...');
@@ -93,7 +93,32 @@ export async function GET(request: NextRequest) {
         .eq('id', data.user.id)
         .single();
 
-      if (profileError && profileError.code !== 'PGRST116') {
+      // Profile not found (PGRST116 = no rows)
+      if (profileError && profileError.code === 'PGRST116') {
+        console.log('📝 [Auth Confirm] Profile not found, creating new profile...');
+
+        const userMetadata = data.user.user_metadata || {};
+
+        // Create profile automatically
+        const { error: insertError } = await supabase
+          .from('user_profiles')
+          .insert({
+            id: data.user.id,
+            email: data.user.email,
+            name: userMetadata.nickname || userMetadata.full_name || userMetadata.name || data.user.email,
+            full_name: userMetadata.full_name || userMetadata.name || '',
+            avatar_url: userMetadata.avatar_url || userMetadata.picture || '',
+            role: 'user',
+          });
+
+        if (insertError) {
+          console.error('❌ [Auth Confirm] Failed to create profile:', insertError);
+        } else {
+          console.log('✅ [Auth Confirm] Profile created successfully');
+          // New user - redirect to profile setup for additional info
+          return NextResponse.redirect(`${origin}/auth/setup-profile`);
+        }
+      } else if (profileError) {
         console.error('⚠️ [Auth Confirm] Profile check error:', profileError);
       }
 
@@ -113,11 +138,9 @@ export async function GET(request: NextRequest) {
         profileFullName: profile?.full_name,
       });
 
-      // Determine if this is a new user who needs profile setup
-      const isNewUser = !profile || (!hasNickname && !hasFullName);
-
-      if (isNewUser) {
-        console.log('🆕 [Auth Confirm] New user detected, redirecting to profile setup');
+      // Existing profile without name info - redirect to setup
+      if (profile && !hasNickname && !hasFullName) {
+        console.log('🆕 [Auth Confirm] Profile exists but incomplete, redirecting to profile setup');
         return NextResponse.redirect(`${origin}/auth/setup-profile`);
       }
 
