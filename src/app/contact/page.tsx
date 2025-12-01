@@ -199,10 +199,15 @@ export default function ContactPage() {
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-gray-600">
+            <p className="text-gray-600 flex items-center justify-center gap-2">
               더 많은 도움이 필요하신가요?{' '}
-              <a href="/help" className="text-green-600 hover:underline">
-                고객센터 전체 보기
+              <a
+                href="mailto:thefndrbiz@gmail.com"
+                className="inline-flex items-center gap-1 text-green-600 hover:text-green-700 transition-colors"
+                aria-label="이메일 보내기"
+              >
+                <Mail className="w-5 h-5" />
+                <span>메일 보내기</span>
               </a>
             </p>
           </div>

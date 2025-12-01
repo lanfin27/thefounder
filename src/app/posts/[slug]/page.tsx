@@ -263,21 +263,21 @@ export default async function PostPage({
                 )}
 
                 {/* Title */}
-                <h1 className="text-[42px] leading-[1.1] font-bold text-gray-900 mb-4">
+                <h1 className="text-2xl md:text-[42px] leading-tight md:leading-[1.1] font-bold text-gray-900 mb-4">
                   {post.title}
                 </h1>
 
                 {/* Summary */}
                 {post.summary && (
-                  <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                  <p className="text-base md:text-xl text-gray-600 leading-relaxed mb-6">
                     {post.summary}
                   </p>
                 )}
 
                 {/* Meta Info (without author) */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <time dateTime={post.publishedDate}>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 flex-wrap">
+                    <time dateTime={post.publishedDate} className="whitespace-nowrap">
                       {new Date(post.publishedDate).toLocaleDateString('ko-KR', {
                         year: 'numeric',
                         month: 'long',
@@ -287,7 +287,7 @@ export default async function PostPage({
                     {post.readingTime && (
                       <>
                         <span>·</span>
-                        <span>{post.readingTime}분 읽기</span>
+                        <span className="whitespace-nowrap">{post.readingTime}분 읽기</span>
                       </>
                     )}
                     {/* Post Stats (Claps & Comments) - Inline */}

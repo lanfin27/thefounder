@@ -102,9 +102,8 @@ export default function UserProfileMenu() {
 
         {/* 화살표 아이콘 */}
         <ChevronDown
-          className={`w-4 h-4 text-gray-600 transition-transform ${
-            isOpen ? 'rotate-180' : ''
-          }`}
+          className={`w-4 h-4 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''
+            }`}
         />
       </button>
 
@@ -145,7 +144,7 @@ export default function UserProfileMenu() {
 
             {/* 도움말 */}
             <Link
-              href="/help"
+              href="/contact"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
             >

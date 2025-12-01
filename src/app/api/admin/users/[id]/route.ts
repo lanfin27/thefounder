@@ -17,11 +17,22 @@ export const revalidate = 0;
  */
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('[Delete User API] Request received');
-  console.log('User ID to delete:', params.id);
+
+  // Next.js 15+: params is a Promise
+  const { id: userId } = await params;
+  console.log('User ID to delete:', userId);
+
+  if (!userId) {
+    console.log('[Delete User API] Missing user ID');
+    return NextResponse.json(
+      { error: 'User ID is required' },
+      { status: 400 }
+    )
+  }
 
   try {
     // Check if current user is admin
@@ -38,7 +49,7 @@ export async function DELETE(
 
     // Get current user to prevent self-deletion
     const currentUser = await UserService.getCurrentUser()
-    if (currentUser?.id === params.id) {
+    if (currentUser?.id === userId) {
       console.log('[Delete User API] Cannot delete self');
       return NextResponse.json(
         { error: 'Cannot delete your own account' },
@@ -48,7 +59,7 @@ export async function DELETE(
 
     // Get the target user
     console.log('[Delete User API] Fetching target user...');
-    const targetUser = await UserService.getUserById(params.id)
+    const targetUser = await UserService.getUserById(userId)
 
     if (!targetUser) {
       console.log('[Delete User API] User not found in user_profiles');
@@ -83,7 +94,7 @@ export async function DELETE(
 
     // Step 1: Delete from user_profiles
     console.log('[Delete User API] Step 1: Deleting from user_profiles...');
-    await UserService.deleteUser(params.id)
+    await UserService.deleteUser(userId)
     console.log('[Delete User API] Successfully deleted from user_profiles');
 
     // Step 2: Try to delete from auth.users (requires Service Role)
@@ -105,7 +116,7 @@ export async function DELETE(
           }
         )
 
-        const { error: authError } = await supabaseAdmin.auth.admin.deleteUser(params.id)
+        const { error: authError } = await supabaseAdmin.auth.admin.deleteUser(userId)
 
         if (authError) {
           console.error('[Delete User API] Failed to delete from auth.users:', authError);

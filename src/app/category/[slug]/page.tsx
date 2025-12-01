@@ -62,23 +62,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* 카테고리 헤더 - Enhanced */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            {Icon && (
-              <div className="p-2 bg-green-50 rounded-lg">
-                <Icon className="w-6 h-6 text-green-600" />
-              </div>
-            )}
-            <div className="flex items-center gap-2">
-              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                {categoryInfo.label}
-              </h2>
-              <span className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
-                {posts.length}개의 글
-              </span>
-            </div>
-          </div>
+        {/* 카테고리 헤더 */}
+        <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             {categoryInfo.label}
           </h1>

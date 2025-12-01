@@ -10,7 +10,6 @@ import { MapPin, Link as LinkIcon, Calendar } from 'lucide-react'
 export default function ProfilePage() {
   const { user, loading } = useUser()
   const router = useRouter()
-  const [activeTab, setActiveTab] = useState<'home' | 'about'>('home')
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
 
@@ -119,62 +118,34 @@ export default function ProfilePage() {
         </button>
       </div>
 
-      {/* 탭 메뉴 */}
+      {/* 홈 탭 헤더 */}
       <div className="border-b border-gray-200 mb-8">
         <nav className="flex gap-8">
-          <button
-            onClick={() => setActiveTab('home')}
-            className={`pb-4 border-b-2 text-sm font-medium transition-colors ${
-              activeTab === 'home'
-                ? 'border-green-600 text-green-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
-            }`}
-          >
+          <div className="pb-4 border-b-2 border-green-600 text-sm font-medium text-green-600">
             홈
-          </button>
-          <button
-            onClick={() => setActiveTab('about')}
-            className={`pb-4 border-b-2 text-sm font-medium transition-colors ${
-              activeTab === 'about'
-                ? 'border-green-600 text-green-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            소개
-          </button>
+          </div>
         </nav>
       </div>
 
-      {/* 탭 내용 */}
-      {activeTab === 'home' && (
-        <div className="text-center py-12 text-gray-500">
-          <p>아직 작성한 글이 없습니다.</p>
-          <button className="mt-4 px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors">
-            첫 글 작성하기
-          </button>
-        </div>
-      )}
-
-      {activeTab === 'about' && (
-        <div className="prose max-w-none">
-          {userBio ? (
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">소개</h2>
-              <p className="text-gray-700 leading-relaxed">{userBio}</p>
-            </div>
-          ) : (
-            <div className="text-center py-12 text-gray-500">
-              <p>아직 소개가 작성되지 않았습니다.</p>
-              <button
-                onClick={() => setIsEditModalOpen(true)}
-                className="mt-4 px-6 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
-              >
-                프로필 편집하기
-              </button>
-            </div>
-          )}
-        </div>
-      )}
+      {/* 소개 내용 */}
+      <div className="prose max-w-none">
+        {userBio ? (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">소개</h2>
+            <p className="text-gray-700 leading-relaxed">{userBio}</p>
+          </div>
+        ) : (
+          <div className="text-center py-12 text-gray-500">
+            <p>아직 소개가 작성되지 않았습니다.</p>
+            <button
+              onClick={() => setIsEditModalOpen(true)}
+              className="mt-4 px-6 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              프로필 편집하기
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* 프로필 편집 모달 */}
       <EditProfileModal
