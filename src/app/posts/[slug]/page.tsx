@@ -33,11 +33,44 @@ function getCategoryLabel(category: string): string {
   return labels[category] || category
 }
 
+// ✅ Build-time safe: Direct Supabase connection (no cookies)
 export async function generateStaticParams() {
-  const posts = await getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  try {
+    // CRITICAL: Use service role key for direct connection (no cookies)
+    const { createClient } = await import('@supabase/supabase-js');
+
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        auth: {
+          persistSession: false,
+          autoRefreshToken: false,
+        },
+      }
+    );
+
+    const { data: posts, error } = await supabase
+      .from('posts')
+      .select('slug')
+      .in('status', ['published', '발행'])
+      .order('published_date', { ascending: false })
+      .limit(100); // Optimize build time
+
+    if (error) {
+      console.error('[generateStaticParams] Error:', error);
+      return [];
+    }
+
+    console.log(`[generateStaticParams] Generated ${posts?.length || 0} static paths`);
+
+    return posts?.map((post) => ({
+      slug: post.slug,
+    })) || [];
+  } catch (error) {
+    console.error('[generateStaticParams] Unexpected error:', error);
+    return [];
+  }
 }
 
 export async function generateMetadata({
