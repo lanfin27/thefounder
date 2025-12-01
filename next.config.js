@@ -3,6 +3,7 @@ const nextConfig = {
   // Image optimization
   images: {
     remotePatterns: [
+      // AWS S3 - Specific prod-files-secure domains
       {
         protocol: 'https',
         hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com',
@@ -18,6 +19,18 @@ const nextConfig = {
         hostname: 's3.us-west-2.amazonaws.com',
         pathname: '/**',
       },
+      // AWS S3 - Wildcard patterns for all S3 buckets (Next.js 16 requirement)
+      {
+        protocol: 'https',
+        hostname: '*.s3.amazonaws.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.s3.*.amazonaws.com',
+        pathname: '/**',
+      },
+      // Notion CDN
       {
         protocol: 'https',
         hostname: 'www.notion.so',
@@ -28,6 +41,7 @@ const nextConfig = {
         hostname: 'secure.notion-static.com',
         pathname: '/**',
       },
+      // Other image services
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
@@ -41,6 +55,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '*.supabase.co',
+        pathname: '/**',
+      },
+      // Local development
+      {
+        protocol: 'http',
+        hostname: 'localhost',
         pathname: '/**',
       },
     ],
