@@ -54,7 +54,6 @@ const nextConfig = {
   },
 
   // Production optimizations
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
@@ -62,8 +61,18 @@ const nextConfig = {
   // Output standalone for smaller bundle size
   output: 'standalone',
 
-  // Note: outputFileTracingExcludes removed (Next.js 15+ only)
-  // Using .nftignore file instead for Next.js 14 compatibility
+  // 🎯 Next.js 15/16: Exclude cache from serverless functions (CRITICAL for Vercel)
+  outputFileTracingExcludes: {
+    '*': [
+      '.next/cache/**',
+      '.next/cache',
+      'node_modules/.cache/**',
+      'node_modules/@swc/**',
+      'node_modules/webpack/**',
+      '.git/**',
+      '.vercel/**',
+    ],
+  },
 
   // Webpack configuration for Vercel deployment
   webpack: (config, { isServer }) => {
@@ -99,12 +108,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // ESLint configuration for production deployment
-  eslint: {
-    // ⚠️ Allow production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
+  // Next.js 16: Turbopack is default, allow webpack config to coexist
+  turbopack: {},
 
   // Security and performance headers
   async headers() {
