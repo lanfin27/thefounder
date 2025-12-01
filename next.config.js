@@ -62,6 +62,18 @@ const nextConfig = {
   // Output standalone for smaller bundle size
   output: 'standalone',
 
+  // 🔥 CRITICAL: Exclude cache directories from serverless functions
+  // This prevents .next/cache (766MB) from being included in deployment
+  outputFileTracingExcludes: {
+    '*': [
+      '.next/cache/**',
+      '.next/cache',
+      'node_modules/.cache/**',
+      'node_modules/@swc/**',
+      'node_modules/webpack/**',
+    ],
+  },
+
   // Webpack configuration for Vercel deployment
   webpack: (config, { isServer }) => {
     // Webpack 캐시 완전 비활성화 (Vercel 배포용)
