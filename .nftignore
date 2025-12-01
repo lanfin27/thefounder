@@ -1,0 +1,14 @@
+# Exclude cache directories from Next.js file tracing
+.next/cache/**
+.next/cache
+node_modules/.cache/**
+node_modules/@swc/**
+node_modules/webpack/**
+
+# Exclude logs
+logs/**
+*.log
+
+# Exclude development files
+.env.local
+.env.development
