@@ -2,6 +2,14 @@
 const nextConfig = {
   // Image optimization
   images: {
+    // 🔥 Next.js 16: Allow query strings on local API routes
+    localPatterns: [
+      {
+        pathname: '/api/image-proxy',
+        search: '**', // Allow all query string parameters
+      },
+    ],
+
     remotePatterns: [
       // AWS S3 - Specific prod-files-secure domains
       {
