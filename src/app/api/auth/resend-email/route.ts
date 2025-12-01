@@ -2,10 +2,12 @@
  * Resend Magic Link Email API
  *
  * Resends the Magic Link email for authentication.
+ * Uses user-friendly error messages while logging detailed info for developers.
  */
 
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { analyzeAuthError, logAuthError } from '@/lib/errors/auth-errors';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -30,7 +32,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[Resend Email API] 📧 Resending Magic Link to:', email);
+    console.log('[Resend Email API] Resending Magic Link to:', email);
 
     const supabase = await createClient();
 
@@ -47,23 +49,22 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('[Resend Email API] ❌ Failed to send email:', error);
+      // Log detailed error for developers (server logs)
+      logAuthError(error, 'Resend Email API');
 
-      // Handle rate limiting
-      if (error.message.includes('rate') || error.message.includes('limit')) {
-        return NextResponse.json(
-          { error: '너무 많은 요청입니다. 잠시 후 다시 시도해주세요.' },
-          { status: 429 }
-        );
-      }
+      // Analyze error and return user-friendly message
+      const errorInfo = analyzeAuthError(error);
+
+      // Use appropriate status code based on error type
+      const statusCode = errorInfo.type === 'rate_limit' ? 429 : 500;
 
       return NextResponse.json(
-        { error: '이메일 발송에 실패했습니다. 다시 시도해주세요.' },
-        { status: 500 }
+        { error: errorInfo.userMessage },
+        { status: statusCode }
       );
     }
 
-    console.log('[Resend Email API] ✅ Magic Link sent successfully');
+    console.log('[Resend Email API] Magic Link sent successfully');
 
     return NextResponse.json({
       success: true,
@@ -71,9 +72,14 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error('[Resend Email API] ❌ Unexpected error:', error);
+    // Log detailed error for developers
+    logAuthError(error, 'Resend Email API - Unexpected');
+
+    // Return generic user-friendly message
+    const errorInfo = analyzeAuthError(error);
+
     return NextResponse.json(
-      { error: '서버 오류가 발생했습니다.' },
+      { error: errorInfo.userMessage },
       { status: 500 }
     );
   }

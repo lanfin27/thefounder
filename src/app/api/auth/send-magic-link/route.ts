@@ -4,11 +4,14 @@
  *
  * Sends a 6-digit OTP code to the user's email
  * DEV MODE: Outputs OTP to console instead of sending email
+ *
+ * Uses user-friendly error messages while logging detailed info for developers.
  */
 
 import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 import devOTPStore from '@/lib/dev-otp-store'
+import { analyzeAuthError, logAuthError } from '@/lib/errors/auth-errors'
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -90,32 +93,18 @@ export async function POST(request: NextRequest) {
     })
 
     if (error) {
-      console.error('[Send Magic Link API] ❌ Error:', error.message)
+      // Log detailed error for developers (server logs)
+      logAuthError(error, 'Send Magic Link API')
 
-      // Detailed error logging
-      console.error('[Send Magic Link API] Error details:', {
-        message: error.message,
-        status: error.status,
-        name: error.name,
-      })
+      // Analyze error and return user-friendly message
+      const errorInfo = analyzeAuthError(error)
 
-      // User-friendly error messages
-      let errorMessage = '인증 코드 발송에 실패했습니다.'
-
-      if (error.message.includes('Email') || error.message.includes('email')) {
-        errorMessage = '이메일 발송 설정을 확인해주세요. Supabase Dashboard에서 Email Provider를 설정해주세요.'
-      } else if (error.message.includes('rate limit')) {
-        errorMessage = '너무 많은 요청입니다. 잠시 후 다시 시도해주세요.'
-      } else if (error.message.includes('database') || error.message.includes('Database')) {
-        errorMessage = '데이터베이스 오류입니다. SQL 마이그레이션이 완료되었는지 확인해주세요.'
-      }
+      // Use appropriate status code based on error type
+      const statusCode = errorInfo.type === 'rate_limit' ? 429 : 500
 
       return NextResponse.json(
-        {
-          error: errorMessage,
-          details: error.message,
-        },
-        { status: 500 }
+        { error: errorInfo.userMessage },
+        { status: statusCode }
       )
     }
 
@@ -128,12 +117,14 @@ export async function POST(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('[Send Magic Link API] ❌ Unexpected error:', error)
+    // Log detailed error for developers
+    logAuthError(error, 'Send Magic Link API - Unexpected')
+
+    // Return generic user-friendly message
+    const errorInfo = analyzeAuthError(error)
+
     return NextResponse.json(
-      {
-        error: '서버 오류가 발생했습니다.',
-        details: error instanceof Error ? error.message : 'Unknown error',
-      },
+      { error: errorInfo.userMessage },
       { status: 500 }
     )
   }
