@@ -99,20 +99,21 @@ export async function GET(request: NextRequest) {
 
         const userMetadata = data.user.user_metadata || {};
 
-        // Create profile automatically
+        // Create profile with actual schema (no nickname, avatar_url columns)
         const { error: insertError } = await supabase
           .from('user_profiles')
           .insert({
             id: data.user.id,
             email: data.user.email,
-            name: userMetadata.nickname || userMetadata.full_name || userMetadata.name || data.user.email,
-            full_name: userMetadata.full_name || userMetadata.name || '',
-            avatar_url: userMetadata.avatar_url || userMetadata.picture || '',
+            full_name: userMetadata.full_name || userMetadata.name || data.user.email,
             role: 'user',
+            subscription_tier: 'free',
+            subscription_status: 'active',
           });
 
         if (insertError) {
           console.error('❌ [Auth Confirm] Failed to create profile:', insertError);
+          console.error('Insert error details:', insertError.code, insertError.details);
         } else {
           console.log('✅ [Auth Confirm] Profile created successfully');
           // New user - redirect to profile setup for additional info
@@ -124,22 +125,18 @@ export async function GET(request: NextRequest) {
 
       console.log('📊 [Auth Confirm] Profile data:', profile);
 
-      // Check if user metadata has required fields
+      // Check if user has full_name set
       const userMetadata = data.user.user_metadata || {};
-      const hasNickname = userMetadata.nickname || profile?.name;
       const hasFullName = userMetadata.full_name || profile?.full_name;
 
       console.log('📊 [Auth Confirm] User metadata:', {
-        hasNickname: !!hasNickname,
         hasFullName: !!hasFullName,
-        metaNickname: userMetadata.nickname,
         metaFullName: userMetadata.full_name,
-        profileName: profile?.name,
         profileFullName: profile?.full_name,
       });
 
       // Existing profile without name info - redirect to setup
-      if (profile && !hasNickname && !hasFullName) {
+      if (profile && !hasFullName) {
         console.log('🆕 [Auth Confirm] Profile exists but incomplete, redirecting to profile setup');
         return NextResponse.redirect(`${origin}/auth/setup-profile`);
       }

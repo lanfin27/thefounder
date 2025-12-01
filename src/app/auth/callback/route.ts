@@ -93,20 +93,21 @@ export async function GET(request: NextRequest) {
 
           const userMetadata = data.user.user_metadata || {};
 
-          // Create profile automatically
+          // Create profile with actual schema (no name, nickname, avatar_url columns)
           const { error: insertError } = await supabase
             .from('user_profiles')
             .insert({
               id: data.user.id,
               email: data.user.email,
-              name: userMetadata.full_name || userMetadata.name || userMetadata.nickname || data.user.email,
-              full_name: userMetadata.full_name || userMetadata.name || '',
-              avatar_url: userMetadata.avatar_url || userMetadata.picture || '',
+              full_name: userMetadata.full_name || userMetadata.name || data.user.email,
               role: 'user',
+              subscription_tier: 'free',
+              subscription_status: 'active',
             });
 
           if (insertError) {
             console.error('❌ [Auth Callback] Failed to create profile:', insertError);
+            console.error('Insert error details:', insertError.code, insertError.details);
           } else {
             console.log('✅ [Auth Callback] Profile created successfully for OAuth user');
           }
