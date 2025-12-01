@@ -54,14 +54,27 @@ export function createClient() {
           // Handle base64 encoded cookies
           try {
             if (value.startsWith('base64-')) {
-              const decoded = atob(value.replace('base64-', ''))
-              console.log('✅ [Supabase Client] Decoded base64 cookie')
-              return decoded
+              const base64String = value.replace('base64-', '');
+
+              // Base64 유효성 검증
+              if (!base64String || !/^[A-Za-z0-9+/=]+$/.test(base64String)) {
+                console.warn('[Supabase Client] Invalid base64 format, using original value');
+                return value;
+              }
+
+              try {
+                const decoded = atob(base64String);
+                console.log('✅ [Supabase Client] Decoded base64 cookie');
+                return decoded;
+              } catch (decodeError) {
+                console.warn('[Supabase Client] Failed to decode base64, using original value');
+                return value;
+              }
             }
-            return decodeURIComponent(value)
+            return decodeURIComponent(value);
           } catch (error) {
-            console.error('❌ [Supabase Client] Cookie decode error:', error)
-            return value
+            console.warn('[Supabase Client] Cookie decode error, using original value');
+            return value;
           }
         }
 

@@ -152,6 +152,7 @@ export default function PostList<T extends BlogPost = BlogPost>({
                                                 src={post.cover}
                                                 alt={title}
                                                 fill
+                                                unoptimized
                                                 className="object-cover"
                                                 sizes="(max-width: 768px) 100vw, 300px"
                                             />
@@ -301,6 +302,7 @@ export default function PostList<T extends BlogPost = BlogPost>({
                                                     src={post.cover}
                                                     alt={title}
                                                     fill
+                                                    unoptimized
                                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                                                     sizes="(max-width: 1024px) 160px, 240px"
                                                 />

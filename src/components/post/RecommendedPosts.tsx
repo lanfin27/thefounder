@@ -62,6 +62,7 @@ export default function RecommendedPosts({
                 src={post.cover}
                 alt={post.title}
                 fill
+                unoptimized
                 className="object-cover"
               />
             </div>

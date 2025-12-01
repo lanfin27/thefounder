@@ -102,14 +102,17 @@ const nextConfig = {
     ],
   },
 
+  // Disable source maps to prevent parsing errors
+  productionBrowserSourceMaps: false,
+
   // Webpack configuration for Vercel deployment
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     // Webpack 캐시 완전 비활성화 (Vercel 배포용)
     config.cache = false;
 
-    // 불필요한 source map 제거 (프로덕션)
+    // Source map 비활성화 (개발 및 프로덕션 모두)
     if (!isServer) {
-      config.devtool = false;
+      config.devtool = dev ? 'eval' : false;
     }
 
     // 번들 크기 최적화

@@ -54,9 +54,11 @@ export function useUser() {
       const { data: { user }, error: userError } = await supabase.auth.getUser();
 
       if (userError) {
-        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-        console.error('[useUser] ❌ User error:', userError.message);
-        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        // "Auth session missing"은 정상적인 비로그인 상태
+        // 실제 인증 에러만 로깅
+        if (userError.message !== 'Auth session missing!') {
+          console.warn('[useUser] Auth warning:', userError.message);
+        }
 
         setUser(null);
         setProfile(null);

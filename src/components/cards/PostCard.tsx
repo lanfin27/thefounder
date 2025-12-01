@@ -72,6 +72,7 @@ export default function PostCard({ post, category }: PostCardProps) {
                 src={post.cover_image}
                 alt={post.title}
                 fill
+                unoptimized
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

@@ -53,6 +53,7 @@ export default function FeaturedPosts() {
                     src={mockFeaturedPosts[0].cover_image}
                     alt={mockFeaturedPosts[0].title}
                     fill
+                    unoptimized
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {mockFeaturedPosts[0].is_premium && (
@@ -111,6 +112,7 @@ export default function FeaturedPosts() {
                       src={post.cover_image}
                       alt={post.title}
                       fill
+                      unoptimized
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {post.is_premium && (

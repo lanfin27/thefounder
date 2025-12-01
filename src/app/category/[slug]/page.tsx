@@ -9,9 +9,9 @@ import { Metadata } from 'next';
 import { TrendingUp, Lightbulb, BarChart3, PenTool } from 'lucide-react';
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Category icon mapping
@@ -23,7 +23,7 @@ const CATEGORY_ICONS = {
 };
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const categoryInfo = CATEGORIES[slug as CategorySlug];
 
   if (!categoryInfo) {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   console.log(`\n🔍 [CategoryPage] Rendering page for slug: "${slug}"`);
 
