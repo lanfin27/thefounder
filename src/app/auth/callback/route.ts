@@ -15,68 +15,71 @@ export async function GET(request: NextRequest) {
   const next = requestUrl.searchParams.get('next') || '/';
   const origin = requestUrl.origin;
 
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('🔐 [Auth Callback] Processing authentication');
   console.log('Code:', code ? 'present' : 'missing');
   console.log('Token hash:', token_hash ? 'present' : 'missing');
   console.log('Type:', type);
   console.log('Error:', error);
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
   // Handle error from Supabase
-  if (error) {
-    console.error('❌ [Auth Callback] Error from Supabase:', error, error_description);
+  if (error || error_code) {
+    console.error('❌ [Auth Callback] Error from Supabase:', error || error_code, error_description);
     const errorParams = new URLSearchParams({
-      error: error,
+      error: error || error_code || 'unknown_error',
       ...(error_description && { error_description }),
       ...(error_code && { error_code }),
     });
     return NextResponse.redirect(`${origin}/auth/error?${errorParams.toString()}`);
   }
 
-  const supabase = await createClient();
+  // ============================================
+  // Magic Link detected → redirect to /auth/confirm
+  // This prevents PKCE errors by using the correct flow
+  // ============================================
+  if (token_hash && type) {
+    console.log('📧 [Auth Callback] Magic Link detected, redirecting to /auth/confirm');
 
-  // OAuth callback (code exchange)
+    const confirmUrl = new URL('/auth/confirm', origin);
+    confirmUrl.searchParams.set('token_hash', token_hash);
+    confirmUrl.searchParams.set('type', type);
+    if (next !== '/') {
+      confirmUrl.searchParams.set('next', next);
+    }
+
+    return NextResponse.redirect(confirmUrl.toString());
+  }
+
+  // ============================================
+  // OAuth callback (code exchange) - PKCE flow
+  // ============================================
   if (code) {
     console.log('🔑 [Auth Callback] Processing OAuth code exchange');
 
-    const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+    const supabase = await createClient();
 
-    if (exchangeError) {
-      console.error('❌ [Auth Callback] Code exchange failed:', exchangeError.message);
-      return NextResponse.redirect(
-        `${origin}/auth/error?error=exchange_failed&error_description=${encodeURIComponent(exchangeError.message)}`
-      );
-    }
+    try {
+      const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
 
-    console.log('✅ [Auth Callback] OAuth code exchange successful');
-    return NextResponse.redirect(`${origin}${next}`);
-  }
-
-  // Magic Link callback (token_hash)
-  if (token_hash && type) {
-    console.log('📧 [Auth Callback] Processing Magic Link verification');
-
-    const { error: verifyError } = await supabase.auth.verifyOtp({
-      token_hash,
-      type: type as 'email' | 'signup' | 'magiclink',
-    });
-
-    if (verifyError) {
-      console.error('❌ [Auth Callback] Magic Link verification failed:', verifyError.message);
-
-      let errorCode = 'verification_failed';
-      if (verifyError.message.includes('expired')) {
-        errorCode = 'otp_expired';
-      } else if (verifyError.message.includes('invalid')) {
-        errorCode = 'invalid_link';
+      if (exchangeError) {
+        console.error('❌ [Auth Callback] Code exchange failed:', exchangeError.message);
+        console.error('Error code:', exchangeError.code);
+        return NextResponse.redirect(
+          `${origin}/auth/error?error=exchange_failed&error_description=${encodeURIComponent(exchangeError.message)}`
+        );
       }
 
+      console.log('✅ [Auth Callback] OAuth code exchange successful');
+      console.log('User ID:', data?.user?.id);
+      console.log('Email:', data?.user?.email);
+      return NextResponse.redirect(`${origin}${next}`);
+    } catch (err: any) {
+      console.error('❌ [Auth Callback] Unexpected error:', err);
       return NextResponse.redirect(
-        `${origin}/auth/error?error=${errorCode}&error_description=${encodeURIComponent(verifyError.message)}`
+        `${origin}/auth/error?error=unexpected_error&error_description=${encodeURIComponent(err.message || 'An unexpected error occurred')}`
       );
     }
-
-    console.log('✅ [Auth Callback] Magic Link verified successfully');
-    return NextResponse.redirect(`${origin}${next}`);
   }
 
   // No valid parameters
