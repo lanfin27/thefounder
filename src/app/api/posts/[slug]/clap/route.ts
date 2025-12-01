@@ -14,10 +14,10 @@ interface Clapper {
 // POST: 박수 추가 (로그인 필수, 일반 유저 1회, Admin 무제한)
 export async function POST(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = params
+    const { slug } = await params
     console.log(`[Clap API] POST request for slug: ${slug}`)
 
     const supabase = await createClient()
@@ -179,10 +179,10 @@ export async function POST(
 // GET: 현재 사용자의 박수 여부 확인
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = params
+    const { slug } = await params
     const supabase = await createClient()
 
     // 1. 사용자 인증 확인 (선택사항)
@@ -276,10 +276,10 @@ export async function GET(
 // DELETE: 박수 취소 (일반 사용자 포함)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = params
+    const { slug } = await params
     console.log(`[Clap API DELETE] Request for slug: ${slug}`)
 
     const supabase = await createClient()

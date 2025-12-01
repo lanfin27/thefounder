@@ -10,10 +10,10 @@ export const revalidate = 0;
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
   try {
-    const { commentId } = params
+    const { commentId } = await params
     console.log(`[Comment Like API] GET request for comment: ${commentId}`)
 
     const supabase = await createClient()
@@ -77,10 +77,10 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
   try {
-    const { commentId } = params
+    const { commentId } = await params
     console.log(`[Comment Like API] POST request for comment: ${commentId}`)
 
     const supabase = await createClient()
@@ -217,10 +217,10 @@ export async function POST(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
   try {
-    const { commentId } = params
+    const { commentId } = await params
     console.log(`[Comment Like API DELETE] Request for comment: ${commentId}`)
 
     const supabase = await createClient()

@@ -13,10 +13,11 @@ export const revalidate = 0;
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const topicName = decodeURIComponent(params.slug)
+    const { slug } = await params;
+    const topicName = decodeURIComponent(slug)
     const supabase = await createClient()
 
     console.log(`[Topic Posts API] 📂 Fetching posts for topic: "${topicName}"`)
