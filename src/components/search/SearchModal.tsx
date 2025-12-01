@@ -224,15 +224,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
 
           <div className="relative p-3 sm:p-4 border-b">
-            {/* 닫기 버튼 (오른쪽 상단) */}
-            <button
-              onClick={onClose}
-              className="absolute right-3 top-3 sm:top-4 z-10 p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="검색 닫기"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
             {/* 검색 입력 */}
             <div className="relative pr-8">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
@@ -246,14 +237,20 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 autoFocus
               />
 
-              {query && (
-                <button
-                  onClick={() => setQuery('')}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                >
-                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
-              )}
+              {/* X 버튼: 입력이 있으면 입력 지우기, 없으면 모달 닫기 */}
+              <button
+                onClick={() => {
+                  if (query) {
+                    setQuery('');
+                  } else {
+                    onClose();
+                  }
+                }}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label={query ? '입력 지우기' : '검색 닫기'}
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
             </div>
           </div>
 
@@ -272,11 +269,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   <div key={cat.id} className="relative flex-shrink-0">
                     <button
                       onClick={() => handleCategoryClick(cat.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
-                        isActive
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${isActive
                           ? 'bg-green-50 text-green-700 font-medium'
                           : 'text-gray-600 hover:bg-gray-100'
-                      }`}
+                        }`}
                       title={cat.label}
                     >
                       <Icon className="w-4 h-4" />

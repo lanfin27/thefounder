@@ -1,13 +1,54 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Mail, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Mail, ArrowLeft, CheckCircle, RefreshCw } from 'lucide-react';
 
 function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
+  const [resending, setResending] = useState(false);
+  const [resendMessage, setResendMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+
+  const handleResend = async () => {
+    if (!email || cooldown > 0) return;
+
+    setResending(true);
+    setResendMessage(null);
+
+    try {
+      const response = await fetch('/api/auth/resend-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setResendMessage({ type: 'success', text: '인증 메일이 재전송되었습니다!' });
+        // Start 60 second cooldown
+        setCooldown(60);
+        const interval = setInterval(() => {
+          setCooldown(prev => {
+            if (prev <= 1) {
+              clearInterval(interval);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        setResendMessage({ type: 'error', text: data.error || '이메일 재전송에 실패했습니다.' });
+      }
+    } catch (error) {
+      setResendMessage({ type: 'error', text: '오류가 발생했습니다. 다시 시도해주세요.' });
+    } finally {
+      setResending(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white py-12 px-4 sm:px-6 lg:px-8">
@@ -68,6 +109,32 @@ function VerifyEmailContent() {
           <span>이메일이 성공적으로 발송되었습니다</span>
         </div>
 
+        {/* Resend Message */}
+        {resendMessage && (
+          <div className={`p-3 rounded-lg text-body-small ${
+            resendMessage.type === 'success'
+              ? 'bg-green-50 text-green-700 border border-green-200'
+              : 'bg-red-50 text-red-700 border border-red-200'
+          }`}>
+            {resendMessage.text}
+          </div>
+        )}
+
+        {/* Resend Button */}
+        <div className="text-center space-y-3">
+          <p className="text-body-small text-medium-black-tertiary">
+            이메일을 받지 못하셨나요?
+          </p>
+          <button
+            onClick={handleResend}
+            disabled={resending || cooldown > 0 || !email}
+            className="inline-flex items-center gap-2 px-4 py-2 text-body-small text-medium-black-secondary hover:text-medium-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            <RefreshCw className={`w-4 h-4 ${resending ? 'animate-spin' : ''}`} />
+            {cooldown > 0 ? `${cooldown}초 후 재전송 가능` : resending ? '전송 중...' : '이메일 다시 보내기'}
+          </button>
+        </div>
+
         {/* Back Link */}
         <div className="text-center space-y-4">
           <Link
@@ -79,6 +146,18 @@ function VerifyEmailContent() {
           </Link>
         </div>
 
+        {/* Change Email Link */}
+        {email && (
+          <div className="text-center">
+            <Link
+              href="/auth/signup"
+              className="text-xs text-medium-black-tertiary hover:text-medium-black underline transition-colors"
+            >
+              다른 이메일로 가입하기
+            </Link>
+          </div>
+        )}
+
         {/* Tips */}
         <div className="pt-6 border-t border-medium-gray-border">
           <p className="text-xs text-medium-black-tertiary text-center mb-3">
@@ -87,19 +166,19 @@ function VerifyEmailContent() {
           <ul className="text-xs text-medium-black-tertiary space-y-1.5">
             <li className="flex items-start gap-2">
               <span>•</span>
-              <span>스팸 폴더를 확인해주세요</span>
+              <span><strong>스팸 폴더</strong>를 확인해주세요</span>
             </li>
             <li className="flex items-start gap-2">
               <span>•</span>
-              <span>이메일 주소가 정확한지 확인해주세요</span>
+              <span>이메일 주소가 <strong>정확한지</strong> 확인해주세요</span>
             </li>
             <li className="flex items-start gap-2">
               <span>•</span>
-              <span>몇 분 정도 소요될 수 있습니다</span>
+              <span>이메일 도착까지 <strong>몇 분</strong> 소요될 수 있습니다</span>
             </li>
             <li className="flex items-start gap-2">
               <span>•</span>
-              <span>인증 링크는 1시간 동안 유효합니다</span>
+              <span>인증 링크는 <strong>1시간</strong> 동안 유효합니다</span>
             </li>
           </ul>
         </div>
