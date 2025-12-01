@@ -112,10 +112,13 @@ export class UserService {
   }
 
   /**
-   * Delete user
+   * Delete user from user_profiles table
+   * Note: auth.users deletion requires Service Role and is handled separately in the API
    */
   static async deleteUser(userId: string): Promise<boolean> {
     const supabase = await createClient()
+
+    console.log('[UserService] Deleting user from user_profiles:', userId)
 
     const { error } = await supabase
       .from('user_profiles')
@@ -124,9 +127,12 @@ export class UserService {
 
     if (error) {
       console.error('[UserService] Error deleting user:', error)
+      console.error('[UserService] Error code:', error.code)
+      console.error('[UserService] Error details:', error.details)
       throw new Error(`Failed to delete user: ${error.message}`)
     }
 
+    console.log('[UserService] Successfully deleted user from user_profiles')
     return true
   }
 
