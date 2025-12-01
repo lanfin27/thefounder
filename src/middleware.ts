@@ -90,7 +90,10 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith('/admin') &&
       !pathname.startsWith('/admin/youtube-industry') &&
       !pathname.startsWith('/admin/youtube-channels')) {
-    console.log('[Middleware] ⚠️  Admin route access check:', pathname)
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+    console.log('[Middleware] 🔐 Admin route access check')
+    console.log('[Middleware] Pathname:', pathname)
+    console.log('[Middleware] Environment:', process.env.NODE_ENV)
 
     try {
       // Create response for cookie handling
@@ -122,10 +125,20 @@ export async function middleware(request: NextRequest) {
       // Get authenticated user
       const { data: { user }, error: authError } = await supabase.auth.getUser()
 
-      if (authError || !user) {
-        console.log('[Middleware] ❌ No authenticated user, redirecting to /')
+      if (authError) {
+        console.error('[Middleware] ❌ Auth error:', authError.message)
+        console.log('[Middleware] Redirecting to / (auth error)')
         return NextResponse.redirect(new URL('/', request.url))
       }
+
+      if (!user) {
+        console.log('[Middleware] ❌ No user found (not logged in)')
+        console.log('[Middleware] Redirecting to / (no user)')
+        return NextResponse.redirect(new URL('/', request.url))
+      }
+
+      console.log('[Middleware] 👤 User found:', user.email)
+      console.log('[Middleware] User ID:', user.id)
 
       // Get user profile to check role
       let { data: profile, error: profileError } = await supabase
@@ -150,27 +163,41 @@ export async function middleware(request: NextRequest) {
           .single()
 
         if (createError) {
-          console.error('[Middleware] ❌ Failed to create profile:', createError)
+          console.error('[Middleware] ❌ Failed to create profile:', createError.message)
+          console.error('[Middleware] Create error code:', createError.code)
           return NextResponse.redirect(new URL('/403', request.url))
         }
 
         profile = newProfile
-        console.log('[Middleware] ✅ Profile created successfully with role:', newProfile.role)
+        console.log('[Middleware] ✅ Profile created with role:', newProfile?.role)
       } else if (profileError) {
         // Other errors (not missing profile)
-        console.error('[Middleware] ❌ Profile fetch error:', profileError)
+        console.error('[Middleware] ❌ Profile fetch error:', profileError.message)
+        console.error('[Middleware] Error code:', profileError.code)
+        console.error('[Middleware] Error details:', profileError.details)
         return NextResponse.redirect(new URL('/403', request.url))
       }
+
+      console.log('[Middleware] 📊 Profile data:', JSON.stringify(profile))
 
       // Check if user is admin
       if (!profile || profile.role !== 'admin') {
-        console.log('[Middleware] ❌ User is not admin, role:', profile?.role || 'none', ', redirecting to 403')
+        console.log('[Middleware] ❌ NOT ADMIN')
+        console.log('[Middleware] Current role:', profile?.role || 'no profile')
+        console.log('[Middleware] Expected: admin')
+        console.log('[Middleware] Redirecting to /403')
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
         return NextResponse.redirect(new URL('/403', request.url))
       }
 
-      console.log('[Middleware] ✅ Admin access granted for:', user.email)
+      console.log('[Middleware] ✅ ADMIN ACCESS GRANTED')
+      console.log('[Middleware] User:', user.email)
+      console.log('[Middleware] Role:', profile.role)
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+      return response
     } catch (error) {
-      console.error('[Middleware] ❌ Admin check error:', error)
+      console.error('[Middleware] ❌ Unexpected error:', error)
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
       return NextResponse.redirect(new URL('/403', request.url))
     }
   }
