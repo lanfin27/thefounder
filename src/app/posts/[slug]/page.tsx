@@ -1,6 +1,9 @@
-// 🔥 Next.js 캐시 비활성화 - 항상 최신 데이터 표시
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// ISR: pre-render posts via generateStaticParams, revalidate every 5 min.
+// The route still opts into dynamic behavior at runtime when auth cookies
+// are read (PaywallGate needs user state), but Vercel will still serve the
+// prerendered shell on cache hit which is dramatically faster than a cold
+// force-dynamic render.
+export const revalidate = 300
 
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -162,33 +165,29 @@ export default async function PostPage({
 }) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug)
-  const post = await getPostBySlug(decodedSlug)
+
+  // Kick off everything in parallel. Previously these were 5 sequential
+  // awaits (post → supabase client → user → fresh counts → all posts) which
+  // stacked ~5 round-trips on top of each other before anything rendered.
+  const supabasePromise = createClient()
+  const [post, allPosts, supabase] = await Promise.all([
+    getPostBySlug(decodedSlug),
+    getAllPosts(),
+    supabasePromise,
+  ])
 
   if (!post) {
     notFound()
   }
 
-  const supabase = await createClient()
+  // Auth check needed for PaywallGate. This is the only server-side
+  // cookie read; PostStats fetches its own fresh claps/comments counts on
+  // mount as a client component so we don't need a blocking extra query.
   const { data: { user } } = await supabase.auth.getUser()
-
-  // Always fetch fresh counts directly from DB to bypass Supabase query cache
-  const { data: freshCounts, error: countsError } = await supabase
-    .from('posts')
-    .select('claps_count, comments_count')
-    .eq('id', post.id)
-    .single()
-
-  if (freshCounts && !countsError) {
-    post.clapsCount = freshCounts.claps_count || 0
-    post.commentsCount = freshCounts.comments_count || 0
-  } else if (countsError) {
-    console.error('[PostPage] Error fetching fresh counts:', countsError)
-  }
 
   const notionPageId = post.notionId || post.id
 
   // Load recommended posts - prioritize same category
-  const allPosts = await getAllPosts()
   const sameCategoryPosts = allPosts
     .filter(p => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3)

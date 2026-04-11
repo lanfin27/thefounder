@@ -1,5 +1,5 @@
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: category pages are public content, refresh every 60s.
+export const revalidate = 60;
 
 import { notFound } from 'next/navigation';
 import { getPostsByCategory } from '@/lib/posts';

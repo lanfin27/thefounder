@@ -1,6 +1,7 @@
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
-
+// The admin badge check reads cookies so this route stays dynamic at
+// runtime, but we drop force-dynamic to signal intent and allow Next to
+// skip the explicit opt-out path.
+export const revalidate = 60;
 
 import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/posts'

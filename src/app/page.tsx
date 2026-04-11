@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 
-// 🔥 Next.js 캐시 비활성화 - 항상 최신 데이터 표시
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: rebuild the homepage every 60s in the background. With the
+// cookie-free Supabase client in lib/posts.ts the page can actually be
+// statically rendered, so navigation hits the Vercel edge cache and feels
+// instant instead of a fresh server round-trip.
+export const revalidate = 60;
 
 import { FeaturedVisual } from '@/components/sections/FeaturedVisual';
 import { NewsletterInline } from '@/components/sections/NewsletterInline';

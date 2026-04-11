@@ -1,5 +1,6 @@
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: this page already uses the cookie-free @supabase/supabase-js
+// client, so Next can fully prerender it and refresh every 60s.
+export const revalidate = 60;
 
 import { createClient } from '@supabase/supabase-js'
 import { Metadata } from 'next'

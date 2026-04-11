@@ -1,5 +1,30 @@
 import { BlogPost } from '@/types';
 import { CATEGORY_TO_SLUG, CategorySlug } from '@/types/post';
+import { createClient as createSupabaseClient, SupabaseClient } from '@supabase/supabase-js';
+
+/**
+ * Cookie-free Supabase client for public read-only queries.
+ *
+ * Why: @/lib/supabase/server reads `cookies()`, which makes Next.js mark
+ * the calling route as dynamic — so pages like the homepage that only need
+ * public post data were being re-rendered on every request. Using the
+ * bare @supabase/supabase-js client with the anon key lets those pages be
+ * statically rendered / ISR-cached.
+ *
+ * Cached at module scope so we don't re-instantiate on every request.
+ */
+let publicClient: SupabaseClient | null = null;
+function getPublicClient(): SupabaseClient {
+  if (publicClient) return publicClient;
+  publicClient = createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      auth: { persistSession: false, autoRefreshToken: false },
+    },
+  );
+  return publicClient;
+}
 
 /**
  * Get all posts from Supabase database
@@ -9,11 +34,9 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   try {
     // Check if running on server or client
     if (typeof window === 'undefined') {
-      // Server-side: Read from Supabase (single source of truth)
-      console.log('🔍 [getAllPosts] Fetching posts from Supabase (server-side)');
-
-      const { createClient } = await import('@/lib/supabase/server');
-      const supabase = await createClient();
+      // Server-side: Read from Supabase with a cookie-free client so the
+      // calling page remains eligible for static rendering / ISR.
+      const supabase = getPublicClient();
 
       // Fetch all published posts from Supabase
       // Note: Posts are saved with English status 'published' from converter
@@ -149,11 +172,8 @@ export async function getLatestPosts(limit: number = 10): Promise<BlogPost[]> {
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     if (typeof window === 'undefined') {
-      // Server-side: Read from Supabase (single source of truth)
-      console.log(`🔍 [getPostBySlug] Fetching post with slug: "${slug}" from Supabase`);
-
-      const { createClient } = await import('@/lib/supabase/server');
-      const supabase = await createClient();
+      // Server-side: cookie-free client (see getPublicClient comment).
+      const supabase = getPublicClient();
 
       // Fetch post from Supabase
       const { data: post, error } = await supabase
