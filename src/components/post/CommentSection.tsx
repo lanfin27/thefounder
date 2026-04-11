@@ -6,6 +6,12 @@ import { useUser } from '@/hooks/useUser'
 import CommentForm from './CommentForm'
 import CommentLikeButton from '@/components/comments/CommentLikeButton'
 
+interface AuthorProfile {
+  id: string
+  full_name: string | null
+  email: string | null
+}
+
 interface Comment {
   id: string
   content: string
@@ -18,6 +24,7 @@ interface Comment {
   likes?: number
   likes_count?: number // Added: like count for the new system
   user_has_liked?: boolean // Added: user like status
+  author_profile?: AuthorProfile | null // 작성자 프로필 (user_profiles에서 2-step fetch)
 }
 
 // 시간 표시 함수
@@ -35,19 +42,37 @@ function getTimeAgo(dateString: string): string {
 }
 
 // 작성자 정보 추출
+// 우선순위:
+//   1. user_profiles.full_name (프로필에 설정한 이름)
+//   2. user_profiles.email @ 앞부분
+//   3. currentUser 자신일 경우 auth user_metadata에서 fallback
+//   4. '익명 사용자'
 function getAuthorInfo(comment: Comment, currentUser: any): { initial: string, name: string } {
-  if (currentUser && comment.user_id === currentUser.id) {
-    const email = currentUser.email || ''
-    const name = currentUser.user_metadata?.full_name || email.split('@')[0] || '나'
-    const initial = name.charAt(0).toUpperCase()
-    return { initial, name }
+  const profile = comment.author_profile
+
+  // 1. 프로필 이름
+  if (profile?.full_name && profile.full_name.trim()) {
+    const name = profile.full_name.trim()
+    return { initial: name.charAt(0).toUpperCase(), name }
   }
 
-  const userId = comment.user_id.slice(0, 8)
-  return {
-    initial: 'U',
-    name: `사용자 ${userId}`
+  // 2. 프로필 이메일의 @ 앞부분
+  if (profile?.email) {
+    const name = profile.email.split('@')[0]
+    if (name) return { initial: name.charAt(0).toUpperCase(), name }
   }
+
+  // 3. 본인 댓글이면 auth user_metadata에서 이름 추출 (프로필 fetch 실패 대비)
+  if (currentUser && comment.user_id === currentUser.id) {
+    const name =
+      currentUser.user_metadata?.full_name ||
+      (currentUser.email ? currentUser.email.split('@')[0] : null) ||
+      '나'
+    return { initial: name.charAt(0).toUpperCase(), name }
+  }
+
+  // 4. 최종 fallback
+  return { initial: 'U', name: '익명 사용자' }
 }
 
 // Individual comment component
@@ -209,8 +234,40 @@ export default function CommentSection({
           comment.post_id && comment.post_id === postId
         ) || []
 
+        // 🆕 Fetch author profiles for all unique user_ids in a single query.
+        // user_profiles has no direct FK from comments (both reference auth.users)
+        // so PostgREST cannot auto-join — we do a manual 2-step fetch.
+        const uniqueUserIds = Array.from(
+          new Set(validComments.map((c) => c.user_id).filter(Boolean))
+        )
+        const profileMap = new Map<string, AuthorProfile>()
+        if (uniqueUserIds.length > 0) {
+          const { data: profiles, error: profileError } = await supabase
+            .from('user_profiles')
+            .select('id, full_name, email')
+            .in('id', uniqueUserIds)
+          if (profileError) {
+            console.warn(
+              '[CommentSection] ⚠️ Could not fetch author profiles:',
+              profileError.message,
+            )
+          }
+          for (const p of (profiles || []) as AuthorProfile[]) {
+            profileMap.set(p.id, p)
+          }
+          console.log(
+            `[CommentSection] ✅ Fetched ${profileMap.size} profiles for ${uniqueUserIds.length} unique commenters`,
+          )
+        }
+
+        // Attach profile to each comment
+        const validCommentsWithProfiles = validComments.map((c) => ({
+          ...c,
+          author_profile: profileMap.get(c.user_id) || null,
+        }))
+
         // Check user_has_liked for each comment if user is logged in
-        let commentsWithLikes = validComments
+        let commentsWithLikes = validCommentsWithProfiles
         if (user) {
           console.log('[CommentSection] 🔍 Checking user likes for', validComments.length, 'comments...');
           commentsWithLikes = await Promise.all(
@@ -283,7 +340,7 @@ export default function CommentSection({
 
       const { data, error } = await supabase
         .from('comments')
-        .select('*')
+        .select('*, likes_count')
         .eq('post_id', postId)
         .order('created_at', { ascending: false })
 
@@ -292,9 +349,29 @@ export default function CommentSection({
         throw error
       }
 
-      const validComments = data?.filter(comment =>
+      const rawComments = data?.filter(comment =>
         comment.post_id && comment.post_id === postId
       ) || []
+
+      // 작성자 프로필 batch fetch (메인 effect와 동일 로직)
+      const uniqueUserIds = Array.from(
+        new Set(rawComments.map((c) => c.user_id).filter(Boolean))
+      )
+      const profileMap = new Map<string, AuthorProfile>()
+      if (uniqueUserIds.length > 0) {
+        const { data: profiles } = await supabase
+          .from('user_profiles')
+          .select('id, full_name, email')
+          .in('id', uniqueUserIds)
+        for (const p of (profiles || []) as AuthorProfile[]) {
+          profileMap.set(p.id, p)
+        }
+      }
+
+      const validComments = rawComments.map((c) => ({
+        ...c,
+        author_profile: profileMap.get(c.user_id) || null,
+      }))
 
       const commentMap = new Map<string, Comment>()
       const rootComments: Comment[] = []

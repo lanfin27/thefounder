@@ -28,62 +28,80 @@ export default function CommentLikeButton({
       return
     }
 
+    // 🆕 Optimistic update — flip immediately so the user gets instant
+    // feedback. On failure we roll back below.
+    const previousHasLiked = hasLiked
+    const previousLikes = likes
+    const nextHasLiked = !previousHasLiked
+    const nextLikes = previousLikes + (nextHasLiked ? 1 : -1)
+
+    setHasLiked(nextHasLiked)
+    setLikes(Math.max(0, nextLikes))
     setIsLoading(true)
-    console.log(`🔄 [CommentLikeButton] Toggling like for comment: ${commentId}`)
-    console.log(`📊 [CommentLikeButton] Current state - hasLiked: ${hasLiked}, likes: ${likes}`)
+
+    const method = previousHasLiked ? 'DELETE' : 'POST'
+    console.log(
+      `🔄 [CommentLikeButton] ${method} /api/comments/${commentId}/like (optimistic: ${previousHasLiked}→${nextHasLiked})`,
+    )
 
     try {
-      // Determine action: add or remove like
-      const method = hasLiked ? 'DELETE' : 'POST'
-      const action = hasLiked ? 'Removing' : 'Adding'
-      console.log(`➡️ [CommentLikeButton] ${action} like...`)
-
       const response = await fetch(`/api/comments/${commentId}/like`, {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
       })
 
-      const data = await response.json()
-      console.log(`📥 [CommentLikeButton] Response:`, data)
+      let data: any = null
+      try {
+        data = await response.json()
+      } catch {
+        // non-JSON response; fall through with empty data
+      }
+      console.log(`📥 [CommentLikeButton] ${response.status}`, data)
 
-      // Handle authentication error
+      // 401: user isn't signed in. Show a visible message BEFORE redirecting
+      // so they understand what just happened instead of seeing the page
+      // silently swap out.
       if (response.status === 401) {
-        console.log('🔒 [CommentLikeButton] User not authenticated, redirecting to login...')
+        setHasLiked(previousHasLiked)
+        setLikes(previousLikes)
+        if (typeof window !== 'undefined') {
+          window.alert('좋아요를 누르려면 로그인이 필요합니다.')
+        }
         router.push('/auth/login')
         return
       }
 
-      // Handle error responses
+      // "Already liked" / "No like to remove" — the server state is the
+      // source of truth, sync to it.
       if (!response.ok) {
-        console.error('❌ [CommentLikeButton] Error:', data.error)
-
-        // If already liked/unliked, just refresh to sync
-        if (data.alreadyLiked || data.message === 'No like to remove') {
-          console.log('🔄 [CommentLikeButton] Syncing state with server...')
-          setHasLiked(data.userHasLiked ?? hasLiked)
-          setLikes(data.totalLikes ?? likes)
+        if (data?.alreadyLiked || data?.message === 'No like to remove') {
+          console.log('🔄 [CommentLikeButton] Server state drift, syncing…')
+          setHasLiked(data.userHasLiked ?? previousHasLiked)
+          setLikes(data.totalLikes ?? previousLikes)
           return
         }
-
-        throw new Error(data.error || 'Failed to toggle like')
+        throw new Error(data?.error || `HTTP ${response.status}`)
       }
 
-      // Success! Update local state
-      console.log(`✅ [CommentLikeButton] ${action} like successful!`)
-      console.log(`📊 [CommentLikeButton] New state - hasLiked: ${data.userHasLiked}, likes: ${data.totalLikes}`)
+      // Success — trust the server's canonical count over our optimistic
+      // guess.
+      if (typeof data?.totalLikes === 'number') setLikes(data.totalLikes)
+      if (typeof data?.userHasLiked === 'boolean') setHasLiked(data.userHasLiked)
 
-      setHasLiked(data.userHasLiked)
-      setLikes(data.totalLikes)
-
-      // Refresh the page to sync all counts
-      router.refresh()
+      // NOTE: we intentionally do NOT call router.refresh() here. On an
+      // ISR/dynamic post page it can trigger a full server re-render cycle
+      // which cascades back stale CommentSection state — and local state
+      // already holds the correct count. See perf commit 7bfa433.
     } catch (error: any) {
-      console.error('❌ [CommentLikeButton] Error:', error)
-
-      // On error, revert optimistic update if any
-      // (Currently we don't do optimistic updates, but this is here for future)
+      // Roll back optimistic update on failure
+      console.error('❌ [CommentLikeButton] Failed:', error)
+      setHasLiked(previousHasLiked)
+      setLikes(previousLikes)
+      if (typeof window !== 'undefined') {
+        window.alert(
+          `좋아요 처리에 실패했습니다: ${error?.message || '알 수 없는 오류'}`,
+        )
+      }
     } finally {
       setIsLoading(false)
     }

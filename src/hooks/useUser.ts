@@ -7,7 +7,7 @@ import { useEffect, useState, useRef } from 'react';
 interface Profile {
   id: string;
   email: string;
-  display_name?: string;
+  full_name?: string; // actual column in user_profiles (not display_name)
   avatar_url?: string;
   role?: 'admin' | 'user';
   created_at: string;
@@ -81,8 +81,12 @@ export function useUser() {
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
       console.log('[useUser] 📡 Fetching profile for:', user.id);
+      // Correct table is `user_profiles` (the legacy name `profiles` does not
+      // exist in Supabase). Previously this always errored and the hook
+      // silently left profile as null — breaking isAdmin and any consumer
+      // reading profile.full_name.
       const { data: profile, error: profileError } = await supabase
-        .from('profiles')
+        .from('user_profiles')
         .select('*')
         .eq('id', user.id)
         .single();
