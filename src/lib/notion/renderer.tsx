@@ -1,4 +1,5 @@
 import React from 'react'
+import { getProxiedImageUrl } from './converter'
 
 // YouTube URL 파싱
 function getYouTubeEmbedUrl(url: string): string | null {
@@ -76,12 +77,19 @@ export function renderBlock(block: any) {
         </pre>
       )
     case 'image':
-      const imgSrc = value.type === 'external' ? value.external.url : value.file?.url
+      const rawImgSrc = value.type === 'external' ? value.external?.url : value.file?.url
+      // 🖼️ Notion S3 URL은 1시간 후 만료되므로 프록시를 통해 처리
+      // NOTE: `id` here is the block ID, not the page ID. We don't have the
+      // page ID at this depth, so we pass undefined. That's fine for the
+      // /blog/[slug] path because blocks are fetched fresh from Notion at
+      // request time (URLs are seconds old, proxy fetch will succeed).
+      const imgSrc = getProxiedImageUrl(rawImgSrc)
       const caption = value.caption ? renderRichText(value.caption) : ''
       const captionText = typeof caption === 'string' ? caption : ''
+      if (!imgSrc) return null
       return (
         <figure key={id} className="my-6">
-          <img src={imgSrc} alt={captionText} className="rounded-lg w-full" />
+          <img src={imgSrc} alt={captionText} className="rounded-lg w-full" loading="lazy" />
           {caption && (
             <figcaption className="text-center text-sm text-gray-600 mt-2">
               {caption}

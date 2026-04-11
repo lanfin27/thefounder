@@ -8,8 +8,15 @@ import BookmarkButton from '@/components/posts/BookmarkButton'
 import { ThumbsUp, MessageCircle } from 'lucide-react'
 
 // 🔥 이미지 프록시 URL 생성
-function getProxiedImageUrl(originalUrl: string): string {
-  if (!originalUrl) return '/images/placeholder.jpg'
+const PLACEHOLDER_IMAGE = '/images/placeholder.svg'
+
+function getProxiedImageUrl(originalUrl: string | null | undefined): string {
+  if (!originalUrl) return PLACEHOLDER_IMAGE
+
+  // 이미 프록시된 URL인 경우 그대로 사용 (converter.ts에서 DB 저장 시 프록시 처리됨)
+  if (originalUrl.startsWith('/api/image-proxy')) {
+    return originalUrl
+  }
 
   // Notion S3 URL인 경우 프록시 사용
   if (originalUrl.includes('prod-files-secure.s3') || originalUrl.includes('amazonaws.com')) {
@@ -75,16 +82,14 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
 
           {/* 오른쪽: 썸네일 이미지 */}
           <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
-            {post.cover && (
-              <Image
-                src={post.cover}
-                alt={post.title}
-                fill
-                unoptimized
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 96px, 128px"
-              />
-            )}
+            <Image
+              src={getProxiedImageUrl(post.cover)}
+              alt={post.title}
+              fill
+              unoptimized
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 96px, 128px"
+            />
           </div>
         </Link>
 
